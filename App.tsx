@@ -41,9 +41,9 @@ const App: React.FC = () => {
 
   return (
     <div className="min-h-screen relative overflow-x-hidden">
-      {/* Background Wallpaper - Optimized for iOS with absolute positioning */}
+      {/* Background Wallpaper - Fixed on desktop, absolute on mobile for iOS performance */}
       <div
-        className="absolute inset-0 z-0 bg-cover bg-center pointer-events-none"
+        className="desktop-bg-fixed inset-0 z-0 bg-cover bg-center pointer-events-none"
         style={{
           backgroundImage: 'url("https://images.unsplash.com/photo-1511920170033-f8396924c348?auto=format&fit=crop&q=80&w=2000")',
           transform: 'translateZ(0)',
@@ -56,7 +56,7 @@ const App: React.FC = () => {
 
       {/* Aurora Background Effects - Optimized blur for mobile */}
       <div
-        className="absolute top-[-5%] right-[-5%] w-[70%] h-[70%] bg-squared-cyan/15 rounded-full animate-blob pointer-events-none z-0"
+        className="desktop-bg-fixed top-[-5%] right-[-5%] w-[70%] h-[70%] bg-squared-cyan/15 rounded-full animate-blob pointer-events-none z-0"
         style={{
           filter: 'blur(80px)',
           transform: 'translateZ(0)',
@@ -64,7 +64,7 @@ const App: React.FC = () => {
         }}
       ></div>
       <div
-        className="absolute bottom-[-5%] left-[-5%] w-[60%] h-[60%] bg-white/20 rounded-full animate-blob pointer-events-none z-0"
+        className="desktop-bg-fixed bottom-[-5%] left-[-5%] w-[60%] h-[60%] bg-white/20 rounded-full animate-blob pointer-events-none z-0"
         style={{
           animationDelay: '3s',
           filter: 'blur(65px)',
@@ -73,7 +73,7 @@ const App: React.FC = () => {
         }}
       ></div>
       <div
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[40%] h-[40%] bg-squared-cyan/5 rounded-full pointer-events-none z-0"
+        className="desktop-bg-fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[40%] h-[40%] bg-squared-cyan/5 rounded-full pointer-events-none z-0"
         style={{
           filter: 'blur(60px)',
           transform: 'translate(-50%, -50%) translateZ(0)',

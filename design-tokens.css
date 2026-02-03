@@ -162,6 +162,18 @@
   /* Start hidden */
 }
 
+/* Responsive background positioning - fixed on desktop, absolute on mobile */
+.desktop-bg-fixed {
+  position: fixed;
+}
+
+/* On mobile/tablet, use absolute positioning for better iOS performance */
+@media (max-width: 1024px) {
+  .desktop-bg-fixed {
+    position: absolute;
+  }
+}
+
 /* Restored Global Scrollbar Styles */
 html {
   scroll-behavior: smooth;
