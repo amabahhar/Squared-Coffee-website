@@ -9,7 +9,7 @@ const SocialSection: React.FC = () => {
             <div className="container mx-auto px-4 md:px-12 relative z-10">
 
                 {/* Header */}
-                <div className="flex flex-col md:flex-row justify-between items-end mb-12 border-b border-squared-gray-900/10 pb-6">
+                <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 border-b border-squared-gray-900/10 pb-6">
                     <div className="mb-4 md:mb-0">
                         <span className="inline-block py-1 pr-12 border-b-2 border-squared-cyan/30 text-xs md:text-sm font-black tracking-[0.4em] text-squared-cyan uppercase mb-4">
                             Social

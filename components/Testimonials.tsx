@@ -30,10 +30,11 @@ const Testimonials: React.FC = () => {
     const currentTestimonial = TESTIMONIALS[currentIndex];
 
     return (
-        <section className="py-12 md:py-24 relative overflow-hidden bg-gradient-to-b from-white to-squared-cream-soft">
+        <section className="py-12 md:py-24 relative overflow-hidden">
             {/* Decorative Background Elements */}
-            <div className="absolute top-10 right-10 w-72 h-72 bg-squared-cyan/5 blur-[100px] rounded-full pointer-events-none" />
-            <div className="absolute bottom-10 left-10 w-96 h-96 bg-squared-gold/5 blur-[120px] rounded-full pointer-events-none" />
+            <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-squared-cyan/5 via-transparent to-squared-gold/5 pointer-events-none" />
+            <div className="absolute top-20 right-20 w-96 h-96 bg-squared-cyan/10 blur-[120px] rounded-full pointer-events-none" />
+            <div className="absolute bottom-20 left-20 w-80 h-80 bg-squared-gold/10 blur-[100px] rounded-full pointer-events-none" />
 
             <div className="container mx-auto px-4 md:px-12 relative z-10">
 
@@ -56,7 +57,9 @@ const Testimonials: React.FC = () => {
 
                 {/* Testimonial Card */}
                 <div className="max-w-4xl mx-auto">
-                    <div className="glass-card rounded-3xl md:rounded-[3rem] p-8 md:p-16 shadow-2xl relative overflow-hidden">
+                    <div className="glass-card rounded-3xl md:rounded-[3rem] p-8 md:p-16 shadow-2xl relative overflow-hidden border border-white/20 backdrop-blur-xl bg-white/70">
+                        {/* Glassmorphism gradient overlay */}
+                        <div className="absolute inset-0 bg-gradient-to-br from-white/50 via-white/30 to-transparent pointer-events-none" />
                         {/* Quote decoration */}
                         <div className="absolute top-8 left-8 text-squared-cyan/10 text-[120px] md:text-[180px] font-serif leading-none pointer-events-none select-none">
                             "
@@ -67,7 +70,7 @@ const Testimonials: React.FC = () => {
                             {[...Array(currentTestimonial.rating)].map((_, i) => (
                                 <Star
                                     key={i}
-                                    className="w-5 h-5 md:w-6 md:h-6 fill-squared-gold text-squared-gold"
+                                    className="w-5 h-5 md:w-6 md:h-6 fill-squared-gold text-squared-gold drop-shadow-md"
                                 />
                             ))}
                         </div>
@@ -93,7 +96,7 @@ const Testimonials: React.FC = () => {
                                 href="https://www.google.com/maps/place/Squared+Coffee/@26.5608409,50.0167142,17z"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="text-squared-gray-400 hover:text-squared-cyan transition-colors"
+                                className="text-squared-gray-400 hover:text-squared-cyan transition-colors cursor-pointer"
                             >
                                 <svg className="w-8 h-8" viewBox="0 0 24 24" fill="currentColor">
                                     <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" />
@@ -110,7 +113,7 @@ const Testimonials: React.FC = () => {
                         {/* Previous Button */}
                         <button
                             onClick={handlePrevious}
-                            className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-white border-2 border-squared-gray-200 flex items-center justify-center hover:bg-squared-cyan hover:border-squared-cyan hover:text-white transition-all duration-300 shadow-lg group"
+                            className="w-12 h-12 md:w-14 md:h-14 rounded-full glass-card backdrop-blur-md bg-white/60 border border-white/40 flex items-center justify-center hover:bg-squared-cyan hover:border-squared-cyan hover:text-white transition-all duration-300 shadow-lg cursor-pointer"
                             aria-label="Previous testimonial"
                         >
                             <ChevronLeft className="w-6 h-6" />
@@ -125,8 +128,8 @@ const Testimonials: React.FC = () => {
                                         setIsAutoPlaying(false);
                                         setCurrentIndex(index);
                                     }}
-                                    className={`h-2 rounded-full transition-all duration-300 ${index === currentIndex
-                                            ? 'w-8 bg-squared-cyan'
+                                    className={`h-2 rounded-full transition-all duration-300 cursor-pointer ${index === currentIndex
+                                            ? 'w-8 bg-squared-cyan shadow-lg shadow-squared-cyan/50'
                                             : 'w-2 bg-squared-gray-300 hover:bg-squared-gray-400'
                                         }`}
                                     aria-label={`Go to testimonial ${index + 1}`}
@@ -137,7 +140,7 @@ const Testimonials: React.FC = () => {
                         {/* Next Button */}
                         <button
                             onClick={handleNext}
-                            className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-white border-2 border-squared-gray-200 flex items-center justify-center hover:bg-squared-cyan hover:border-squared-cyan hover:text-white transition-all duration-300 shadow-lg group"
+                            className="w-12 h-12 md:w-14 md:h-14 rounded-full glass-card backdrop-blur-md bg-white/60 border border-white/40 flex items-center justify-center hover:bg-squared-cyan hover:border-squared-cyan hover:text-white transition-all duration-300 shadow-lg cursor-pointer"
                             aria-label="Next testimonial"
                         >
                             <ChevronRight className="w-6 h-6" />
