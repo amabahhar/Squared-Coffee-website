@@ -5,26 +5,41 @@ import { Star, ChevronLeft, ChevronRight } from 'lucide-react';
 const Testimonials: React.FC = () => {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [isAutoPlaying, setIsAutoPlaying] = useState(true);
+    const [isAnimating, setIsAnimating] = useState(false);
 
     // Auto-advance testimonials
     useEffect(() => {
         if (!isAutoPlaying) return;
 
         const interval = setInterval(() => {
-            setCurrentIndex((prev) => (prev + 1) % TESTIMONIALS.length);
+            setIsAnimating(true);
+            setTimeout(() => {
+                setCurrentIndex((prev) => (prev + 1) % TESTIMONIALS.length);
+                setIsAnimating(false);
+            }, 300);
         }, 5000); // Change every 5 seconds
 
         return () => clearInterval(interval);
     }, [isAutoPlaying]);
 
     const handlePrevious = () => {
+        if (isAnimating) return;
         setIsAutoPlaying(false);
-        setCurrentIndex((prev) => (prev - 1 + TESTIMONIALS.length) % TESTIMONIALS.length);
+        setIsAnimating(true);
+        setTimeout(() => {
+            setCurrentIndex((prev) => (prev - 1 + TESTIMONIALS.length) % TESTIMONIALS.length);
+            setIsAnimating(false);
+        }, 300);
     };
 
     const handleNext = () => {
+        if (isAnimating) return;
         setIsAutoPlaying(false);
-        setCurrentIndex((prev) => (prev + 1) % TESTIMONIALS.length);
+        setIsAnimating(true);
+        setTimeout(() => {
+            setCurrentIndex((prev) => (prev + 1) % TESTIMONIALS.length);
+            setIsAnimating(false);
+        }, 300);
     };
 
     const currentTestimonial = TESTIMONIALS[currentIndex];
@@ -66,7 +81,10 @@ const Testimonials: React.FC = () => {
                         </div>
 
                         {/* Star Rating */}
-                        <div className="flex gap-1 mb-6 relative z-10">
+                        <div
+                            key={`stars-${currentTestimonial.id}`}
+                            className={`flex gap-1 mb-6 relative z-10 transition-all duration-500 ${isAnimating ? 'opacity-0 translate-y-4' : 'opacity-100 translate-y-0'}`}
+                        >
                             {[...Array(currentTestimonial.rating)].map((_, i) => (
                                 <Star
                                     key={i}
@@ -76,12 +94,18 @@ const Testimonials: React.FC = () => {
                         </div>
 
                         {/* Review Text */}
-                        <p className="text-squared-gray-900 text-lg md:text-2xl leading-relaxed mb-8 relative z-10 font-medium">
+                        <p
+                            key={`text-${currentTestimonial.id}`}
+                            className={`text-squared-gray-900 text-lg md:text-2xl leading-relaxed mb-8 relative z-10 font-medium transition-all duration-500 delay-75 ${isAnimating ? 'opacity-0 translate-y-4' : 'opacity-100 translate-y-0'}`}
+                        >
                             {currentTestimonial.text}
                         </p>
 
                         {/* Reviewer Info */}
-                        <div className="flex items-center justify-between relative z-10">
+                        <div
+                            key={`info-${currentTestimonial.id}`}
+                            className={`flex items-center justify-between relative z-10 transition-all duration-500 delay-150 ${isAnimating ? 'opacity-0 translate-y-4' : 'opacity-100 translate-y-0'}`}
+                        >
                             <div>
                                 <h4 className="text-squared-gray-900 font-bold text-base md:text-lg">
                                     {currentTestimonial.name}
@@ -129,8 +153,8 @@ const Testimonials: React.FC = () => {
                                         setCurrentIndex(index);
                                     }}
                                     className={`h-2 rounded-full transition-all duration-300 cursor-pointer ${index === currentIndex
-                                            ? 'w-8 bg-squared-cyan shadow-lg shadow-squared-cyan/50'
-                                            : 'w-2 bg-squared-gray-300 hover:bg-squared-gray-400'
+                                        ? 'w-8 bg-squared-cyan shadow-lg shadow-squared-cyan/50'
+                                        : 'w-2 bg-squared-gray-300 hover:bg-squared-gray-400'
                                         }`}
                                     aria-label={`Go to testimonial ${index + 1}`}
                                 />
