@@ -11,6 +11,79 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Karla:wght@300;400;500;600;700&family=Playfair+Display+SC:wght@400;700&display=swap"
     rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            squared: {
+              // Brand Colors (Restored to Cyan/Clean)
+              cyan: '#009FB8',
+              logo: '#00C2E0',
+
+              // Mapping 'gold' to Cyan to update existing components
+              gold: '#009FB8',
+              'gold-light': '#33CEE6',
+
+              // Mapping 'brown' to Grays/Blacks for text
+              brown: '#1F2937',      // Gray-800
+              'brown-dark': '#111827', // Gray-900
+              'brown-light': '#4B5563', // Gray-600
+
+              // Mapping 'terracotta'/'sand' to Neutrals
+              terracotta: '#9CA3AF', // Gray-400 (for decorative blobs etc)
+              sand: '#E5E7EB',       // Gray-200
+              clay: '#6B7280',       // Gray-500
+
+              // Backgrounds
+              cream: '#FFFFFF',      // White
+              'cream-light': '#F9FAFB', // Gray-50
+              'cream-soft': '#F3F4F6',  // Gray-100
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            serif: ['Playfair Display', 'serif'],
+          },
+          boxShadow: {
+            'warm': '0 4px 12px rgba(0, 159, 184, 0.3)',     // Adjusted Cyan glow
+            'warm-lg': '0 8px 24px rgba(0, 159, 184, 0.4)',  // Adjusted Cyan glow
+          },
+          transitionTimingFunction: {
+            'natural': 'cubic-bezier(0.33, 1, 0.68, 1)',
+          },
+          keyframes: {
+            blob: {
+              "0%": {
+                transform: "translate(0px, 0px) scale(1)",
+              },
+              "33%": {
+                transform: "translate(30px, -50px) scale(1.1)",
+              },
+              "66%": {
+                transform: "translate(-20px, 20px) scale(0.9)",
+              },
+              "100%": {
+                transform: "translate(0px, 0px) scale(1)",
+              },
+            },
+            fadeIn: {
+              "0%": { opacity: "0", transform: "translateY(10px)" },
+              "100%": { opacity: "1", transform: "translateY(0)" },
+            }
+          },
+          animation: {
+            blob: "blob 7s infinite",
+            "fade-in": "fadeIn 0.5s ease-out forwards",
+          },
+          backdropBlur: {
+            xs: '2px',
+          }
+        }
+      }
+    }
+  </script>
 
 </head>
 
