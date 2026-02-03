@@ -40,7 +40,7 @@ const Footer: React.FC = () => {
               <div>
                 <span className="block text-[10px] font-black tracking-[0.5em] uppercase mb-10 text-squared-cyan">Connect</span>
                 <div className="flex flex-col space-y-5">
-                  <a href="#" className="cursor-pointer text-[10px] font-black uppercase tracking-[0.2em] text-white/40 hover:text-squared-cyan transition-all duration-300 flex items-center group/link hover:translate-x-2">
+                  <a href="https://www.instagram.com/squared_coffee/" target="_blank" rel="noopener noreferrer" className="cursor-pointer text-[10px] font-black uppercase tracking-[0.2em] text-white/40 hover:text-squared-cyan transition-all duration-300 flex items-center group/link hover:translate-x-2">
                     <Instagram className="w-5 h-5 mr-4 group-hover/link:text-squared-cyan transition-colors" /> Instagram
                   </a>
                   <a href="#" className="cursor-pointer text-[10px] font-black uppercase tracking-[0.2em] text-white/40 hover:text-squared-cyan transition-all duration-300 flex items-center group/link hover:translate-x-2">
