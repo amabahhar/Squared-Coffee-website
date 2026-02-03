@@ -609,3 +609,41 @@ export const SOCIAL_POSTS = [
     type: 'post'
   }
 ];
+
+export const TESTIMONIALS = [
+  {
+    id: 1,
+    name: 'Abeer Qasim',
+    rating: 5,
+    text: 'A lovely rooftop, the service was amazing. The workers were polite and helpful. The food was amazing and the prices were great. I went with my friend and we both had a great time.',
+    date: '2 months ago'
+  },
+  {
+    id: 2,
+    name: 'Dragos Pavel',
+    rating: 5,
+    text: 'Squared Coffee – Excellent Experience! I had a fantastic visit. The place is beautifully decorated and the atmosphere is great. The coffee was excellent, and the service was top-notch. I highly recommend it!',
+    date: '8 months ago'
+  },
+  {
+    id: 3,
+    name: 'Sulafa A',
+    rating: 5,
+    text: 'Amazing coffee shop with incredible service, calm energy, great selection of coffee and desserts. I had a cappuccino and I could tell that the coffee beans used are great quality from the depth of flavor.',
+    date: '3 years ago'
+  },
+  {
+    id: 4,
+    name: 'Ali A. Al-Mutawa',
+    rating: 5,
+    text: 'Very nice coffee shop and really their mango travel cake is delicious and I guarantee you will like it.',
+    date: '8 months ago'
+  },
+  {
+    id: 5,
+    name: 'Nada Al-Zayer',
+    rating: 5,
+    text: 'Squared cafe is a special place to have a cup of coffee, all of their coffee varieties are amazing. Highly recommended!',
+    date: '2 years ago'
+  }
+];

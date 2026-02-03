@@ -5,6 +5,7 @@ import AboutSection from './components/AboutSection';
 import MenuSection from './components/MenuSection';
 import Locations from './components/Locations';
 import SocialSection from './components/SocialSection';
+import Testimonials from './components/Testimonials';
 import Footer from './components/Footer';
 import OrderModal from './components/OrderModal';
 import { MenuItem } from './types';
@@ -59,6 +60,7 @@ const App: React.FC = () => {
           <MenuSection onItemClick={handleProductClick} />
           <Locations />
           <SocialSection />
+          <Testimonials />
         </main>
         <Footer />
 

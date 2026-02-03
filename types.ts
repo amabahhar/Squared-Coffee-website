@@ -21,3 +21,11 @@ export interface NavItem {
   label: string;
   href: string;
 }
+
+export interface Testimonial {
+  id: number;
+  name: string;
+  rating: number;
+  text: string;
+  date: string;
+}
