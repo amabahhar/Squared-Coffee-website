@@ -1,11 +1,24 @@
-import React from 'react';
-import { SOCIAL_POSTS } from '../constants';
-import { Instagram, ExternalLink } from 'lucide-react';
+import React, { useEffect } from 'react';
+import { Instagram } from 'lucide-react';
 
 const SocialSection: React.FC = () => {
+    useEffect(() => {
+        // This will load the EmbedSocial script when the component mounts
+        const script = document.createElement('script');
+        script.src = 'https://embedsocial.com/js/iframe.js';
+        script.async = true;
+        document.body.appendChild(script);
+
+        return () => {
+            // Cleanup: remove script when component unmounts
+            if (script.parentNode) {
+                script.parentNode.removeChild(script);
+            }
+        };
+    }, []);
+
     return (
         <section id="social" className="py-12 md:py-24 relative overflow-hidden">
-
             <div className="container mx-auto px-4 md:px-12 relative z-10">
 
                 {/* Header */}
@@ -26,7 +39,7 @@ const SocialSection: React.FC = () => {
                         href="https://www.instagram.com/squared_coffee/"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center gap-2 group cursor-pointer"
+                        className="flex items-center gap-2 group cursor-pointer z-20"
                     >
                         <span className="text-xs font-black tracking-[0.2em] uppercase text-squared-gray-900 group-hover:text-squared-cyan transition-colors">
                             @squared_coffee
@@ -37,56 +50,68 @@ const SocialSection: React.FC = () => {
                     </a>
                 </div>
 
-                {/* Instagram Photo Grid - Horizontal Scroll */}
+                {/* Instagram Feed Container */}
                 <div className="relative">
-                    {/* Desktop: 3 photos at a time, Mobile: 1 photo at a time */}
-                    <div className="overflow-x-auto pb-8 snap-x snap-mandatory no-scrollbar">
-                        <div className="flex gap-4 md:gap-6">
-                            {SOCIAL_POSTS.map((post) => (
-                                <a
-                                    key={post.id}
-                                    href="https://www.instagram.com/squared_coffee/"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="flex-shrink-0 snap-center snap-always group cursor-pointer w-[85vw] md:w-[calc(33.333%-1rem)] relative overflow-hidden rounded-2xl"
-                                >
-                                    {/* Image Container */}
-                                    <div className="relative aspect-square overflow-hidden rounded-2xl bg-squared-gray-900/5">
-                                        <img
-                                            src={post.image}
-                                            alt={post.caption}
-                                            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                                        />
+                    {/* 
+                        INSTRUCTIONS FOR SETUP:
+                        ========================
+                        1. Go to https://embedsocial.com/ or https://behold.so/
+                        2. Sign up for a free account
+                        3. Connect your Instagram account (@squared_coffee)
+                        4. Create an Instagram feed widget
+                        5. Customize it to show:
+                           - Grid layout
+                           - 6 posts (2 rows of 3 on desktop)
+                           - Square images
+                        6. Copy the embed code they give you
+                        7. Replace the div below with your embed code
+                        
+                        The embed code will look something like this:
+                        <iframe ... embedsocial-hashtag ...></iframe>
+                        or
+                        <div class="embedsocial-instagram" ...></div>
+                    */}
 
-                                        {/* Overlay on hover */}
-                                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col justify-end p-6">
-                                            <p className="text-white text-sm md:text-base font-medium mb-3">
-                                                {post.caption}
-                                            </p>
-                                            <div className="flex items-center gap-2 text-squared-cyan text-xs font-black uppercase tracking-wider">
-                                                <span>View on Instagram</span>
-                                                <ExternalLink className="w-4 h-4" />
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            ))}
+                    {/* TEMPORARY PLACEHOLDER - Replace this entire div with your embed code */}
+                    <div className="bg-squared-cream-soft rounded-2xl p-12 text-center border-2 border-dashed border-squared-cyan/30">
+                        <div className="max-w-2xl mx-auto">
+                            <Instagram className="w-16 h-16 mx-auto mb-6 text-squared-cyan" />
+                            <h3 className="text-2xl font-bold text-squared-gray-900 mb-4">
+                                Instagram Feed Coming Soon
+                            </h3>
+                            <p className="text-squared-gray-600 mb-6 leading-relaxed">
+                                To display your live Instagram feed here, follow these steps:
+                            </p>
+                            <ol className="text-left text-sm space-y-3 mb-8 bg-white p-6 rounded-xl">
+                                <li className="flex items-start gap-3">
+                                    <span className="flex-shrink-0 w-6 h-6 rounded-full bg-squared-cyan text-white flex items-center justify-center text-xs font-bold">1</span>
+                                    <span>Sign up at <a href="https://embedsocial.com" target="_blank" rel="noopener noreferrer" className="text-squared-cyan font-bold hover:underline">embedsocial.com</a> (free plan available)</span>
+                                </li>
+                                <li className="flex items-start gap-3">
+                                    <span className="flex-shrink-0 w-6 h-6 rounded-full bg-squared-cyan text-white flex items-center justify-center text-xs font-bold">2</span>
+                                    <span>Connect your @squared_coffee Instagram account</span>
+                                </li>
+                                <li className="flex items-start gap-3">
+                                    <span className="flex-shrink-0 w-6 h-6 rounded-full bg-squared-cyan text-white flex items-center justify-center text-xs font-bold">3</span>
+                                    <span>Create a Grid widget (6 posts, square format)</span>
+                                </li>
+                                <li className="flex items-start gap-3">
+                                    <span className="flex-shrink-0 w-6 h-6 rounded-full bg-squared-cyan text-white flex items-center justify-center text-xs font-bold">4</span>
+                                    <span>Copy the embed code and send it to your developer</span>
+                                </li>
+                            </ol>
+                            <a
+                                href="https://embedsocial.com"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-block bg-squared-cyan text-white px-8 py-3 rounded-full font-bold text-sm uppercase tracking-wider hover:bg-squared-cyan/90 transition-colors"
+                            >
+                                Get Started Free →
+                            </a>
                         </div>
                     </div>
+                    {/* END PLACEHOLDER */}
 
-                    {/* Scroll Indicators */}
-                    <div className="absolute top-1/2 -translate-y-1/2 left-0 right-0 pointer-events-none hidden md:flex justify-between px-2">
-                        <div className="w-12 h-12 rounded-full bg-white/80 backdrop-blur-sm shadow-lg flex items-center justify-center text-squared-gray-900">
-                            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-                            </svg>
-                        </div>
-                        <div className="w-12 h-12 rounded-full bg-white/80 backdrop-blur-sm shadow-lg flex items-center justify-center text-squared-gray-900">
-                            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                            </svg>
-                        </div>
-                    </div>
                 </div>
 
             </div>
