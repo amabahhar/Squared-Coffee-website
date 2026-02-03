@@ -212,6 +212,11 @@ const Testimonials: React.FC = () => {
                     <div
                         ref={containerRef}
                         className="relative h-[500px] md:h-[450px] cursor-grab active:cursor-grabbing"
+                        style={{
+                            touchAction: 'pan-y pinch-zoom',
+                            WebkitUserSelect: 'none',
+                            userSelect: 'none'
+                        }}
                         onMouseDown={(e) => handleStart(e.clientX)}
                         onMouseMove={(e) => handleMove(e.clientX)}
                         onMouseUp={handleEnd}

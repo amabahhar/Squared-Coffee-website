@@ -166,6 +166,30 @@
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 100px;
+  /* iOS momentum scrolling for smooth touch scrolling */
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Optimize scroll behavior for reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* Reduce backdrop-filter blur on mobile for better performance */
+@media (max-width: 768px) {
+
+  .glass,
+  .glass-card {
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+
+  .glass-dark {
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
 }
 
 ::-webkit-scrollbar {

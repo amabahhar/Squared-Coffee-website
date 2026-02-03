@@ -41,16 +41,45 @@ const App: React.FC = () => {
 
   return (
     <div className="min-h-screen relative overflow-x-hidden">
-      {/* Fixed Background Wallpaper - Replaced bg-fixed for Element-level support on Mobile */}
-      <div className="fixed inset-0 z-0 bg-cover bg-center pointer-events-none" style={{ backgroundImage: 'url("https://images.unsplash.com/photo-1511920170033-f8396924c348?auto=format&fit=crop&q=80&w=2000")' }}>
-        {/* Overlay to ensure text readability if needed, though glassmorphism handles this */}
+      {/* Background Wallpaper - Optimized for iOS with absolute positioning */}
+      <div
+        className="absolute inset-0 z-0 bg-cover bg-center pointer-events-none"
+        style={{
+          backgroundImage: 'url("https://images.unsplash.com/photo-1511920170033-f8396924c348?auto=format&fit=crop&q=80&w=2000")',
+          transform: 'translateZ(0)',
+          willChange: 'transform'
+        }}
+      >
+        {/* Overlay to ensure text readability */}
         <div className="absolute inset-0 bg-squared-cream/10"></div>
       </div>
 
-      {/* Aurora Background Effects for Glassmorphism */}
-      <div className="fixed top-[-5%] right-[-5%] w-[70%] h-[70%] bg-squared-cyan/15 blur-[160px] rounded-full animate-blob pointer-events-none z-0"></div>
-      <div className="fixed bottom-[-5%] left-[-5%] w-[60%] h-[60%] bg-white/20 blur-[130px] rounded-full animate-blob pointer-events-none z-0" style={{ animationDelay: '3s' }}></div>
-      <div className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[40%] h-[40%] bg-squared-cyan/5 blur-[120px] rounded-full pointer-events-none z-0"></div>
+      {/* Aurora Background Effects - Optimized blur for mobile */}
+      <div
+        className="absolute top-[-5%] right-[-5%] w-[70%] h-[70%] bg-squared-cyan/15 rounded-full animate-blob pointer-events-none z-0"
+        style={{
+          filter: 'blur(80px)',
+          transform: 'translateZ(0)',
+          willChange: 'transform'
+        }}
+      ></div>
+      <div
+        className="absolute bottom-[-5%] left-[-5%] w-[60%] h-[60%] bg-white/20 rounded-full animate-blob pointer-events-none z-0"
+        style={{
+          animationDelay: '3s',
+          filter: 'blur(65px)',
+          transform: 'translateZ(0)',
+          willChange: 'transform'
+        }}
+      ></div>
+      <div
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[40%] h-[40%] bg-squared-cyan/5 rounded-full pointer-events-none z-0"
+        style={{
+          filter: 'blur(60px)',
+          transform: 'translate(-50%, -50%) translateZ(0)',
+          willChange: 'transform'
+        }}
+      ></div>
 
       <div className="relative z-10">
         <Header onOrderClick={handleOrderClick} />
