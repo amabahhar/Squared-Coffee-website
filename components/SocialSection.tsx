@@ -1,17 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { SOCIAL_POSTS } from '../constants';
-import { Instagram } from 'lucide-react';
-import StoryViewer from './StoryViewer';
+import { Instagram, ExternalLink } from 'lucide-react';
 
 const SocialSection: React.FC = () => {
-    const [isViewerOpen, setIsViewerOpen] = useState(false);
-    const [selectedStoryIndex, setSelectedStoryIndex] = useState(0);
-
-    const handleStoryClick = (index: number) => {
-        setSelectedStoryIndex(index);
-        setIsViewerOpen(true);
-    };
-
     return (
         <section id="social" className="py-12 md:py-24 relative overflow-hidden">
 
@@ -46,47 +37,63 @@ const SocialSection: React.FC = () => {
                     </a>
                 </div>
 
-                {/* Story Rings Scroll Container */}
-                <div className="relative -mx-4 px-4 md:mx-0 md:px-0">
-                    <div className="flex overflow-x-auto pb-8 gap-6 md:gap-10 snap-x snap-mandatory no-scrollbar">
-                        {SOCIAL_POSTS.map((post, index) => (
-                            <div
-                                key={post.id}
-                                className="flex-shrink-0 snap-center flex flex-col items-center gap-3 group cursor-pointer"
-                                onClick={() => handleStoryClick(index)}
-                            >
-                                {/* Ring Container */}
-                                <div className="p-[3px] rounded-full bg-gradient-to-tr from-squared-cyan via-purple-400 to-squared-gold group-hover:from-squared-gold group-hover:to-squared-cyan transition-all duration-500 shadow-xl group-hover:shadow-squared-cyan/40 group-hover:-translate-y-2 transform">
-                                    <div className="p-[3px] bg-white rounded-full">
-                                        <div className="w-20 h-20 md:w-24 md:h-24 rounded-full overflow-hidden relative">
-                                            <img
-                                                src={post.image}
-                                                alt="Story Thumbnail"
-                                                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                                            />
+                {/* Instagram Photo Grid - Horizontal Scroll */}
+                <div className="relative">
+                    {/* Desktop: 3 photos at a time, Mobile: 1 photo at a time */}
+                    <div className="overflow-x-auto pb-8 snap-x snap-mandatory no-scrollbar">
+                        <div className="flex gap-4 md:gap-6">
+                            {SOCIAL_POSTS.map((post) => (
+                                <a
+                                    key={post.id}
+                                    href="https://www.instagram.com/squared_coffee/"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="flex-shrink-0 snap-center snap-always group cursor-pointer w-[85vw] md:w-[calc(33.333%-1rem)] relative overflow-hidden rounded-2xl"
+                                >
+                                    {/* Image Container */}
+                                    <div className="relative aspect-square overflow-hidden rounded-2xl bg-squared-gray-900/5">
+                                        <img
+                                            src={post.image}
+                                            alt={post.caption}
+                                            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                                        />
+
+                                        {/* Overlay on hover */}
+                                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col justify-end p-6">
+                                            <p className="text-white text-sm md:text-base font-medium mb-3">
+                                                {post.caption}
+                                            </p>
+                                            <div className="flex items-center gap-2 text-squared-cyan text-xs font-black uppercase tracking-wider">
+                                                <span>View on Instagram</span>
+                                                <ExternalLink className="w-4 h-4" />
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-
-                                <span className="text-[10px] font-bold tracking-widest uppercase text-squared-gray-800 opacity-70 group-hover:opacity-100 group-hover:text-squared-cyan transition-all">
-                                    Click to View
-                                </span>
-                            </div>
-                        ))}
+                                </a>
+                            ))}
+                        </div>
                     </div>
 
-                    {/* Scroll fade overlay (mobile only) */}
-                    <div className="absolute top-0 right-0 h-full w-12 bg-gradient-to-l from-white to-transparent pointer-events-none md:hidden"></div>
+                    {/* Scroll Indicators */}
+                    <div className="absolute top-1/2 -translate-y-1/2 left-0 right-0 pointer-events-none hidden md:flex justify-between px-2">
+                        <div className="w-12 h-12 rounded-full bg-white/80 backdrop-blur-sm shadow-lg flex items-center justify-center text-squared-gray-900">
+                            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                            </svg>
+                        </div>
+                        <div className="w-12 h-12 rounded-full bg-white/80 backdrop-blur-sm shadow-lg flex items-center justify-center text-squared-gray-900">
+                            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                            </svg>
+                        </div>
+                    </div>
+
+                    {/* Gradient fade edges */}
+                    <div className="absolute top-0 left-0 h-full w-20 bg-gradient-to-r from-white to-transparent pointer-events-none hidden md:block"></div>
+                    <div className="absolute top-0 right-0 h-full w-20 bg-gradient-to-l from-white to-transparent pointer-events-none hidden md:block"></div>
                 </div>
 
             </div>
-
-            <StoryViewer
-                isOpen={isViewerOpen}
-                onClose={() => setIsViewerOpen(false)}
-                initialStartIndex={selectedStoryIndex}
-                posts={SOCIAL_POSTS}
-            />
         </section>
     );
 };
