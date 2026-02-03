@@ -5,6 +5,7 @@ export interface MenuItem {
   price?: string;
   category: string;
   image?: string;
+  foodicsId?: string;
 }
 
 export interface Location {

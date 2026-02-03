@@ -40,7 +40,8 @@ export const FULL_MENU: MenuItem[] = [
     description: 'Squared\'s signature breakfast plate: poached egg, halloumi, falafel, avocado, arugula; over our special pinky labneh.',
     price: '27 SR',
     category: 'Brunch Plates',
-    image: 'https://foodics-console-production.s3.eu-west-1.amazonaws.com/images/227742_1757716339_9fdd05cc-f2a2-4ddc-a8ad-1f280ccc5f04.jpeg'
+    image: 'https://foodics-console-production.s3.eu-west-1.amazonaws.com/images/227742_1757716339_9fdd05cc-f2a2-4ddc-a8ad-1f280ccc5f04.jpeg',
+    foodicsId: '2202312'
   },
   {
     id: 'bp-2',
@@ -48,7 +49,8 @@ export const FULL_MENU: MenuItem[] = [
     description: 'Eggs, lettuce, slices of Irish cheddar (yellow & white), tomato, bacon or turkey, mayo, slices of brioche, chips.',
     price: '26 SR',
     category: 'Brunch Plates',
-    image: 'https://foodics-console-production.s3.eu-west-1.amazonaws.com/images/227742_1757716272_9fdd0567-055e-456c-ac20-7bffbc2520b1.jpeg'
+    image: 'https://foodics-console-production.s3.eu-west-1.amazonaws.com/images/227742_1757716272_9fdd0567-055e-456c-ac20-7bffbc2520b1.jpeg',
+    foodicsId: '2202342'
   },
   {
     id: 'bp-3',
@@ -404,7 +406,7 @@ export const FULL_MENU: MenuItem[] = [
     description: 'Rich pistachio sauce blended with chilled milk and espresso.',
     price: '26 SR',
     category: 'Espresso Drinks',
-    image: 'https://foodics-console-production.s3.eu-west-1.amazonaws.com/images/227742_1702369748_9ad4626a-4781-44b9-b1b4-486ef0fe1d65.jpg' 
+    image: 'https://foodics-console-production.s3.eu-west-1.amazonaws.com/images/227742_1702369748_9ad4626a-4781-44b9-b1b4-486ef0fe1d65.jpg'
   },
   {
     id: 'ed-3',
@@ -568,3 +570,36 @@ export const FULL_MENU: MenuItem[] = [
 
 // Re-export as FEATURED_MENU for now to avoid breaking imports, though we will use FULL_MENU
 export const FEATURED_MENU = FULL_MENU.slice(0, 4);
+
+export const SOCIAL_POSTS = [
+  {
+    id: 1,
+    image: 'https://images.unsplash.com/photo-1497935586351-b67a49e012bf?auto=format&fit=crop&q=80&w=800',
+    caption: 'Morning brews & good vibes ☕️',
+    type: 'story'
+  },
+  {
+    id: 2,
+    image: 'https://images.unsplash.com/photo-1511920170033-f8396924c348?auto=format&fit=crop&q=80&w=800',
+    caption: 'Our signature beans',
+    type: 'story'
+  },
+  {
+    id: 3,
+    image: 'https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&q=80&w=800',
+    caption: 'Latte art goals',
+    type: 'story'
+  },
+  {
+    id: 4,
+    image: 'https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&q=80&w=800',
+    caption: 'Fresh pastries daily',
+    type: 'story'
+  },
+  {
+    id: 5,
+    image: 'https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&q=80&w=800',
+    caption: 'Join the community',
+    type: 'story'
+  }
+];
