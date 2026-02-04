@@ -37,12 +37,12 @@ const SocialSection: React.FC = () => {
                     </div>
 
                     {/* Header Content */}
-                    <div className="flex flex-col md:flex-row justify-between items-center md:items-end mb-6 md:mb-12 relative z-10 md:text-left">
-                        <div className="mb-4 md:mb-0 text-center md:text-left">
+                    <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 relative z-10">
+                        <div className="mb-4 md:mb-0">
                             <span className={`inline-block py-1 pr-12 border-b-2 border-squared-cyan/30 text-xs md:text-sm font-black tracking-[0.4em] text-squared-cyan uppercase mb-4 ${language === 'ar' ? 'font-arabic tracking-normal pl-12 pr-0' : ''}`}>
                                 {t.social.eyebrow}
                             </span>
-                            <h2 className={`text-5xl md:text-7xl font-serif text-squared-gray-900 leading-[0.9] font-black tracking-tight ${language === 'ar' ? 'font-arabic font-bold' : ''}`}>
+                            <h2 className={`text-4xl md:text-6xl font-serif text-squared-gray-900 leading-[0.9] font-black tracking-tight ${language === 'ar' ? 'font-arabic font-bold' : ''}`}>
                                 {t.social.title}<br />
                                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-squared-cyan to-squared-gold-light">
                                     {t.social.title_highlight}
@@ -54,31 +54,24 @@ const SocialSection: React.FC = () => {
                             href="https://www.instagram.com/squared_coffee/"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="flex items-center gap-3 group/insta cursor-pointer"
+                            className="flex items-center gap-2 group/insta cursor-pointer"
                         >
-                            <span className="text-xs md:text-xs font-black tracking-[0.2em] uppercase text-squared-gray-900 group-hover/insta:text-squared-cyan transition-colors">
+                            <span className="text-xs font-black tracking-[0.2em] uppercase text-squared-gray-900 group-hover/insta:text-squared-cyan transition-colors">
                                 @squared_coffee
                             </span>
-                            <div className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-black text-white flex items-center justify-center group-hover/insta:bg-squared-cyan transition-colors duration-300 shadow-md">
-                                <Instagram className="w-4 h-4 md:w-5 md:h-5" />
+                            <div className="w-10 h-10 rounded-full bg-squared-gray-900 text-white flex items-center justify-center group-hover/insta:bg-squared-cyan transition-colors duration-300">
+                                <Instagram className="w-5 h-5" />
                             </div>
                         </a>
                     </div>
 
                     {/* Instagram Photo Grid - Horizontal Scroll */}
                     <div className="relative z-10">
-                        {/* Mobile Swipe Hint */}
-                        <div className="md:hidden flex items-center gap-2 mb-4 px-1 justify-center opacity-80 animate-pulse">
-                            <div className="text-squared-cyan/60 text-[10px] transform rotate-180">➤</div>
-                            <span className="text-[10px] text-squared-cyan/80 font-black uppercase tracking-widest">Swipe to explore</span>
-                            <div className="text-squared-cyan/60 text-[10px]">➤</div>
-                        </div>
-
                         <div
                             ref={scrollRef}
                             className={`overflow-x-auto pb-4 snap-x snap-mandatory no-scrollbar ${language === 'ar' ? 'direction-rtl' : ''}`}
                         >
-                            <div className="flex gap-4 md:gap-6 px-1">
+                            <div className="flex gap-4 md:gap-6">
                                 {SOCIAL_POSTS.map((post) => (
                                     <a
                                         key={post.id}
@@ -114,22 +107,22 @@ const SocialSection: React.FC = () => {
                         </div>
 
                         {/* Scroll Indicators */}
-                        <div className="absolute top-1/2 -translate-y-1/2 left-0 right-0 pointer-events-none flex justify-between -mx-4 z-20 px-2 md:px-0">
+                        <div className="absolute top-1/2 -translate-y-1/2 left-0 right-0 pointer-events-none hidden md:flex justify-between -mx-4 z-20">
                             <button
                                 onClick={() => scroll('left')}
-                                className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-white/90 backdrop-blur-sm shadow-xl flex items-center justify-center text-squared-gray-900 pointer-events-auto hover:bg-squared-cyan hover:text-white transition-all duration-300 transform hover:scale-110 active:scale-95 border border-white/50"
+                                className="w-12 h-12 rounded-full bg-white/90 backdrop-blur-sm shadow-xl flex items-center justify-center text-squared-gray-900 pointer-events-auto hover:bg-squared-cyan hover:text-white transition-all duration-300 transform hover:scale-110 active:scale-95 border border-white/50"
                                 aria-label="Scroll left"
                             >
-                                <svg className="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
                                 </svg>
                             </button>
                             <button
                                 onClick={() => scroll('right')}
-                                className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-white/90 backdrop-blur-sm shadow-xl flex items-center justify-center text-squared-gray-900 pointer-events-auto hover:bg-squared-cyan hover:text-white transition-all duration-300 transform hover:scale-110 active:scale-95 border border-white/50"
+                                className="w-12 h-12 rounded-full bg-white/90 backdrop-blur-sm shadow-xl flex items-center justify-center text-squared-gray-900 pointer-events-auto hover:bg-squared-cyan hover:text-white transition-all duration-300 transform hover:scale-110 active:scale-95 border border-white/50"
                                 aria-label="Scroll right"
                             >
-                                <svg className="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                                 </svg>
                             </button>

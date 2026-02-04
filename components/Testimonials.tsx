@@ -233,7 +233,7 @@ const Testimonials: React.FC = () => {
                                 <span className={`inline-block py-1 px-6 border-b-2 border-squared-cyan/30 text-xs md:text-sm font-black tracking-[0.4em] text-squared-cyan uppercase mb-6 ${language === 'ar' ? 'font-arabic tracking-normal' : ''}`}>
                                     {t.testimonials.eyebrow}
                                 </span>
-                                <h2 className={`text-5xl md:text-7xl font-serif text-squared-gray-900 leading-[0.9] font-black tracking-tight mb-4 ${language === 'ar' ? 'font-arabic font-bold' : ''}`}>
+                                <h2 className={`text-4xl md:text-6xl font-serif text-squared-gray-900 leading-[0.9] font-black tracking-tight mb-4 ${language === 'ar' ? 'font-arabic font-bold' : ''}`}>
                                     {t.testimonials.title}
                                 </h2>
                                 <p className={`text-squared-gray-600 text-base md:text-lg max-w-2xl mx-auto mt-6 ${language === 'ar' ? 'font-arabic' : ''}`}>
