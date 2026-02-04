@@ -54,13 +54,13 @@ const SocialSection: React.FC = () => {
                             href="https://www.instagram.com/squared_coffee/"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="flex items-center gap-2 group/insta cursor-pointer"
+                            className="flex items-center gap-3 group/insta cursor-pointer"
                         >
-                            <span className="text-xs font-black tracking-[0.2em] uppercase text-squared-gray-900 group-hover/insta:text-squared-cyan transition-colors">
+                            <span className="text-xs md:text-xs font-black tracking-[0.2em] uppercase text-squared-gray-900 group-hover/insta:text-squared-cyan transition-colors">
                                 @squared_coffee
                             </span>
-                            <div className="w-10 h-10 rounded-full bg-black text-white flex items-center justify-center group-hover/insta:bg-squared-cyan transition-colors duration-300 shadow-md">
-                                <Instagram className="w-5 h-5" />
+                            <div className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-black text-white flex items-center justify-center group-hover/insta:bg-squared-cyan transition-colors duration-300 shadow-md">
+                                <Instagram className="w-4 h-4 md:w-5 md:h-5" />
                             </div>
                         </a>
                     </div>
@@ -68,10 +68,10 @@ const SocialSection: React.FC = () => {
                     {/* Instagram Photo Grid - Horizontal Scroll */}
                     <div className="relative z-10">
                         {/* Mobile Swipe Hint */}
-                        <div className="md:hidden flex items-center gap-2 mb-4 px-1">
-                            <div className="h-0.5 flex-1 bg-gradient-to-r from-transparent via-squared-cyan/20 to-transparent"></div>
-                            <span className="text-[10px] text-squared-cyan/60 font-black uppercase tracking-wider">Swipe to explore</span>
-                            <div className="h-0.5 flex-1 bg-gradient-to-r from-transparent via-squared-cyan/20 to-transparent"></div>
+                        <div className="md:hidden flex items-center gap-2 mb-4 px-1 justify-center opacity-80 animate-pulse">
+                            <div className="text-squared-cyan/60 text-[10px] transform rotate-180">➤</div>
+                            <span className="text-[10px] text-squared-cyan/80 font-black uppercase tracking-widest">Swipe to explore</span>
+                            <div className="text-squared-cyan/60 text-[10px]">➤</div>
                         </div>
 
                         <div
