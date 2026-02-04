@@ -28,7 +28,7 @@ const MenuSection: React.FC<MenuSectionProps> = ({ onItemClick }) => {
       <div className="container mx-auto px-4 md:px-12 relative z-10">
         <div className="flex flex-col lg:flex-row gap-16 lg:gap-24 items-start">
           <div className="w-full lg:w-1/4 min-w-0">
-            <div className="sticky top-24 md:top-32 glass p-6 md:p-8 rounded-[2rem] md:rounded-[2.5rem] shadow-warm border border-white/30 overflow-x-visible overflow-y-hidden md:overflow-hidden relative group">
+            <div className="relative md:sticky md:top-32 glass p-6 md:p-8 rounded-[2rem] md:rounded-[2.5rem] shadow-warm border border-white/30 overflow-x-visible overflow-y-hidden md:overflow-hidden relative group">
               <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent pointer-events-none"></div>
               {/* Geometric Accents */}
               <div className="absolute -top-4 -right-4 opacity-10 pointer-events-none">
@@ -42,7 +42,7 @@ const MenuSection: React.FC<MenuSectionProps> = ({ onItemClick }) => {
               </span>
 
               <div
-                className="flex flex-row md:flex-col items-start gap-3 overflow-x-auto md:overflow-visible pb-4 md:pb-0 scrollbar-hide mask-fade-right md:mask-none w-full max-w-full -mx-6 px-6 md:mx-0 md:px-0 relative z-50"
+                className="flex flex-row md:flex-col items-start gap-3 overflow-x-auto md:overflow-visible pb-4 md:pb-0 scrollbar-hide w-full max-w-full -mx-6 px-6 md:mx-0 md:px-0 relative z-50"
                 style={{
                   WebkitOverflowScrolling: 'touch',
                   touchAction: 'pan-x',
