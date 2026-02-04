@@ -42,7 +42,7 @@ const MenuSection: React.FC<MenuSectionProps> = ({ onItemClick }) => {
               </span>
 
               <div
-                className="flex flex-row md:flex-col items-start gap-4 overflow-x-auto md:overflow-visible pb-4 md:pb-0 md:scrollbar-hide mask-fade-right md:mask-none w-full max-w-full px-2"
+                className="flex flex-row md:flex-col items-center md:items-start gap-4 overflow-x-auto md:overflow-visible pb-4 md:pb-0 md:scrollbar-hide mask-fade-right md:mask-none w-full max-w-full px-2"
                 style={{ WebkitOverflowScrolling: 'touch' }}
               >
                 {MENU_CATEGORIES.map((category) => (
