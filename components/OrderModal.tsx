@@ -34,6 +34,19 @@ const OrderModal: React.FC<OrderModalProps> = ({ isOpen, onClose, initialUrl }) 
             <div className="relative w-full h-full max-w-6xl glass rounded-[4.5rem] shadow-[0_40px_100px_rgba(0,0,0,0.2)] overflow-hidden flex flex-col border border-white/40 group">
                 <div className="absolute inset-0 bg-gradient-to-br from-squared-cyan/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-1000 pointer-events-none"></div>
 
+                {/* Geometric Accents */}
+                <div className="absolute top-10 right-10 opacity-10 pointer-events-none group-hover:opacity-25 transition-opacity duration-700">
+                    <div className="relative w-24 h-24">
+                        <div className="absolute inset-0 border-2 border-squared-navy rounded-sm"></div>
+                        <div className="absolute inset-4 border-2 border-squared-cyan/60 rounded-sm"></div>
+                    </div>
+                </div>
+                <div className="absolute bottom-10 left-10 opacity-10 pointer-events-none group-hover:opacity-20 transition-opacity duration-700">
+                    <div className="w-32 h-16 overflow-hidden">
+                        <div className="w-32 h-32 border-2 border-squared-navy rounded-full"></div>
+                    </div>
+                </div>
+
                 {/* Header */}
                 <div className="flex justify-between items-center px-12 py-10 border-b border-white/20 glass backdrop-blur-3xl relative z-10">
                     <h2 className="text-4xl font-serif font-black text-squared-gray-900 tracking-tight">

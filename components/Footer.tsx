@@ -22,6 +22,14 @@ const Footer: React.FC = () => {
         <div className="glass-dark p-8 md:p-24 rounded-[3rem] md:rounded-[4.5rem] shadow-2xl border border-white/10 relative overflow-hidden group">
           <div className="absolute inset-0 bg-gradient-to-br from-squared-cyan/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-1000"></div>
 
+          {/* Geometric Accents */}
+          <div className="absolute top-20 right-20 opacity-5 group-hover:opacity-10 transition-opacity pointer-events-none">
+            <div className="w-32 h-32 border-2 border-squared-cyan rounded-sm rotate-45"></div>
+          </div>
+          <div className="absolute bottom-10 left-10 opacity-5 group-hover:opacity-10 transition-opacity pointer-events-none">
+            <div className="w-24 h-24 border-2 border-white rounded-full"></div>
+          </div>
+
           <div className="flex flex-col md:flex-row justify-between items-start mb-24 gap-20 relative z-10">
             <div className="max-w-sm">
               <Logo size="lg" className="mb-0" variant="dark" />
