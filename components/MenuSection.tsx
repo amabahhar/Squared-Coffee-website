@@ -80,6 +80,8 @@ const MenuSection: React.FC<MenuSectionProps> = ({ onItemClick }) => {
                       <img
                         src={item.image}
                         alt={displayName}
+                        loading="lazy"
+                        decoding="async"
                         className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                       />
                       <button
@@ -165,7 +167,8 @@ const MenuSection: React.FC<MenuSectionProps> = ({ onItemClick }) => {
                         src={item.image}
                         alt={displayName}
                         loading="lazy"
-                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000 ease-natural"
+                        decoding="async"
+                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                       />
                       <div className="absolute inset-0 bg-black/5 group-hover:bg-black/0 transition-colors duration-700" />
                       <button aria-label="Add to order" className="hidden md:block absolute bottom-5 right-5 glass p-3.5 rounded-full opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0 transition-all duration-700 shadow-2xl border border-white/50 hover:scale-110 active:scale-95 bg-white/30 hover:bg-squared-cyan hover:border-transparent group/btn">

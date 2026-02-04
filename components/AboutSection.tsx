@@ -69,12 +69,16 @@ const AboutSection: React.FC = () => {
                 <img
                   src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&q=80&w=400"
                   alt="Coffee Brewing"
+                  loading="lazy"
+                  decoding="async"
                   className="rounded-2xl w-32 aspect-[4/5] object-cover shadow-lg mb-4 transform rotate-2"
                 />
                 <div className="p-1 glass-card rounded-xl shadow-lg w-20 absolute -bottom-4 -left-5 transform -rotate-3">
                   <img
                     src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&q=80&w=300"
                     alt="Cafe Atmosphere"
+                    loading="lazy"
+                    decoding="async"
                     className="rounded-lg w-full aspect-square object-cover"
                   />
                 </div>
