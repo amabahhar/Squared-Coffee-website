@@ -42,13 +42,21 @@ const MenuSection: React.FC<MenuSectionProps> = ({ onItemClick }) => {
               </span>
 
               <div
-                className="flex flex-row md:flex-col items-start gap-3 overflow-x-auto md:overflow-visible pb-4 md:pb-0 scrollbar-hide mask-fade-right md:mask-none w-full max-w-full -mx-6 px-6 md:mx-0 md:px-0"
+                className="flex flex-row md:flex-col items-start gap-3 overflow-x-auto md:overflow-visible pb-4 md:pb-0 scrollbar-hide mask-fade-right md:mask-none w-full max-w-full -mx-6 px-6 md:mx-0 md:px-0 relative z-50"
                 style={{
                   WebkitOverflowScrolling: 'touch',
                   touchAction: 'pan-x',
                   overscrollBehavior: 'contain'
                 }}
-                onTouchStart={(e) => e.stopPropagation()}
+                onTouchStart={(e) => {
+                  e.stopPropagation();
+                }}
+                onTouchMove={(e) => {
+                  e.stopPropagation();
+                }}
+                onTouchEnd={(e) => {
+                  e.stopPropagation();
+                }}
               >
                 {MENU_CATEGORIES.map((category) => (
                   <button
