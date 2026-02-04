@@ -28,25 +28,35 @@ const LoyaltySection: React.FC = () => {
         setSubmitStatus('idle');
 
         try {
+            const payload = {
+                campaignId: '1rmMhxhNM13OIXfFWJOxKU',
+                customerData: {
+                    'Name': formData.name,
+                    'Email address': formData.email,
+                    'Contact Number': formData.phone,
+                    'Birthday': formData.birthday
+                },
+                dataConsentOptIn: formData.marketingConsent
+            };
+
+            console.log('Sending enrollment request:', payload);
+
             const response = await fetch('https://api.loopyloyalty.com/v1/enrol/1rmMhxhNM13OIXfFWJOxKU', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({
-                    campaignId: '1rmMhxhNM13OIXfFWJOxKU',
-                    customerData: {
-                        'Name': formData.name,
-                        'Email address': formData.email,
-                        'Contact Number': formData.phone,
-                        'Birthday': formData.birthday
-                    },
-                    dataConsentOptIn: formData.marketingConsent
-                })
+                body: JSON.stringify(payload)
             });
 
+            console.log('Response status:', response.status);
+            console.log('Response headers:', response.headers);
+
+            const responseText = await response.text();
+            console.log('Response body:', responseText);
+
             if (response.ok) {
-                const data = await response.json();
+                const data = JSON.parse(responseText);
                 setSubmitStatus('success');
                 setCardUrl(data.url || null);
                 // Reset form
@@ -59,6 +69,7 @@ const LoyaltySection: React.FC = () => {
                     marketingConsent: false
                 });
             } else {
+                console.error('API Error Response:', responseText);
                 setSubmitStatus('error');
             }
         } catch (error) {
