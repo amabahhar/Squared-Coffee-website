@@ -138,6 +138,16 @@ const LoyaltySection: React.FC = () => {
                     <div className="glass-card p-8 md:p-12 rounded-[2.5rem] shadow-warm-lg border border-white/40 relative overflow-hidden group">
                         <div className="absolute inset-0 bg-gradient-to-br from-squared-cyan/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-1000"></div>
 
+                        {/* Geometric Accents */}
+                        <div className="absolute top-8 left-8 opacity-10 pointer-events-none group-hover:opacity-20 transition-opacity">
+                            <div className="w-12 h-12 border-2 border-squared-cyan rounded-sm -rotate-6"></div>
+                        </div>
+                        <div className="absolute bottom-8 right-8 opacity-10 pointer-events-none group-hover:opacity-20 transition-opacity">
+                            <svg viewBox="0 0 100 100" className="w-12 h-12">
+                                <polygon points="50,10 90,90 10,90" fill="none" stroke="currentColor" strokeWidth="4" className="text-squared-cyan" />
+                            </svg>
+                        </div>
+
                         <div className="relative z-10 text-center">
                             {/* Gift Icon */}
                             <div className="inline-flex items-center justify-center w-24 h-24 md:w-32 md:h-32 rounded-3xl bg-gradient-to-br from-squared-cyan to-squared-cyan-dark shadow-warm-lg mb-6">
@@ -168,8 +178,16 @@ const LoyaltySection: React.FC = () => {
                     </div>
 
                     {/* Right: Signup Form */}
-                    <div className="glass-card p-8 md:p-12 rounded-[2.5rem] shadow-warm-lg border border-white/40 relative overflow-hidden">
+                    <div className="glass-card p-8 md:p-12 rounded-[2.5rem] shadow-warm-lg border border-white/40 relative overflow-hidden group">
                         <div className="absolute inset-0 bg-gradient-to-br from-white/50 via-white/30 to-transparent pointer-events-none"></div>
+
+                        {/* Geometric Accents */}
+                        <div className="absolute top-8 right-8 opacity-10 pointer-events-none group-hover:opacity-20 transition-opacity">
+                            <div className="relative w-10 h-10">
+                                <div className="absolute inset-0 border-2 border-squared-cyan rounded-sm"></div>
+                                <div className="absolute inset-2 border-2 border-squared-cyan/60 rounded-sm"></div>
+                            </div>
+                        </div>
 
                         <div className="relative z-10">
                             {submitStatus === 'success' ? (

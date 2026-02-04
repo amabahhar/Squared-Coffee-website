@@ -138,9 +138,17 @@ const Testimonials: React.FC = () => {
                     pointerEvents: offset === 0 ? 'auto' : 'none',
                 }}
             >
-                <div className="glass-card rounded-3xl md:rounded-[3rem] p-8 md:p-16 shadow-2xl relative overflow-hidden border border-white/20 backdrop-blur-xl bg-white/70 h-full">
+                <div className="glass-card rounded-3xl md:rounded-[3rem] p-8 md:p-16 shadow-2xl relative overflow-hidden border border-white/20 backdrop-blur-xl bg-white/70 h-full group">
                     {/* Glassmorphism gradient overlay */}
                     <div className="absolute inset-0 bg-gradient-to-br from-white/50 via-white/30 to-transparent pointer-events-none" />
+
+                    {/* Geometric Accents */}
+                    <div className="absolute -top-4 -right-4 opacity-5 group-hover:opacity-15 transition-opacity">
+                        <div className="w-20 h-20 border-2 border-squared-cyan rounded-sm rotate-6"></div>
+                    </div>
+                    <div className="absolute -bottom-4 -left-4 opacity-5 group-hover:opacity-10 transition-opacity">
+                        <div className="w-24 h-24 border-2 border-squared-cyan/60 rounded-full"></div>
+                    </div>
 
                     {/* Quote decoration */}
                     <div className={`absolute top-8 left-8 text-squared-cyan/10 text-[120px] md:text-[180px] font-serif leading-none pointer-events-none select-none ${language === 'ar' ? 'right-8 left-auto' : ''}`}>
@@ -202,9 +210,22 @@ const Testimonials: React.FC = () => {
 
             <div className="container mx-auto px-4 md:px-12 relative z-10">
                 {/* Header */}
-                <div className="glass-card max-w-4xl mx-auto p-8 md:p-12 rounded-[3rem] border border-squared-cyan/20 shadow-warm text-center mb-16 relative overflow-hidden">
+                <div className="glass-card max-w-4xl mx-auto p-8 md:p-12 rounded-[3rem] border border-squared-cyan/20 shadow-warm text-center mb-16 relative overflow-hidden group">
                     {/* Glass gradient overlay */}
                     <div className="absolute inset-0 bg-gradient-to-b from-white/40 to-transparent opacity-50 pointer-events-none"></div>
+
+                    {/* Geometric Accents */}
+                    <div className="absolute top-0 right-0 opacity-10 group-hover:opacity-20 transition-opacity">
+                        <div className="relative w-20 h-20">
+                            <div className="absolute inset-4 border-2 border-squared-cyan rounded-sm"></div>
+                            <div className="absolute inset-8 border-2 border-squared-cyan/60 rounded-sm"></div>
+                        </div>
+                    </div>
+                    <div className="absolute bottom-0 left-0 opacity-10 group-hover:opacity-20 transition-opacity">
+                        <div className="w-24 h-12 overflow-hidden">
+                            <div className="w-24 h-24 border-2 border-squared-cyan rounded-full"></div>
+                        </div>
+                    </div>
 
                     <div className="relative z-10">
                         <span className={`inline-block py-1 px-6 border-b-2 border-squared-cyan/30 text-xs md:text-sm font-black tracking-[0.4em] text-squared-cyan uppercase mb-6 ${language === 'ar' ? 'font-arabic tracking-normal' : ''}`}>

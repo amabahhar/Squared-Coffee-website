@@ -22,8 +22,12 @@ const Locations: React.FC = () => {
 
         {/* Section Heading */}
         <div className="mb-12 inline-block">
-          <div className="glass-card px-8 py-4 rounded-full border border-squared-cyan/20 shadow-warm relative overflow-hidden">
+          <div className="glass-card px-8 py-4 rounded-full border border-squared-cyan/20 shadow-warm relative overflow-hidden group">
             <div className="absolute inset-0 bg-white/20 pointer-events-none"></div>
+            {/* Geometric Accents */}
+            <div className="absolute -top-2 -right-2 opacity-10 group-hover:opacity-20 transition-opacity">
+              <div className="w-8 h-8 border border-squared-cyan rounded-sm rotate-12"></div>
+            </div>
             <span className={`relative z-10 inline-block text-sm md:text-base font-black tracking-[0.5em] text-squared-cyan uppercase ${language === 'ar' ? 'font-arabic tracking-normal' : ''}`}>
               {t.locations.eyebrow}
             </span>
@@ -38,6 +42,19 @@ const Locations: React.FC = () => {
               {LOCATIONS.map((loc) => (
                 <div key={loc.id} className="cursor-pointer glass p-8 md:p-16 rounded-[2.5rem] md:rounded-[4.5rem] hover:shadow-[0_40px_80px_rgba(0,0,0,0.1),0_15px_30px_rgba(0,0,0,0.05)] transition-all duration-700 group border border-white/40 hover:border-squared-cyan/30 hover:-translate-y-3 h-full flex flex-col justify-between relative overflow-hidden">
                   <div className="absolute inset-0 bg-gradient-to-br from-squared-cyan/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-1000"></div>
+
+                  {/* Geometric Accents */}
+                  <div className="absolute -top-8 -right-8 opacity-10 group-hover:opacity-25 transition-opacity duration-700">
+                    <div className="relative w-32 h-32">
+                      <div className="absolute inset-0 border-2 border-squared-cyan rounded-sm"></div>
+                      <div className="absolute inset-4 border-2 border-squared-cyan/60 rounded-sm"></div>
+                    </div>
+                  </div>
+                  <div className="absolute -bottom-8 -left-8 opacity-10 group-hover:opacity-20 transition-opacity duration-700">
+                    <div className="w-24 h-12 overflow-hidden">
+                      <div className="w-24 h-24 border-2 border-squared-cyan rounded-full"></div>
+                    </div>
+                  </div>
                   <div className="relative z-10">
 
                     {/* Mobile Embedded Image (Float Style - Incorporated in Bubble) */}
@@ -86,6 +103,10 @@ const Locations: React.FC = () => {
 
           {/* Right Side: Imagery */}
           <div className="relative glass p-6 md:p-8 rounded-[2.5rem] md:rounded-[4.5rem] shadow-2xl group overflow-hidden border border-white/20 h-full min-h-[450px] lg:min-h-0 hidden lg:block">
+            {/* Geometric Accents */}
+            <div className="absolute top-10 left-10 opacity-10 group-hover:opacity-20 transition-opacity">
+              <div className="w-16 h-16 border-2 border-squared-cyan rounded-sm -rotate-12"></div>
+            </div>
             <div className="relative rounded-[3.5rem] overflow-hidden h-full">
               <img
                 src="https://images.unsplash.com/photo-1493857671505-72967e2e2760?auto=format&fit=crop&q=80&w=1000"

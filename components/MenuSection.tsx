@@ -28,7 +28,14 @@ const MenuSection: React.FC<MenuSectionProps> = ({ onItemClick }) => {
       <div className="container mx-auto px-4 md:px-12 relative z-10">
         <div className="flex flex-col lg:flex-row gap-16 lg:gap-24 items-start">
           <div className="w-full lg:w-1/4 min-w-0">
-            <div className="sticky top-24 md:top-32 glass-card p-6 md:p-8 rounded-[2rem] md:rounded-[2.5rem] shadow-warm border border-squared-cyan/20">
+            <div className="sticky top-24 md:top-32 glass-card p-6 md:p-8 rounded-[2rem] md:rounded-[2.5rem] shadow-warm border border-squared-cyan/20 overflow-hidden">
+              {/* Geometric Accents */}
+              <div className="absolute -top-4 -right-4 opacity-10 pointer-events-none">
+                <div className="w-16 h-16 border-2 border-squared-cyan rounded-sm rotate-12"></div>
+              </div>
+              <div className="absolute -bottom-4 -left-4 opacity-10 pointer-events-none">
+                <div className="w-20 h-20 border-2 border-squared-cyan/60 rounded-full"></div>
+              </div>
               <span className={`hidden md:inline-block py-1 pr-8 border-b-2 border-squared-cyan/30 text-xs md:text-sm font-black tracking-[0.4em] text-squared-cyan uppercase mb-8 ${language === 'ar' ? 'font-arabic tracking-normal pl-8 pr-0' : ''}`}>
                 {t.menu.eyebrow}
               </span>

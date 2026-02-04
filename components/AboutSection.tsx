@@ -45,6 +45,19 @@ const AboutSection: React.FC = () => {
           <div className="glass-card p-6 md:p-10 rounded-[2.5rem] shadow-warm-lg border border-white/40 relative overflow-hidden group">
             <div className="absolute inset-0 bg-gradient-to-br from-squared-cyan/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-1000"></div>
 
+            {/* Geometric Accents */}
+            <div className="absolute top-6 right-6 opacity-20 pointer-events-none transition-opacity duration-700 group-hover:opacity-40">
+              <div className="relative w-12 h-12">
+                <div className="absolute inset-0 border-2 border-squared-cyan rounded-sm"></div>
+                <div className="absolute inset-2 border-2 border-squared-cyan/60 rounded-sm"></div>
+              </div>
+            </div>
+            <div className="absolute bottom-6 left-6 opacity-20 pointer-events-none transition-opacity duration-700 group-hover:opacity-40">
+              <div className="relative w-16 h-8 overflow-hidden">
+                <div className="absolute bottom-0 left-0 w-16 h-16 border-2 border-squared-cyan rounded-full"></div>
+              </div>
+            </div>
+
             <div className="relative z-10">
               <span className={`inline-block py-1 pr-12 border-b-2 border-squared-cyan/40 text-xs md:text-sm font-black tracking-[0.4em] text-squared-cyan uppercase mb-10 md:mb-14 animate-fade-in ${language === 'ar' ? 'font-arabic tracking-normal pl-12 pr-0' : ''}`}>
                 {t.about.eyebrow}
