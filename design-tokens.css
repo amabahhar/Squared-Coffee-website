@@ -212,14 +212,20 @@ html {
   }
 }
 
-/* Reduce backdrop-filter blur on mobile for better performance */
+/* Improve readability on mobile - more opaque, less blur */
 @media (max-width: 768px) {
 
   .glass,
-  .glass-card,
+  .glass-card {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+
   .glass-dark {
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
+    background: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
   }
 }
 
