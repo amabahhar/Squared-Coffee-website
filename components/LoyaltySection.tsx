@@ -118,231 +118,229 @@ const LoyaltySection: React.FC = () => {
             <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-squared-cyan/5 via-transparent to-squared-gold/5 pointer-events-none" />
             <div className="absolute top-20 right-20 w-96 h-96 bg-squared-cyan/10 blur-[120px] rounded-full pointer-events-none" />
 
-            <div className="container mx-auto px-4 md:px-12 relative z-10">
-                {/* Header */}
-                <div className="text-center mb-12 md:mb-16">
-                    <span className={`inline-block py-1 px-6 border-b-2 border-squared-cyan/30 text-xs md:text-sm font-black tracking-[0.4em] text-squared-cyan uppercase mb-6 ${language === 'ar' ? 'font-arabic tracking-normal' : ''}`}>
-                        {t.loyalty.eyebrow}
-                    </span>
-                    <h2 className={`text-4xl md:text-6xl font-serif text-squared-gray-900 leading-[0.9] font-black tracking-tight ${language === 'ar' ? 'font-arabic font-bold' : ''}`}>
-                        {t.loyalty.title} <span className="text-squared-cyan">{t.loyalty.title_highlight}</span>
-                    </h2>
-                    <p className={`text-base md:text-xl text-squared-gray-600 max-w-2xl mx-auto mt-6 ${language === 'ar' ? 'font-arabic' : ''}`}>
-                        {t.loyalty.description}
-                    </p>
-                </div>
+            <div className="container mx-auto px-4 md:px-12 relative z-10 flex justify-center">
+                <div className="glass p-8 md:p-16 rounded-[2.5rem] md:rounded-[4rem] max-w-7xl w-full border border-white/30 shadow-2xl relative overflow-hidden group backdrop-blur-md">
+                    <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent pointer-events-none"></div>
 
-                {/* Main Content */}
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 max-w-6xl mx-auto">
-                    {/* Left: Card Visual */}
-                    <div className="glass-card p-8 md:p-12 rounded-[2.5rem] shadow-warm-lg border border-white/40 relative overflow-hidden group">
-                        <div className="absolute inset-0 bg-gradient-to-br from-squared-cyan/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-1000"></div>
-
-                        {/* Geometric Accents */}
-                        <div className="absolute top-8 left-8 opacity-10 pointer-events-none group-hover:opacity-20 transition-opacity">
-                            <div className="w-12 h-12 border-2 border-squared-navy rounded-sm -rotate-6"></div>
+                    {/* Geometric Accents - Main Bubble */}
+                    <div className="absolute top-8 right-8 opacity-20 pointer-events-none group-hover:opacity-40 transition-opacity duration-700">
+                        <div className="relative w-24 h-24">
+                            <div className="absolute inset-0 border-2 border-squared-navy rounded-sm"></div>
+                            <div className="absolute inset-4 border-2 border-squared-cyan/60 rounded-sm"></div>
                         </div>
-                        <div className="absolute bottom-8 right-8 opacity-10 pointer-events-none group-hover:opacity-20 transition-opacity">
-                            <svg viewBox="0 0 100 100" className="w-12 h-12">
-                                <polygon points="50,15 85,85 15,85" fill="none" stroke="currentColor" strokeWidth="4" className="text-squared-navy" />
-                                <polygon points="50,25 75,75 25,75" fill="none" stroke="currentColor" strokeWidth="2" className="text-squared-cyan" />
-                            </svg>
-                        </div>
-
-                        <div className="relative z-10 text-center">
-                            {/* Gift Icon */}
-                            <div className="inline-flex items-center justify-center w-24 h-24 md:w-32 md:h-32 rounded-3xl bg-gradient-to-br from-squared-cyan to-squared-cyan-dark shadow-warm-lg mb-6">
-                                <Gift className="w-12 h-12 md:w-16 md:h-16 text-white" strokeWidth={1.5} />
-                            </div>
-
-                            <h3 className={`text-3xl md:text-4xl font-serif font-black text-squared-gray-900 mb-4 ${language === 'ar' ? 'font-arabic font-bold' : ''}`}>
-                                {language === 'ar' ? 'مشروب مجاني' : 'Free Drink'}
-                            </h3>
-                            <p className={`text-squared-gray-600 mb-8 text-lg ${language === 'ar' ? 'font-arabic' : ''}`}>
-                                {language === 'ar' ? 'لكل 8 مشروبات مشتراة' : 'Every 8 drinks purchased'}
-                            </p>
-
-                            {/* Benefits */}
-                            <div className="space-y-4">
-                                {[
-                                    { num: '1', text: language === 'ar' ? 'سجل مجاناً' : 'Sign Up Free' },
-                                    { num: '2', text: language === 'ar' ? 'اجمع النقاط' : 'Collect Points' },
-                                    { num: '3', text: language === 'ar' ? 'احصل على مكافآت' : 'Get Rewards' }
-                                ].map((item) => (
-                                    <div key={item.num} className="flex items-center gap-4 glass p-4 rounded-xl border border-white/20">
-                                        <div className="text-2xl font-black text-squared-cyan w-8">{item.num}</div>
-                                        <p className={`text-sm text-squared-gray-600 ${language === 'ar' ? 'font-arabic' : ''}`}>{item.text}</p>
-                                    </div>
-                                ))}
-                            </div>
+                    </div>
+                    <div className="absolute bottom-8 left-8 opacity-20 pointer-events-none group-hover:opacity-40 transition-opacity duration-700">
+                        <div className="w-32 h-16 overflow-hidden">
+                            <div className="w-32 h-32 border-2 border-squared-navy rounded-full"></div>
                         </div>
                     </div>
 
-                    {/* Right: Signup Form */}
-                    <div className="glass-card p-8 md:p-12 rounded-[2.5rem] shadow-warm-lg border border-white/40 relative overflow-hidden group">
-                        <div className="absolute inset-0 bg-gradient-to-br from-white/50 via-white/30 to-transparent pointer-events-none"></div>
-
-                        {/* Geometric Accents */}
-                        <div className="absolute top-8 right-8 opacity-10 pointer-events-none group-hover:opacity-20 transition-opacity">
-                            <div className="relative w-10 h-10">
-                                <div className="absolute inset-0 border-2 border-squared-navy rounded-sm"></div>
-                                <div className="absolute inset-2 border-2 border-squared-cyan/60 rounded-sm"></div>
-                            </div>
+                    <div className="relative z-10">
+                        {/* Header */}
+                        <div className="text-center mb-12 md:mb-20">
+                            <span className={`inline-block py-1 px-6 border-b-2 border-squared-cyan/30 text-xs md:text-sm font-black tracking-[0.4em] text-squared-cyan uppercase mb-6 ${language === 'ar' ? 'font-arabic tracking-normal' : ''}`}>
+                                {t.loyalty.eyebrow}
+                            </span>
+                            <h2 className={`text-5xl md:text-7xl font-serif text-squared-gray-900 leading-[0.9] font-black tracking-tight ${language === 'ar' ? 'font-arabic font-bold' : ''}`}>
+                                {t.loyalty.title} <span className="text-squared-cyan">{t.loyalty.title_highlight}</span>
+                            </h2>
+                            <p className={`text-base md:text-2xl text-squared-gray-600 max-w-3xl mx-auto mt-8 font-medium ${language === 'ar' ? 'font-arabic' : ''}`}>
+                                {t.loyalty.description}
+                            </p>
                         </div>
 
-                        <div className="relative z-10">
-                            {submitStatus === 'success' ? (
-                                <div className="text-center">
-                                    <CheckCircle className="w-16 h-16 text-squared-cyan mx-auto mb-4" />
-                                    <h3 className={`text-xl font-serif font-black text-squared-gray-900 mb-2 ${language === 'ar' ? 'font-arabic font-bold' : ''}`}>
-                                        {language === 'ar' ? 'تم التسجيل بنجاح!' : 'Successfully Enrolled!'}
+                        {/* Main Content Grid */}
+                        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-16 items-start">
+                            {/* Left: Card Visual */}
+                            <div className="relative p-2">
+                                <div className="text-center bg-white/10 rounded-[2rem] p-8 md:p-12 border border-white/20 shadow-xl">
+                                    {/* Gift Icon */}
+                                    <div className="inline-flex items-center justify-center w-24 h-24 md:w-32 md:h-32 rounded-3xl bg-gradient-to-br from-squared-cyan to-squared-cyan-dark shadow-warm-lg mb-8">
+                                        <Gift className="w-12 h-12 md:w-16 md:h-16 text-white" strokeWidth={1.5} />
+                                    </div>
+
+                                    <h3 className={`text-3xl md:text-5xl font-serif font-black text-squared-gray-900 mb-4 ${language === 'ar' ? 'font-arabic font-bold' : ''}`}>
+                                        {language === 'ar' ? 'مشروب مجاني' : 'Free Drink'}
                                     </h3>
-                                    <p className={`text-squared-gray-600 mb-4 text-sm ${language === 'ar' ? 'font-arabic' : ''}`}>
-                                        {language === 'ar' ? 'أضف بطاقتك إلى محفظتك الآن' : 'Add your card to your wallet now'}
+                                    <p className={`text-squared-gray-600 mb-10 text-xl font-medium ${language === 'ar' ? 'font-arabic' : ''}`}>
+                                        {language === 'ar' ? 'لكل 8 مشروبات مشتراة' : 'Every 8 drinks purchased'}
                                     </p>
-                                    {cardUrl && (
-                                        <div className="w-full mb-4">
-                                            <iframe
-                                                src={cardUrl}
-                                                className="w-full h-[550px] rounded-xl border-2 border-squared-cyan/20 bg-white"
-                                                title="Loyalty Card"
-                                                sandbox="allow-same-origin allow-scripts allow-popups allow-forms"
-                                            />
-                                        </div>
-                                    )}
-                                    <button
-                                        onClick={() => setSubmitStatus('idle')}
-                                        className={`text-sm text-squared-gray-500 hover:text-squared-cyan transition-colors ${language === 'ar' ? 'font-arabic' : ''}`}
-                                    >
-                                        {language === 'ar' ? 'تسجيل عضو آخر' : 'Register another member'}
-                                    </button>
+
+                                    {/* Benefits */}
+                                    <div className="grid grid-cols-1 gap-4 text-left">
+                                        {[
+                                            { num: '1', text: language === 'ar' ? 'سجل مجاناً' : 'Sign Up Free' },
+                                            { num: '2', text: language === 'ar' ? 'اجمع النقاط' : 'Collect Points' },
+                                            { num: '3', text: language === 'ar' ? 'احصل على مكافآت' : 'Get Rewards' }
+                                        ].map((item) => (
+                                            <div key={item.num} className="flex items-center gap-6 glass p-5 rounded-2xl border border-white/20 hover:bg-white/30 transition-colors duration-500">
+                                                <div className="text-3xl font-black text-squared-cyan w-10">{item.num}</div>
+                                                <p className={`text-base md:text-lg font-bold text-squared-gray-800 ${language === 'ar' ? 'font-arabic' : ''}`}>{item.text}</p>
+                                            </div>
+                                        ))}
+                                    </div>
                                 </div>
-                            ) : (
-                                <form onSubmit={handleSubmit} className="space-y-6">
-                                    <h3 className={`text-xl md:text-2xl font-serif font-black text-squared-gray-900 mb-6 text-center ${language === 'ar' ? 'font-arabic font-bold' : ''}`}>
-                                        {t.loyalty.signup_below}
-                                    </h3>
+                            </div>
 
-                                    {/* Name */}
-                                    <div>
-                                        <label className={`block text-sm font-bold text-squared-gray-700 mb-2 ${language === 'ar' ? 'font-arabic text-right' : ''}`}>
-                                            {language === 'ar' ? 'الاسم' : 'Name'} *
-                                        </label>
-                                        <input
-                                            type="text"
-                                            required
-                                            value={formData.name}
-                                            onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                                            className={`w-full px-4 py-3 rounded-xl border border-squared-cyan/20 focus:border-squared-cyan focus:ring-2 focus:ring-squared-cyan/20 outline-none transition-all ${language === 'ar' ? 'font-arabic text-right' : ''}`}
-                                            placeholder={language === 'ar' ? 'أدخل اسمك' : 'Enter your name'}
-                                        />
-                                    </div>
-
-                                    {/* Phone */}
-                                    <div>
-                                        <label className={`block text-sm font-bold text-squared-gray-700 mb-2 ${language === 'ar' ? 'font-arabic text-right' : ''}`}>
-                                            {language === 'ar' ? 'رقم الهاتف' : 'Phone Number'} *
-                                        </label>
-                                        <div className="relative">
-                                            <span className="absolute left-4 top-1/2 -translate-y-1/2 text-squared-gray-500 font-medium">
-                                                +966
-                                            </span>
-                                            <input
-                                                type="tel"
-                                                required
-                                                value={formData.phone}
-                                                onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                                                className={`w-full pl-16 pr-4 py-3 rounded-xl border border-squared-cyan/20 focus:border-squared-cyan focus:ring-2 focus:ring-squared-cyan/20 outline-none transition-all ${language === 'ar' ? 'font-arabic' : ''}`}
-                                                placeholder={language === 'ar' ? '5XXXXXXXX' : '5XXXXXXXX'}
-                                                pattern="[0-9]{9,10}"
-                                            />
-                                        </div>
-                                        <p className={`text-xs text-squared-gray-500 mt-1 ${language === 'ar' ? 'font-arabic text-right' : ''}`}>
-                                            {language === 'ar' ? 'أدخل رقمك بدون الصفر (مثال: 512345678)' : 'Enter without leading 0 (e.g., 512345678)'}
-                                        </p>
-                                    </div>
-
-                                    {/* Birthday */}
-                                    <div>
-                                        <label className={`block text-sm font-bold text-squared-gray-700 mb-2 ${language === 'ar' ? 'font-arabic text-right' : ''}`}>
-                                            {language === 'ar' ? 'تاريخ الميلاد' : 'Birthday'} *
-                                        </label>
-                                        <input
-                                            type="date"
-                                            required
-                                            value={formData.birthday}
-                                            onChange={(e) => setFormData({ ...formData, birthday: e.target.value })}
-                                            className={`w-full px-4 py-3 rounded-xl border border-squared-cyan/20 focus:border-squared-cyan focus:ring-2 focus:ring-squared-cyan/20 outline-none transition-all ${language === 'ar' ? 'font-arabic text-right' : ''}`}
-                                        />
-                                    </div>
-
-                                    {/* Email */}
-                                    <div>
-                                        <label className={`block text-sm font-bold text-squared-gray-700 mb-2 ${language === 'ar' ? 'font-arabic text-right' : ''}`}>
-                                            {language === 'ar' ? 'البريد الإلكتروني' : 'Email'} *
-                                        </label>
-                                        <input
-                                            type="email"
-                                            required
-                                            value={formData.email}
-                                            onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                                            className={`w-full px-4 py-3 rounded-xl border border-squared-cyan/20 focus:border-squared-cyan focus:ring-2 focus:ring-squared-cyan/20 outline-none transition-all ${language === 'ar' ? 'font-arabic text-right' : ''}`}
-                                            placeholder={language === 'ar' ? 'example@email.com' : 'example@email.com'}
-                                        />
-                                    </div>
-
-                                    {/* Terms */}
-                                    <div className="flex items-start gap-3">
-                                        <input
-                                            type="checkbox"
-                                            id="terms"
-                                            required
-                                            checked={formData.termsAccepted}
-                                            onChange={(e) => setFormData({ ...formData, termsAccepted: e.target.checked })}
-                                            className="mt-1 w-5 h-5 rounded border-squared-cyan/20 text-squared-cyan focus:ring-squared-cyan"
-                                        />
-                                        <label htmlFor="terms" className={`text-sm text-squared-gray-600 ${language === 'ar' ? 'font-arabic text-right' : ''}`}>
-                                            {language === 'ar' ? 'أوافق على الشروط والأحكام' : 'I agree to the terms and conditions'} *
-                                        </label>
-                                    </div>
-
-                                    {/* Marketing */}
-                                    <div className="flex items-start gap-3">
-                                        <input
-                                            type="checkbox"
-                                            id="marketing"
-                                            checked={formData.marketingConsent}
-                                            onChange={(e) => setFormData({ ...formData, marketingConsent: e.target.checked })}
-                                            className="mt-1 w-5 h-5 rounded border-squared-cyan/20 text-squared-cyan focus:ring-squared-cyan"
-                                        />
-                                        <label htmlFor="marketing" className={`text-sm text-squared-gray-600 ${language === 'ar' ? 'font-arabic text-right' : ''}`}>
-                                            {language === 'ar' ? 'أرغب في تلقي العروض والتحديثات' : 'I want to receive offers and updates'}
-                                        </label>
-                                    </div>
-
-                                    {submitStatus === 'error' && (
-                                        <div className="bg-red-50 border border-red-200 text-red-600 px-4 py-3 rounded-xl text-sm">
-                                            {language === 'ar' ? 'حدث خطأ. يرجى المحاولة مرة أخرى.' : 'An error occurred. Please try again.'}
-                                        </div>
-                                    )}
-
-                                    {/* Submit */}
-                                    <button
-                                        type="submit"
-                                        disabled={isSubmitting}
-                                        className={`w-full cursor-pointer bg-squared-cyan text-white px-8 py-4 rounded-full text-sm font-black uppercase tracking-[0.2em] hover:bg-squared-cyan-dark transition-all duration-500 shadow-xl shadow-squared-cyan/20 hover:shadow-squared-cyan/40 hover:-translate-y-1 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-3 ${language === 'ar' ? 'font-arabic tracking-normal' : ''}`}
-                                    >
-                                        {isSubmitting ? (
-                                            <>
-                                                <Loader className="w-5 h-5 animate-spin" />
-                                                {language === 'ar' ? 'جاري التسجيل...' : 'Signing up...'}
-                                            </>
+                            {/* Right: Signup Form */}
+                            <div className="relative p-2">
+                                <div className="bg-white/20 rounded-[2rem] p-8 md:p-12 border border-white/30 shadow-xl h-full">
+                                    <div className="relative z-10">
+                                        {submitStatus === 'success' ? (
+                                            <div className="text-center py-10">
+                                                <CheckCircle className="w-20 h-20 text-squared-cyan mx-auto mb-6" />
+                                                <h3 className={`text-2xl font-serif font-black text-squared-gray-900 mb-4 ${language === 'ar' ? 'font-arabic font-bold' : ''}`}>
+                                                    {language === 'ar' ? 'تم التسجيل بنجاح!' : 'Successfully Enrolled!'}
+                                                </h3>
+                                                <p className={`text-squared-gray-600 mb-8 text-lg ${language === 'ar' ? 'font-arabic' : ''}`}>
+                                                    {language === 'ar' ? 'أضف بطاقتك إلى محفظتك الآن' : 'Add your card to your wallet now'}
+                                                </p>
+                                                {cardUrl && (
+                                                    <div className="w-full mb-8">
+                                                        <iframe
+                                                            src={cardUrl}
+                                                            className="w-full h-[550px] rounded-2xl border-2 border-squared-cyan/20 bg-white shadow-inner"
+                                                            title="Loyalty Card"
+                                                            sandbox="allow-same-origin allow-scripts allow-popups allow-forms"
+                                                        />
+                                                    </div>
+                                                )}
+                                                <button
+                                                    onClick={() => setSubmitStatus('idle')}
+                                                    className={`text-base font-bold text-squared-gray-500 hover:text-squared-cyan transition-colors ${language === 'ar' ? 'font-arabic' : ''}`}
+                                                >
+                                                    {language === 'ar' ? 'تسجيل عضو آخر' : 'Register another member'}
+                                                </button>
+                                            </div>
                                         ) : (
-                                            t.loyalty.cta
+                                            <form onSubmit={handleSubmit} className="space-y-6">
+                                                <h3 className={`text-2xl md:text-3xl font-serif font-black text-squared-gray-900 mb-8 text-center ${language === 'ar' ? 'font-arabic font-bold' : ''}`}>
+                                                    {t.loyalty.signup_below}
+                                                </h3>
+
+                                                {/* Name */}
+                                                <div>
+                                                    <label className={`block text-sm font-black text-squared-gray-700 mb-2 uppercase tracking-widest ${language === 'ar' ? 'font-arabic text-right' : ''}`}>
+                                                        {language === 'ar' ? 'الاسم' : 'Name'} *
+                                                    </label>
+                                                    <input
+                                                        type="text"
+                                                        required
+                                                        value={formData.name}
+                                                        onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                                                        className={`w-full px-6 py-4 rounded-2xl border border-squared-cyan/20 focus:border-squared-cyan focus:ring-4 focus:ring-squared-cyan/10 outline-none transition-all bg-white/40 font-medium ${language === 'ar' ? 'font-arabic text-right' : ''}`}
+                                                        placeholder={language === 'ar' ? 'أدخل اسمك' : 'Enter your name'}
+                                                    />
+                                                </div>
+
+                                                {/* Phone */}
+                                                <div>
+                                                    <label className={`block text-sm font-black text-squared-gray-700 mb-2 uppercase tracking-widest ${language === 'ar' ? 'font-arabic text-right' : ''}`}>
+                                                        {language === 'ar' ? 'رقم الهاتف' : 'Phone Number'} *
+                                                    </label>
+                                                    <div className="relative">
+                                                        <span className="absolute left-6 top-1/2 -translate-y-1/2 text-squared-gray-500 font-bold">
+                                                            +966
+                                                        </span>
+                                                        <input
+                                                            type="tel"
+                                                            required
+                                                            value={formData.phone}
+                                                            onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                                                            className={`w-full pl-20 pr-6 py-4 rounded-2xl border border-squared-cyan/20 focus:border-squared-cyan focus:ring-4 focus:ring-squared-cyan/10 outline-none transition-all bg-white/40 font-bold ${language === 'ar' ? 'font-arabic' : ''}`}
+                                                            placeholder={language === 'ar' ? '5XXXXXXXX' : '5XXXXXXXX'}
+                                                            pattern="[0-9]{9,10}"
+                                                        />
+                                                    </div>
+                                                    <p className={`text-xs text-squared-gray-500 mt-2 font-medium ${language === 'ar' ? 'font-arabic text-right' : ''}`}>
+                                                        {language === 'ar' ? 'أدخل رقمك بدون الصفر (مثال: 512345678)' : 'Enter without leading 0 (e.g., 512345678)'}
+                                                    </p>
+                                                </div>
+
+                                                {/* Birthday */}
+                                                <div>
+                                                    <label className={`block text-sm font-black text-squared-gray-700 mb-2 uppercase tracking-widest ${language === 'ar' ? 'font-arabic text-right' : ''}`}>
+                                                        {language === 'ar' ? 'تاريخ الميلاد' : 'Birthday'} *
+                                                    </label>
+                                                    <input
+                                                        type="date"
+                                                        required
+                                                        value={formData.birthday}
+                                                        onChange={(e) => setFormData({ ...formData, birthday: e.target.value })}
+                                                        className={`w-full px-6 py-4 rounded-2xl border border-squared-cyan/20 focus:border-squared-cyan focus:ring-4 focus:ring-squared-cyan/10 outline-none transition-all bg-white/40 font-medium ${language === 'ar' ? 'font-arabic text-right' : ''}`}
+                                                    />
+                                                </div>
+
+                                                {/* Email */}
+                                                <div>
+                                                    <label className={`block text-sm font-black text-squared-gray-700 mb-2 uppercase tracking-widest ${language === 'ar' ? 'font-arabic text-right' : ''}`}>
+                                                        {language === 'ar' ? 'البريد الإلكتروني' : 'Email'} *
+                                                    </label>
+                                                    <input
+                                                        type="email"
+                                                        required
+                                                        value={formData.email}
+                                                        onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                                                        className={`w-full px-6 py-4 rounded-2xl border border-squared-cyan/20 focus:border-squared-cyan focus:ring-4 focus:ring-squared-cyan/10 outline-none transition-all bg-white/40 font-medium ${language === 'ar' ? 'font-arabic text-right' : ''}`}
+                                                        placeholder={language === 'ar' ? 'example@email.com' : 'example@email.com'}
+                                                    />
+                                                </div>
+
+                                                {/* Terms */}
+                                                <div className="flex items-start gap-4">
+                                                    <input
+                                                        type="checkbox"
+                                                        id="terms"
+                                                        required
+                                                        checked={formData.termsAccepted}
+                                                        onChange={(e) => setFormData({ ...formData, termsAccepted: e.target.checked })}
+                                                        className="mt-1.5 w-6 h-6 rounded-lg border-squared-cyan/20 text-squared-cyan focus:ring-squared-cyan"
+                                                    />
+                                                    <label htmlFor="terms" className={`text-base text-squared-gray-600 font-medium ${language === 'ar' ? 'font-arabic text-right' : ''}`}>
+                                                        {language === 'ar' ? 'أوافق على الشروط والأحكام' : 'I agree to the terms and conditions'} *
+                                                    </label>
+                                                </div>
+
+                                                {/* Marketing */}
+                                                <div className="flex items-start gap-4">
+                                                    <input
+                                                        type="checkbox"
+                                                        id="marketing"
+                                                        checked={formData.marketingConsent}
+                                                        onChange={(e) => setFormData({ ...formData, marketingConsent: e.target.checked })}
+                                                        className="mt-1.5 w-6 h-6 rounded-lg border-squared-cyan/20 text-squared-cyan focus:ring-squared-cyan"
+                                                    />
+                                                    <label htmlFor="marketing" className={`text-base text-squared-gray-600 font-medium ${language === 'ar' ? 'font-arabic text-right' : ''}`}>
+                                                        {language === 'ar' ? 'أرغب في تلقي العروض والتحديثات' : 'I want to receive offers and updates'}
+                                                    </label>
+                                                </div>
+
+                                                {submitStatus === 'error' && (
+                                                    <div className="bg-red-50 border border-red-200 text-red-600 px-6 py-4 rounded-2xl text-base font-medium">
+                                                        {language === 'ar' ? 'حدث خطأ. يرجى المحاولة مرة أخرى.' : 'An error occurred. Please try again.'}
+                                                    </div>
+                                                )}
+
+                                                {/* Submit */}
+                                                <button
+                                                    type="submit"
+                                                    disabled={isSubmitting}
+                                                    className={`w-full cursor-pointer bg-squared-cyan text-white px-8 py-5 rounded-full text-base font-black uppercase tracking-[0.2em] shadow-[0_20px_40px_rgba(0,194,224,0.3)] hover:shadow-[0_25px_50px_rgba(0,194,224,0.5)] transition-all duration-500 hover:-translate-y-1 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-4 ${language === 'ar' ? 'font-arabic tracking-normal' : ''}`}
+                                                >
+                                                    {isSubmitting ? (
+                                                        <>
+                                                            <Loader className="w-6 h-6 animate-spin" />
+                                                            {language === 'ar' ? 'جاري التسجيل...' : 'Signing up...'}
+                                                        </>
+                                                    ) : (
+                                                        t.loyalty.cta
+                                                    )}
+                                                </button>
+                                            </form>
                                         )}
-                                    </button>
-                                </form>
-                            )}
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
