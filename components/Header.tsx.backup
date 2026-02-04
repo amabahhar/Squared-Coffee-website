@@ -24,16 +24,24 @@ const Header: React.FC<HeaderProps> = ({ onOrderClick }) => {
   // Prevent background scrolling when mobile menu is open
   useEffect(() => {
     if (isOpen) {
-      // Use overflow hidden on both html and body
-      // This prevents scrolling without changing layout
-      document.documentElement.style.overflow = 'hidden';
-      document.body.style.overflow = 'hidden';
-      document.body.style.touchAction = 'none';
+      const scrollY = window.scrollY;
+
+      // Lock body scroll
+      document.body.style.position = 'fixed';
+      document.body.style.top = `-${scrollY}px`;
+      document.body.style.left = '0';
+      document.body.style.right = '0';
 
       return () => {
-        document.documentElement.style.overflow = '';
-        document.body.style.overflow = '';
-        document.body.style.touchAction = '';
+        // Restore scroll
+        const scrollY = document.body.style.top;
+        document.body.style.position = '';
+        document.body.style.top = '';
+        document.body.style.left = '';
+        document.body.style.right = '';
+
+        // Restore scroll position
+        window.scrollTo(0, parseInt(scrollY || '0') * -1);
       };
     }
   }, [isOpen]);
@@ -129,7 +137,7 @@ const Header: React.FC<HeaderProps> = ({ onOrderClick }) => {
 
       {/* Mobile Menu Overlay */}
       <div
-        className={`lg:hidden fixed inset-0 z-40 flex flex-col justify-center items-center transition-opacity duration-300 ease-out ${isOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
+        className={`lg:hidden fixed top-0 left-0 right-0 bottom-0 z-40 flex flex-col justify-center items-center transition-all duration-300 ease-out ${isOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
           }`}
         style={{
           background: 'linear-gradient(135deg, rgba(15, 23, 42, 0.98) 0%, rgba(30, 41, 59, 0.98) 100%)',
