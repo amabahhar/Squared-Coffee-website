@@ -138,9 +138,9 @@ const Testimonials: React.FC = () => {
                     pointerEvents: offset === 0 ? 'auto' : 'none',
                 }}
             >
-                <div className="glass-card rounded-3xl md:rounded-[3rem] p-8 md:p-16 shadow-2xl relative overflow-hidden border border-white/20 backdrop-blur-xl bg-white/70 h-full group">
+                <div className="glass rounded-3xl md:rounded-[3rem] p-8 md:p-16 shadow-2xl relative overflow-hidden border border-white/20 backdrop-blur-xl h-full group">
                     {/* Glassmorphism gradient overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-white/50 via-white/30 to-transparent pointer-events-none" />
+                    <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent pointer-events-none"></div>
 
                     {/* Geometric Accents */}
                     <div className="absolute -top-4 -right-4 opacity-5 group-hover:opacity-15 transition-opacity">
@@ -210,9 +210,9 @@ const Testimonials: React.FC = () => {
 
             <div className="container mx-auto px-4 md:px-12 relative z-10">
                 {/* Header */}
-                <div className="glass-card max-w-4xl mx-auto p-8 md:p-12 rounded-[3rem] border border-squared-cyan/20 shadow-warm text-center mb-16 relative overflow-hidden group">
+                <div className="glass max-w-4xl mx-auto p-8 md:p-12 rounded-[3.5rem] border border-white/30 shadow-warm text-center mb-16 relative overflow-hidden group backdrop-blur-md">
                     {/* Glass gradient overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-b from-white/40 to-transparent opacity-50 pointer-events-none"></div>
+                    <div className="absolute inset-0 bg-gradient-to-b from-white/10 to-transparent pointer-events-none"></div>
 
                     {/* Geometric Accents */}
                     <div className="absolute top-0 right-0 opacity-10 group-hover:opacity-20 transition-opacity">

@@ -10,6 +10,7 @@ export const translations = {
             social: 'Social',
             testimonials: 'Testimonials',
             contact: 'Contact',
+            loyalty: 'Loyalty',
             order: 'Order'
         },
         hero: {
@@ -179,6 +180,7 @@ export const translations = {
             social: 'تواصل معنا',
             testimonials: 'آراء العملاء',
             contact: 'اتصل بنا',
+            loyalty: 'بطاقة الولاء',
             order: 'اطلب الآن'
         },
         hero: {

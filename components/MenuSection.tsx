@@ -28,7 +28,8 @@ const MenuSection: React.FC<MenuSectionProps> = ({ onItemClick }) => {
       <div className="container mx-auto px-4 md:px-12 relative z-10">
         <div className="flex flex-col lg:flex-row gap-16 lg:gap-24 items-start">
           <div className="w-full lg:w-1/4 min-w-0">
-            <div className="sticky top-24 md:top-32 glass-card p-6 md:p-8 rounded-[2rem] md:rounded-[2.5rem] shadow-warm border border-squared-cyan/20 overflow-hidden">
+            <div className="sticky top-24 md:top-32 glass p-6 md:p-8 rounded-[2rem] md:rounded-[2.5rem] shadow-warm border border-white/30 overflow-hidden relative group">
+              <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent pointer-events-none"></div>
               {/* Geometric Accents */}
               <div className="absolute -top-4 -right-4 opacity-10 pointer-events-none">
                 <div className="w-16 h-16 border-2 border-squared-navy rounded-sm rotate-12"></div>

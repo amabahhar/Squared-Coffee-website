@@ -42,8 +42,8 @@ const AboutSection: React.FC = () => {
           </div>
 
           {/* Text Content */}
-          <div className="glass-card p-6 md:p-10 rounded-[2.5rem] shadow-warm-lg border border-white/40 relative overflow-hidden group">
-            <div className="absolute inset-0 bg-gradient-to-br from-squared-cyan/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-1000"></div>
+          <div className="glass p-8 md:p-16 rounded-[2.5rem] md:rounded-[4rem] shadow-warm-lg border border-white/30 relative overflow-hidden group backdrop-blur-md">
+            <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent pointer-events-none"></div>
 
             {/* Geometric Accents */}
             <div className="absolute top-6 right-6 opacity-20 pointer-events-none transition-opacity duration-700 group-hover:opacity-40">

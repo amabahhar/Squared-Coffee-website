@@ -24,9 +24,9 @@
   --color-bg-white: #FFFFFF;
 
   /* Glassmorphism Defaults */
-  --glass-bg: rgba(255, 255, 255, 0.45);
+  --glass-bg: rgba(255, 255, 255, 0.3);
   --glass-bg-dark: rgba(0, 0, 0, 0.55);
-  --glass-border: rgba(255, 255, 255, 0.4);
+  --glass-border: rgba(255, 255, 255, 0.35);
   --glass-border-light: rgba(255, 255, 255, 0.15);
   --glass-blur: 20px;
 

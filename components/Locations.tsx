@@ -22,8 +22,8 @@ const Locations: React.FC = () => {
 
         {/* Section Heading */}
         <div className="mb-12 inline-block">
-          <div className="glass-card px-8 py-4 rounded-full border border-squared-cyan/20 shadow-warm relative overflow-hidden group">
-            <div className="absolute inset-0 bg-white/20 pointer-events-none"></div>
+          <div className="glass px-8 py-4 rounded-full border border-white/30 shadow-warm relative overflow-hidden group">
+            <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent pointer-events-none"></div>
             {/* Geometric Accents */}
             <div className="absolute -top-2 -right-2 opacity-10 group-hover:opacity-20 transition-opacity">
               <div className="w-8 h-8 border border-squared-cyan rounded-sm rotate-12"></div>

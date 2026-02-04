@@ -123,16 +123,22 @@ const LoyaltySection: React.FC = () => {
                     <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent pointer-events-none"></div>
 
                     {/* Geometric Accents - Main Bubble */}
-                    <div className="absolute top-8 right-8 opacity-20 pointer-events-none group-hover:opacity-40 transition-opacity duration-700">
-                        <div className="relative w-24 h-24">
+                    <div className="absolute top-12 right-12 opacity-15 pointer-events-none group-hover:opacity-30 transition-opacity duration-700 -rotate-12">
+                        <div className="relative w-32 h-32">
                             <div className="absolute inset-0 border-2 border-squared-navy rounded-sm"></div>
-                            <div className="absolute inset-4 border-2 border-squared-cyan/60 rounded-sm"></div>
+                            <div className="absolute inset-6 border-2 border-squared-cyan/60 rounded-sm"></div>
                         </div>
                     </div>
-                    <div className="absolute bottom-8 left-8 opacity-20 pointer-events-none group-hover:opacity-40 transition-opacity duration-700">
-                        <div className="w-32 h-16 overflow-hidden">
-                            <div className="w-32 h-32 border-2 border-squared-navy rounded-full"></div>
+                    <div className="absolute bottom-16 left-12 opacity-15 pointer-events-none group-hover:opacity-30 transition-opacity duration-700 rotate-12">
+                        <div className="w-40 h-20 overflow-hidden">
+                            <div className="w-40 h-40 border-2 border-squared-navy rounded-full"></div>
                         </div>
+                    </div>
+                    <div className="absolute top-1/4 left-8 opacity-10 pointer-events-none group-hover:opacity-25 transition-opacity duration-700">
+                        <div className="w-0 h-0 border-l-[20px] border-l-transparent border-r-[20px] border-r-transparent border-b-[35px] border-b-squared-cyan"></div>
+                    </div>
+                    <div className="absolute bottom-1/3 right-10 opacity-10 pointer-events-none group-hover:opacity-25 transition-opacity duration-700">
+                        <div className="w-16 h-16 border-2 border-squared-cyan/40 rotate-45"></div>
                     </div>
 
                     <div className="relative z-10">
@@ -152,8 +158,8 @@ const LoyaltySection: React.FC = () => {
                         {/* Main Content Grid */}
                         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-16 items-start">
                             {/* Left: Card Visual */}
-                            <div className="relative p-2">
-                                <div className="text-center bg-white/10 rounded-[2rem] p-8 md:p-12 border border-white/20 shadow-xl">
+                            <div className="relative p-2 h-full flex flex-col justify-center">
+                                <div className="text-center p-4 md:p-8">
                                     {/* Gift Icon */}
                                     <div className="inline-flex items-center justify-center w-24 h-24 md:w-32 md:h-32 rounded-3xl bg-gradient-to-br from-squared-cyan to-squared-cyan-dark shadow-warm-lg mb-8">
                                         <Gift className="w-12 h-12 md:w-16 md:h-16 text-white" strokeWidth={1.5} />
@@ -184,7 +190,7 @@ const LoyaltySection: React.FC = () => {
 
                             {/* Right: Signup Form */}
                             <div className="relative p-2">
-                                <div className="bg-white/20 rounded-[2rem] p-8 md:p-12 border border-white/30 shadow-xl h-full">
+                                <div className="p-4 md:p-8 h-full">
                                     <div className="relative z-10">
                                         {submitStatus === 'success' ? (
                                             <div className="text-center py-10">
