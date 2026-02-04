@@ -36,6 +36,7 @@ export const translations = {
             eyebrow: 'The Menu',
             title: 'Curated',
             title_sub: 'Selection',
+            swipeToExplore: 'Swipe to explore',
             categories: {
                 "Brunch Plates": "Brunch Plates",
                 "Brunch Toasties": "Brunch Toasties",
@@ -206,6 +207,7 @@ export const translations = {
             eyebrow: 'المنيو',
             title: 'تشكيلة',
             title_sub: 'مختارة',
+            swipeToExplore: 'اسحب للاستكشاف',
             categories: {
                 "Brunch Plates": "أطباق البرانش",
                 "Brunch Toasties": "توست البرانش",

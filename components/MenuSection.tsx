@@ -164,7 +164,9 @@ const MenuSection: React.FC<MenuSectionProps> = ({ onItemClick }) => {
             {/* Scroll indicator hint */}
             <div className="flex items-center gap-2 mb-3 px-2">
               <div className="h-0.5 flex-1 bg-gradient-to-r from-transparent via-squared-cyan/20 to-transparent"></div>
-              <span className="text-[10px] text-squared-cyan/60 font-black uppercase tracking-wider">Swipe to explore</span>
+              <span className={`text-[10px] text-squared-cyan/60 font-black uppercase tracking-wider ${language === 'ar' ? 'font-arabic' : ''}`}>
+                {t.menu.swipeToExplore || 'SWIPE TO EXPLORE'}
+              </span>
               <div className="h-0.5 flex-1 bg-gradient-to-r from-transparent via-squared-cyan/20 to-transparent"></div>
             </div>
 
