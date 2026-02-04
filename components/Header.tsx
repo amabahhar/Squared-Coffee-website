@@ -104,13 +104,15 @@ const Header: React.FC<HeaderProps> = ({ onOrderClick }) => {
         <div className="absolute inset-0 bg-gradient-to-br from-squared-cyan/10 to-transparent pointer-events-none"></div>
         <nav className="flex flex-col items-center space-y-12 relative z-10 w-full">
 
-          {/* Mobile Lang Toggle */}
+          {/* Mobile Lang Toggle - Now visible at top */}
           <button
             onClick={() => { toggleLanguage(); }}
-            className="absolute top-[-80px] right-8 flex items-center gap-2 px-4 py-2 rounded-full glass border border-white/20 text-white"
+            className="flex items-center gap-3 px-6 py-3 rounded-full glass border border-white/30 text-white hover:border-squared-cyan/50 transition-all"
           >
-            <Globe className="w-4 h-4" />
-            <span className="text-xs font-black">{language === 'en' ? 'العربية' : 'English'}</span>
+            <Globe className="w-5 h-5" />
+            <span className={`text-sm font-black ${language === 'ar' ? 'font-arabic' : ''}`}>
+              {language === 'en' ? 'العربية' : 'English'}
+            </span>
           </button>
 
           {NAV_ITEMS.map((item) => (
