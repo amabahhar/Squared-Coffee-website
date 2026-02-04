@@ -14,6 +14,46 @@ const Hero: React.FC = () => {
         <div className="glass p-6 md:p-16 rounded-[2rem] md:rounded-[3rem] max-w-6xl w-full border border-white/30 shadow-2xl relative overflow-hidden group backdrop-blur-md">
           <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent pointer-events-none"></div>
 
+          {/* Geometric Shapes - Top Right */}
+          <div className="absolute top-4 right-4 md:top-8 md:right-8 opacity-40 pointer-events-none">
+            {/* Concentric Squares */}
+            <div className="relative w-16 h-16 md:w-24 md:h-24">
+              <div className="absolute inset-0 border-2 border-squared-cyan/60 rounded-sm backdrop-blur-sm"></div>
+              <div className="absolute inset-2 border-2 border-squared-cyan/40 rounded-sm"></div>
+              <div className="absolute inset-4 border-2 border-squared-cyan/20 rounded-sm"></div>
+            </div>
+          </div>
+
+          {/* Geometric Shapes - Bottom Left */}
+          <div className="absolute bottom-4 left-4 md:bottom-8 md:left-8 opacity-40 pointer-events-none">
+            {/* Triangles */}
+            <div className="relative w-20 h-20 md:w-32 md:h-32">
+              <svg viewBox="0 0 100 100" className="w-full h-full">
+                <polygon points="50,10 90,90 10,90" fill="none" stroke="currentColor" strokeWidth="2" className="text-squared-cyan/60" />
+                <polygon points="50,25 75,75 25,75" fill="none" stroke="currentColor" strokeWidth="2" className="text-[#1e3a5f]/60" />
+              </svg>
+            </div>
+          </div>
+
+          {/* Geometric Shapes - Bottom Right */}
+          <div className="absolute bottom-4 right-4 md:bottom-8 md:right-8 opacity-40 pointer-events-none">
+            {/* Semi-circles and squares */}
+            <div className="relative w-16 h-16 md:w-24 md:h-24">
+              <div className="absolute bottom-0 left-0 w-full h-1/2 border-2 border-t-0 border-squared-cyan/60 rounded-b-full backdrop-blur-sm"></div>
+              <div className="absolute top-0 right-0 w-8 h-8 md:w-12 md:h-12 border-2 border-[#1e3a5f]/60 rounded-sm"></div>
+            </div>
+          </div>
+
+          {/* Geometric Shapes - Top Left */}
+          <div className="absolute top-4 left-4 md:top-8 md:left-8 opacity-40 pointer-events-none">
+            {/* Layered squares with gradient */}
+            <div className="relative w-20 h-20 md:w-28 md:h-28">
+              <div className="absolute inset-0 bg-gradient-to-br from-squared-cyan/20 to-[#1e3a5f]/20 backdrop-blur-sm rounded-sm"></div>
+              <div className="absolute inset-0 border-2 border-squared-cyan/40 rounded-sm"></div>
+              <div className="absolute top-2 right-2 w-8 h-8 md:w-12 md:h-12 bg-[#1e3a5f]/30 backdrop-blur-sm rounded-sm"></div>
+            </div>
+          </div>
+
           <div className="relative z-10">
             <span className={`inline-block py-2 px-6 glass-dark text-white rounded-full text-[10px] md:text-xs font-black tracking-[0.3em] uppercase mb-6 md:mb-10 shadow-lg border border-white/10 ${language === 'ar' ? 'font-arabic tracking-normal' : ''}`}>
               {t.hero.est}
