@@ -42,19 +42,19 @@ const AboutSection: React.FC = () => {
           </div>
 
           {/* Text Content */}
-          <div className="glass p-8 md:p-16 rounded-[2.5rem] md:rounded-[4rem] shadow-warm-lg border border-white/30 relative overflow-hidden group backdrop-blur-md">
+          <div className="glass p-8 md:p-16 rounded-[2.5rem] md:rounded-[4rem] shadow-2xl border border-white/30 dark:border-white/10 relative overflow-hidden group backdrop-blur-md transition-colors duration-500">
             <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent pointer-events-none"></div>
 
             {/* Geometric Accents */}
-            <div className="absolute top-6 right-6 opacity-20 pointer-events-none transition-opacity duration-700 group-hover:opacity-40">
+            <div className="absolute top-6 right-6 opacity-20 pointer-events-none transition-all duration-700 group-hover:opacity-40">
               <div className="relative w-12 h-12">
-                <div className="absolute inset-0 border-2 border-squared-navy rounded-sm"></div>
+                <div className="absolute inset-0 border-2 border-squared-navy dark:border-white/20 rounded-sm"></div>
                 <div className="absolute inset-2 border-2 border-squared-cyan/60 rounded-sm"></div>
               </div>
             </div>
-            <div className="absolute bottom-6 left-6 opacity-20 pointer-events-none transition-opacity duration-700 group-hover:opacity-40">
+            <div className="absolute bottom-6 left-6 opacity-20 pointer-events-none transition-all duration-700 group-hover:opacity-40">
               <div className="relative w-16 h-8 overflow-hidden">
-                <div className="absolute bottom-0 left-0 w-16 h-16 border-2 border-squared-navy rounded-full"></div>
+                <div className="absolute bottom-0 left-0 w-16 h-16 border-2 border-squared-navy dark:border-white/20 rounded-full"></div>
                 <div className="absolute bottom-1 left-1 w-14 h-14 border-2 border-squared-cyan/40 rounded-full"></div>
               </div>
             </div>
@@ -73,7 +73,7 @@ const AboutSection: React.FC = () => {
                   decoding="async"
                   className="rounded-2xl w-32 aspect-[4/5] object-cover shadow-lg mb-4 transform rotate-2"
                 />
-                <div className="p-1 glass-card rounded-xl shadow-lg w-20 absolute -bottom-4 -left-5 transform -rotate-3">
+                <div className="p-1 glass-card dark:border-white/10 rounded-xl shadow-lg w-20 absolute -bottom-4 -left-5 transform -rotate-3 transition-colors duration-500">
                   <img
                     src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&q=80&w=300"
                     alt="Cafe Atmosphere"
@@ -84,11 +84,11 @@ const AboutSection: React.FC = () => {
                 </div>
               </div>
 
-              <h2 className={`text-3xl md:text-5xl font-serif text-squared-gray-900 mb-6 md:mb-8 leading-[1.1] font-black tracking-tight ${language === 'ar' ? 'font-arabic font-bold' : ''}`}>
+              <h2 className={`text-3xl md:text-5xl font-serif text-squared-brown-dark dark:text-white mb-6 md:mb-8 leading-[1.1] font-black tracking-tight transition-colors duration-500 ${language === 'ar' ? 'font-arabic font-bold' : ''}`}>
                 {t.about.title_start}<br /> <span className="text-squared-cyan">{t.about.title_highlight}</span>
               </h2>
 
-              <div className={`space-y-6 text-squared-gray-800 font-sans leading-relaxed text-sm md:text-base max-w-xl font-medium opacity-90 ${language === 'ar' ? 'font-arabic' : ''}`}>
+              <div className={`space-y-6 text-squared-brown dark:text-white/80 font-sans leading-relaxed text-sm md:text-base max-w-xl font-medium opacity-90 transition-colors duration-500 ${language === 'ar' ? 'font-arabic' : ''}`}>
                 <p>
                   {t.about.p1}
                 </p>
@@ -100,10 +100,10 @@ const AboutSection: React.FC = () => {
                 </p>
               </div>
 
-              <div className="mt-8 md:mt-12 pt-8 border-t border-squared-gray-900/10 flex flex-col-reverse md:flex-row items-center justify-between gap-6 md:gap-0">
+              <div className="mt-8 md:mt-12 pt-8 border-t border-squared-brown-dark/10 dark:border-white/10 flex flex-col-reverse md:flex-row items-center justify-between gap-6 md:gap-0 transition-colors duration-500">
                 <div className="text-center md:text-left">
                   <span className={`block text-[10px] font-black tracking-[0.4em] uppercase text-squared-cyan mb-2 ${language === 'ar' ? 'font-arabic tracking-normal' : ''}`}>{t.about.since}</span>
-                  <span className={`font-serif italic text-squared-gray-900 text-xl font-black tracking-tight ${language === 'ar' ? 'font-arabic not-italic' : ''}`}>{t.about.team}</span>
+                  <span className={`font-serif italic text-squared-brown-dark dark:text-white text-xl font-black tracking-tight transition-colors duration-500 ${language === 'ar' ? 'font-arabic not-italic' : ''}`}>{t.about.team}</span>
                 </div>
 
               </div>

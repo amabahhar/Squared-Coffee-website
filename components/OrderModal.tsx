@@ -31,7 +31,7 @@ const OrderModal: React.FC<OrderModalProps> = ({ isOpen, onClose, initialUrl }) 
 
     return (
         <div className="fixed inset-0 z-[60] flex items-center justify-center bg-black/50 backdrop-blur-xl p-4 md:p-12 animate-fade-in">
-            <div className="relative w-full h-full max-w-6xl glass rounded-[4.5rem] shadow-[0_40px_100px_rgba(0,0,0,0.2)] overflow-hidden flex flex-col border border-white/40 group">
+            <div className="relative w-full h-full max-w-6xl glass rounded-[4.5rem] shadow-[0_40px_100px_rgba(0,0,0,0.2)] dark:shadow-[0_40px_100px_rgba(0,0,0,0.5)] overflow-hidden flex flex-col border border-white/40 dark:border-white/10 group transition-colors duration-500">
                 <div className="absolute inset-0 bg-gradient-to-br from-squared-cyan/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-1000 pointer-events-none"></div>
 
                 {/* Geometric Accents */}
@@ -43,25 +43,25 @@ const OrderModal: React.FC<OrderModalProps> = ({ isOpen, onClose, initialUrl }) 
                 </div>
                 <div className="absolute bottom-10 left-10 opacity-10 pointer-events-none group-hover:opacity-20 transition-opacity duration-700">
                     <div className="w-32 h-16 overflow-hidden">
-                        <div className="w-32 h-32 border-2 border-squared-navy rounded-full"></div>
+                        <div className="w-32 h-32 border-2 border-squared-navy dark:border-white/20 rounded-full transition-colors duration-500"></div>
                     </div>
                 </div>
 
                 {/* Header */}
                 <div className="flex justify-between items-center px-12 py-10 border-b border-white/20 glass backdrop-blur-3xl relative z-10">
-                    <h2 className="text-4xl font-serif font-black text-squared-gray-900 tracking-tight">
+                    <h2 className="text-4xl font-serif font-black text-squared-brown-dark dark:text-white tracking-tight transition-colors duration-500">
                         Order <span className="text-squared-cyan">Online</span>
                     </h2>
                     <button
                         onClick={onClose}
-                        className="p-5 glass rounded-full transition-all duration-700 cursor-pointer text-squared-gray-600 hover:text-red-500 hover:scale-110 shadow-2xl border border-white/50 active:scale-95 group/close"
+                        className="p-5 glass rounded-full transition-all duration-700 cursor-pointer text-squared-brown-light dark:text-white/60 hover:text-red-500 hover:scale-110 shadow-2xl border border-white/50 dark:border-white/10 active:scale-95 group/close"
                     >
                         <X className="w-8 h-8 group-hover/close:rotate-90 transition-transform duration-500" />
                     </button>
                 </div>
 
                 {/* Iframe Container */}
-                <div className="flex-grow relative bg-squared-cream/20">
+                <div className="flex-grow relative bg-squared-cream/20 dark:bg-black/20 transition-colors duration-500">
                     <iframe
                         key={key}
                         src={targetSrc}

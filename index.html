@@ -25,7 +25,24 @@
     href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&family=Rubik:ital,wght@0,300..900;1,300..900&family=Cairo:wght@400;600;700;900&display=block"
     rel="stylesheet">
   <script>
+    // Blocking script to prevent theme flash (FOUC)
+    (function () {
+      try {
+        var saved = localStorage.getItem('squared_theme_v2');
+        var isDark = saved === 'dark' || (!saved && window.matchMedia('(prefers-color-scheme: dark)').matches);
+        if (isDark) {
+          document.documentElement.classList.add('dark');
+          // Inject immediate styles to lock the background color before CSS loads
+          document.write('<style>html,body{background-color:#111827!important;color:#ffffff!important;}</style>');
+        } else {
+          document.documentElement.classList.remove('dark');
+        }
+      } catch (e) { }
+    })();
+  </script>
+  <script>
     tailwind.config = {
+      darkMode: 'class',
       theme: {
         extend: {
           colors: {
@@ -53,11 +70,22 @@
               cream: '#FFFFFF',      // White
               'cream-light': '#F9FAFB', // Gray-50
               'cream-soft': '#F3F4F6',  // Gray-100
+              gray: {
+                100: '#F3F4F6',
+                200: '#E5E7EB',
+                300: '#D1D5DB',
+                400: '#9CA3AF',
+                500: '#6B7280',
+                600: '#4B5563',
+                700: '#374151',
+                800: '#1F2937',
+                900: '#111827',
+              },
             }
           },
           boxShadow: {
-            'warm': '0 4px 12px rgba(0, 159, 184, 0.3)',     // Adjusted Cyan glow
-            'warm-lg': '0 8px 24px rgba(0, 159, 184, 0.4)',  // Adjusted Cyan glow
+            'warm': '0 4px 12px rgba(0, 0, 0, 0.08)',
+            'warm-lg': '0 8px 24px rgba(0, 0, 0, 0.12)',
           },
           transitionTimingFunction: {
             'natural': 'cubic-bezier(0.33, 1, 0.68, 1)',
@@ -101,7 +129,7 @@
 
 </head>
 
-<body class="bg-squared-cream text-squared-brown-dark antialiased">
+<body class="bg-squared-cream text-squared-brown-dark dark:bg-squared-brown-dark dark:text-white antialiased">
   <div id="root"></div>
   <script type="module" src="/index.tsx"></script>
 </body>
