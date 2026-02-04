@@ -134,11 +134,11 @@ const Header: React.FC<HeaderProps> = ({ onOrderClick }) => {
 
       {/* Mobile Menu Overlay */}
       <div
-        className={`lg:hidden fixed inset-0 z-40 flex flex-col justify-center items-center transition-all duration-500 ease-out ${isOpen ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0 pointer-events-none'
+        className={`lg:hidden fixed inset-0 z-40 flex flex-col justify-center items-center transition-all duration-300 ease-out ${isOpen ? 'opacity-100 scale-100' : 'opacity-0 scale-95 pointer-events-none'
           }`}
         style={{
           background: 'linear-gradient(135deg, rgba(15, 23, 42, 0.98) 0%, rgba(30, 41, 59, 0.98) 100%)',
-          willChange: isOpen ? 'transform, opacity' : 'auto',
+          willChange: isOpen ? 'opacity, transform' : 'auto',
         }}
       >
         <div className="absolute inset-0 bg-gradient-to-br from-squared-cyan/10 to-transparent pointer-events-none"></div>
