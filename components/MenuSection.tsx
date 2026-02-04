@@ -41,12 +41,15 @@ const MenuSection: React.FC<MenuSectionProps> = ({ onItemClick }) => {
                 {t.menu.eyebrow}
               </span>
 
-              <div className="flex flex-row md:flex-col items-start gap-3 overflow-x-auto md:overflow-visible pb-4 md:pb-0 scrollbar-hide mask-fade-right md:mask-none w-full max-w-full">
+              <div
+                className="flex flex-row md:flex-col items-start gap-4 overflow-x-auto md:overflow-visible pb-4 md:pb-0 md:scrollbar-hide mask-fade-right md:mask-none w-full max-w-full px-2"
+                style={{ WebkitOverflowScrolling: 'touch' }}
+              >
                 {MENU_CATEGORIES.map((category) => (
                   <button
                     key={category}
                     onClick={() => setActiveCategory(category)}
-                    className={`flex-shrink-0 w-auto md:w-full cursor-pointer text-left text-xs md:text-sm font-black uppercase tracking-wider transition-all duration-500 px-6 py-3 md:py-4 rounded-xl border whitespace-nowrap ${activeCategory === category
+                    className={`flex-shrink-0 w-auto md:w-full cursor-pointer text-left text-sm md:text-sm font-black uppercase tracking-wider transition-all duration-500 px-8 py-4 md:py-4 rounded-xl border whitespace-nowrap min-w-[120px] ${activeCategory === category
                       ? 'bg-squared-cyan text-white shadow-warm scale-[1.05] border-transparent'
                       : 'bg-white/40 md:bg-transparent text-squared-gray-600 border-transparent hover:border-white/20'
                       } ${language === 'ar' ? 'font-arabic tracking-normal text-right' : ''}`}
