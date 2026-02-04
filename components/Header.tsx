@@ -87,8 +87,8 @@ const Header: React.FC<HeaderProps> = ({ onOrderClick, isDarkMode, toggleDarkMod
             onClick={toggleLanguage}
             className="flex items-center gap-2 px-3 py-1.5 rounded-full border border-squared-brown-dark/10 dark:border-white/10 hover:border-squared-cyan/50 hover:bg-white/50 dark:hover:bg-white/10 transition-all cursor-pointer group"
           >
-            <Globe className="w-4 h-4 text-squared-brown-light dark:text-white/70 group-hover:text-squared-cyan" />
-            <span className={`text-[10px] font-black uppercase dark:text-white ${language === 'ar' ? 'font-serif tracking-widest' : 'font-arabic'}`}>
+            <Globe className="w-4 h-4 text-squared-brown-dark dark:text-white/70 group-hover:text-squared-cyan" />
+            <span className={`text-[10px] font-black uppercase text-squared-brown-dark dark:text-white ${language === 'ar' ? 'font-serif tracking-widest' : 'font-arabic'}`}>
               {language === 'en' ? 'AR' : 'EN'}
             </span>
           </button>
@@ -128,8 +128,8 @@ const Header: React.FC<HeaderProps> = ({ onOrderClick, isDarkMode, toggleDarkMod
             onClick={toggleLanguage}
             className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-full border border-squared-brown-dark/10 dark:border-white/10 hover:border-squared-cyan/50 hover:bg-white/50 dark:hover:bg-white/10 transition-all cursor-pointer"
           >
-            <Globe className="w-4 h-4 text-squared-brown-light dark:text-white/70" />
-            <span className={`text-[10px] font-black uppercase dark:text-white ${language === 'en' ? 'font-serif tracking-widest' : 'font-arabic'}`}>
+            <Globe className="w-4 h-4 text-squared-brown-dark dark:text-white/70" />
+            <span className={`text-[10px] font-black uppercase text-squared-brown-dark dark:text-white ${language === 'en' ? 'font-serif tracking-widest' : 'font-arabic'}`}>
               {language === 'en' ? 'AR' : 'EN'}
             </span>
           </button>
