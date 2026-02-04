@@ -67,25 +67,16 @@ const Locations: React.FC = () => {
                       </div>
                       <div className="relative z-10">
 
-                        {/* Mobile Embedded Image (Float Style - Incorporated in Bubble) */}
-                        <div className={`lg:hidden float-right mb-4 w-32 sm:w-40 relative z-20 pointer-events-none ${language === 'ar' ? 'float-left ml-6 mr-0' : 'float-right ml-6'}`}>
-                          <img
-                            src="https://images.unsplash.com/photo-1493857671505-72967e2e2760?auto=format&fit=crop&q=80&w=400"
-                            alt="Location Map Visual"
-                            className="rounded-2xl w-full aspect-[4/5] object-cover shadow-lg mb-4 transform rotate-2 border border-white/20"
-                          />
-                        </div>
-
-                        <h2 className={`text-4xl md:text-6xl font-serif text-squared-gray-900 mb-10 leading-tight font-black tracking-tight group-hover/card:text-squared-cyan transition-colors duration-500 ${language === 'ar' ? 'font-arabic font-bold' : ''}`}>
+                        <h2 className={`text-3xl md:text-6xl font-serif text-squared-gray-900 mb-6 md:mb-10 leading-tight font-black tracking-tight group-hover/card:text-squared-cyan transition-colors duration-500 ${language === 'ar' ? 'font-arabic font-bold' : ''}`}>
                           {language === 'ar' ? 'القطيف - الفرع الرئيسي' : loc.name}
                         </h2>
-                        <p className={`text-lg md:text-xl text-squared-gray-800 font-sans leading-relaxed mb-12 font-medium opacity-85 underline decoration-squared-cyan/15 underline-offset-8 ${language === 'ar' ? 'font-arabic' : ''}`}>
+                        <p className={`text-base md:text-xl text-squared-gray-800 font-sans leading-relaxed mb-8 md:mb-12 font-medium opacity-85 ${language === 'ar' ? 'font-arabic' : ''}`}>
                           {t.locations.desc}
                         </p>
 
-                        <div className="space-y-8 text-squared-gray-800 font-sans font-medium">
+                        <div className="space-y-6 md:space-y-8 text-squared-gray-800 font-sans font-medium">
                           <div className="flex items-start">
-                            <MapPin className={`w-6 h-6 text-squared-cyan mt-0.5 ${language === 'ar' ? 'ml-6' : 'mr-6'}`} />
+                            <MapPin className={`w-5 h-5 md:w-6 md:h-6 text-squared-cyan mt-0.5 flex-shrink-0 ${language === 'ar' ? 'ml-4 md:ml-6' : 'mr-4 md:mr-6'}`} />
                             <span className={`text-xs font-black uppercase tracking-widest leading-relaxed ${language === 'ar' ? 'font-arabic tracking-normal' : ''}`}>
                               {language === 'ar'
                                 ? <>شارع الملك عبدالعزيز، الشاطئ<br />القطيف، المملكة العربية السعودية</>
@@ -94,7 +85,7 @@ const Locations: React.FC = () => {
                             </span>
                           </div>
                           <div className="flex items-center">
-                            <Clock className={`w-6 h-6 text-squared-cyan ${language === 'ar' ? 'ml-6' : 'mr-6'}`} />
+                            <Clock className={`w-5 h-5 md:w-6 md:h-6 text-squared-cyan flex-shrink-0 ${language === 'ar' ? 'ml-4 md:ml-6' : 'mr-4 md:mr-6'}`} />
                             <span className={`text-xs font-black uppercase tracking-widest ${language === 'ar' ? 'font-arabic tracking-normal' : ''}`}>{t.locations.hours}</span>
                           </div>
                         </div>
