@@ -14,7 +14,19 @@ interface LanguageContextType {
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
 export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-    const [language, setLanguage] = useState<Language>('en');
+    const [language, setLanguage] = useState<Language>(() => {
+        // Try to get from local storage first
+        const saved = localStorage.getItem('squared_language') as Language;
+        if (saved) return saved;
+
+        // Otherwise check device language
+        const deviceLang = navigator.language.toLowerCase();
+        return deviceLang.startsWith('ar') ? 'ar' : 'en';
+    });
+
+    useEffect(() => {
+        localStorage.setItem('squared_language', language);
+    }, [language]);
 
     useEffect(() => {
         // Update HTML attributes for global direction and language
