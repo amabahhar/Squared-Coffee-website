@@ -28,7 +28,7 @@ const MenuSection: React.FC<MenuSectionProps> = ({ onItemClick }) => {
       <div className="container mx-auto px-4 md:px-12 relative z-10">
         <div className="flex flex-col lg:flex-row gap-16 lg:gap-24 items-start">
           <div className="w-full lg:w-1/4 min-w-0">
-            <div className="relative md:sticky md:top-32 glass p-6 md:p-8 rounded-[2rem] md:rounded-[2.5rem] shadow-warm border border-white/30 overflow-x-visible overflow-y-hidden md:overflow-hidden relative group">
+            <div className="relative md:sticky md:top-32 glass p-6 md:p-8 rounded-[2rem] md:rounded-[2.5rem] shadow-warm border border-white/30 overflow-x-visible overflow-y-hidden md:overflow-hidden group">
               <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent pointer-events-none"></div>
               {/* Geometric Accents */}
               <div className="absolute -top-4 -right-4 opacity-10 pointer-events-none">
@@ -42,45 +42,7 @@ const MenuSection: React.FC<MenuSectionProps> = ({ onItemClick }) => {
               </span>
 
               <div
-                ref={(el) => {
-                  if (!el) return;
-                  // Attach Passive Touch Listeners for smooth scrolling
-                  // We use a ref callback to ensure we attach to the real DOM element
-                  let startX = 0;
-                  let startScrollLeft = 0;
-                  let isDown = false;
-
-                  const onTouchStart = (e: TouchEvent) => {
-                    isDown = true;
-                    startX = e.touches[0].pageX - el.offsetLeft;
-                    startScrollLeft = el.scrollLeft;
-                    // crucial: don't stop propagation here to allow vertical scroll start
-                  };
-
-                  const onTouchMove = (e: TouchEvent) => {
-                    if (!isDown) return;
-                    // Calculate distance moved
-                    const x = e.touches[0].pageX - el.offsetLeft;
-                    const walk = (x - startX) * 2; // Scroll-fast factor
-
-                    // If moving horizontally significantly
-                    if (Math.abs(walk) > 5) {
-                      el.scrollLeft = startScrollLeft - walk;
-                      // Only stop propagation if we are actually scrolling horizontally
-                      if (e.cancelable) e.stopPropagation();
-                    }
-                  };
-
-                  const onTouchEnd = () => {
-                    isDown = false;
-                  };
-
-                  // Clean up previous listeners if any (simple implementation)
-                  el.ontouchstart = onTouchStart;
-                  el.ontouchmove = onTouchMove;
-                  el.ontouchend = onTouchEnd;
-                }}
-                className="flex flex-row md:flex-col items-start gap-3 overflow-x-auto md:overflow-visible pb-4 md:pb-0 scrollbar-hide w-full max-w-full -mx-6 px-6 md:mx-0 md:px-0 relative z-50 touch-pan-x"
+                className="horizontal-scroll flex flex-row md:flex-col items-start gap-3 overflow-x-auto md:overflow-visible pb-4 md:pb-0 scrollbar-hide w-full -mx-6 px-6 md:mx-0 md:px-0"
               >
                 {MENU_CATEGORIES.map((category) => (
                   <button

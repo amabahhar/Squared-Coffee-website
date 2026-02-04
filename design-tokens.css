@@ -98,6 +98,8 @@
   transform: translateZ(0);
 }
 
+
+
 .glass-card {
   background: var(--glass-bg);
   backdrop-filter: blur(var(--glass-blur));
@@ -106,8 +108,17 @@
   transform: translateZ(0);
 }
 
+/* Horizontal Scroll Container - Mobile Optimized */
+.horizontal-scroll {
+  -webkit-overflow-scrolling: touch;
+  touch-action: pan-x;
+  overscroll-behavior-x: contain;
+  overscroll-behavior-y: none;
+  scroll-behavior: smooth;
+}
 
 /* === Utility Classes === */
+
 
 @media (prefers-reduced-motion: reduce) {
 
