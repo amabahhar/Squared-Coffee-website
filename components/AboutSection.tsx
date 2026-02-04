@@ -59,7 +59,7 @@ const AboutSection: React.FC = () => {
               </div>
             </div>
 
-            <div className="relative z-10">
+            <div className="relative z-10 text-center md:text-left">
               <span className={`inline-block py-1 pr-12 border-b-2 border-squared-cyan/40 text-xs md:text-sm font-black tracking-[0.4em] text-squared-cyan uppercase mb-10 md:mb-14 animate-fade-in ${language === 'ar' ? 'font-arabic tracking-normal pl-12 pr-0' : ''}`}>
                 {t.about.eyebrow}
               </span>
@@ -84,7 +84,7 @@ const AboutSection: React.FC = () => {
                 </div>
               </div>
 
-              <h2 className={`text-3xl md:text-5xl font-serif text-squared-gray-900 mb-6 md:mb-8 leading-[1.1] font-black tracking-tight ${language === 'ar' ? 'font-arabic font-bold' : ''}`}>
+              <h2 className={`text-5xl md:text-7xl font-serif text-squared-gray-900 mb-6 md:mb-8 leading-[1.1] font-black tracking-tight ${language === 'ar' ? 'font-arabic font-bold' : ''}`}>
                 {t.about.title_start}<br /> <span className="text-squared-cyan">{t.about.title_highlight}</span>
               </h2>
 

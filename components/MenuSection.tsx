@@ -30,6 +30,16 @@ const MenuSection: React.FC<MenuSectionProps> = ({ onItemClick }) => {
         <div className="lg:hidden glass p-6 rounded-[2rem] shadow-warm border border-white/30 overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent pointer-events-none"></div>
 
+          {/* Mobile Title */}
+          <div className="text-center mb-6 relative z-10">
+            <span className={`inline-block py-1 px-6 border-b-2 border-squared-cyan/30 text-xs font-black tracking-[0.4em] text-squared-cyan uppercase mb-4 ${language === 'ar' ? 'font-arabic tracking-normal' : ''}`}>
+              {t.menu.eyebrow}
+            </span>
+            <h2 className={`text-5xl font-serif text-squared-gray-900 leading-[0.9] font-black tracking-tight ${language === 'ar' ? 'font-arabic font-bold' : ''}`}>
+              {t.menu.title}
+            </h2>
+          </div>
+
           {/* Horizontal Scroll Categories */}
           <div className="relative z-10 mb-8">
             {/* Scroll indicator hint */}
