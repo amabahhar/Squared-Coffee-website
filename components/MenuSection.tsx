@@ -28,7 +28,7 @@ const MenuSection: React.FC<MenuSectionProps> = ({ onItemClick }) => {
       <div className="container mx-auto px-4 md:px-12 relative z-10">
         <div className="flex flex-col lg:flex-row gap-16 lg:gap-24 items-start">
           <div className="w-full lg:w-1/4 min-w-0">
-            <div className="sticky top-24 md:top-32 glass p-6 md:p-8 rounded-[2rem] md:rounded-[2.5rem] shadow-warm border border-white/30 overflow-hidden relative group min-h-[120px] flex items-center">
+            <div className="sticky top-24 md:top-32 glass p-6 md:p-8 rounded-[2rem] md:rounded-[2.5rem] shadow-warm border border-white/30 overflow-hidden relative group">
               <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent pointer-events-none"></div>
               {/* Geometric Accents */}
               <div className="absolute -top-4 -right-4 opacity-10 pointer-events-none">
@@ -41,12 +41,12 @@ const MenuSection: React.FC<MenuSectionProps> = ({ onItemClick }) => {
                 {t.menu.eyebrow}
               </span>
 
-              <div className="flex flex-row md:flex-col items-center md:items-start gap-4 overflow-x-auto overflow-y-hidden md:overflow-visible pb-0 md:pb-0 w-full -mx-6 px-6 md:mx-0 md:px-0" style={{ WebkitOverflowScrolling: 'touch' }}>
+              <div className="flex flex-row md:flex-col items-start gap-3 overflow-x-auto md:overflow-visible pb-4 md:pb-0 scrollbar-hide mask-fade-right md:mask-none w-full max-w-full" style={{ WebkitOverflowScrolling: 'touch', touchAction: 'pan-x' }}>
                 {MENU_CATEGORIES.map((category) => (
                   <button
                     key={category}
                     onClick={() => setActiveCategory(category)}
-                    className={`flex-shrink-0 w-auto md:w-full cursor-pointer text-left text-xs md:text-sm font-black uppercase tracking-wider transition-all duration-500 px-8 py-4 md:py-4 rounded-xl border whitespace-nowrap ${activeCategory === category
+                    className={`flex-shrink-0 w-auto md:w-full cursor-pointer text-left text-xs md:text-sm font-black uppercase tracking-wider transition-all duration-500 px-6 py-3 md:py-4 rounded-xl border whitespace-nowrap ${activeCategory === category
                       ? 'bg-squared-cyan text-white shadow-warm scale-[1.05] border-transparent'
                       : 'bg-white/40 md:bg-transparent text-squared-gray-600 border-transparent hover:border-white/20'
                       } ${language === 'ar' ? 'font-arabic tracking-normal text-right' : ''}`}
