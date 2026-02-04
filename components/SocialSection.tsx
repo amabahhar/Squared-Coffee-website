@@ -39,7 +39,13 @@ const SocialSection: React.FC = () => {
                     {/* Header Content */}
                     <div className="flex flex-col md:flex-row justify-between items-center md:items-end mb-8 md:mb-12 relative z-10">
                         <div className="mb-6 md:mb-0 text-center md:text-left">
-                            <span className={`inline-block py-1 px-6 md:px-0 md:pr-12 border-b-2 border-squared-cyan/30 text-xs md:text-sm font-black tracking-[0.4em] text-squared-cyan uppercase mb-0 md:mb-4 ${language === 'ar' ? 'font-arabic tracking-normal md:pl-12 md:pr-0' : ''}`}>
+                            {/* Mobile: Show Title as Eyebrow Style */}
+                            <span className={`md:hidden inline-block py-1 px-6 border-b-2 border-squared-cyan/30 text-xs font-black tracking-[0.4em] text-squared-cyan uppercase ${language === 'ar' ? 'font-arabic tracking-normal' : ''}`}>
+                                {t.social.title} {t.social.title_highlight}
+                            </span>
+
+                            {/* Desktop: Standard Layout */}
+                            <span className={`hidden md:inline-block py-1 pr-12 border-b-2 border-squared-cyan/30 text-sm font-black tracking-[0.4em] text-squared-cyan uppercase mb-4 ${language === 'ar' ? 'font-arabic tracking-normal pl-12 pr-0' : ''}`}>
                                 {t.social.eyebrow}
                             </span>
                             <h2 className={`hidden md:block text-5xl md:text-7xl font-serif text-squared-gray-900 leading-[0.9] font-black tracking-tight ${language === 'ar' ? 'font-arabic font-bold' : ''}`}>
