@@ -209,104 +209,108 @@ const Testimonials: React.FC = () => {
             <div className="absolute bottom-20 left-20 w-80 h-80 bg-squared-gold/10 blur-[100px] rounded-full pointer-events-none" />
 
             <div className="container mx-auto px-4 md:px-12 relative z-10">
-                {/* Header */}
-                <div className="glass max-w-4xl mx-auto p-8 md:p-12 rounded-[3.5rem] border border-white/30 shadow-warm text-center mb-16 relative overflow-hidden group backdrop-blur-md">
-                    {/* Glass gradient overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-b from-white/10 to-transparent pointer-events-none"></div>
+                {/* Unified Glass Bubble Container */}
+                <div className="glass p-8 md:p-16 rounded-[2.5rem] md:rounded-[4rem] max-w-7xl mx-auto border border-white/30 shadow-2xl relative overflow-visible group backdrop-blur-md">
+                    <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent pointer-events-none"></div>
 
-                    {/* Geometric Accents */}
-                    <div className="absolute top-0 right-0 opacity-10 group-hover:opacity-20 transition-opacity">
-                        <div className="relative w-20 h-20">
-                            <div className="absolute inset-4 border-2 border-squared-cyan rounded-sm"></div>
-                            <div className="absolute inset-8 border-2 border-squared-cyan/60 rounded-sm"></div>
+                    {/* Geometric Accents - Main Bubble */}
+                    <div className="absolute top-12 right-12 opacity-15 pointer-events-none group-hover:opacity-30 transition-opacity duration-700 -rotate-12">
+                        <div className="relative w-32 h-32">
+                            <div className="absolute inset-0 border-2 border-squared-navy rounded-sm"></div>
+                            <div className="absolute inset-6 border-2 border-squared-cyan/60 rounded-sm"></div>
                         </div>
                     </div>
-                    <div className="absolute bottom-0 left-0 opacity-10 group-hover:opacity-20 transition-opacity">
-                        <div className="w-24 h-12 overflow-hidden">
-                            <div className="w-24 h-24 border-2 border-squared-cyan rounded-full"></div>
+                    <div className="absolute bottom-16 left-12 opacity-15 pointer-events-none group-hover:opacity-30 transition-opacity duration-700 rotate-12">
+                        <div className="w-40 h-20 overflow-hidden">
+                            <div className="w-40 h-40 border-2 border-squared-navy rounded-full"></div>
                         </div>
                     </div>
 
                     <div className="relative z-10">
-                        <span className={`inline-block py-1 px-6 border-b-2 border-squared-cyan/30 text-xs md:text-sm font-black tracking-[0.4em] text-squared-cyan uppercase mb-6 ${language === 'ar' ? 'font-arabic tracking-normal' : ''}`}>
-                            {t.testimonials.eyebrow}
-                        </span>
-                        <h2 className={`text-4xl md:text-6xl font-serif text-squared-gray-900 leading-[0.9] font-black tracking-tight mb-4 ${language === 'ar' ? 'font-arabic font-bold' : ''}`}>
-                            {t.testimonials.title}
-                        </h2>
-                        <p className={`text-squared-gray-600 text-base md:text-lg max-w-2xl mx-auto mt-6 ${language === 'ar' ? 'font-arabic' : ''}`}>
-                            {t.testimonials.rating_text} <span className="font-bold text-squared-cyan">4.5/5</span> {language === 'ar' ? 'على جوجل ماب مع أكثر من' : 'on Google Maps with over'} <span className="font-bold">540 {t.testimonials.reviews_text}</span>
-                        </p>
-                    </div>
-                </div>
-
-                {/* Testimonial Cards Container */}
-                <div className="max-w-4xl mx-auto">
-                    <div
-                        ref={containerRef}
-                        className="relative h-[500px] md:h-[450px] cursor-grab active:cursor-grabbing"
-                        style={{
-                            touchAction: 'pan-y pinch-zoom',
-                            WebkitUserSelect: 'none',
-                            userSelect: 'none'
-                        }}
-                        onMouseDown={(e) => handleStart(e.clientX)}
-                        onMouseMove={(e) => handleMove(e.clientX)}
-                        onMouseUp={handleEnd}
-                        onMouseLeave={handleEnd}
-                        onTouchStart={(e) => handleStart(e.touches[0].clientX)}
-                        onTouchMove={(e) => handleMove(e.touches[0].clientX)}
-                        onTouchEnd={handleEnd}
-                    >
-                        {/* Render multiple cards for stack effect */}
-                        {[-1, 0, 1].map((offset) => renderCard(offset))}
-                    </div>
-
-                    {/* Navigation */}
-                    <div className="flex items-center justify-center gap-6 mt-10">
-                        {/* Previous Button */}
-                        <button
-                            onClick={handlePrevious}
-                            className="w-12 h-12 md:w-14 md:h-14 rounded-full glass-card backdrop-blur-md bg-white/60 border border-white/40 flex items-center justify-center hover:bg-squared-cyan hover:border-squared-cyan hover:text-white transition-all duration-300 shadow-lg cursor-pointer"
-                            aria-label="Previous testimonial"
-                        >
-                            <ChevronLeft className="w-6 h-6 rtl:rotate-180" />
-                        </button>
-
-                        {/* Dots Indicator */}
-                        <div className="flex gap-2">
-                            {TESTIMONIALS.map((_, index) => (
-                                <button
-                                    key={index}
-                                    onClick={() => {
-                                        setIsAutoPlaying(false);
-                                        if (index > currentIndex) {
-                                            setSwipeDirection('left');
-                                        } else if (index < currentIndex) {
-                                            setSwipeDirection('right');
-                                        }
-                                        setTimeout(() => {
-                                            setCurrentIndex(index);
-                                            setSwipeDirection(null);
-                                        }, 400);
-                                    }}
-                                    className={`h-2 rounded-full transition-all duration-300 cursor-pointer ${index === currentIndex
-                                        ? 'w-8 bg-squared-cyan shadow-lg shadow-squared-cyan/50'
-                                        : 'w-2 bg-squared-gray-300 hover:bg-squared-gray-400'
-                                        }`}
-                                    aria-label={`Go to testimonial ${index + 1}`}
-                                />
-                            ))}
+                        {/* Header */}
+                        <div className="max-w-4xl mx-auto p-4 md:p-8 text-center mb-12 relative overflow-hidden">
+                            <div className="relative z-10">
+                                <span className={`inline-block py-1 px-6 border-b-2 border-squared-cyan/30 text-xs md:text-sm font-black tracking-[0.4em] text-squared-cyan uppercase mb-6 ${language === 'ar' ? 'font-arabic tracking-normal' : ''}`}>
+                                    {t.testimonials.eyebrow}
+                                </span>
+                                <h2 className={`text-4xl md:text-6xl font-serif text-squared-gray-900 leading-[0.9] font-black tracking-tight mb-4 ${language === 'ar' ? 'font-arabic font-bold' : ''}`}>
+                                    {t.testimonials.title}
+                                </h2>
+                                <p className={`text-squared-gray-600 text-base md:text-lg max-w-2xl mx-auto mt-6 ${language === 'ar' ? 'font-arabic' : ''}`}>
+                                    {t.testimonials.rating_text} <span className="font-bold text-squared-cyan">4.5/5</span> {language === 'ar' ? 'على جوجل ماب مع أكثر من' : 'on Google Maps with over'} <span className="font-bold">540 {t.testimonials.reviews_text}</span>
+                                </p>
+                            </div>
                         </div>
 
-                        {/* Next Button */}
-                        <button
-                            onClick={handleNext}
-                            className="w-12 h-12 md:w-14 md:h-14 rounded-full glass-card backdrop-blur-md bg-white/60 border border-white/40 flex items-center justify-center hover:bg-squared-cyan hover:border-squared-cyan hover:text-white transition-all duration-300 shadow-lg cursor-pointer"
-                            aria-label="Next testimonial"
-                        >
-                            <ChevronRight className="w-6 h-6 rtl:rotate-180" />
-                        </button>
+                        {/* Testimonial Cards Container */}
+                        <div className="max-w-4xl mx-auto">
+                            <div
+                                ref={containerRef}
+                                className="relative h-[500px] md:h-[450px] cursor-grab active:cursor-grabbing"
+                                style={{
+                                    touchAction: 'pan-y pinch-zoom',
+                                    WebkitUserSelect: 'none',
+                                    userSelect: 'none'
+                                }}
+                                onMouseDown={(e) => handleStart(e.clientX)}
+                                onMouseMove={(e) => handleMove(e.clientX)}
+                                onMouseUp={handleEnd}
+                                onMouseLeave={handleEnd}
+                                onTouchStart={(e) => handleStart(e.touches[0].clientX)}
+                                onTouchMove={(e) => handleMove(e.touches[0].clientX)}
+                                onTouchEnd={handleEnd}
+                            >
+                                {/* Render multiple cards for stack effect */}
+                                {[-1, 0, 1].map((offset) => renderCard(offset))}
+                            </div>
+
+                            {/* Navigation */}
+                            <div className="flex items-center justify-center gap-6 mt-10">
+                                {/* Previous Button */}
+                                <button
+                                    onClick={handlePrevious}
+                                    className="w-12 h-12 md:w-14 md:h-14 rounded-full glass-card backdrop-blur-md bg-white/60 border border-white/40 flex items-center justify-center hover:bg-squared-cyan hover:border-squared-cyan hover:text-white transition-all duration-300 shadow-lg cursor-pointer"
+                                    aria-label="Previous testimonial"
+                                >
+                                    <ChevronLeft className="w-6 h-6 rtl:rotate-180" />
+                                </button>
+
+                                {/* Dots Indicator */}
+                                <div className="flex gap-2">
+                                    {TESTIMONIALS.map((_, index) => (
+                                        <button
+                                            key={index}
+                                            onClick={() => {
+                                                setIsAutoPlaying(false);
+                                                if (index > currentIndex) {
+                                                    setSwipeDirection('left');
+                                                } else if (index < currentIndex) {
+                                                    setSwipeDirection('right');
+                                                }
+                                                setTimeout(() => {
+                                                    setCurrentIndex(index);
+                                                    setSwipeDirection(null);
+                                                }, 400);
+                                            }}
+                                            className={`h-2 rounded-full transition-all duration-300 cursor-pointer ${index === currentIndex
+                                                ? 'w-8 bg-squared-cyan shadow-lg shadow-squared-cyan/50'
+                                                : 'w-2 bg-squared-gray-300 hover:bg-squared-gray-400'
+                                                }`}
+                                            aria-label={`Go to testimonial ${index + 1}`}
+                                        />
+                                    ))}
+                                </div>
+
+                                {/* Next Button */}
+                                <button
+                                    onClick={handleNext}
+                                    className="w-12 h-12 md:w-14 md:h-14 rounded-full glass-card backdrop-blur-md bg-white/60 border border-white/40 flex items-center justify-center hover:bg-squared-cyan hover:border-squared-cyan hover:text-white transition-all duration-300 shadow-lg cursor-pointer"
+                                    aria-label="Next testimonial"
+                                >
+                                    <ChevronRight className="w-6 h-6 rtl:rotate-180" />
+                                </button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
