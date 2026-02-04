@@ -143,23 +143,23 @@ const LoyaltySection: React.FC = () => {
 
                     <div className="relative z-10">
                         {/* Header */}
-                        <div className="text-center mb-12 md:mb-20">
+                        <div className="text-center mb-8 md:mb-10">
                             <span className={`inline-block py-1 px-6 border-b-2 border-squared-cyan/30 text-xs md:text-sm font-black tracking-[0.4em] text-squared-cyan uppercase mb-6 ${language === 'ar' ? 'font-arabic tracking-normal' : ''}`}>
                                 {t.loyalty.eyebrow}
                             </span>
                             <h2 className={`text-5xl md:text-7xl font-serif text-squared-gray-900 leading-[0.9] font-black tracking-tight ${language === 'ar' ? 'font-arabic font-bold' : ''}`}>
                                 {t.loyalty.title} <span className="text-squared-cyan">{t.loyalty.title_highlight}</span>
                             </h2>
-                            <p className={`text-base md:text-2xl text-squared-gray-600 max-w-3xl mx-auto mt-8 font-medium ${language === 'ar' ? 'font-arabic' : ''}`}>
+                            <p className={`text-base md:text-2xl text-squared-gray-600 max-w-3xl mx-auto mt-4 md:mt-6 font-medium ${language === 'ar' ? 'font-arabic' : ''}`}>
                                 {t.loyalty.description}
                             </p>
                         </div>
 
                         {/* Main Content Grid */}
-                        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-16 items-start">
+                        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-16 items-start mt-2 md:mt-4">
                             {/* Left: Card Visual */}
                             <div className="relative p-2 h-full flex flex-col justify-center">
-                                <div className="text-center p-4 md:p-8">
+                                <div className="text-center px-4 md:px-8 pb-4 md:pb-8 pt-0">
                                     {/* Gift Icon */}
                                     <div className="inline-flex items-center justify-center w-24 h-24 md:w-32 md:h-32 rounded-3xl bg-gradient-to-br from-squared-cyan to-squared-cyan-dark shadow-warm-lg mb-8">
                                         <Gift className="w-12 h-12 md:w-16 md:h-16 text-white" strokeWidth={1.5} />
@@ -190,7 +190,7 @@ const LoyaltySection: React.FC = () => {
 
                             {/* Right: Signup Form */}
                             <div className="relative p-2">
-                                <div className="p-4 md:p-8 h-full">
+                                <div className="px-4 md:px-8 pb-4 md:pb-8 pt-0 h-full">
                                     <div className="relative z-10">
                                         {submitStatus === 'success' ? (
                                             <div className="text-center py-10">
