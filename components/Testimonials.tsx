@@ -210,7 +210,7 @@ const Testimonials: React.FC = () => {
 
             <div className="container mx-auto px-4 md:px-12 relative z-10">
                 {/* Unified Glass Bubble Container */}
-                <div className="glass p-8 md:p-16 rounded-[2.5rem] md:rounded-[4rem] max-w-7xl mx-auto border border-white/30 shadow-2xl relative overflow-visible group backdrop-blur-md">
+                <div className="glass p-8 md:p-16 rounded-[2.5rem] md:rounded-[4rem] max-w-7xl mx-auto border border-white/30 shadow-2xl relative overflow-hidden group backdrop-blur-md">
                     <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent pointer-events-none"></div>
 
                     {/* Geometric Accents - Main Bubble */}
