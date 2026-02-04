@@ -24,33 +24,20 @@ const Header: React.FC<HeaderProps> = ({ onOrderClick }) => {
   // Prevent background scrolling when mobile menu is open
   useEffect(() => {
     if (isOpen) {
-      // Save current scroll position
+      // Simple approach: just prevent scrolling without changing layout
+      // This avoids the jitter caused by position: fixed
       const scrollY = window.scrollY;
 
-      // Use requestAnimationFrame to ensure scroll lock happens after animation starts
-      // This prevents layout shift during the transition
-      requestAnimationFrame(() => {
-        requestAnimationFrame(() => {
-          // Lock scroll
-          document.body.style.position = 'fixed';
-          document.body.style.top = `-${scrollY}px`;
-          document.body.style.width = '100%';
-          document.body.style.overflow = 'hidden';
-
-          // Prevent touch scrolling on iOS
-          document.body.style.touchAction = 'none';
-        });
-      });
+      document.body.style.overflow = 'hidden';
+      document.body.style.touchAction = 'none';
+      document.body.style.height = '100vh';
 
       return () => {
-        // Restore scroll
-        document.body.style.position = '';
-        document.body.style.top = '';
-        document.body.style.width = '';
         document.body.style.overflow = '';
         document.body.style.touchAction = '';
+        document.body.style.height = '';
 
-        // Restore scroll position
+        // Ensure we're at the same scroll position
         window.scrollTo(0, scrollY);
       };
     }
