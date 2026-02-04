@@ -24,21 +24,24 @@ const Header: React.FC<HeaderProps> = ({ onOrderClick }) => {
   // Prevent background scrolling when mobile menu is open
   useEffect(() => {
     if (isOpen) {
-      // Simple approach: just prevent scrolling without changing layout
-      // This avoids the jitter caused by position: fixed
       const scrollY = window.scrollY;
 
-      document.body.style.overflow = 'hidden';
-      document.body.style.touchAction = 'none';
-      document.body.style.height = '100vh';
+      // Lock body scroll
+      document.body.style.position = 'fixed';
+      document.body.style.top = `-${scrollY}px`;
+      document.body.style.left = '0';
+      document.body.style.right = '0';
 
       return () => {
-        document.body.style.overflow = '';
-        document.body.style.touchAction = '';
-        document.body.style.height = '';
+        // Restore scroll
+        const scrollY = document.body.style.top;
+        document.body.style.position = '';
+        document.body.style.top = '';
+        document.body.style.left = '';
+        document.body.style.right = '';
 
-        // Ensure we're at the same scroll position
-        window.scrollTo(0, scrollY);
+        // Restore scroll position
+        window.scrollTo(0, parseInt(scrollY || '0') * -1);
       };
     }
   }, [isOpen]);
@@ -134,11 +137,10 @@ const Header: React.FC<HeaderProps> = ({ onOrderClick }) => {
 
       {/* Mobile Menu Overlay */}
       <div
-        className={`lg:hidden fixed inset-0 z-40 flex flex-col justify-center items-center transition-all duration-300 ease-out ${isOpen ? 'opacity-100 scale-100' : 'opacity-0 scale-95 pointer-events-none'
+        className={`lg:hidden fixed top-0 left-0 right-0 bottom-0 z-40 flex flex-col justify-center items-center transition-all duration-300 ease-out ${isOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
           }`}
         style={{
           background: 'linear-gradient(135deg, rgba(15, 23, 42, 0.98) 0%, rgba(30, 41, 59, 0.98) 100%)',
-          willChange: isOpen ? 'opacity, transform' : 'auto',
         }}
       >
         <div className="absolute inset-0 bg-gradient-to-br from-squared-cyan/10 to-transparent pointer-events-none"></div>
