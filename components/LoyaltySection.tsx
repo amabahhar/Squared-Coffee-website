@@ -16,6 +16,25 @@ const LoyaltySection: React.FC = () => {
     const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
     const [cardUrl, setCardUrl] = useState<string | null>(null);
 
+    // Helper function to format phone number with country code
+    const formatPhoneNumber = (phone: string): string => {
+        // Remove all non-digit characters
+        let cleaned = phone.replace(/\D/g, '');
+
+        // If starts with 0, remove it (Saudi numbers start with 05...)
+        if (cleaned.startsWith('0')) {
+            cleaned = cleaned.substring(1);
+        }
+
+        // Add Saudi country code if not present
+        if (!cleaned.startsWith('966')) {
+            cleaned = '966' + cleaned;
+        }
+
+        // Add + prefix
+        return '+' + cleaned;
+    };
+
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
 
@@ -28,12 +47,15 @@ const LoyaltySection: React.FC = () => {
         setSubmitStatus('idle');
 
         try {
+            // Format phone number with country code
+            const formattedPhone = formatPhoneNumber(formData.phone);
+
             const payload = {
                 campaignId: '1rmMhxhNM13OIXfFWJOxKU',
                 customerData: {
                     'Name': formData.name,
                     'Email address': formData.email,
-                    'Contact Number': formData.phone,
+                    'Contact Number': formattedPhone,
                     'Birthday': formData.birthday
                 },
                 dataConsentOptIn: formData.marketingConsent
@@ -192,14 +214,23 @@ const LoyaltySection: React.FC = () => {
                                         <label className={`block text-sm font-bold text-squared-gray-700 mb-2 ${language === 'ar' ? 'font-arabic text-right' : ''}`}>
                                             {language === 'ar' ? 'رقم الهاتف' : 'Phone Number'} *
                                         </label>
-                                        <input
-                                            type="tel"
-                                            required
-                                            value={formData.phone}
-                                            onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                                            className={`w-full px-4 py-3 rounded-xl border border-squared-cyan/20 focus:border-squared-cyan focus:ring-2 focus:ring-squared-cyan/20 outline-none transition-all ${language === 'ar' ? 'font-arabic text-right' : ''}`}
-                                            placeholder={language === 'ar' ? '05XXXXXXXX' : '05XXXXXXXX'}
-                                        />
+                                        <div className="relative">
+                                            <span className="absolute left-4 top-1/2 -translate-y-1/2 text-squared-gray-500 font-medium">
+                                                +966
+                                            </span>
+                                            <input
+                                                type="tel"
+                                                required
+                                                value={formData.phone}
+                                                onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                                                className={`w-full pl-16 pr-4 py-3 rounded-xl border border-squared-cyan/20 focus:border-squared-cyan focus:ring-2 focus:ring-squared-cyan/20 outline-none transition-all ${language === 'ar' ? 'font-arabic' : ''}`}
+                                                placeholder={language === 'ar' ? '5XXXXXXXX' : '5XXXXXXXX'}
+                                                pattern="[0-9]{9,10}"
+                                            />
+                                        </div>
+                                        <p className={`text-xs text-squared-gray-500 mt-1 ${language === 'ar' ? 'font-arabic text-right' : ''}`}>
+                                            {language === 'ar' ? 'أدخل رقمك بدون الصفر (مثال: 512345678)' : 'Enter without leading 0 (e.g., 512345678)'}
+                                        </p>
                                     </div>
 
                                     {/* Birthday */}
