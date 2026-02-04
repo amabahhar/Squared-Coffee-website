@@ -19,21 +19,6 @@ const Locations: React.FC = () => {
 
       <div className="container mx-auto px-4 md:px-12 relative z-10">
 
-
-        {/* Section Heading */}
-        <div className="mb-12 inline-block">
-          <div className="glass px-8 py-4 rounded-full border border-white/30 shadow-warm relative overflow-hidden group">
-            <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent pointer-events-none"></div>
-            {/* Geometric Accents */}
-            <div className="absolute -top-2 -right-2 opacity-10 group-hover:opacity-20 transition-opacity">
-              <div className="w-8 h-8 border border-squared-cyan rounded-sm rotate-12"></div>
-            </div>
-            <span className={`relative z-10 inline-block text-sm md:text-base font-black tracking-[0.5em] text-squared-cyan uppercase ${language === 'ar' ? 'font-arabic tracking-normal' : ''}`}>
-              {t.locations.eyebrow}
-            </span>
-          </div>
-        </div>
-
         {/* Unified Glass Bubble Container */}
         <div className="glass p-8 md:p-16 rounded-[2.5rem] md:rounded-[4rem] max-w-7xl mx-auto border border-white/30 shadow-2xl relative overflow-hidden group backdrop-blur-md">
           <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent pointer-events-none"></div>
@@ -52,6 +37,13 @@ const Locations: React.FC = () => {
           </div>
 
           <div className="relative z-10">
+            {/* Section Heading */}
+            <div className="mb-12">
+              <span className={`inline-block py-1 pr-8 border-b-2 border-squared-cyan/30 text-xs md:text-sm font-black tracking-[0.4em] text-squared-cyan uppercase ${language === 'ar' ? 'font-arabic tracking-normal pl-8 pr-0' : ''}`}>
+                {t.locations.eyebrow}
+              </span>
+            </div>
+
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-stretch">
 
               {/* Left Side: Location Cards */}
