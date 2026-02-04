@@ -87,33 +87,18 @@ const Header: React.FC<HeaderProps> = ({ onOrderClick }) => {
           </button>
         </div>
 
-
-        {/* Mobile Actions - Language Toggle + Menu */}
-        <div className="lg:hidden flex items-center gap-3 relative z-50">
-          {/* Mobile Language Toggle */}
-          <button
-            onClick={toggleLanguage}
-            className="flex items-center gap-2 px-3 py-2 rounded-full border border-squared-gray-900/20 hover:border-squared-cyan/50 hover:bg-white/50 transition-all cursor-pointer group"
-          >
-            <Globe className="w-4 h-4 text-squared-gray-600 group-hover:text-squared-cyan" />
-            <span className={`text-[10px] font-black uppercase ${language === 'ar' ? 'font-serif tracking-widest' : 'font-arabic'}`}>
-              {language === 'en' ? 'AR' : 'EN'}
-            </span>
-          </button>
-
-          {/* Mobile Menu Toggle */}
-          <button
-            className="cursor-pointer p-2 text-squared-gray-900 hover:text-squared-cyan transition-colors"
-            onClick={() => setIsOpen(!isOpen)}
-          >
-            {isOpen ? <X className="w-7 h-7" /> : <Menu className="w-7 h-7" />}
-          </button>
-        </div>
+        {/* Mobile Menu Toggle */}
+        <button
+          className="cursor-pointer lg:hidden relative z-50 p-2 text-squared-gray-900 hover:text-squared-cyan transition-colors"
+          onClick={() => setIsOpen(!isOpen)}
+        >
+          {isOpen ? <X className="w-7 h-7" /> : <Menu className="w-7 h-7" />}
+        </button>
       </div>
 
       {/* Mobile Menu Overlay */}
       <div
-        className={`lg:hidden fixed inset-0 glass-dark z-40 flex flex-col justify-center items-center transition-all duration-[800ms] ease-in-out transform ${isOpen ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'
+        className={`lg:hidden fixed inset-0 glass-dark z-40 flex flex-col justify-center items-center transition-all duration-[800ms] ease-in-out transform ${isOpen ? 'translate-y-0 opacity-100 visible' : '-translate-y-full opacity-0 invisible'
           }`}
       >
         <div className="absolute inset-0 bg-gradient-to-br from-squared-cyan/10 to-transparent pointer-events-none"></div>

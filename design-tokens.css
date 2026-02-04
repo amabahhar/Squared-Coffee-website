@@ -111,33 +111,31 @@
 /* Horizontal Scroll Container - Mobile Optimized */
 .horizontal-scroll {
   -webkit-overflow-scrolling: touch;
-  touch-action: pan-x !important;
+  touch-action: pan-x;
+  overflow-x: auto;
   overscroll-behavior-x: contain;
-  overscroll-behavior-y: none;
   scroll-behavior: smooth;
-  isolation: isolate;
-  pointer-events: auto;
-  will-change: scroll-position;
   /* Safari iOS specific */
   scroll-snap-type: x proximity;
   -webkit-scroll-snap-type: x proximity;
-  /* Force hardware acceleration on iOS */
-  -webkit-transform: translate3d(0, 0, 0);
-  transform: translate3d(0, 0, 0);
+  /* Hardware acceleration */
+  transform: translateZ(0);
 }
 
 /* Scroll snap for children */
 .horizontal-scroll>* {
   scroll-snap-align: start;
   -webkit-scroll-snap-align: start;
+  flex-shrink: 0;
 }
 
 @media (max-width: 768px) {
   .horizontal-scroll {
+    /* Safe relative positioning */
     position: relative;
-    z-index: 9999;
-    /* Increase minimum height for better touch area on iOS */
-    min-height: 64px;
+    /* Ensure height is sufficient for touch */
+    min-height: 50px;
+    padding-bottom: 8px;
   }
 }
 
