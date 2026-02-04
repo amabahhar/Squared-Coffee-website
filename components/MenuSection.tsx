@@ -25,10 +25,86 @@ const MenuSection: React.FC<MenuSectionProps> = ({ onItemClick }) => {
         }}
       ></div>
 
+
       <div className="container mx-auto px-4 md:px-12 relative z-10">
-        <div className="flex flex-col lg:flex-row gap-16 lg:gap-24 items-start">
-          <div className="w-full lg:w-1/4 min-w-0">
-            <div className="relative md:sticky md:top-32 glass p-6 md:p-8 rounded-[2rem] md:rounded-[2.5rem] shadow-warm border border-white/30 overflow-x-visible overflow-y-hidden md:overflow-hidden group">
+        {/* Mobile: One unified glass bubble */}
+        <div className="lg:hidden glass p-6 rounded-[2rem] shadow-warm border border-white/30 mb-16 overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent pointer-events-none"></div>
+
+          {/* Horizontal Scroll Categories */}
+          <div className="relative z-10 mb-8">
+            <div
+              className="horizontal-scroll flex flex-row items-start gap-3 overflow-x-auto py-4 pb-6 scrollbar-hide w-full -mx-6 px-6"
+            >
+              {MENU_CATEGORIES.map((category) => (
+                <button
+                  key={category}
+                  onClick={() => setActiveCategory(category)}
+                  className={`flex-shrink-0 w-auto cursor-pointer text-left text-xs font-black uppercase tracking-wider transition-all duration-500 px-6 py-3 rounded-xl border whitespace-nowrap ${activeCategory === category
+                    ? 'bg-squared-cyan text-white shadow-warm scale-[1.05] border-transparent'
+                    : 'bg-white/40 text-squared-gray-600 border-transparent hover:border-white/20'
+                    } ${language === 'ar' ? 'font-arabic tracking-normal text-right' : ''}`}
+                >
+                  {t.menu.categories[category as keyof typeof t.menu.categories] || category}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* Menu Items Grid */}
+          <div className="relative z-10">
+            <div className="grid grid-cols-2 gap-3">
+              {activeItems.map((item, index) => {
+                const itemTrans = t.menu.items?.[item.id as keyof typeof t.menu.items];
+                const displayName = itemTrans?.name || item.name;
+                const displayDescription = itemTrans?.description || item.description;
+
+                return (
+                  <div
+                    key={item.id}
+                    onClick={() => onItemClick && onItemClick(item)}
+                    className="cursor-pointer group bg-white/40 rounded-2xl p-3 hover:bg-white/60 transition-all duration-700 hover:-translate-y-1 border border-white/40 hover:border-squared-cyan/30 flex flex-col h-full"
+                  >
+                    <div className="relative overflow-hidden rounded-xl aspect-[4/3] mb-3 shadow-lg shrink-0">
+                      <img
+                        src={item.image}
+                        alt={displayName}
+                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                      />
+                      <button
+                        className="absolute bottom-2 right-2 w-8 h-8 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center shadow-lg hover:bg-squared-cyan hover:text-white transition-all duration-300"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          onItemClick && onItemClick(item);
+                        }}
+                      >
+                        <Plus className="w-4 h-4" />
+                      </button>
+                    </div>
+                    <div className="flex-1 flex flex-col">
+                      <div className="flex items-start justify-between gap-2 mb-2">
+                        <h3 className={`text-sm font-black text-squared-gray-900 leading-tight ${language === 'ar' ? 'font-arabic' : ''}`}>
+                          {displayName}
+                        </h3>
+                        <span className="text-xs font-black text-squared-cyan whitespace-nowrap">
+                          {item.price} {t.menu.currency}
+                        </span>
+                      </div>
+                      <p className={`text-xs text-squared-gray-600 leading-relaxed line-clamp-2 ${language === 'ar' ? 'font-arabic' : ''}`}>
+                        {displayDescription}
+                      </p>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+
+        {/* Desktop: Separate bubbles (original layout) */}
+        <div className="hidden lg:flex flex-row gap-24 items-start">
+          <div className="w-1/4 min-w-0">
+            <div className="sticky top-32 glass p-8 rounded-[2.5rem] shadow-warm border border-white/30 overflow-hidden group">
               <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent pointer-events-none"></div>
               {/* Geometric Accents */}
               <div className="absolute -top-4 -right-4 opacity-10 pointer-events-none">
@@ -37,20 +113,18 @@ const MenuSection: React.FC<MenuSectionProps> = ({ onItemClick }) => {
               <div className="absolute -bottom-4 -left-4 opacity-10 pointer-events-none">
                 <div className="w-20 h-20 border-2 border-squared-navy/60 rounded-full"></div>
               </div>
-              <span className={`hidden md:inline-block py-1 pr-8 border-b-2 border-squared-cyan/30 text-xs md:text-sm font-black tracking-[0.4em] text-squared-cyan uppercase mb-8 ${language === 'ar' ? 'font-arabic tracking-normal pl-8 pr-0' : ''}`}>
+              <span className={`inline-block py-1 pr-8 border-b-2 border-squared-cyan/30 text-sm font-black tracking-[0.4em] text-squared-cyan uppercase mb-8 ${language === 'ar' ? 'font-arabic tracking-normal pl-8 pr-0' : ''}`}>
                 {t.menu.eyebrow}
               </span>
 
-              <div
-                className="horizontal-scroll flex flex-row md:flex-col items-start gap-3 overflow-x-auto md:overflow-visible py-6 pb-8 md:py-0 md:pb-0 scrollbar-hide w-full -mx-6 px-6 md:mx-0 md:px-0"
-              >
+              <div className="flex flex-col items-start gap-3">
                 {MENU_CATEGORIES.map((category) => (
                   <button
                     key={category}
                     onClick={() => setActiveCategory(category)}
-                    className={`flex-shrink-0 w-auto md:w-full cursor-pointer text-left text-xs md:text-sm font-black uppercase tracking-wider transition-all duration-500 px-6 py-3 md:py-4 rounded-xl border whitespace-nowrap ${activeCategory === category
-                      ? 'bg-squared-cyan text-white shadow-warm scale-[1.05] border-transparent'
-                      : 'bg-white/40 md:bg-transparent text-squared-gray-600 border-transparent hover:border-white/20'
+                    className={`w-full cursor-pointer text-left text-sm font-black uppercase tracking-wider transition-all duration-500 py-4 ${activeCategory === category
+                      ? 'text-squared-cyan scale-[1.05]'
+                      : 'text-squared-gray-600'
                       } ${language === 'ar' ? 'font-arabic tracking-normal text-right' : ''}`}
                   >
                     {t.menu.categories[category as keyof typeof t.menu.categories] || category}
@@ -60,8 +134,8 @@ const MenuSection: React.FC<MenuSectionProps> = ({ onItemClick }) => {
             </div>
           </div>
 
-          <div className="lg:flex-1 min-w-0">
-            <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-12 lg:gap-8">
+          <div className="flex-1 min-w-0">
+            <div className="grid grid-cols-3 gap-8">
               {activeItems.map((item, index) => {
                 // Get translated item details if available, fallback to original
                 const itemTrans = t.menu.items?.[item.id as keyof typeof t.menu.items];
