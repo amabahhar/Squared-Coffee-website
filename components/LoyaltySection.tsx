@@ -173,27 +173,27 @@ const LoyaltySection: React.FC = () => {
 
                         <div className="relative z-10">
                             {submitStatus === 'success' ? (
-                                <div className="text-center py-12">
-                                    <CheckCircle className="w-20 h-20 text-squared-cyan mx-auto mb-6" />
-                                    <h3 className={`text-2xl font-serif font-black text-squared-gray-900 mb-4 ${language === 'ar' ? 'font-arabic font-bold' : ''}`}>
+                                <div className="text-center">
+                                    <CheckCircle className="w-16 h-16 text-squared-cyan mx-auto mb-4" />
+                                    <h3 className={`text-xl font-serif font-black text-squared-gray-900 mb-2 ${language === 'ar' ? 'font-arabic font-bold' : ''}`}>
                                         {language === 'ar' ? 'تم التسجيل بنجاح!' : 'Successfully Enrolled!'}
                                     </h3>
-                                    <p className={`text-squared-gray-600 mb-6 ${language === 'ar' ? 'font-arabic' : ''}`}>
-                                        {language === 'ar' ? 'شكراً لانضمامك إلى برنامج الولاء' : 'Thank you for joining our loyalty program'}
+                                    <p className={`text-squared-gray-600 mb-4 text-sm ${language === 'ar' ? 'font-arabic' : ''}`}>
+                                        {language === 'ar' ? 'أضف بطاقتك إلى محفظتك الآن' : 'Add your card to your wallet now'}
                                     </p>
                                     {cardUrl && (
-                                        <a
-                                            href={cardUrl}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            className={`inline-block cursor-pointer bg-squared-cyan text-white px-8 py-3 rounded-full text-sm font-black uppercase tracking-[0.2em] hover:bg-squared-cyan-dark transition-all duration-500 shadow-xl ${language === 'ar' ? 'font-arabic tracking-normal' : ''}`}
-                                        >
-                                            {language === 'ar' ? 'احصل على بطاقتك' : 'Get Your Card'}
-                                        </a>
+                                        <div className="w-full mb-4">
+                                            <iframe
+                                                src={cardUrl}
+                                                className="w-full h-[550px] rounded-xl border-2 border-squared-cyan/20 bg-white"
+                                                title="Loyalty Card"
+                                                sandbox="allow-same-origin allow-scripts allow-popups allow-forms"
+                                            />
+                                        </div>
                                     )}
                                     <button
                                         onClick={() => setSubmitStatus('idle')}
-                                        className={`block mx-auto mt-4 text-sm text-squared-gray-500 hover:text-squared-cyan ${language === 'ar' ? 'font-arabic' : ''}`}
+                                        className={`text-sm text-squared-gray-500 hover:text-squared-cyan transition-colors ${language === 'ar' ? 'font-arabic' : ''}`}
                                     >
                                         {language === 'ar' ? 'تسجيل عضو آخر' : 'Register another member'}
                                     </button>
