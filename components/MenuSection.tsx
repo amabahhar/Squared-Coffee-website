@@ -42,21 +42,45 @@ const MenuSection: React.FC<MenuSectionProps> = ({ onItemClick }) => {
               </span>
 
               <div
-                className="flex flex-row md:flex-col items-start gap-3 overflow-x-auto md:overflow-visible pb-4 md:pb-0 scrollbar-hide w-full max-w-full -mx-6 px-6 md:mx-0 md:px-0 relative z-50"
-                style={{
-                  WebkitOverflowScrolling: 'touch',
-                  touchAction: 'pan-x',
-                  overscrollBehavior: 'contain'
+                ref={(el) => {
+                  if (!el) return;
+                  // Attach Passive Touch Listeners for smooth scrolling
+                  // We use a ref callback to ensure we attach to the real DOM element
+                  let startX = 0;
+                  let startScrollLeft = 0;
+                  let isDown = false;
+
+                  const onTouchStart = (e: TouchEvent) => {
+                    isDown = true;
+                    startX = e.touches[0].pageX - el.offsetLeft;
+                    startScrollLeft = el.scrollLeft;
+                    // crucial: don't stop propagation here to allow vertical scroll start
+                  };
+
+                  const onTouchMove = (e: TouchEvent) => {
+                    if (!isDown) return;
+                    // Calculate distance moved
+                    const x = e.touches[0].pageX - el.offsetLeft;
+                    const walk = (x - startX) * 2; // Scroll-fast factor
+
+                    // If moving horizontally significantly
+                    if (Math.abs(walk) > 5) {
+                      el.scrollLeft = startScrollLeft - walk;
+                      // Only stop propagation if we are actually scrolling horizontally
+                      if (e.cancelable) e.stopPropagation();
+                    }
+                  };
+
+                  const onTouchEnd = () => {
+                    isDown = false;
+                  };
+
+                  // Clean up previous listeners if any (simple implementation)
+                  el.ontouchstart = onTouchStart;
+                  el.ontouchmove = onTouchMove;
+                  el.ontouchend = onTouchEnd;
                 }}
-                onTouchStart={(e) => {
-                  e.stopPropagation();
-                }}
-                onTouchMove={(e) => {
-                  e.stopPropagation();
-                }}
-                onTouchEnd={(e) => {
-                  e.stopPropagation();
-                }}
+                className="flex flex-row md:flex-col items-start gap-3 overflow-x-auto md:overflow-visible pb-4 md:pb-0 scrollbar-hide w-full max-w-full -mx-6 px-6 md:mx-0 md:px-0 relative z-50 touch-pan-x"
               >
                 {MENU_CATEGORIES.map((category) => (
                   <button
