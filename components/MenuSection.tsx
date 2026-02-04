@@ -34,7 +34,7 @@ const MenuSection: React.FC<MenuSectionProps> = ({ onItemClick }) => {
           {/* Horizontal Scroll Categories */}
           <div className="relative z-10 mb-8">
             <div
-              className="horizontal-scroll flex flex-row items-start gap-3 overflow-x-auto py-4 pb-6 scrollbar-hide w-full -mx-6 px-6"
+              className="horizontal-scroll flex flex-row items-start gap-3 overflow-x-auto py-8 scrollbar-hide w-full -mx-6 px-6"
             >
               {MENU_CATEGORIES.map((category) => (
                 <button

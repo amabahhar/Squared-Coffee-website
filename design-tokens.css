@@ -118,12 +118,26 @@
   isolation: isolate;
   pointer-events: auto;
   will-change: scroll-position;
+  /* Safari iOS specific */
+  scroll-snap-type: x proximity;
+  -webkit-scroll-snap-type: x proximity;
+  /* Force hardware acceleration on iOS */
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+
+/* Scroll snap for children */
+.horizontal-scroll>* {
+  scroll-snap-align: start;
+  -webkit-scroll-snap-align: start;
 }
 
 @media (max-width: 768px) {
   .horizontal-scroll {
     position: relative;
     z-index: 9999;
+    /* Increase minimum height for better touch area on iOS */
+    min-height: 64px;
   }
 }
 
