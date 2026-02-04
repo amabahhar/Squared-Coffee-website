@@ -140,11 +140,12 @@ const LoyaltySection: React.FC = () => {
 
                         {/* Geometric Accents */}
                         <div className="absolute top-8 left-8 opacity-10 pointer-events-none group-hover:opacity-20 transition-opacity">
-                            <div className="w-12 h-12 border-2 border-squared-cyan rounded-sm -rotate-6"></div>
+                            <div className="w-12 h-12 border-2 border-squared-navy rounded-sm -rotate-6"></div>
                         </div>
                         <div className="absolute bottom-8 right-8 opacity-10 pointer-events-none group-hover:opacity-20 transition-opacity">
                             <svg viewBox="0 0 100 100" className="w-12 h-12">
-                                <polygon points="50,10 90,90 10,90" fill="none" stroke="currentColor" strokeWidth="4" className="text-squared-cyan" />
+                                <polygon points="50,15 85,85 15,85" fill="none" stroke="currentColor" strokeWidth="4" className="text-squared-navy" />
+                                <polygon points="50,25 75,75 25,75" fill="none" stroke="currentColor" strokeWidth="2" className="text-squared-cyan" />
                             </svg>
                         </div>
 
@@ -184,7 +185,7 @@ const LoyaltySection: React.FC = () => {
                         {/* Geometric Accents */}
                         <div className="absolute top-8 right-8 opacity-10 pointer-events-none group-hover:opacity-20 transition-opacity">
                             <div className="relative w-10 h-10">
-                                <div className="absolute inset-0 border-2 border-squared-cyan rounded-sm"></div>
+                                <div className="absolute inset-0 border-2 border-squared-navy rounded-sm"></div>
                                 <div className="absolute inset-2 border-2 border-squared-cyan/60 rounded-sm"></div>
                             </div>
                         </div>

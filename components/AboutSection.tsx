@@ -48,13 +48,14 @@ const AboutSection: React.FC = () => {
             {/* Geometric Accents */}
             <div className="absolute top-6 right-6 opacity-20 pointer-events-none transition-opacity duration-700 group-hover:opacity-40">
               <div className="relative w-12 h-12">
-                <div className="absolute inset-0 border-2 border-squared-cyan rounded-sm"></div>
+                <div className="absolute inset-0 border-2 border-squared-navy rounded-sm"></div>
                 <div className="absolute inset-2 border-2 border-squared-cyan/60 rounded-sm"></div>
               </div>
             </div>
             <div className="absolute bottom-6 left-6 opacity-20 pointer-events-none transition-opacity duration-700 group-hover:opacity-40">
               <div className="relative w-16 h-8 overflow-hidden">
-                <div className="absolute bottom-0 left-0 w-16 h-16 border-2 border-squared-cyan rounded-full"></div>
+                <div className="absolute bottom-0 left-0 w-16 h-16 border-2 border-squared-navy rounded-full"></div>
+                <div className="absolute bottom-1 left-1 w-14 h-14 border-2 border-squared-cyan/40 rounded-full"></div>
               </div>
             </div>
 
