@@ -67,6 +67,15 @@ const Locations: React.FC = () => {
                       </div>
                       <div className="relative z-10">
 
+                        {/* Mobile Image - Clean placement at top */}
+                        <div className="lg:hidden mb-6">
+                          <img
+                            src="https://images.unsplash.com/photo-1493857671505-72967e2e2760?auto=format&fit=crop&q=80&w=600"
+                            alt="Location Map Visual"
+                            className="rounded-2xl w-full aspect-[16/10] object-cover shadow-lg border border-white/20"
+                          />
+                        </div>
+
                         <h2 className={`text-3xl md:text-6xl font-serif text-squared-gray-900 mb-6 md:mb-10 leading-tight font-black tracking-tight group-hover/card:text-squared-cyan transition-colors duration-500 ${language === 'ar' ? 'font-arabic font-bold' : ''}`}>
                           {language === 'ar' ? 'القطيف - الفرع الرئيسي' : loc.name}
                         </h2>
