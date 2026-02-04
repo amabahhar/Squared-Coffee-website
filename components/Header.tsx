@@ -44,7 +44,7 @@ const Header: React.FC<HeaderProps> = ({ onOrderClick }) => {
         </a>
 
         {/* Desktop Nav */}
-        <nav className="hidden lg:flex items-center gap-6 xl:gap-8 mx-auto px-4 rtl:flex-row-reverse">
+        <nav className="hidden lg:flex items-center gap-6 xl:gap-8 mx-auto px-4">
           {NAV_ITEMS.map((item) => (
             <a
               key={item.label}

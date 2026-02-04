@@ -58,7 +58,7 @@ const App: React.FC = () => {
       <div
         className="desktop-bg-fixed top-[-5%] right-[-5%] w-[70%] h-[70%] bg-squared-cyan/15 rounded-full pointer-events-none z-0 lg:animate-blob"
         style={{
-          filter: 'blur(40px)',
+          filter: 'blur(25px)',
           transform: 'translateZ(0)',
           willChange: 'transform'
         }}
@@ -67,7 +67,7 @@ const App: React.FC = () => {
         className="desktop-bg-fixed bottom-[-5%] left-[-5%] w-[60%] h-[60%] bg-white/20 rounded-full pointer-events-none z-0 lg:animate-blob"
         style={{
           animationDelay: '3s',
-          filter: 'blur(35px)',
+          filter: 'blur(20px)',
           transform: 'translateZ(0)',
           willChange: 'transform'
         }}
@@ -75,7 +75,7 @@ const App: React.FC = () => {
       <div
         className="desktop-bg-fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[40%] h-[40%] bg-squared-cyan/5 rounded-full pointer-events-none z-0"
         style={{
-          filter: 'blur(30px)',
+          filter: 'blur(15px)',
           transform: 'translate(-50%, -50%) translateZ(0)',
           willChange: 'transform'
         }}

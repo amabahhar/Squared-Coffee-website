@@ -87,8 +87,8 @@ const Hero: React.FC = () => {
       </div>
 
       {/* Scroll Indicator */}
-      <div className="absolute bottom-12 left-1/2 transform -translate-x-1/2 animate-bounce">
-        <ArrowDown className="w-8 h-8 text-squared-gray-900/30" />
+      <div className="absolute bottom-12 left-1/2 transform -translate-x-1/2 animate-pulse opacity-30">
+        <ArrowDown className="w-8 h-8 text-squared-gray-900" />
       </div>
     </section>
   );
