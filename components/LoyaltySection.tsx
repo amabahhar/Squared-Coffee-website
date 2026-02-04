@@ -35,6 +35,13 @@ const LoyaltySection: React.FC = () => {
         return '+' + cleaned;
     };
 
+    // Helper function to format birthday to ISO8601 with timezone
+    const formatBirthday = (dateString: string): string => {
+        // dateString is in format YYYY-MM-DD from the date input
+        // Convert to ISO8601 with timezone: YYYY-MM-DDT00:00:00+03:00 (Saudi Arabia timezone)
+        return `${dateString}T00:00:00+03:00`;
+    };
+
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
 
@@ -50,13 +57,16 @@ const LoyaltySection: React.FC = () => {
             // Format phone number with country code
             const formattedPhone = formatPhoneNumber(formData.phone);
 
+            // Format birthday to ISO8601 with timezone
+            const formattedBirthday = formatBirthday(formData.birthday);
+
             const payload = {
                 campaignId: '1rmMhxhNM13OIXfFWJOxKU',
                 customerData: {
                     'Name': formData.name,
                     'Email address': formData.email,
                     'Contact Number': formattedPhone,
-                    'Birthday': formData.birthday
+                    'Birthday': formattedBirthday
                 },
                 dataConsentOptIn: formData.marketingConsent
             };
