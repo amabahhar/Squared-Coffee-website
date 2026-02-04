@@ -260,8 +260,8 @@ const Testimonials: React.FC = () => {
                                 onTouchMove={(e) => handleMove(e.touches[0].clientX)}
                                 onTouchEnd={handleEnd}
                             >
-                                {/* Render multiple cards for stack effect */}
-                                {[-1, 0, 1].map((offset) => renderCard(offset))}
+                                {/* Render only the active card */}
+                                {[0].map((offset) => renderCard(offset))}
                             </div>
 
                             {/* Navigation */}
