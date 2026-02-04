@@ -59,7 +59,7 @@ const SocialSection: React.FC = () => {
                             <span className="text-xs font-black tracking-[0.2em] uppercase text-squared-gray-900 group-hover/insta:text-squared-cyan transition-colors">
                                 @squared_coffee
                             </span>
-                            <div className="w-10 h-10 rounded-full bg-squared-gray-900 text-white flex items-center justify-center group-hover/insta:bg-squared-cyan transition-colors duration-300">
+                            <div className="w-10 h-10 rounded-full bg-black text-white flex items-center justify-center group-hover/insta:bg-squared-cyan transition-colors duration-300 shadow-md">
                                 <Instagram className="w-5 h-5" />
                             </div>
                         </a>
@@ -67,11 +67,18 @@ const SocialSection: React.FC = () => {
 
                     {/* Instagram Photo Grid - Horizontal Scroll */}
                     <div className="relative z-10">
+                        {/* Mobile Swipe Hint */}
+                        <div className="md:hidden flex items-center gap-2 mb-4 px-1">
+                            <div className="h-0.5 flex-1 bg-gradient-to-r from-transparent via-squared-cyan/20 to-transparent"></div>
+                            <span className="text-[10px] text-squared-cyan/60 font-black uppercase tracking-wider">Swipe to explore</span>
+                            <div className="h-0.5 flex-1 bg-gradient-to-r from-transparent via-squared-cyan/20 to-transparent"></div>
+                        </div>
+
                         <div
                             ref={scrollRef}
                             className={`overflow-x-auto pb-4 snap-x snap-mandatory no-scrollbar ${language === 'ar' ? 'direction-rtl' : ''}`}
                         >
-                            <div className="flex gap-4 md:gap-6">
+                            <div className="flex gap-4 md:gap-6 px-1">
                                 {SOCIAL_POSTS.map((post) => (
                                     <a
                                         key={post.id}
