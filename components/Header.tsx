@@ -27,14 +27,20 @@ const Header: React.FC<HeaderProps> = ({ onOrderClick }) => {
       // Save current scroll position
       const scrollY = window.scrollY;
 
-      // Lock scroll
-      document.body.style.position = 'fixed';
-      document.body.style.top = `-${scrollY}px`;
-      document.body.style.width = '100%';
-      document.body.style.overflow = 'hidden';
+      // Use requestAnimationFrame to ensure scroll lock happens after animation starts
+      // This prevents layout shift during the transition
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          // Lock scroll
+          document.body.style.position = 'fixed';
+          document.body.style.top = `-${scrollY}px`;
+          document.body.style.width = '100%';
+          document.body.style.overflow = 'hidden';
 
-      // Prevent touch scrolling on iOS
-      document.body.style.touchAction = 'none';
+          // Prevent touch scrolling on iOS
+          document.body.style.touchAction = 'none';
+        });
+      });
 
       return () => {
         // Restore scroll
