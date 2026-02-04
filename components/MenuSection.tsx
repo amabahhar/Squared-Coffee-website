@@ -15,7 +15,7 @@ const MenuSection: React.FC<MenuSectionProps> = ({ onItemClick }) => {
   const activeItems = FULL_MENU.filter(item => item.category === activeCategory);
 
   return (
-    <section id="menu" className="py-8 md:py-20 relative bg-transparent overflow-hidden">
+    <section id="menu" className="py-8 md:py-12 relative bg-transparent overflow-hidden">
       {/* Decorative Aurora - Optimized for mobile */}
       <div
         className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-squared-cyan/10 rounded-full pointer-events-none"
@@ -27,8 +27,7 @@ const MenuSection: React.FC<MenuSectionProps> = ({ onItemClick }) => {
 
 
       <div className="container mx-auto px-4 md:px-12 relative z-10">
-        {/* Mobile: One unified glass bubble */}
-        <div className="lg:hidden glass p-6 rounded-[2rem] shadow-warm border border-white/30 mb-16 overflow-hidden">
+        <div className="lg:hidden glass p-6 rounded-[2rem] shadow-warm border border-white/30 overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent pointer-events-none"></div>
 
           {/* Horizontal Scroll Categories */}

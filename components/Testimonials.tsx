@@ -202,7 +202,7 @@ const Testimonials: React.FC = () => {
     };
 
     return (
-        <section id="testimonials" className="py-12 md:py-24 relative overflow-hidden">
+        <section id="testimonials" className="py-8 md:py-12 relative overflow-hidden">
             {/* Decorative Background Elements */}
             <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-squared-cyan/5 via-transparent to-squared-gold/5 pointer-events-none" />
             <div className="absolute top-20 right-20 w-96 h-96 bg-squared-cyan/10 blur-[120px] rounded-full pointer-events-none" />

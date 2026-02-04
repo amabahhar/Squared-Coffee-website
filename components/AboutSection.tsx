@@ -5,7 +5,7 @@ const AboutSection: React.FC = () => {
   const { t, language } = useLanguage();
 
   return (
-    <section id="story" className="py-8 md:py-20 relative overflow-hidden">
+    <section id="story" className="py-8 md:py-12 relative overflow-hidden">
       {/* Aurora Background for Glass Effect - Optimized for mobile */}
       <div
         className="absolute top-0 right-0 w-[500px] h-[500px] bg-squared-cyan/15 rounded-full lg:animate-blob pointer-events-none"

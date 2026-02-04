@@ -7,7 +7,7 @@ const Locations: React.FC = () => {
   const { t, language } = useLanguage();
 
   return (
-    <section id="locations" className="py-8 md:py-20 relative bg-transparent">
+    <section id="locations" className="py-8 md:py-12 relative bg-transparent">
       {/* Decorative Aurora - Optimized for mobile */}
       <div
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-squared-cyan/5 rounded-full pointer-events-none"

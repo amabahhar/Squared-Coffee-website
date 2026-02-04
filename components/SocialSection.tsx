@@ -19,7 +19,7 @@ const SocialSection: React.FC = () => {
     };
 
     return (
-        <section id="social" className="py-12 md:py-24 relative overflow-hidden">
+        <section id="social" className="py-8 md:py-12 relative overflow-hidden">
 
             <div className="container mx-auto px-4 md:px-12 relative z-10">
                 <div className="glass p-6 md:p-12 rounded-[2.5rem] md:rounded-[3rem] border border-white/30 shadow-warm relative overflow-hidden group backdrop-blur-md">
