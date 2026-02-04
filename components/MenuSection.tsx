@@ -33,8 +33,20 @@ const MenuSection: React.FC<MenuSectionProps> = ({ onItemClick }) => {
 
           {/* Horizontal Scroll Categories */}
           <div className="relative z-10 mb-8">
+            {/* Scroll indicator hint */}
+            <div className="flex items-center gap-2 mb-3 px-2">
+              <div className="h-0.5 flex-1 bg-gradient-to-r from-transparent via-squared-cyan/20 to-transparent"></div>
+              <span className="text-[10px] text-squared-cyan/60 font-black uppercase tracking-wider">Swipe to explore</span>
+              <div className="h-0.5 flex-1 bg-gradient-to-r from-transparent via-squared-cyan/20 to-transparent"></div>
+            </div>
+
             <div
-              className="horizontal-scroll flex flex-row items-start gap-3 overflow-x-auto py-8 scrollbar-hide w-full -mx-6 px-6"
+              className="horizontal-scroll flex flex-row items-center gap-3 overflow-x-auto py-6 px-2 scrollbar-hide bg-white/20 rounded-2xl border border-white/30"
+              style={{
+                WebkitOverflowScrolling: 'touch',
+                scrollbarWidth: 'none',
+                msOverflowStyle: 'none'
+              }}
             >
               {MENU_CATEGORIES.map((category) => (
                 <button
