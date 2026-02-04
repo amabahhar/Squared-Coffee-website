@@ -21,6 +21,18 @@ const Header: React.FC<HeaderProps> = ({ onOrderClick }) => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Prevent background scrolling when mobile menu is open
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [isOpen]);
+
   const toggleLanguage = () => {
     setLanguage(language === 'en' ? 'ar' : 'en');
   };
@@ -87,13 +99,27 @@ const Header: React.FC<HeaderProps> = ({ onOrderClick }) => {
           </button>
         </div>
 
-        {/* Mobile Menu Toggle */}
-        <button
-          className="cursor-pointer lg:hidden relative z-50 p-2 text-squared-gray-900 hover:text-squared-cyan transition-colors"
-          onClick={() => setIsOpen(!isOpen)}
-        >
-          {isOpen ? <X className="w-7 h-7" /> : <Menu className="w-7 h-7" />}
-        </button>
+        {/* Right Side Actions - Mobile */}
+        <div className="lg:hidden flex items-center gap-3 relative z-50">
+          {/* Mobile Language Toggle */}
+          <button
+            onClick={toggleLanguage}
+            className="cursor-pointer flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-squared-gray-900/10 hover:border-squared-cyan/50 hover:bg-white/50 transition-all group"
+          >
+            <Globe className="w-4 h-4 text-squared-gray-600 group-hover:text-squared-cyan" />
+            <span className={`text-[10px] font-black uppercase ${language === 'ar' ? 'font-serif tracking-widest' : 'font-arabic'}`}>
+              {language === 'en' ? 'AR' : 'EN'}
+            </span>
+          </button>
+
+          {/* Mobile Menu Toggle */}
+          <button
+            className="cursor-pointer p-2 text-squared-gray-900 hover:text-squared-cyan transition-colors"
+            onClick={() => setIsOpen(!isOpen)}
+          >
+            {isOpen ? <X className="w-7 h-7" /> : <Menu className="w-7 h-7" />}
+          </button>
+        </div>
       </div>
 
       {/* Mobile Menu Overlay */}
@@ -102,30 +128,21 @@ const Header: React.FC<HeaderProps> = ({ onOrderClick }) => {
           }`}
       >
         <div className="absolute inset-0 bg-gradient-to-br from-squared-cyan/10 to-transparent pointer-events-none"></div>
-        <nav className="flex flex-col items-center space-y-12 relative z-10 w-full">
-
-          {/* Mobile Lang Toggle */}
-          <button
-            onClick={() => { toggleLanguage(); }}
-            className="absolute top-[-80px] right-8 flex items-center gap-2 px-4 py-2 rounded-full glass border border-white/20 text-white"
-          >
-            <Globe className="w-4 h-4" />
-            <span className="text-xs font-black">{language === 'en' ? 'العربية' : 'English'}</span>
-          </button>
+        <nav className="flex flex-col items-center space-y-6 relative z-10 w-full px-6">
 
           {NAV_ITEMS.map((item) => (
             <a
               key={item.label}
               href={item.href}
-              className={`cursor-pointer text-3xl md:text-4xl font-serif font-black text-white hover:text-squared-cyan transition-all duration-300 tracking-wider hover:scale-110 ${language === 'ar' ? 'font-arabic tracking-normal' : ''}`}
+              className={`cursor-pointer text-2xl font-serif font-black text-white hover:text-squared-cyan transition-all duration-300 tracking-wider hover:scale-110 ${language === 'ar' ? 'font-arabic tracking-normal' : ''}`}
               onClick={() => setIsOpen(false)}
             >
               {getNavLabel(item.label)}
             </a>
           ))}
-          <div className="mt-12 md:mt-16 flex flex-col items-center space-y-6 md:space-y-8">
-            <div className="flex items-center text-[10px] md:text-xs font-black text-white/70 uppercase tracking-[0.3em]">
-              <MapPin className="w-4 h-4 md:w-5 md:h-5 mr-3 md:mr-4 text-squared-cyan" />
+          <div className="mt-8 flex flex-col items-center space-y-5">
+            <div className="flex items-center text-[10px] font-black text-white/70 uppercase tracking-[0.3em]">
+              <MapPin className="w-4 h-4 mr-3 text-squared-cyan" />
               {language === 'ar' ? 'القطيف' : LOCATIONS[0].city}
             </div>
             <button
@@ -133,7 +150,7 @@ const Header: React.FC<HeaderProps> = ({ onOrderClick }) => {
                 setIsOpen(false);
                 onOrderClick();
               }}
-              className={`cursor-pointer bg-squared-cyan text-white px-10 py-4 md:px-14 md:py-5 rounded-full text-lg md:text-xl font-black uppercase tracking-[0.2em] hover:bg-squared-cyan-dark shadow-2xl transition-all duration-500 hover:scale-105 active:scale-95 ${language === 'ar' ? 'font-arabic tracking-normal' : ''}`}
+              className={`cursor-pointer bg-squared-cyan text-white px-10 py-3.5 rounded-full text-base font-black uppercase tracking-[0.2em] hover:bg-squared-cyan-dark shadow-2xl transition-all duration-500 hover:scale-105 active:scale-95 ${language === 'ar' ? 'font-arabic tracking-normal' : ''}`}
             >
               {language === 'ar' ? 'اطلب الآن' : 'Order Now'}
             </button>
