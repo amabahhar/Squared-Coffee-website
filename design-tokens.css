@@ -111,11 +111,22 @@
 /* Horizontal Scroll Container - Mobile Optimized */
 .horizontal-scroll {
   -webkit-overflow-scrolling: touch;
-  touch-action: pan-x;
+  touch-action: pan-x !important;
   overscroll-behavior-x: contain;
   overscroll-behavior-y: none;
   scroll-behavior: smooth;
+  isolation: isolate;
+  pointer-events: auto;
+  will-change: scroll-position;
 }
+
+@media (max-width: 768px) {
+  .horizontal-scroll {
+    position: relative;
+    z-index: 9999;
+  }
+}
+
 
 /* === Utility Classes === */
 

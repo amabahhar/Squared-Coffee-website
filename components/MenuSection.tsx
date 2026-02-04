@@ -42,7 +42,7 @@ const MenuSection: React.FC<MenuSectionProps> = ({ onItemClick }) => {
               </span>
 
               <div
-                className="horizontal-scroll flex flex-row md:flex-col items-start gap-3 overflow-x-auto md:overflow-visible pb-4 md:pb-0 scrollbar-hide w-full -mx-6 px-6 md:mx-0 md:px-0"
+                className="horizontal-scroll flex flex-row md:flex-col items-start gap-3 overflow-x-auto md:overflow-visible py-6 pb-8 md:py-0 md:pb-0 scrollbar-hide w-full -mx-6 px-6 md:mx-0 md:px-0"
               >
                 {MENU_CATEGORIES.map((category) => (
                   <button
