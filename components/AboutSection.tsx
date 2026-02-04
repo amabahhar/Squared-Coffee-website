@@ -59,34 +59,36 @@ const AboutSection: React.FC = () => {
               </div>
             </div>
 
-            <div className="relative z-10 text-center md:text-left">
-              <span className={`inline-block py-1 pr-12 border-b-2 border-squared-cyan/40 text-xs md:text-sm font-black tracking-[0.4em] text-squared-cyan uppercase mb-10 md:mb-14 animate-fade-in ${language === 'ar' ? 'font-arabic tracking-normal pl-12 pr-0' : ''}`}>
-                {t.about.eyebrow}
-              </span>
+            <div className="relative z-10 md:text-left">
+              <div className="text-center md:text-left">
+                <span className={`inline-block py-1 pr-12 border-b-2 border-squared-cyan/40 text-xs md:text-sm font-black tracking-[0.4em] text-squared-cyan uppercase mb-10 md:mb-14 animate-fade-in ${language === 'ar' ? 'font-arabic tracking-normal pl-12 pr-0' : ''}`}>
+                  {t.about.eyebrow}
+                </span>
 
-              {/* Mobile Embedded Images (Float Style) */}
-              <div className={`md:hidden float-right mb-2 w-32 relative z-20 pointer-events-none ${language === 'ar' ? 'float-left mr-8 ml-0' : 'float-right ml-8'}`}>
-                <img
-                  src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&q=80&w=400"
-                  alt="Coffee Brewing"
-                  loading="lazy"
-                  decoding="async"
-                  className="rounded-2xl w-32 aspect-[4/5] object-cover shadow-lg mb-4 transform rotate-2"
-                />
-                <div className="p-1 glass-card rounded-xl shadow-lg w-20 absolute -bottom-4 -left-5 transform -rotate-3">
+                {/* Mobile Embedded Images (Float Style) - Moved outside the text flow to avoid centering issues if tricky, but sticking to structure */}
+                <div className={`md:hidden float-right mb-2 w-32 relative z-20 pointer-events-none ${language === 'ar' ? 'float-left mr-8 ml-0' : 'float-right ml-8'}`}>
                   <img
-                    src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&q=80&w=300"
-                    alt="Cafe Atmosphere"
+                    src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&q=80&w=400"
+                    alt="Coffee Brewing"
                     loading="lazy"
                     decoding="async"
-                    className="rounded-lg w-full aspect-square object-cover"
+                    className="rounded-2xl w-32 aspect-[4/5] object-cover shadow-lg mb-4 transform rotate-2"
                   />
+                  <div className="p-1 glass-card rounded-xl shadow-lg w-20 absolute -bottom-4 -left-5 transform -rotate-3">
+                    <img
+                      src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&q=80&w=300"
+                      alt="Cafe Atmosphere"
+                      loading="lazy"
+                      decoding="async"
+                      className="rounded-lg w-full aspect-square object-cover"
+                    />
+                  </div>
                 </div>
-              </div>
 
-              <h2 className={`text-5xl md:text-7xl font-serif text-squared-gray-900 mb-6 md:mb-8 leading-[1.1] font-black tracking-tight ${language === 'ar' ? 'font-arabic font-bold' : ''}`}>
-                {t.about.title_start}<br /> <span className="text-squared-cyan">{t.about.title_highlight}</span>
-              </h2>
+                <h2 className={`text-5xl md:text-7xl font-serif text-squared-gray-900 mb-6 md:mb-8 leading-[1.1] font-black tracking-tight ${language === 'ar' ? 'font-arabic font-bold' : ''}`}>
+                  {t.about.title_start}<br /> <span className="text-squared-cyan">{t.about.title_highlight}</span>
+                </h2>
+              </div>
 
               <div className={`space-y-6 text-squared-gray-800 font-sans leading-relaxed text-sm md:text-base max-w-xl font-medium opacity-90 ${language === 'ar' ? 'font-arabic' : ''}`}>
                 <p>

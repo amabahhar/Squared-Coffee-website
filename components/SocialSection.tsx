@@ -37,12 +37,12 @@ const SocialSection: React.FC = () => {
                     </div>
 
                     {/* Header Content */}
-                    <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 relative z-10">
-                        <div className="mb-4 md:mb-0">
+                    <div className="flex flex-col md:flex-row justify-between items-center md:items-end mb-6 md:mb-12 relative z-10 md:text-left">
+                        <div className="mb-4 md:mb-0 text-center md:text-left">
                             <span className={`inline-block py-1 pr-12 border-b-2 border-squared-cyan/30 text-xs md:text-sm font-black tracking-[0.4em] text-squared-cyan uppercase mb-4 ${language === 'ar' ? 'font-arabic tracking-normal pl-12 pr-0' : ''}`}>
                                 {t.social.eyebrow}
                             </span>
-                            <h2 className={`text-4xl md:text-6xl font-serif text-squared-gray-900 leading-[0.9] font-black tracking-tight ${language === 'ar' ? 'font-arabic font-bold' : ''}`}>
+                            <h2 className={`text-5xl md:text-7xl font-serif text-squared-gray-900 leading-[0.9] font-black tracking-tight ${language === 'ar' ? 'font-arabic font-bold' : ''}`}>
                                 {t.social.title}<br />
                                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-squared-cyan to-squared-gold-light">
                                     {t.social.title_highlight}
@@ -114,22 +114,22 @@ const SocialSection: React.FC = () => {
                         </div>
 
                         {/* Scroll Indicators */}
-                        <div className="absolute top-1/2 -translate-y-1/2 left-0 right-0 pointer-events-none hidden md:flex justify-between -mx-4 z-20">
+                        <div className="absolute top-1/2 -translate-y-1/2 left-0 right-0 pointer-events-none flex justify-between -mx-4 z-20 px-2 md:px-0">
                             <button
                                 onClick={() => scroll('left')}
-                                className="w-12 h-12 rounded-full bg-white/90 backdrop-blur-sm shadow-xl flex items-center justify-center text-squared-gray-900 pointer-events-auto hover:bg-squared-cyan hover:text-white transition-all duration-300 transform hover:scale-110 active:scale-95 border border-white/50"
+                                className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-white/90 backdrop-blur-sm shadow-xl flex items-center justify-center text-squared-gray-900 pointer-events-auto hover:bg-squared-cyan hover:text-white transition-all duration-300 transform hover:scale-110 active:scale-95 border border-white/50"
                                 aria-label="Scroll left"
                             >
-                                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <svg className="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
                                 </svg>
                             </button>
                             <button
                                 onClick={() => scroll('right')}
-                                className="w-12 h-12 rounded-full bg-white/90 backdrop-blur-sm shadow-xl flex items-center justify-center text-squared-gray-900 pointer-events-auto hover:bg-squared-cyan hover:text-white transition-all duration-300 transform hover:scale-110 active:scale-95 border border-white/50"
+                                className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-white/90 backdrop-blur-sm shadow-xl flex items-center justify-center text-squared-gray-900 pointer-events-auto hover:bg-squared-cyan hover:text-white transition-all duration-300 transform hover:scale-110 active:scale-95 border border-white/50"
                                 aria-label="Scroll right"
                             >
-                                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <svg className="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                                 </svg>
                             </button>
