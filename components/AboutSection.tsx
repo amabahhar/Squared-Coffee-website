@@ -1,10 +1,20 @@
 import React from 'react';
+import { useLanguage } from '../contexts/LanguageContext';
 
 const AboutSection: React.FC = () => {
+  const { t, language } = useLanguage();
+
   return (
     <section id="story" className="py-8 md:py-20 relative overflow-hidden">
-      {/* Aurora Background for Glass Effect */}
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-squared-cyan/20 blur-[120px] rounded-full animate-blob"></div>
+      {/* Aurora Background for Glass Effect - Optimized for mobile */}
+      <div
+        className="absolute top-0 right-0 w-[500px] h-[500px] bg-squared-cyan/15 rounded-full lg:animate-blob pointer-events-none"
+        style={{
+          filter: 'blur(60px)',
+          transform: 'translateZ(0)',
+          willChange: 'transform'
+        }}
+      ></div>
 
       <div className="container mx-auto px-4 md:px-12 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-center">
@@ -36,12 +46,12 @@ const AboutSection: React.FC = () => {
             <div className="absolute inset-0 bg-gradient-to-br from-squared-cyan/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-1000"></div>
 
             <div className="relative z-10">
-              <span className="inline-block py-1 pr-12 border-b-2 border-squared-cyan/40 text-[10px] font-black tracking-[0.6em] text-squared-cyan uppercase mb-10 md:mb-14 animate-fade-in">
-                The Squared Ethos
+              <span className={`inline-block py-1 pr-12 border-b-2 border-squared-cyan/40 text-xs md:text-sm font-black tracking-[0.4em] text-squared-cyan uppercase mb-10 md:mb-14 animate-fade-in ${language === 'ar' ? 'font-arabic tracking-normal pl-12 pr-0' : ''}`}>
+                {t.about.eyebrow}
               </span>
 
               {/* Mobile Embedded Images (Float Style) */}
-              <div className="md:hidden float-right ml-8 mb-2 w-32 relative z-20 pointer-events-none">
+              <div className={`md:hidden float-right mb-2 w-32 relative z-20 pointer-events-none ${language === 'ar' ? 'float-left mr-8 ml-0' : 'float-right ml-8'}`}>
                 <img
                   src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&q=80&w=400"
                   alt="Coffee Brewing"
@@ -56,26 +66,26 @@ const AboutSection: React.FC = () => {
                 </div>
               </div>
 
-              <h2 className="text-3xl md:text-5xl font-serif text-squared-gray-900 mb-6 md:mb-8 leading-[1.1] font-black tracking-tight">
-                More than just<br /> <span className="text-squared-cyan">a coffee shop.</span>
+              <h2 className={`text-3xl md:text-5xl font-serif text-squared-gray-900 mb-6 md:mb-8 leading-[1.1] font-black tracking-tight ${language === 'ar' ? 'font-arabic font-bold' : ''}`}>
+                {t.about.title_start}<br /> <span className="text-squared-cyan">{t.about.title_highlight}</span>
               </h2>
 
-              <div className="space-y-6 text-squared-gray-800 font-sans leading-relaxed text-sm md:text-base max-w-xl font-medium opacity-90">
+              <div className={`space-y-6 text-squared-gray-800 font-sans leading-relaxed text-sm md:text-base max-w-xl font-medium opacity-90 ${language === 'ar' ? 'font-arabic' : ''}`}>
                 <p>
-                  Whether you drop by for a delicious cup of coffee, a homemade pastry, a kick-start breakfast, or a delicious lunch: the door of Squared Coffee is wide open for you.
+                  {t.about.p1}
                 </p>
                 <p>
-                  As soon as you step over the threshold, you are home. The café radiates peace, warmth, and domesticity.
+                  {t.about.p2}
                 </p>
                 <p>
-                  It is the ultimate place to have a chat, open a good book, study quietly, or just relax in your favorite chair. We believe in the perfect equation of taste, comfort, and community.
+                  {t.about.p3}
                 </p>
               </div>
 
               <div className="mt-8 md:mt-12 pt-8 border-t border-squared-gray-900/10 flex flex-col-reverse md:flex-row items-center justify-between gap-6 md:gap-0">
                 <div className="text-center md:text-left">
-                  <span className="block text-[10px] font-black tracking-[0.4em] uppercase text-squared-cyan mb-2">Since 2024</span>
-                  <span className="font-serif italic text-squared-gray-900 text-xl font-black tracking-tight">The Squared Team</span>
+                  <span className={`block text-[10px] font-black tracking-[0.4em] uppercase text-squared-cyan mb-2 ${language === 'ar' ? 'font-arabic tracking-normal' : ''}`}>{t.about.since}</span>
+                  <span className={`font-serif italic text-squared-gray-900 text-xl font-black tracking-tight ${language === 'ar' ? 'font-arabic not-italic' : ''}`}>{t.about.team}</span>
                 </div>
 
               </div>

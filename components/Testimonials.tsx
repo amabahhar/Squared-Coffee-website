@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { TESTIMONIALS } from '../constants';
 import { Star, ChevronLeft, ChevronRight } from 'lucide-react';
+import { useLanguage } from '../contexts/LanguageContext';
 
 const Testimonials: React.FC = () => {
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -10,6 +11,16 @@ const Testimonials: React.FC = () => {
     const startXRef = useRef<number>(0);
     const [isDragging, setIsDragging] = useState(false);
     const [dragOffset, setDragOffset] = useState(0);
+    const { t, language } = useLanguage();
+
+    // ... [Logic remains same, skipping lines 14-68 for brevity in replacement if possible, but simplest to keep all logic if ReplaceContent covers it]
+    // Wait, I can't skip lines in ReplaceContent. I'll just write the surrounding code and assume logic is same. 
+    // Actually, to be safe, I'm replacing the top part to include hook, and the bottom part to include translations.
+    // I'll execute this as two chunks if needed, but here I'm replacing lines 1-211 which is huge.
+    // Better strategy: Replace import and hook, then replace JSX content.
+
+    // Let's do it in one go if I can copy paste the logical part correctly.
+    // Logic lines 15-74 are purely functional.
 
     // Auto-advance testimonials
     useEffect(() => {
@@ -132,7 +143,7 @@ const Testimonials: React.FC = () => {
                     <div className="absolute inset-0 bg-gradient-to-br from-white/50 via-white/30 to-transparent pointer-events-none" />
 
                     {/* Quote decoration */}
-                    <div className="absolute top-8 left-8 text-squared-cyan/10 text-[120px] md:text-[180px] font-serif leading-none pointer-events-none select-none">
+                    <div className={`absolute top-8 left-8 text-squared-cyan/10 text-[120px] md:text-[180px] font-serif leading-none pointer-events-none select-none ${language === 'ar' ? 'right-8 left-auto' : ''}`}>
                         "
                     </div>
 
@@ -147,14 +158,14 @@ const Testimonials: React.FC = () => {
                     </div>
 
                     {/* Review Text */}
-                    <p className="text-squared-gray-900 text-lg md:text-2xl leading-relaxed mb-8 relative z-10 font-medium">
+                    <p className={`text-squared-gray-900 text-lg md:text-2xl leading-relaxed mb-8 relative z-10 font-medium ${language === 'ar' ? 'font-arabic' : ''}`}>
                         {testimonial.text}
                     </p>
 
                     {/* Reviewer Info */}
                     <div className="flex items-center justify-between relative z-10">
                         <div>
-                            <h4 className="text-squared-gray-900 font-bold text-base md:text-lg">
+                            <h4 className={`text-squared-gray-900 font-bold text-base md:text-lg ${language === 'ar' ? 'font-arabic' : ''}`}>
                                 {testimonial.name}
                             </h4>
                             <p className="text-squared-gray-600 text-sm">
@@ -183,7 +194,7 @@ const Testimonials: React.FC = () => {
     };
 
     return (
-        <section className="py-12 md:py-24 relative overflow-hidden">
+        <section id="testimonials" className="py-12 md:py-24 relative overflow-hidden">
             {/* Decorative Background Elements */}
             <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-squared-cyan/5 via-transparent to-squared-gold/5 pointer-events-none" />
             <div className="absolute top-20 right-20 w-96 h-96 bg-squared-cyan/10 blur-[120px] rounded-full pointer-events-none" />
@@ -191,20 +202,21 @@ const Testimonials: React.FC = () => {
 
             <div className="container mx-auto px-4 md:px-12 relative z-10">
                 {/* Header */}
-                <div className="text-center mb-16">
-                    <span className="inline-block py-1 px-6 border-b-2 border-squared-cyan/30 text-xs md:text-sm font-black tracking-[0.4em] text-squared-cyan uppercase mb-6">
-                        Testimonials
-                    </span>
-                    <h2 className="text-4xl md:text-6xl font-serif text-squared-gray-900 leading-[0.9] font-black tracking-tight mb-4">
-                        What Our
-                        <br />
-                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-squared-cyan to-squared-gold-light">
-                            Customers Say
+                <div className="glass-card max-w-4xl mx-auto p-8 md:p-12 rounded-[3rem] border border-squared-cyan/20 shadow-warm text-center mb-16 relative overflow-hidden">
+                    {/* Glass gradient overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-b from-white/40 to-transparent opacity-50 pointer-events-none"></div>
+
+                    <div className="relative z-10">
+                        <span className={`inline-block py-1 px-6 border-b-2 border-squared-cyan/30 text-xs md:text-sm font-black tracking-[0.4em] text-squared-cyan uppercase mb-6 ${language === 'ar' ? 'font-arabic tracking-normal' : ''}`}>
+                            {t.testimonials.eyebrow}
                         </span>
-                    </h2>
-                    <p className="text-squared-gray-600 text-base md:text-lg max-w-2xl mx-auto mt-6">
-                        Rated <span className="font-bold text-squared-cyan">4.5/5</span> on Google Maps with over <span className="font-bold">540 reviews</span>
-                    </p>
+                        <h2 className={`text-4xl md:text-6xl font-serif text-squared-gray-900 leading-[0.9] font-black tracking-tight mb-4 ${language === 'ar' ? 'font-arabic font-bold' : ''}`}>
+                            {t.testimonials.title}
+                        </h2>
+                        <p className={`text-squared-gray-600 text-base md:text-lg max-w-2xl mx-auto mt-6 ${language === 'ar' ? 'font-arabic' : ''}`}>
+                            {t.testimonials.rating_text} <span className="font-bold text-squared-cyan">4.5/5</span> {language === 'ar' ? 'على جوجل ماب مع أكثر من' : 'on Google Maps with over'} <span className="font-bold">540 {t.testimonials.reviews_text}</span>
+                        </p>
+                    </div>
                 </div>
 
                 {/* Testimonial Cards Container */}
@@ -237,7 +249,7 @@ const Testimonials: React.FC = () => {
                             className="w-12 h-12 md:w-14 md:h-14 rounded-full glass-card backdrop-blur-md bg-white/60 border border-white/40 flex items-center justify-center hover:bg-squared-cyan hover:border-squared-cyan hover:text-white transition-all duration-300 shadow-lg cursor-pointer"
                             aria-label="Previous testimonial"
                         >
-                            <ChevronLeft className="w-6 h-6" />
+                            <ChevronLeft className="w-6 h-6 rtl:rotate-180" />
                         </button>
 
                         {/* Dots Indicator */}
@@ -272,7 +284,7 @@ const Testimonials: React.FC = () => {
                             className="w-12 h-12 md:w-14 md:h-14 rounded-full glass-card backdrop-blur-md bg-white/60 border border-white/40 flex items-center justify-center hover:bg-squared-cyan hover:border-squared-cyan hover:text-white transition-all duration-300 shadow-lg cursor-pointer"
                             aria-label="Next testimonial"
                         >
-                            <ChevronRight className="w-6 h-6" />
+                            <ChevronRight className="w-6 h-6 rtl:rotate-180" />
                         </button>
                     </div>
                 </div>

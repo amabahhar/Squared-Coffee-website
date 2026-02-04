@@ -2,8 +2,17 @@ import React from 'react';
 import Logo from './Logo';
 import { NAV_ITEMS } from '../constants';
 import { Instagram, Phone, Facebook } from 'lucide-react';
+import { useLanguage } from '../contexts/LanguageContext';
 
 const Footer: React.FC = () => {
+  const { t, language } = useLanguage();
+
+  // Helper to get translated label
+  const getNavLabel = (key: string) => {
+    const k = key.toLowerCase() as keyof typeof t.nav;
+    return t.nav[k] || key;
+  };
+
   return (
     <footer id="footer" className="py-8 md:py-16 relative overflow-hidden">
       <div className="absolute inset-0 bg-black/40 backdrop-blur-3xl pointer-events-none"></div>
@@ -16,35 +25,35 @@ const Footer: React.FC = () => {
           <div className="flex flex-col md:flex-row justify-between items-start mb-24 gap-20 relative z-10">
             <div className="max-w-sm">
               <Logo size="lg" className="mb-0" variant="dark" />
-              <p className="mt-10 text-white/50 font-sans leading-relaxed text-base font-medium">
-                Experience the perfect equation of taste, comfort, and community in the heart of Qatif. Your local sanctuary for exceptional coffee.
+              <p className={`mt-10 text-white/50 font-sans leading-relaxed text-base font-medium ${language === 'ar' ? 'font-arabic' : ''}`}>
+                {t.hero.subtitle}
               </p>
             </div>
 
             <div className="grid grid-cols-2 gap-16 md:gap-40">
               <div>
-                <span className="block text-[10px] font-black tracking-[0.5em] uppercase mb-10 text-squared-cyan">Navigate</span>
+                <span className={`block text-[10px] font-black tracking-[0.5em] uppercase mb-10 text-squared-cyan ${language === 'ar' ? 'font-arabic tracking-normal' : ''}`}>{t.social.eyebrow}</span>
                 <nav className="flex flex-col space-y-5">
                   {NAV_ITEMS.map((item) => (
                     <a
                       key={item.label}
                       href={item.href}
-                      className="cursor-pointer text-[10px] font-black uppercase tracking-[0.2em] text-white/40 hover:text-squared-cyan transition-all duration-300 hover:translate-x-2"
+                      className={`cursor-pointer text-[10px] font-black uppercase tracking-[0.2em] text-white/40 hover:text-squared-cyan transition-all duration-300 hover:translate-x-2 ${language === 'ar' ? 'font-arabic tracking-normal' : ''}`}
                     >
-                      {item.label}
+                      {getNavLabel(item.label)}
                     </a>
                   ))}
                 </nav>
               </div>
 
               <div>
-                <span className="block text-[10px] font-black tracking-[0.5em] uppercase mb-10 text-squared-cyan">Connect</span>
+                <span className={`block text-[10px] font-black tracking-[0.5em] uppercase mb-10 text-squared-cyan ${language === 'ar' ? 'font-arabic tracking-normal' : ''}`}>{t.social.eyebrow}</span>
                 <div className="flex flex-col space-y-5">
-                  <a href="https://www.instagram.com/squared_coffee/" target="_blank" rel="noopener noreferrer" className="cursor-pointer text-[10px] font-black uppercase tracking-[0.2em] text-white/40 hover:text-squared-cyan transition-all duration-300 flex items-center group/link hover:translate-x-2">
-                    <Instagram className="w-5 h-5 mr-4 group-hover/link:text-squared-cyan transition-colors" /> Instagram
+                  <a href="https://www.instagram.com/squared_coffee/" target="_blank" rel="noopener noreferrer" className={`cursor-pointer text-[10px] font-black uppercase tracking-[0.2em] text-white/40 hover:text-squared-cyan transition-all duration-300 flex items-center group/link hover:translate-x-2 ${language === 'ar' ? 'font-arabic tracking-normal' : ''}`}>
+                    <Instagram className={`w-5 h-5 group-hover/link:text-squared-cyan transition-colors ${language === 'ar' ? 'ml-4' : 'mr-4'}`} /> Instagram
                   </a>
-                  <a href="tel:00966552325919" className="cursor-pointer text-[10px] font-black uppercase tracking-[0.2em] text-white/40 hover:text-squared-cyan transition-all duration-300 flex items-center group/link hover:translate-x-2">
-                    <Phone className="w-5 h-5 mr-4 group-hover/link:text-squared-cyan transition-colors" /> Call Us
+                  <a href="tel:00966552325919" className={`cursor-pointer text-[10px] font-black uppercase tracking-[0.2em] text-white/40 hover:text-squared-cyan transition-all duration-300 flex items-center group/link hover:translate-x-2 ${language === 'ar' ? 'font-arabic tracking-normal' : ''}`}>
+                    <Phone className={`w-5 h-5 group-hover/link:text-squared-cyan transition-colors ${language === 'ar' ? 'ml-4' : 'mr-4'}`} /> {language === 'ar' ? 'اتصل بنا' : 'Call Us'}
                   </a>
                 </div>
               </div>
@@ -52,14 +61,14 @@ const Footer: React.FC = () => {
           </div>
 
           <div className="pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-8 text-[10px] font-black tracking-[0.3em] uppercase text-white/20 relative z-10 text-center md:text-left">
-            <div>
-              &copy; {new Date().getFullYear()} Squared Coffee. All rights reserved.
+            <div className={language === 'ar' ? 'font-arabic tracking-normal' : ''}>
+              &copy; {new Date().getFullYear()} Squared Coffee. {t.footer.rights}
             </div>
 
-            <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-10">
-              <a href="#" className="cursor-pointer hover:text-white transition-colors">Privacy Policy</a>
-              <a href="#" className="cursor-pointer hover:text-white transition-colors">Terms of Service</a>
-              <a href="#" className="cursor-pointer hover:text-white transition-colors">Contact</a>
+            <div className={`flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-10 ${language === 'ar' ? 'font-arabic tracking-normal md:space-x-reverse' : ''}`}>
+              <a href="#" className="cursor-pointer hover:text-white transition-colors">{t.footer.privacy}</a>
+              <a href="#" className="cursor-pointer hover:text-white transition-colors">{t.footer.terms}</a>
+              <a href="#" className="cursor-pointer hover:text-white transition-colors">{t.footer.contact}</a>
             </div>
           </div>
         </div>

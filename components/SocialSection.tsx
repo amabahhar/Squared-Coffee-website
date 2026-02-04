@@ -1,23 +1,29 @@
 import React from 'react';
 import { SOCIAL_POSTS } from '../constants';
 import { Instagram, ExternalLink } from 'lucide-react';
+import { useLanguage } from '../contexts/LanguageContext';
 
 const SocialSection: React.FC = () => {
+    const { t, language } = useLanguage();
+
     return (
         <section id="social" className="py-12 md:py-24 relative overflow-hidden">
 
             <div className="container mx-auto px-4 md:px-12 relative z-10">
 
                 {/* Header */}
-                <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 border-b border-squared-gray-900/10 pb-6">
-                    <div className="mb-4 md:mb-0">
-                        <span className="inline-block py-1 pr-12 border-b-2 border-squared-cyan/30 text-xs md:text-sm font-black tracking-[0.4em] text-squared-cyan uppercase mb-4">
-                            Social
+                <div className="glass-card p-6 md:p-10 rounded-[2.5rem] border border-squared-cyan/20 shadow-warm flex flex-col md:flex-row justify-between items-start md:items-end mb-12 relative overflow-hidden">
+                    {/* Glass gradient overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-white/40 to-transparent opacity-50 pointer-events-none"></div>
+
+                    <div className="mb-4 md:mb-0 relative z-10">
+                        <span className={`inline-block py-1 pr-12 border-b-2 border-squared-cyan/30 text-xs md:text-sm font-black tracking-[0.4em] text-squared-cyan uppercase mb-4 ${language === 'ar' ? 'font-arabic tracking-normal pl-12 pr-0' : ''}`}>
+                            {t.social.eyebrow}
                         </span>
-                        <h2 className="text-4xl md:text-6xl font-serif text-squared-gray-900 leading-[0.9] font-black tracking-tight">
-                            Follow<br />
+                        <h2 className={`text-4xl md:text-6xl font-serif text-squared-gray-900 leading-[0.9] font-black tracking-tight ${language === 'ar' ? 'font-arabic font-bold' : ''}`}>
+                            {t.social.title}<br />
                             <span className="text-transparent bg-clip-text bg-gradient-to-r from-squared-cyan to-squared-gold-light">
-                                The Vibe
+                                {t.social.title_highlight}
                             </span>
                         </h2>
                     </div>
@@ -40,7 +46,7 @@ const SocialSection: React.FC = () => {
                 {/* Instagram Photo Grid - Horizontal Scroll */}
                 <div className="relative">
                     {/* Desktop: 3 photos at a time, Mobile: 1 photo at a time */}
-                    <div className="overflow-x-auto pb-8 snap-x snap-mandatory no-scrollbar">
+                    <div className={`overflow-x-auto pb-8 snap-x snap-mandatory no-scrollbar ${language === 'ar' ? 'direction-rtl' : ''}`}>
                         <div className="flex gap-4 md:gap-6">
                             {SOCIAL_POSTS.map((post) => (
                                 <a
@@ -64,8 +70,8 @@ const SocialSection: React.FC = () => {
                                                 {post.caption}
                                             </p>
                                             <div className="flex items-center gap-2 text-squared-cyan text-xs font-black uppercase tracking-wider">
-                                                <span>View on Instagram</span>
-                                                <ExternalLink className="w-4 h-4" />
+                                                <span>{t.social.view_insta}</span>
+                                                <ExternalLink className={`w-4 h-4 ${language === 'ar' ? 'mr-2' : ''}`} />
                                             </div>
                                         </div>
                                     </div>
