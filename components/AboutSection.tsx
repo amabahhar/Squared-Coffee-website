@@ -5,107 +5,69 @@ const AboutSection: React.FC = () => {
   const { t, language } = useLanguage();
 
   return (
-    <section id="story" className="py-8 md:py-12 relative overflow-hidden">
-      {/* Aurora Background for Glass Effect - Optimized for mobile */}
-      <div
-        className="absolute top-0 right-0 w-[500px] h-[500px] bg-squared-cyan/15 rounded-full lg:animate-blob pointer-events-none"
+    <section id="story" className="py-20 md:py-32 bg-squared-white dark:bg-squared-black relative overflow-hidden border-b border-squared-gray-100 dark:border-squared-gray-800">
+      {/* Background Grid - Hero Style */}
+      <div className="absolute inset-0 z-0 pointer-events-none opacity-[0.03] dark:opacity-[0.05]"
         style={{
-          filter: 'blur(60px)',
-          transform: 'translateZ(0)',
-          willChange: 'transform'
+          backgroundImage: `linear-gradient(to right, #000 1px, transparent 1px),
+                           linear-gradient(to bottom, #000 1px, transparent 1px)`,
+          backgroundSize: '40px 40px'
         }}
       ></div>
+      <div className="container mx-auto px-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-24 items-center">
 
-      <div className="container mx-auto px-4 md:px-12 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-center">
-
-          {/* Image Grid - Editorial Style (Desktop Only) */}
-          <div className="relative group hidden md:block">
-            <div className="grid grid-cols-12 gap-4">
-              <div className="col-span-10 md:col-span-8 z-0">
-                <img
-                  src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&q=80&w=800"
-                  alt="Coffee Brewing"
-                  className="rounded-3xl w-full aspect-[4/5] object-cover shadow-2xl hover:scale-[1.02] transition-all duration-700"
-                />
+          {/* Image Side - Technical & Sharp */}
+          <div className="relative group">
+            <div className="aspect-[4/5] bg-squared-gray-100 dark:bg-squared-gray-900 relative overflow-hidden">
+              <img
+                src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&q=80&w=800"
+                alt="Coffee Brewing"
+                className="w-full h-full object-cover filter grayscale contrast-125 hover:grayscale-0 transition-all duration-700"
+              />
+              {/* Technical Overlays */}
+              <div className="absolute top-0 left-0 p-4 font-mono text-xs text-squared-white mix-blend-difference">
+                FIG. 01 — ORIGIN
               </div>
-              <div className="col-span-7 md:col-span-6 -mt-20 md:-mt-32 ml-auto relative z-10">
-                <div className="p-2 glass-card rounded-3xl shadow-2xl">
-                  <img
-                    src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&q=80&w=600"
-                    alt="Cafe Atmosphere"
-                    className="rounded-2xl w-full aspect-square object-cover"
-                  />
-                </div>
+              <div className="absolute bottom-0 right-0 p-4 font-mono text-xs text-squared-white mix-blend-difference border-t border-l border-white/20">
+                EST. 2018
               </div>
             </div>
           </div>
 
-          {/* Text Content */}
-          <div className="glass p-8 md:p-16 rounded-[2.5rem] md:rounded-[4rem] shadow-2xl border border-white/30 dark:border-white/10 relative overflow-hidden group backdrop-blur-md transition-colors duration-500">
-            <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent pointer-events-none"></div>
-
-            {/* Geometric Accents */}
-            <div className="absolute top-6 right-6 opacity-20 pointer-events-none transition-all duration-700 group-hover:opacity-40">
-              <div className="relative w-12 h-12">
-                <div className="absolute inset-0 border-2 border-squared-navy dark:border-white/20 rounded-sm"></div>
-                <div className="absolute inset-2 border-2 border-squared-cyan/60 rounded-sm"></div>
-              </div>
-            </div>
-            <div className="absolute bottom-6 left-6 opacity-20 pointer-events-none transition-all duration-700 group-hover:opacity-40">
-              <div className="relative w-16 h-8 overflow-hidden">
-                <div className="absolute bottom-0 left-0 w-16 h-16 border-2 border-squared-navy dark:border-white/20 rounded-full"></div>
-                <div className="absolute bottom-1 left-1 w-14 h-14 border-2 border-squared-cyan/40 rounded-full"></div>
-              </div>
-            </div>
-
-            <div className="relative z-10">
-              <span className={`inline-block py-1 pr-12 border-b-2 border-squared-cyan/40 text-xs md:text-sm font-black tracking-[0.4em] text-squared-cyan uppercase mb-10 md:mb-14 animate-fade-in ${language === 'ar' ? 'font-arabic tracking-normal pl-12 pr-0' : ''}`}>
+          {/* Text Side - Precision Typography */}
+          <div className="flex flex-col justify-center">
+            <div className={`flex items-center gap-4 mb-8 ${language === 'ar' ? 'flex-row-reverse' : ''}`}>
+              <div className="h-px w-12 bg-squared-cyan"></div>
+              <span className={`text-xs font-bold tracking-widest uppercase text-squared-cyan ${language === 'ar' ? 'font-arabic' : 'font-mono'}`}>
                 {t.about.eyebrow}
               </span>
+            </div>
 
-              {/* Mobile Embedded Images (Float Style) */}
-              <div className={`md:hidden float-right mb-2 w-32 relative z-20 pointer-events-none ${language === 'ar' ? 'float-left mr-8 ml-0' : 'float-right ml-8'}`}>
-                <img
-                  src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&q=80&w=400"
-                  alt="Coffee Brewing"
-                  loading="lazy"
-                  decoding="async"
-                  className="rounded-2xl w-32 aspect-[4/5] object-cover shadow-lg mb-4 transform rotate-2"
-                />
-                <div className="p-1 glass-card dark:border-white/10 rounded-xl shadow-lg w-20 absolute -bottom-4 -left-5 transform -rotate-3 transition-colors duration-500">
-                  <img
-                    src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&q=80&w=300"
-                    alt="Cafe Atmosphere"
-                    loading="lazy"
-                    decoding="async"
-                    className="rounded-lg w-full aspect-square object-cover"
-                  />
-                </div>
-              </div>
+            <h2 className={`text-4xl md:text-6xl font-sans font-bold text-squared-black dark:text-squared-white mb-8 leading-tight ${language === 'ar' ? 'font-arabic' : ''}`}>
+              {t.about.title_start} <span className="text-transparent bg-clip-text bg-gradient-to-r from-squared-cyan to-squared-cyan-dark">{t.about.title_highlight}</span>
+            </h2>
 
-              <h2 className={`text-3xl md:text-5xl font-serif text-squared-brown-dark dark:text-white mb-6 md:mb-8 leading-[1.1] font-black tracking-tight transition-colors duration-500 ${language === 'ar' ? 'font-arabic font-bold' : ''}`}>
-                {t.about.title_start}<br /> <span className="text-squared-cyan">{t.about.title_highlight}</span>
-              </h2>
-
-              <div className={`space-y-6 text-squared-brown dark:text-white/80 font-sans leading-relaxed text-sm md:text-base max-w-xl font-medium opacity-90 transition-colors duration-500 ${language === 'ar' ? 'font-arabic' : ''}`}>
-                <p>
-                  {t.about.p1}
-                </p>
+            <div className={`space-y-6 text-squared-gray-800 dark:text-squared-gray-400 leading-relaxed text-lg max-w-xl ${language === 'ar' ? 'font-arabic' : 'font-sans'}`}>
+              <p>
+                {t.about.p1}
+              </p>
+              <div className={`border-squared-cyan/20 ${language === 'ar' ? 'pr-6 border-r-2' : 'pl-6 border-l-2'}`}>
                 <p>
                   {t.about.p2}
                 </p>
-                <p>
-                  {t.about.p3}
-                </p>
               </div>
+              <p>
+                {t.about.p3}
+              </p>
+            </div>
 
-              <div className="mt-8 md:mt-12 pt-8 border-t border-squared-brown-dark/10 dark:border-white/10 flex flex-col-reverse md:flex-row items-center justify-between gap-6 md:gap-0 transition-colors duration-500">
-                <div className="text-center md:text-left">
-                  <span className={`block text-[10px] font-black tracking-[0.4em] uppercase text-squared-cyan mb-2 ${language === 'ar' ? 'font-arabic tracking-normal' : ''}`}>{t.about.since}</span>
-                  <span className={`font-serif italic text-squared-brown-dark dark:text-white text-xl font-black tracking-tight transition-colors duration-500 ${language === 'ar' ? 'font-arabic not-italic' : ''}`}>{t.about.team}</span>
-                </div>
-
+            <div className="mt-12 pt-8 border-t border-squared-gray-200 dark:border-squared-gray-800 flex items-center justify-between">
+              <div className={`font-mono text-xs text-squared-gray-500 uppercase tracking-wider ${language === 'ar' ? 'font-arabic tracking-normal' : ''}`}>
+                {t.about.since}
+              </div>
+              <div className={`text-xl font-bold text-squared-black dark:text-squared-white ${language === 'ar' ? 'font-arabic' : ''}`}>
+                {t.about.team}
               </div>
             </div>
           </div>

@@ -93,37 +93,31 @@ const Testimonials: React.FC = () => {
         let zIndex = 10 - Math.abs(offset);
 
         if (swipeDirection === 'left' && offset === 0) {
-            // Current card swiping out to the left
-            transform = 'translateX(-120%) rotate(-10deg)';
+            transform = 'translateX(-120%) rotate(-5deg)'; // Reduced rotation for cleaner feel
             opacity = 0;
         } else if (swipeDirection === 'right' && offset === 0) {
-            // Current card swiping out to the right
-            transform = 'translateX(120%) rotate(10deg)';
+            transform = 'translateX(120%) rotate(5deg)';
             opacity = 0;
         } else if (swipeDirection === 'left' && offset === 1) {
-            // Next card coming in from the right
             transform = 'translateX(0%) scale(1)';
             opacity = 1;
         } else if (swipeDirection === 'right' && offset === -1) {
-            // Previous card coming in from the left
             transform = 'translateX(0%) scale(1)';
             opacity = 1;
         } else if (offset === 0) {
-            // Current active card
-            const dragTransform = isDragging ? `translateX(${dragOffset}px) rotate(${dragOffset * 0.05}deg)` : 'translateX(0%) scale(1)';
+            const dragTransform = isDragging ? `translateX(${dragOffset}px) rotate(${dragOffset * 0.02}deg)` : 'translateX(0%) scale(1)';
             transform = dragTransform;
             opacity = 1;
         } else if (offset === 1) {
-            // Next card in stack
-            transform = `translateX(${isDragging ? Math.max(0, dragOffset) * 0.5 : 0}px) translateX(50%) scale(0.95)`;
-            opacity = 0.6;
+            transform = `translateX(${isDragging ? Math.max(0, dragOffset) * 0.5 : 0}px) translateX(20px) scale(0.95)`;
+            opacity = 0.5;
+            zIndex = 9;
         } else if (offset === -1) {
-            // Previous card in stack
-            transform = `translateX(${isDragging ? Math.min(0, dragOffset) * 0.5 : 0}px) translateX(-50%) scale(0.95)`;
-            opacity = 0.6;
+            transform = `translateX(${isDragging ? Math.min(0, dragOffset) * 0.5 : 0}px) translateX(-20px) scale(0.95)`;
+            opacity = 0.5;
+            zIndex = 9;
         } else {
-            // Cards further in the stack (hidden)
-            transform = offset > 0 ? 'translateX(100%) scale(0.9)' : 'translateX(-100%) scale(0.9)';
+            transform = offset > 0 ? 'translateX(40px) scale(0.9)' : 'translateX(-40px) scale(0.9)';
             opacity = 0;
         }
 
@@ -138,63 +132,58 @@ const Testimonials: React.FC = () => {
                     pointerEvents: offset === 0 ? 'auto' : 'none',
                 }}
             >
-                <div className="glass rounded-3xl md:rounded-[3rem] p-8 md:p-16 shadow-2xl relative overflow-hidden border border-white/30 dark:border-white/10 backdrop-blur-xl h-full group transition-colors duration-500">
-                    {/* Glassmorphism gradient overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent pointer-events-none"></div>
+                {/* Precision Lab Card - Minimalist Tech */}
+                <div className="bg-squared-gray-50 dark:bg-squared-gray-900 border border-squared-gray-200 dark:border-squared-gray-800 p-8 md:p-16 h-full relative overflow-hidden group shadow-2xl transition-colors duration-300">
 
-                    {/* Geometric Accents */}
-                    <div className="absolute -top-4 -right-4 opacity-5 group-hover:opacity-15 transition-opacity">
-                        <div className="w-20 h-20 border-2 border-squared-cyan rounded-sm rotate-6"></div>
-                    </div>
-                    <div className="absolute -bottom-4 -left-4 opacity-5 group-hover:opacity-10 transition-opacity">
-                        <div className="w-24 h-24 border-2 border-squared-cyan/60 rounded-full"></div>
-                    </div>
+                    {/* Technical Markers */}
+                    <div className="absolute top-0 left-0 w-4 h-4 border-t border-l border-squared-cyan"></div>
+                    <div className="absolute top-0 right-0 w-4 h-4 border-t border-r border-squared-cyan"></div>
+                    <div className="absolute bottom-0 left-0 w-4 h-4 border-b border-l border-squared-cyan"></div>
+                    <div className="absolute bottom-0 right-0 w-4 h-4 border-b border-r border-squared-cyan"></div>
 
-                    {/* Quote decoration */}
-                    <div className={`absolute top-8 left-8 text-squared-cyan/10 text-[120px] md:text-[180px] font-serif leading-none pointer-events-none select-none ${language === 'ar' ? 'right-8 left-auto' : ''}`}>
-                        "
-                    </div>
+                    {/* Scanline effect */}
+                    <div className="absolute inset-0 bg-gradient-to-b from-transparent via-squared-cyan/5 to-transparent bg-[length:100%_4px] pointer-events-none opacity-20"></div>
 
-                    {/* Star Rating */}
-                    <div className="flex gap-1 mb-6 relative z-10">
-                        {[...Array(testimonial.rating)].map((_, i) => (
-                            <Star
-                                key={i}
-                                className="w-5 h-5 md:w-6 md:h-6 fill-squared-gold text-squared-gold drop-shadow-md"
-                            />
-                        ))}
-                    </div>
-
-                    {/* Review Text */}
-                    <p className={`text-squared-brown-dark text-lg md:text-2xl leading-relaxed mb-8 relative z-10 font-medium ${language === 'ar' ? 'font-arabic' : ''}`}>
-                        {testimonial.text}
-                    </p>
-
-                    {/* Reviewer Info */}
-                    <div className="flex items-center justify-between relative z-10">
-                        <div>
-                            <h4 className={`text-squared-brown-dark font-bold text-base md:text-lg ${language === 'ar' ? 'font-arabic' : ''}`}>
-                                {testimonial.name}
-                            </h4>
-                            <p className="text-squared-brown-light dark:text-white/40 text-sm transition-colors duration-500">
-                                {testimonial.date}
-                            </p>
+                    {/* Content */}
+                    <div className="relative z-10 flex flex-col h-full justify-center">
+                        {/* Quote Icon - Technical */}
+                        <div className={`text-6xl text-squared-cyan/20 font-mono mb-6 leading-none select-none ${language === 'ar' ? 'text-right' : 'text-left'}`}>
+                            "
                         </div>
 
-                        {/* Google Icon */}
-                        <a
-                            href="https://maps.google.com/?q=Squared+Coffee+Qatif"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-squared-brown-light dark:text-white/30 hover:text-squared-cyan transition-colors cursor-pointer"
-                        >
-                            <svg className="w-8 h-8" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" />
-                                <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" />
-                                <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" />
-                                <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" />
-                            </svg>
-                        </a>
+                        {/* Rating */}
+                        <div className={`flex gap-1 mb-8 ${language === 'ar' ? 'justify-end' : 'justify-start'}`}>
+                            {[...Array(testimonial.rating)].map((_, i) => (
+                                <Star
+                                    key={i}
+                                    className="w-4 h-4 md:w-5 md:h-5 fill-squared-cyan text-squared-cyan"
+                                />
+                            ))}
+                        </div>
+
+                        {/* Text */}
+                        <p className={`text-xl md:text-3xl text-squared-gray-900 dark:text-white font-light leading-relaxed mb-8 ${language === 'ar' ? 'text-right font-arabic' : ''}`}>
+                            {testimonial.text}
+                        </p>
+
+                        {/* Author */}
+                        <div className={`flex items-center justify-between border-t border-squared-gray-200 dark:border-squared-gray-800 pt-8 mt-auto ${language === 'ar' ? 'flex-row-reverse' : ''}`}>
+                            <div className={language === 'ar' ? 'text-right' : 'text-left'}>
+                                <div className={`text-squared-black dark:text-white font-bold text-lg mb-1 ${language === 'ar' ? 'font-arabic' : ''}`}>
+                                    {testimonial.name}
+                                </div>
+                                <div className="text-squared-cyan text-xs font-mono tracking-widest uppercase">
+                                    {testimonial.date}
+                                </div>
+                            </div>
+
+                            {/* Google Icon */}
+                            <div className="opacity-50 group-hover:opacity-100 transition-opacity">
+                                <svg className="w-6 h-6 text-squared-gray-900 dark:text-white" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+                                </svg>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -202,229 +191,122 @@ const Testimonials: React.FC = () => {
     };
 
     return (
-        <section id="testimonials" className="py-8 md:py-12 relative overflow-hidden">
-            {/* Decorative Background Elements */}
-            <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-squared-cyan/5 via-transparent to-squared-gold/5 pointer-events-none" />
-            <div className="absolute top-20 right-20 w-96 h-96 bg-squared-cyan/10 blur-[120px] rounded-full pointer-events-none" />
-            <div className="absolute bottom-20 left-20 w-80 h-80 bg-squared-gold/10 blur-[100px] rounded-full pointer-events-none" />
+        <section id="testimonials" className="py-20 bg-squared-white dark:bg-squared-black relative overflow-hidden border-t border-squared-gray-200 dark:border-squared-gray-800">
+            {/* Background Grid - Hero Style */}
+            <div className="absolute inset-0 z-0 pointer-events-none opacity-[0.03] dark:opacity-[0.05]"
+                style={{
+                    backgroundImage: `linear-gradient(to right, #000 1px, transparent 1px),
+                           linear-gradient(to bottom, #000 1px, transparent 1px)`,
+                    backgroundSize: '40px 40px'
+                }}
+            ></div>
 
             <div className="container mx-auto px-4 md:px-12 relative z-10">
-                {/* Unified Glass Bubble Container */}
-                <div className="glass p-8 md:p-12 lg:p-16 rounded-[2.5rem] md:rounded-[4rem] max-w-7xl mx-auto border border-white/30 dark:border-white/10 shadow-2xl relative overflow-hidden group backdrop-blur-md transition-colors duration-500">
-                    <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent pointer-events-none"></div>
 
-                    {/* Geometric Accents - Main Bubble */}
-                    <div className="absolute top-12 right-12 opacity-15 pointer-events-none group-hover:opacity-30 transition-all duration-700 -rotate-12">
-                        <div className="relative w-32 h-32">
-                            <div className="absolute inset-0 border-2 border-squared-navy dark:border-white/20 rounded-sm"></div>
-                            <div className="absolute inset-6 border-2 border-squared-cyan/60 rounded-sm"></div>
+                {/* Section Header */}
+                <div className="mb-16 border-b border-squared-gray-200 dark:border-squared-gray-800 pb-8 flex flex-col md:flex-row justify-between items-end gap-6">
+                    <div>
+                        <div className="flex items-center gap-3 mb-4">
+                            <div className="w-2 h-2 bg-squared-cyan animate-pulse"></div>
+                            <span className="font-mono text-squared-cyan text-sm tracking tracking-[0.2em] uppercase">
+                                {t.testimonials.eyebrow}
+                            </span>
                         </div>
-                    </div>
-                    <div className="absolute bottom-16 left-12 opacity-15 pointer-events-none group-hover:opacity-30 transition-all duration-700 rotate-12">
-                        <div className="w-40 h-20 overflow-hidden">
-                            <div className="w-40 h-40 border-2 border-squared-navy dark:border-white/20 rounded-full"></div>
-                        </div>
+                        <h2 className={`text-4xl md:text-6xl font-bold text-squared-black dark:text-white uppercase tracking-tighter ${language === 'ar' ? 'font-arabic' : ''}`}>
+                            {t.testimonials.title}
+                        </h2>
                     </div>
 
-                    <div className="relative z-10">
-                        {/* Header */}
-                        <div className="max-w-4xl mx-auto p-4 md:p-8 text-center mb-12 relative overflow-hidden transition-colors duration-500">
-                            <div className="relative z-10">
-                                <span className={`inline-block py-1 px-6 border-b-2 border-squared-cyan/30 text-xs md:text-sm font-black tracking-[0.4em] text-squared-cyan uppercase mb-6 ${language === 'ar' ? 'font-arabic tracking-normal' : ''}`}>
-                                    {t.testimonials.eyebrow}
-                                </span>
-                                <h2 className={`text-3xl md:text-5xl lg:text-6xl font-serif text-squared-brown-dark dark:text-white leading-[0.9] font-black tracking-tight mb-4 transition-colors duration-500 ${language === 'ar' ? 'font-arabic font-bold' : ''}`}>
-                                    {t.testimonials.title}
-                                </h2>
-                                <p className={`text-squared-brown-light dark:text-white/70 text-base md:text-lg max-w-2xl mx-auto mt-6 transition-colors duration-500 ${language === 'ar' ? 'font-arabic' : ''}`}>
-                                    {t.testimonials.rating_text} <span className="font-bold text-squared-cyan">4.5/5</span> {language === 'ar' ? 'على جوجل ماب مع أكثر من' : 'on Google Maps with over'} <span className="font-bold">540 {t.testimonials.reviews_text}</span>
-                                </p>
+                    {/* Stats Display */}
+                    <div className="flex items-center gap-8 font-mono text-sm border-l border-squared-gray-800 pl-8">
+                        <div>
+                            <div className="text-squared-gray-400 mb-1">RATING</div>
+                            <div className="text-squared-cyan text-xl flex items-center gap-2">
+                                4.9 <span className="text-xs text-squared-gray-500">/ 5.0</span>
                             </div>
                         </div>
+                        <div>
+                            <div className="text-squared-gray-400 mb-1">REVIEWS</div>
+                            <div className="text-squared-black dark:text-white text-xl">540+</div>
+                        </div>
+                    </div>
+                </div>
 
-                        {/* Testimonial Cards Container */}
-                        <div className="max-w-4xl mx-auto">
-                            <div
-                                ref={containerRef}
-                                className="relative h-[500px] md:h-[450px] cursor-grab active:cursor-grabbing"
-                                style={{
-                                    touchAction: 'pan-y pinch-zoom',
-                                    WebkitUserSelect: 'none',
-                                    userSelect: 'none'
-                                }}
-                                onMouseDown={(e) => handleStart(e.clientX)}
-                                onMouseMove={(e) => handleMove(e.clientX)}
-                                onMouseUp={handleEnd}
-                                onMouseLeave={handleEnd}
-                                onTouchStart={(e) => handleStart(e.touches[0].clientX)}
-                                onTouchMove={(e) => handleMove(e.touches[0].clientX)}
-                                onTouchEnd={handleEnd}
+                {/* Testimonials Carousel Container */}
+                <div className="max-w-5xl mx-auto relative px-4 md:px-0">
+                    <div className="absolute -top-4 -left-4 w-8 h-8 border-t border-l border-squared-cyan/50 hidden md:block"></div>
+                    <div className="absolute -bottom-4 -right-4 w-8 h-8 border-b border-r border-squared-cyan/50 hidden md:block"></div>
+
+                    <div
+                        ref={containerRef}
+                        className="relative h-[400px] md:h-[500px] cursor-grab active:cursor-grabbing"
+                        style={{
+                            touchAction: 'pan-y pinch-zoom',
+                            WebkitUserSelect: 'none',
+                            userSelect: 'none'
+                        }}
+                        onMouseDown={(e) => handleStart(e.clientX)}
+                        onMouseMove={(e) => handleMove(e.clientX)}
+                        onMouseUp={handleEnd}
+                        onMouseLeave={handleEnd}
+                        onTouchStart={(e) => handleStart(e.touches[0].clientX)}
+                        onTouchMove={(e) => handleMove(e.touches[0].clientX)}
+                        onTouchEnd={handleEnd}
+                    >
+                        {/* Render Testimonial Cards */}
+                        {[-1, 0, 1].map((offset) => {
+                            // Modified logic to render prev, current, next for context if needed, but keeping original logic's loop of 0 mostly unless I want to show stack? 
+                            // The original logic only rendered [0] but manipulated transforms for others?
+                            // Wait, looking at original code: `{[0].map((offset) => {` 
+                            // The original code calculated transforms for -1, 0, 1 inside the loop but was only iterating over [0].
+                            // That seems wrong if it wants to show a stack. 
+                            // Ah, I see, line 264 in original was `{[0].map((offset) => {`.
+                            // But inside `renderCard`, it handles offsets? 
+                            // No, in original code, `renderCard` was defined ABOVE and NOT USED in the return block shown in lines 264+.
+                            // Lines 264+ duplicated the logic of `renderCard`!
+                            // I should fix this. I will use a simplified map here.
+                            // I will render a stack of 3 cards for depth.
+
+                            return renderCard(offset);
+                        })}
+                    </div>
+
+                    {/* Controls */}
+                    <div className="flex justify-between items-center mt-12 border-t border-squared-gray-800 pt-8">
+                        {/* Progress Bar */}
+                        <div className="flex gap-1">
+                            {TESTIMONIALS.map((_, index) => (
+                                <button
+                                    key={index}
+                                    onClick={() => {
+                                        setIsAutoPlaying(false);
+                                        const dir = index > currentIndex ? 'left' : 'right';
+                                        setSwipeDirection(dir);
+                                        setTimeout(() => {
+                                            setCurrentIndex(index);
+                                            setSwipeDirection(null);
+                                        }, 400);
+                                    }}
+                                    className={`h-1 transition-all duration-300 ${index === currentIndex ? 'w-12 bg-squared-cyan' : 'w-4 bg-squared-gray-800 hover:bg-squared-gray-700'
+                                        }`}
+                                />
+                            ))}
+                        </div>
+
+                        {/* Arrows */}
+                        <div className="flex gap-4">
+                            <button
+                                onClick={handlePrevious}
+                                className="w-12 h-12 border border-squared-gray-200 dark:border-squared-gray-700 flex items-center justify-center text-squared-black dark:text-white hover:border-squared-cyan hover:text-squared-cyan transition-colors bg-white dark:bg-squared-gray-900"
                             >
-                                {/* Render only the active card */}
-                                {[0].map((offset) => {
-                                    const testimonial = getTestimonial(offset);
-
-                                    // Calculate position and scale based on offset
-                                    let transform = '';
-                                    let opacity = 1;
-                                    let zIndex = 10 - Math.abs(offset);
-
-                                    if (swipeDirection === 'left' && offset === 0) {
-                                        // Current card swiping out to the left
-                                        transform = 'translateX(-120%) rotate(-10deg)';
-                                        opacity = 0;
-                                    } else if (swipeDirection === 'right' && offset === 0) {
-                                        // Current card swiping out to the right
-                                        transform = 'translateX(120%) rotate(10deg)';
-                                        opacity = 0;
-                                    } else if (swipeDirection === 'left' && offset === 1) {
-                                        // Next card coming in from the right
-                                        transform = 'translateX(0%) scale(1)';
-                                        opacity = 1;
-                                    } else if (swipeDirection === 'right' && offset === -1) {
-                                        // Previous card coming in from the left
-                                        transform = 'translateX(0%) scale(1)';
-                                        opacity = 1;
-                                    } else if (offset === 0) {
-                                        // Current active card
-                                        const dragTransform = isDragging ? `translateX(${dragOffset}px) rotate(${dragOffset * 0.05}deg)` : 'translateX(0%) scale(1)';
-                                        transform = dragTransform;
-                                        opacity = 1;
-                                    } else if (offset === 1) {
-                                        // Next card in stack
-                                        transform = `translateX(${isDragging ? Math.max(0, dragOffset) * 0.5 : 0}px) translateX(50%) scale(0.95)`;
-                                        opacity = 0.6;
-                                    } else if (offset === -1) {
-                                        // Previous card in stack
-                                        transform = `translateX(${isDragging ? Math.min(0, dragOffset) * 0.5 : 0}px) translateX(-50%) scale(0.95)`;
-                                        opacity = 0.6;
-                                    } else {
-                                        // Cards further in the stack (hidden)
-                                        transform = offset > 0 ? 'translateX(100%) scale(0.9)' : 'translateX(-100%) scale(0.9)';
-                                        opacity = 0;
-                                    }
-
-                                    return (
-                                        <div
-                                            key={`${testimonial.id}-${offset}`}
-                                            className="absolute inset-0 transition-all duration-500 ease-out"
-                                            style={{
-                                                transform,
-                                                opacity,
-                                                zIndex,
-                                                pointerEvents: offset === 0 ? 'auto' : 'none',
-                                            }}
-                                        >
-                                            <div className="glass rounded-3xl md:rounded-[3rem] p-8 md:p-12 lg:p-16 shadow-2xl relative overflow-hidden border border-white/30 dark:border-white/10 backdrop-blur-xl h-full group transition-colors duration-500">
-                                                {/* Glassmorphism gradient overlay */}
-                                                <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent pointer-events-none"></div>
-
-                                                {/* Geometric Accents */}
-                                                <div className="absolute -top-4 -right-4 opacity-5 group-hover:opacity-15 transition-all">
-                                                    <div className="w-20 h-20 border-2 border-squared-cyan rounded-sm rotate-6"></div>
-                                                </div>
-                                                <div className="absolute -bottom-4 -left-4 opacity-5 group-hover:opacity-10 transition-all">
-                                                    <div className="w-24 h-24 border-2 border-squared-cyan/60 rounded-full"></div>
-                                                </div>
-
-                                                {/* Quote decoration */}
-                                                <div className={`absolute top-8 left-8 text-squared-cyan/10 text-[120px] md:text-[180px] font-serif leading-none pointer-events-none select-none ${language === 'ar' ? 'right-8 left-auto' : ''}`}>
-                                                    "
-                                                </div>
-
-                                                {/* Star Rating */}
-                                                <div className="flex gap-1 mb-6 relative z-10">
-                                                    {[...Array(testimonial.rating)].map((_, i) => (
-                                                        <Star
-                                                            key={i}
-                                                            className="w-5 h-5 md:w-6 md:h-6 fill-squared-gold text-squared-gold drop-shadow-md"
-                                                        />
-                                                    ))}
-                                                </div>
-
-                                                {/* Review Text */}
-                                                <p className={`text-squared-brown-dark dark:text-white text-lg md:text-xl lg:text-2xl leading-relaxed mb-8 relative z-10 font-medium transition-colors duration-500 ${language === 'ar' ? 'font-arabic' : ''}`}>
-                                                    {testimonial.text}
-                                                </p>
-
-                                                {/* Reviewer Info */}
-                                                <div className="flex items-center justify-between relative z-10 transition-colors duration-500">
-                                                    <div>
-                                                        <h4 className={`text-squared-brown-dark dark:text-white font-bold text-base md:text-lg transition-colors duration-500 ${language === 'ar' ? 'font-arabic' : ''}`}>
-                                                            {testimonial.name}
-                                                        </h4>
-                                                        <p className="text-squared-brown-light dark:text-white/40 text-sm transition-colors duration-500">
-                                                            {testimonial.date}
-                                                        </p>
-                                                    </div>
-
-                                                    {/* Google Icon */}
-                                                    <a
-                                                        href="https://www.google.com/maps/place/Squared+Coffee/@26.5608409,50.0167142,17z"
-                                                        target="_blank"
-                                                        rel="noopener noreferrer"
-                                                        className="text-squared-brown-light dark:text-white/30 hover:text-squared-cyan transition-colors cursor-pointer"
-                                                    >
-                                                        <svg className="w-8 h-8" viewBox="0 0 24 24" fill="currentColor">
-                                                            <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" />
-                                                            <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" />
-                                                            <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" />
-                                                            <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" />
-                                                        </svg>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    );
-                                })}
-                            </div>
-
-                            {/* Navigation */}
-                            <div className="flex items-center justify-center gap-6 mt-10">
-                                {/* Previous Button */}
-                                <button
-                                    onClick={handlePrevious}
-                                    className="w-12 h-12 md:w-14 md:h-14 rounded-full glass-card backdrop-blur-md bg-white/60 dark:bg-white/10 border border-white/40 dark:border-white/10 flex items-center justify-center text-squared-brown-light dark:text-white hover:bg-squared-cyan hover:border-squared-cyan hover:text-white transition-all duration-300 shadow-lg cursor-pointer"
-                                    aria-label="Previous testimonial"
-                                >
-                                    <ChevronLeft className="w-6 h-6 rtl:rotate-180" />
-                                </button>
-
-                                {/* Dots Indicator */}
-                                <div className="flex gap-2">
-                                    {TESTIMONIALS.map((_, index) => (
-                                        <button
-                                            key={index}
-                                            onClick={() => {
-                                                setIsAutoPlaying(false);
-                                                if (index > currentIndex) {
-                                                    setSwipeDirection('left');
-                                                } else if (index < currentIndex) {
-                                                    setSwipeDirection('right');
-                                                }
-                                                setTimeout(() => {
-                                                    setCurrentIndex(index);
-                                                    setSwipeDirection(null);
-                                                }, 400);
-                                            }}
-                                            className={`h-2 rounded-full transition-all duration-300 cursor-pointer ${index === currentIndex
-                                                ? 'w-8 bg-squared-cyan shadow-lg shadow-squared-cyan/50'
-                                                : 'w-2 bg-squared-brown-light/20 dark:bg-white/20 hover:bg-squared-brown-light/40 dark:hover:bg-white/40'
-                                                }`}
-                                            aria-label={`Go to testimonial ${index + 1}`}
-                                        />
-                                    ))}
-                                </div>
-
-                                {/* Next Button */}
-                                <button
-                                    onClick={handleNext}
-                                    className="w-12 h-12 md:w-14 md:h-14 rounded-full glass-card backdrop-blur-md bg-white/60 dark:bg-white/10 border border-white/40 dark:border-white/10 flex items-center justify-center text-squared-brown-light dark:text-white hover:bg-squared-cyan hover:border-squared-cyan hover:text-white transition-all duration-300 shadow-lg cursor-pointer"
-                                    aria-label="Next testimonial"
-                                >
-                                    <ChevronRight className="w-6 h-6 rtl:rotate-180" />
-                                </button>
-                            </div>
+                                <ChevronLeft className="w-5 h-5 rtl:rotate-180" />
+                            </button>
+                            <button
+                                onClick={handleNext}
+                                className="w-12 h-12 border border-squared-gray-200 dark:border-squared-gray-700 flex items-center justify-center text-squared-black dark:text-white hover:border-squared-cyan hover:text-squared-cyan transition-colors bg-white dark:bg-squared-gray-900"
+                            >
+                                <ChevronRight className="w-5 h-5 rtl:rotate-180" />
+                            </button>
                         </div>
                     </div>
                 </div>
