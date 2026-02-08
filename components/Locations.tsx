@@ -118,13 +118,13 @@ const Locations: React.FC = () => {
                   <div className="w-16 h-16 border-2 border-squared-cyan rounded-sm -rotate-12"></div>
                 </div>
                 <div className="relative rounded-[2.5rem] overflow-hidden h-full">
-                  <img
-                    src="https://images.unsplash.com/photo-1493857671505-72967e2e2760?auto=format&fit=crop&q=80&w=1000"
-                    alt="Location Map Visual"
-                    className="w-full h-full object-cover hover:scale-110 transition-transform duration-[2000ms]"
-                  />
-                  <div className="absolute inset-0 bg-squared-cyan/10 pointer-events-none group-hover/image:bg-squared-cyan/0 transition-colors duration-1000"></div>
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover/image:opacity-100 transition-opacity duration-1000"></div>
+                  <iframe
+                    title="Squared Coffee Location"
+                    src="https://maps.google.com/maps?q=Squared+Coffee+Qatif&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                    className="w-full h-full absolute inset-0"
+                    loading="lazy"
+                    style={{ border: 0 }}
+                  ></iframe>
                 </div>
               </div>
 

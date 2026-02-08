@@ -183,7 +183,7 @@ const Testimonials: React.FC = () => {
 
                         {/* Google Icon */}
                         <a
-                            href="https://www.google.com/maps/place/Squared+Coffee/@26.5608409,50.0167142,17z"
+                            href="https://maps.google.com/?q=Squared+Coffee+Qatif"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="text-squared-brown-light dark:text-white/30 hover:text-squared-cyan transition-colors cursor-pointer"

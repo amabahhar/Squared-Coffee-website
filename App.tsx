@@ -9,6 +9,7 @@ import LoyaltySection from './components/LoyaltySection';
 import Testimonials from './components/Testimonials';
 import Footer from './components/Footer';
 import OrderModal from './components/OrderModal';
+import GeometricBackground from './components/GeometricBackground';
 import { MenuItem } from './types';
 
 const App: React.FC = () => {
@@ -92,16 +93,7 @@ const App: React.FC = () => {
   return (
     <div className="min-h-screen relative overflow-x-hidden bg-squared-cream dark:bg-squared-gray-900 transition-colors duration-500">
       {/* Background Wallpaper - Fixed on desktop, absolute on mobile for iOS performance */}
-      <div
-        className="desktop-bg-fixed z-0 bg-cover bg-center pointer-events-none"
-        style={{
-          backgroundImage: 'url("https://images.unsplash.com/photo-1511920170033-f8396924c348?auto=format&fit=crop&q=80&w=2000")',
-          transform: 'translateZ(0)',
-        }}
-      >
-        {/* Overlay to ensure text readability */}
-        <div className="absolute inset-0 bg-white/60 dark:bg-black/40 transition-colors duration-500"></div>
-      </div>
+      <GeometricBackground />
 
       {/* Aurora Background Effects - Optimized blur for mobile */}
       <div

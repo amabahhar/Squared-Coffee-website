@@ -182,9 +182,9 @@ const MenuSection: React.FC<MenuSectionProps> = ({ onItemClick }) => {
                 <button
                   key={category}
                   onClick={() => handleCategoryChange(category)}
-                  className={`flex-shrink-0 w-[calc(50%-4px)] snap-start cursor-pointer text-center text-[10px] font-black uppercase tracking-wider transition-all duration-500 px-2 py-3.5 rounded-xl border border-transparent whitespace-nowrap overflow-hidden text-ellipsis ${activeCategory === category
-                    ? 'bg-squared-cyan text-white shadow-2xl scale-[1.02]'
-                    : 'bg-white/40 dark:bg-white/10 text-squared-brown-light dark:text-white/70 hover:bg-white/50'
+                  className={`flex-shrink-0 w-[calc(50%-4px)] snap-start cursor-pointer text-center text-[10px] font-black uppercase tracking-wider transition-all duration-500 px-2 py-3.5 rounded-xl border whitespace-nowrap overflow-hidden text-ellipsis shadow-sm backdrop-blur-md ${activeCategory === category
+                    ? 'bg-squared-cyan text-white shadow-xl scale-[1.02] border-squared-cyan/20 translate-x-1'
+                    : 'bg-white/80 dark:bg-white/15 text-squared-brown-light dark:text-white/80 border-white/50 dark:border-white/10 hover:bg-white hover:shadow-md hover:translate-x-1'
                     } ${language === 'ar' ? 'font-arabic tracking-normal' : ''}`}
                 >
                   {t.menu.categories[category as keyof typeof t.menu.categories] || category}
@@ -297,8 +297,8 @@ const MenuSection: React.FC<MenuSectionProps> = ({ onItemClick }) => {
                       key={category}
                       onClick={() => handleCategoryChange(category)}
                       className={`w-full cursor-pointer text-left text-sm font-black uppercase tracking-wider transition-all duration-500 py-3 px-4 rounded-xl border border-transparent ${activeCategory === category
-                        ? 'text-squared-cyan bg-squared-cyan/5 scale-[1.02] border-squared-cyan/10 ring-1 ring-squared-cyan/20'
-                        : 'text-squared-brown-light dark:text-white/70 hover:bg-white/10 dark:hover:bg-white/5'
+                        ? 'text-squared-cyan bg-squared-cyan/5 scale-[1.02] border-squared-cyan/10 ring-1 ring-squared-cyan/20 translate-x-2'
+                        : 'text-squared-brown-light dark:text-white/70 hover:bg-white/10 dark:hover:bg-white/5 hover:translate-x-2'
                         } ${language === 'ar' ? 'font-arabic tracking-normal text-right' : ''}`}
                     >
                       {t.menu.categories[category as keyof typeof t.menu.categories] || category}
@@ -336,7 +336,7 @@ const MenuSection: React.FC<MenuSectionProps> = ({ onItemClick }) => {
                         <div
                           key={item.id}
                           onClick={() => onItemClick && onItemClick(item)}
-                          className="cursor-pointer group flex flex-col h-[380px] bg-white/20 dark:bg-white/5 rounded-[2.5rem] p-5 hover:bg-white/30 dark:hover:bg-white/10 transition-all duration-700 hover:-translate-y-2 border border-white/20 dark:border-white/10 hover:border-squared-cyan/30"
+                          className="cursor-pointer group flex flex-col h-[380px] bg-white/20 dark:bg-white/5 rounded-[2.5rem] p-5 hover:bg-white/30 dark:hover:bg-white/10 transition-all duration-500 hover:-translate-y-2 hover:rotate-1 hover:shadow-2xl border border-white/20 dark:border-white/10 hover:border-squared-cyan/30"
                         >
                           <div className="relative overflow-hidden rounded-[2rem] aspect-[4/3] mb-6 shadow-xl shrink-0">
                             <img

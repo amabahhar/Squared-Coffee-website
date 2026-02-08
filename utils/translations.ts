@@ -8,7 +8,7 @@ export const translations = {
             menu: 'Menu',
             locations: 'Locations',
             social: 'Social',
-            testimonials: 'Testimonials',
+            testimonials: 'Reviews',
             contact: 'Contact',
             loyalty: 'Loyalty',
             order: 'Order'
@@ -149,7 +149,7 @@ export const translations = {
         },
         testimonials: {
             eyebrow: 'Community Love',
-            title: 'What Our Customers Say',
+            title: 'Reviews',
             rating_text: 'Rated',
             reviews_text: 'reviews'
         },

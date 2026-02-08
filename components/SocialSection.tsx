@@ -22,7 +22,7 @@ const SocialSection: React.FC = () => {
         <section id="social" className="py-8 md:py-12 relative overflow-hidden">
 
             <div className="container mx-auto px-4 md:px-12 relative z-10">
-                <div className="glass p-6 md:p-12 rounded-[2.5rem] md:rounded-[3rem] border border-white/30 dark:border-white/10 shadow-2xl relative overflow-hidden group backdrop-blur-md transition-colors duration-500">
+                <div className="glass p-6 md:p-12 rounded-[2.5rem] md:rounded-[4rem] max-w-7xl mx-auto border border-white/30 dark:border-white/10 shadow-2xl relative overflow-hidden group backdrop-blur-md transition-colors duration-500">
                     {/* Glass gradient overlay */}
                     <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent pointer-events-none"></div>
 
@@ -63,7 +63,7 @@ const SocialSection: React.FC = () => {
                             <span className="text-xs font-black tracking-[0.2em] uppercase text-squared-brown-dark dark:text-white/80 group-hover/insta:text-squared-cyan transition-colors duration-500">
                                 @squared_coffee
                             </span>
-                            <div className="w-10 h-10 rounded-full bg-squared-brown-dark dark:bg-squared-cyan text-white flex items-center justify-center group-hover/insta:bg-squared-cyan dark:group-hover/insta:bg-white dark:group-hover/insta:text-squared-cyan transition-colors duration-300 shadow-lg">
+                            <div className="w-10 h-10 rounded-full bg-squared-brown-dark dark:bg-squared-cyan text-white flex items-center justify-center group-hover/insta:bg-squared-cyan dark:group-hover/insta:bg-white dark:group-hover/insta:text-squared-cyan transition-colors duration-300 shadow-lg hover-magnetic">
                                 <Instagram className="w-5 h-5" />
                             </div>
                         </a>

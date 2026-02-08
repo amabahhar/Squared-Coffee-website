@@ -59,7 +59,7 @@ const Hero: React.FC = () => {
               {t.hero.est}
             </span>
 
-            <h1 className={`text-5xl md:text-7xl lg:text-9xl font-serif font-medium text-squared-brown-dark dark:text-white mb-6 md:mb-8 leading-[0.95] tracking-tighter drop-shadow-sm transition-colors duration-500 ${language === 'ar' ? 'font-arabic font-bold' : ''}`}>
+            <h1 className={`text-5xl md:text-7xl lg:text-9xl font-serif font-medium text-squared-brown-dark dark:text-white mb-6 md:mb-8 leading-[0.95] tracking-tighter drop-shadow-sm transition-colors duration-500 ${language === 'ar' ? 'font-arabic font-bold tracking-normal leading-normal' : ''}`}>
               {t.hero.title_start}<br />
               <span className="text-squared-cyan drop-shadow-[0_0_35px_rgba(0,194,224,0.35)] font-black">{t.hero.title_highlight}</span>
             </h1>

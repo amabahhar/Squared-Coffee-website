@@ -206,6 +206,8 @@ html {
   scroll-behavior: smooth;
   scroll-padding-top: 100px;
   -webkit-overflow-scrolling: touch;
+  overflow-y: scroll;
+  /* Prevent layout shift */
 }
 
 html.dark {
