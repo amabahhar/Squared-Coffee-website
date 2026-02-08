@@ -228,8 +228,8 @@ html.dark {
   }
 }
 
-/* Improve readability on mobile - more opaque, less blur */
-@media (max-width: 768px) {
+/* Improve readability on tablet/mobile - more opaque, less blur */
+@media (max-width: 1024px) {
 
   .glass,
   .glass-card {

@@ -10,8 +10,8 @@ const Hero: React.FC = () => {
       {/* Background/Aurora is handled by App.tsx */}
 
       {/* Content */}
-      <div className="relative z-10 container mx-auto px-4 text-center mt-12 md:mt-20 flex justify-center">
-        <div className="glass p-6 md:p-16 rounded-[2rem] md:rounded-[3rem] max-w-6xl w-full border border-white/30 dark:border-white/10 shadow-2xl relative overflow-hidden group backdrop-blur-md transition-colors duration-500">
+      <div className="relative z-10 container mx-auto px-4 text-center mt-12 md:mt-24 lg:mt-20 flex justify-center">
+        <div className="glass p-6 md:p-12 lg:p-16 rounded-[2rem] md:rounded-[3rem] max-w-6xl w-full border border-white/30 dark:border-white/10 shadow-2xl relative overflow-hidden group backdrop-blur-md transition-colors duration-500">
           <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent pointer-events-none"></div>
 
           {/* Geometric Shapes - Top Right */}
@@ -59,12 +59,12 @@ const Hero: React.FC = () => {
               {t.hero.est}
             </span>
 
-            <h1 className={`text-5xl md:text-7xl lg:text-9xl font-serif font-medium text-squared-brown-dark dark:text-white mb-6 md:mb-8 leading-[0.95] tracking-tighter drop-shadow-sm transition-colors duration-500 ${language === 'ar' ? 'font-arabic font-bold tracking-normal leading-normal' : ''}`}>
+            <h1 className={`text-4xl md:text-6xl lg:text-9xl font-serif font-medium text-squared-brown-dark dark:text-white mb-6 md:mb-8 leading-[0.95] tracking-tighter drop-shadow-sm transition-colors duration-500 ${language === 'ar' ? 'font-arabic font-bold tracking-normal leading-normal' : ''}`}>
               {t.hero.title_start}<br />
               <span className="text-squared-cyan drop-shadow-[0_0_35px_rgba(0,194,224,0.35)] font-black">{t.hero.title_highlight}</span>
             </h1>
 
-            <p className={`text-base md:text-2xl text-squared-brown dark:text-white/80 max-w-2xl mx-auto font-sans leading-relaxed font-medium opacity-90 mb-8 md:mb-12 transition-colors duration-500 ${language === 'ar' ? 'font-arabic' : ''}`}>
+            <p className={`text-base md:text-xl lg:text-2xl text-squared-brown dark:text-white/80 max-w-2xl mx-auto font-sans leading-relaxed font-medium opacity-90 mb-8 md:mb-12 transition-colors duration-500 ${language === 'ar' ? 'font-arabic' : ''}`}>
               {t.hero.subtitle}
             </p>
 

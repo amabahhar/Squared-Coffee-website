@@ -264,7 +264,7 @@ const MenuSection: React.FC<MenuSectionProps> = ({ onItemClick }) => {
         </div>
 
         {/* Desktop: Unified Glass Container */}
-        <div className="hidden lg:block glass p-12 md:p-16 rounded-[2.5rem] md:rounded-[4rem] max-w-7xl mx-auto border border-white/30 dark:border-white/10 shadow-2xl relative overflow-hidden group backdrop-blur-md transition-colors duration-500">
+        <div className="hidden lg:block glass p-12 lg:p-16 rounded-[2.5rem] md:rounded-[4rem] max-w-7xl mx-auto border border-white/30 dark:border-white/10 shadow-2xl relative overflow-hidden group backdrop-blur-md transition-colors duration-500">
           <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent pointer-events-none"></div>
 
           {/* Geometric Accents */}

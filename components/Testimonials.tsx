@@ -210,7 +210,7 @@ const Testimonials: React.FC = () => {
 
             <div className="container mx-auto px-4 md:px-12 relative z-10">
                 {/* Unified Glass Bubble Container */}
-                <div className="glass p-8 md:p-16 rounded-[2.5rem] md:rounded-[4rem] max-w-7xl mx-auto border border-white/30 dark:border-white/10 shadow-2xl relative overflow-hidden group backdrop-blur-md transition-colors duration-500">
+                <div className="glass p-8 md:p-12 lg:p-16 rounded-[2.5rem] md:rounded-[4rem] max-w-7xl mx-auto border border-white/30 dark:border-white/10 shadow-2xl relative overflow-hidden group backdrop-blur-md transition-colors duration-500">
                     <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent pointer-events-none"></div>
 
                     {/* Geometric Accents - Main Bubble */}
@@ -233,7 +233,7 @@ const Testimonials: React.FC = () => {
                                 <span className={`inline-block py-1 px-6 border-b-2 border-squared-cyan/30 text-xs md:text-sm font-black tracking-[0.4em] text-squared-cyan uppercase mb-6 ${language === 'ar' ? 'font-arabic tracking-normal' : ''}`}>
                                     {t.testimonials.eyebrow}
                                 </span>
-                                <h2 className={`text-4xl md:text-6xl font-serif text-squared-brown-dark dark:text-white leading-[0.9] font-black tracking-tight mb-4 transition-colors duration-500 ${language === 'ar' ? 'font-arabic font-bold' : ''}`}>
+                                <h2 className={`text-3xl md:text-5xl lg:text-6xl font-serif text-squared-brown-dark dark:text-white leading-[0.9] font-black tracking-tight mb-4 transition-colors duration-500 ${language === 'ar' ? 'font-arabic font-bold' : ''}`}>
                                     {t.testimonials.title}
                                 </h2>
                                 <p className={`text-squared-brown-light dark:text-white/70 text-base md:text-lg max-w-2xl mx-auto mt-6 transition-colors duration-500 ${language === 'ar' ? 'font-arabic' : ''}`}>
@@ -315,7 +315,7 @@ const Testimonials: React.FC = () => {
                                                 pointerEvents: offset === 0 ? 'auto' : 'none',
                                             }}
                                         >
-                                            <div className="glass rounded-3xl md:rounded-[3rem] p-8 md:p-16 shadow-2xl relative overflow-hidden border border-white/30 dark:border-white/10 backdrop-blur-xl h-full group transition-colors duration-500">
+                                            <div className="glass rounded-3xl md:rounded-[3rem] p-8 md:p-12 lg:p-16 shadow-2xl relative overflow-hidden border border-white/30 dark:border-white/10 backdrop-blur-xl h-full group transition-colors duration-500">
                                                 {/* Glassmorphism gradient overlay */}
                                                 <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent pointer-events-none"></div>
 
@@ -343,7 +343,7 @@ const Testimonials: React.FC = () => {
                                                 </div>
 
                                                 {/* Review Text */}
-                                                <p className={`text-squared-brown-dark dark:text-white text-lg md:text-2xl leading-relaxed mb-8 relative z-10 font-medium transition-colors duration-500 ${language === 'ar' ? 'font-arabic' : ''}`}>
+                                                <p className={`text-squared-brown-dark dark:text-white text-lg md:text-xl lg:text-2xl leading-relaxed mb-8 relative z-10 font-medium transition-colors duration-500 ${language === 'ar' ? 'font-arabic' : ''}`}>
                                                     {testimonial.text}
                                                 </p>
 

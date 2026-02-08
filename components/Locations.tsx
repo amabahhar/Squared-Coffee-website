@@ -20,7 +20,7 @@ const Locations: React.FC = () => {
       <div className="container mx-auto px-4 md:px-12 relative z-10">
 
         {/* Unified Glass Bubble Container */}
-        <div className="glass p-8 md:p-16 rounded-[2.5rem] md:rounded-[4rem] max-w-7xl mx-auto border border-white/30 dark:border-white/10 shadow-2xl relative overflow-hidden group backdrop-blur-md transition-colors duration-500">
+        <div className="glass p-8 md:p-12 lg:p-16 rounded-[2.5rem] md:rounded-[4rem] max-w-7xl mx-auto border border-white/30 dark:border-white/10 shadow-2xl relative overflow-hidden group backdrop-blur-md transition-colors duration-500">
           <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent pointer-events-none"></div>
 
           {/* Geometric Accents - Main Bubble */}
@@ -50,7 +50,7 @@ const Locations: React.FC = () => {
               <div className="flex flex-col flex-grow">
                 <div className="space-y-12 h-full">
                   {LOCATIONS.map((loc) => (
-                    <div key={loc.id} className="cursor-pointer p-8 md:p-12 rounded-[2rem] md:rounded-[3.5rem] hover:bg-white/20 dark:hover:bg-white/5 transition-all duration-700 group/card border border-white/20 dark:border-white/10 hover:border-squared-cyan/30 hover:-translate-y-2 h-full flex flex-col justify-between relative overflow-hidden">
+                    <div key={loc.id} className="cursor-pointer p-8 md:p-10 lg:p-12 rounded-[2rem] md:rounded-[3rem] lg:rounded-[3.5rem] hover:bg-white/20 dark:hover:bg-white/5 transition-all duration-700 group/card border border-white/20 dark:border-white/10 hover:border-squared-cyan/30 hover:-translate-y-2 h-full flex flex-col justify-between relative overflow-hidden">
                       <div className="absolute inset-0 bg-gradient-to-br from-squared-cyan/5 to-transparent opacity-0 group-hover/card:opacity-100 transition-opacity duration-1000"></div>
 
                       {/* Geometric Accents */}
@@ -76,10 +76,10 @@ const Locations: React.FC = () => {
                           />
                         </div>
 
-                        <h2 className={`text-3xl md:text-6xl font-serif text-squared-brown-dark dark:text-white mb-6 md:mb-10 leading-tight font-black tracking-tight group-hover/card:text-squared-cyan transition-colors duration-500 ${language === 'ar' ? 'font-arabic font-bold' : ''}`}>
+                        <h2 className={`text-3xl md:text-5xl lg:text-6xl font-serif text-squared-brown-dark dark:text-white mb-6 md:mb-10 leading-tight font-black tracking-tight group-hover/card:text-squared-cyan transition-colors duration-500 ${language === 'ar' ? 'font-arabic font-bold' : ''}`}>
                           {language === 'ar' ? 'القطيف - الفرع الرئيسي' : loc.name}
                         </h2>
-                        <p className={`text-base md:text-xl text-squared-brown dark:text-white/80 font-sans leading-relaxed mb-8 md:mb-12 font-medium opacity-85 transition-colors duration-500 ${language === 'ar' ? 'font-arabic' : ''}`}>
+                        <p className={`text-base md:text-lg lg:text-xl text-squared-brown dark:text-white/80 font-sans leading-relaxed mb-8 md:mb-12 font-medium opacity-85 transition-colors duration-500 ${language === 'ar' ? 'font-arabic' : ''}`}>
                           {t.locations.desc}
                         </p>
 
