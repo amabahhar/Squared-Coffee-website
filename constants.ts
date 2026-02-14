@@ -577,38 +577,50 @@ export const FEATURED_MENU = FULL_MENU.slice(0, 4);
 export const SOCIAL_POSTS = [
   {
     id: 1,
-    image: 'https://images.unsplash.com/photo-1497935586351-b67a49e012bf?auto=format&fit=crop&q=80&w=800&h=800',
-    caption: 'Morning brews & good vibes ☕️',
+    image: '/images/social/social-1.jpg',
+    caption: 'ناصفتكم الليلة في سكويرد 💙 ولا تنسوا تستغلوا الخصم 😍',
     type: 'post'
   },
   {
     id: 2,
-    image: 'https://images.unsplash.com/photo-1511920170033-f8396924c348?auto=format&fit=crop&q=80&w=800&h=800',
-    caption: 'Our signature specialty beans ✨',
+    image: '/images/social/social-2.jpg',
+    caption: 'بوكس الهوت شوكلت يدفىء جمعاتكم 🍫🤎...',
     type: 'post'
   },
   {
     id: 3,
-    image: 'https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&q=80&w=800&h=800',
-    caption: 'Latte art perfection 🎨',
+    image: '/images/social/social-3.jpg',
+    caption: 'كم قهوة تحتاج في اليوم ؟ 😴 ☕️',
     type: 'post'
   },
   {
     id: 4,
-    image: 'https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&q=80&w=800&h=800',
-    caption: 'Fresh pastries, baked daily 🥐',
+    image: '/images/social/social-4.jpg',
+    caption: 'كيف تحب تشرب الهوت شوكلت ؟ مع كريمة او بدون ؟ 😍🤎',
     type: 'post'
   },
   {
     id: 5,
-    image: 'https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&q=80&w=800&h=800',
-    caption: 'Your cozy corner in Qatif 💫',
+    image: '/images/social/social-5.jpg',
+    caption: 'أسرع من ماتتوقع 💨🚙! Squared Go ready to Go 🤩',
     type: 'post'
   },
   {
     id: 6,
-    image: 'https://images.unsplash.com/photo-1445077100181-a33e9ac94db0?auto=format&fit=crop&q=80&w=800&h=800',
-    caption: 'Brunch perfection 🍳',
+    image: '/images/social/social-6.jpg',
+    caption: 'متيلدا كيك تحلي اجوائكم الشتوية 🍫🤎',
+    type: 'post'
+  },
+  {
+    id: 7,
+    image: '/images/social/social-7.jpg',
+    caption: 'Hot Chocolate season is here 😍🤎!',
+    type: 'post'
+  },
+  {
+    id: 8,
+    image: '/images/social/social-8.jpg',
+    caption: 'تشيزكيك البمكن ، نكهة شتوية دافئة 🧡',
     type: 'post'
   }
 ];

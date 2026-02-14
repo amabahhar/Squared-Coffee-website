@@ -19,8 +19,8 @@ const MenuSection: React.FC<MenuSectionProps> = ({ onItemClick }) => {
       {/* Background Grid - Hero Style */}
       <div className="absolute inset-0 z-0 pointer-events-none opacity-[0.03] dark:opacity-[0.05]"
         style={{
-          backgroundImage: `linear-gradient(to right, #000 1px, transparent 1px),
-                           linear-gradient(to bottom, #000 1px, transparent 1px)`,
+          backgroundImage: `linear-gradient(to right, var(--grid-line-color) 1px, transparent 1px),
+                           linear-gradient(to bottom, var(--grid-line-color) 1px, transparent 1px)`,
           backgroundSize: '40px 40px'
         }}
       ></div>
@@ -75,7 +75,7 @@ const MenuSection: React.FC<MenuSectionProps> = ({ onItemClick }) => {
                   <img
                     src={item.image}
                     alt={displayName}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 grayscale group-hover:grayscale-0"
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                   />
                   <div className="absolute inset-0 bg-squared-cyan/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
                 </div>

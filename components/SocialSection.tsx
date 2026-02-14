@@ -1,19 +1,29 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { SOCIAL_POSTS } from '../constants';
-import { Instagram, ArrowRight, ExternalLink } from 'lucide-react';
+import { Instagram, ArrowRight, ExternalLink, ChevronLeft, ChevronRight } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 
 const SocialSection: React.FC = () => {
     const { t, language } = useLanguage();
     const scrollRef = useRef<HTMLDivElement>(null);
 
+    const scroll = (direction: 'left' | 'right') => {
+        if (scrollRef.current) {
+            const scrollAmount = scrollRef.current.clientWidth;
+            scrollRef.current.scrollBy({
+                left: direction === 'left' ? -scrollAmount : scrollAmount,
+                behavior: 'smooth'
+            });
+        }
+    };
+
     return (
-        <section id="social" className="py-20 bg-squared-white dark:bg-squared-black border-t border-squared-gray-100 dark:border-squared-gray-800 relative overflow-hidden">
+        <section id="social" className="py-20 bg-squared-white dark:bg-squared-black border-t border-squared-gray-200 dark:border-squared-gray-800 relative overflow-hidden">
             {/* Background Grid - Hero Style */}
             <div className="absolute inset-0 z-0 pointer-events-none opacity-[0.03] dark:opacity-[0.05]"
                 style={{
-                    backgroundImage: `linear-gradient(to right, #000 1px, transparent 1px),
-                           linear-gradient(to bottom, #000 1px, transparent 1px)`,
+                    backgroundImage: `linear-gradient(to right, var(--grid-line-color) 1px, transparent 1px),
+                                   linear-gradient(to bottom, var(--grid-line-color) 1px, transparent 1px)`,
                     backgroundSize: '40px 40px'
                 }}
             ></div>
@@ -33,17 +43,19 @@ const SocialSection: React.FC = () => {
                         </h2>
                     </div>
 
-                    <a
-                        href="https://www.instagram.com/squared_coffee/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="group flex items-center gap-3 text-squared-black dark:text-white hover:text-squared-cyan transition-colors mt-6 md:mt-0"
-                    >
-                        <span className="font-mono text-sm uppercase tracking-widest">@squared_coffee</span>
-                        <div className="w-10 h-10 border border-squared-black dark:border-white flex items-center justify-center group-hover:bg-squared-cyan group-hover:border-squared-cyan group-hover:text-white transition-all duration-300">
-                            <Instagram className="w-5 h-5" />
-                        </div>
-                    </a>
+                    <div className="flex flex-col md:flex-row items-center gap-6 mt-6 md:mt-0">
+                        <a
+                            href="https://www.instagram.com/squared_coffee/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="group flex items-center gap-3 text-squared-black dark:text-white hover:text-squared-cyan transition-colors"
+                        >
+                            <span className="font-mono text-sm uppercase tracking-widest">@squared_coffee</span>
+                            <div className="w-10 h-10 border border-squared-black dark:border-white flex items-center justify-center group-hover:bg-squared-cyan group-hover:border-squared-cyan group-hover:text-white transition-all duration-300">
+                                <Instagram className="w-5 h-5" />
+                            </div>
+                        </a>
+                    </div>
                 </div>
 
                 {/* Data Stream Feed */}
@@ -53,7 +65,7 @@ const SocialSection: React.FC = () => {
 
                     <div
                         ref={scrollRef}
-                        className={`flex overflow-x-auto gap-1 pb-8 pt-8 no-scrollbar ${language === 'ar' ? 'direction-rtl' : ''}`}
+                        className={`flex overflow-x-auto snap-x snap-mandatory no-scrollbar gap-4 pb-8 pt-8 ${language === 'ar' ? 'direction-rtl' : ''}`}
                     >
                         {SOCIAL_POSTS.map((post, index) => (
                             <a
@@ -61,7 +73,7 @@ const SocialSection: React.FC = () => {
                                 href="https://www.instagram.com/squared_coffee/"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="flex-shrink-0 w-[280px] md:w-[320px] group relative block"
+                                className="flex-shrink-0 w-[85%] md:w-[calc(25%-12px)] snap-center group relative block"
                             >
                                 {/* Technical Frame */}
                                 <div className="relative aspect-square bg-squared-gray-100 dark:bg-squared-gray-800 border border-transparent group-hover:border-squared-cyan transition-colors duration-300 z-10">
@@ -69,7 +81,7 @@ const SocialSection: React.FC = () => {
                                         src={post.image}
                                         alt={post.caption}
                                         loading="lazy"
-                                        className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
+                                        className="w-full h-full object-cover transition-all duration-500"
                                     />
 
                                     {/* Overlay Info */}
@@ -95,9 +107,25 @@ const SocialSection: React.FC = () => {
                         ))}
                     </div>
 
-                    {/* Scrollbar visualization (optional mock or custom) */}
-                    <div className="w-full h-1 bg-squared-gray-100 dark:bg-squared-gray-800 mt-4 overflow-hidden">
-                        <div className="h-full w-1/3 bg-squared-cyan animate-pulse"></div>
+                    {/* Navigation */}
+                    <div className="mt-8 flex justify-center md:justify-end">
+                        {/* Navigation Arrows at the bottom */}
+                        <div className="flex gap-4">
+                            <button
+                                onClick={() => scroll('left')}
+                                className="w-12 h-12 border border-squared-black dark:border-white flex items-center justify-center hover:bg-squared-cyan hover:border-squared-cyan hover:text-white transition-all duration-300"
+                                aria-label="Scroll left"
+                            >
+                                <ChevronLeft className="w-6 h-6" />
+                            </button>
+                            <button
+                                onClick={() => scroll('right')}
+                                className="w-12 h-12 border border-squared-black dark:border-white flex items-center justify-center hover:bg-squared-cyan hover:border-squared-cyan hover:text-white transition-all duration-300"
+                                aria-label="Scroll right"
+                            >
+                                <ChevronRight className="w-6 h-6" />
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>

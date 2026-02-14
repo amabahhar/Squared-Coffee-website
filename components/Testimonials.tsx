@@ -195,8 +195,8 @@ const Testimonials: React.FC = () => {
             {/* Background Grid - Hero Style */}
             <div className="absolute inset-0 z-0 pointer-events-none opacity-[0.03] dark:opacity-[0.05]"
                 style={{
-                    backgroundImage: `linear-gradient(to right, #000 1px, transparent 1px),
-                           linear-gradient(to bottom, #000 1px, transparent 1px)`,
+                    backgroundImage: `linear-gradient(to right, var(--grid-line-color) 1px, transparent 1px),
+                           linear-gradient(to bottom, var(--grid-line-color) 1px, transparent 1px)`,
                     backgroundSize: '40px 40px'
                 }}
             ></div>

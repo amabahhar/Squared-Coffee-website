@@ -80,8 +80,8 @@ const LoyaltySection: React.FC = () => {
             {/* Background Grid - Hero Style */}
             <div className="absolute inset-0 z-0 pointer-events-none opacity-[0.03] dark:opacity-[0.05]"
                 style={{
-                    backgroundImage: `linear-gradient(to right, #000 1px, transparent 1px),
-                           linear-gradient(to bottom, #000 1px, transparent 1px)`,
+                    backgroundImage: `linear-gradient(to right, var(--grid-line-color) 1px, transparent 1px),
+                           linear-gradient(to bottom, var(--grid-line-color) 1px, transparent 1px)`,
                     backgroundSize: '40px 40px'
                 }}
             ></div>
@@ -159,7 +159,7 @@ const LoyaltySection: React.FC = () => {
                                     <h2 className={`text-4xl md:text-5xl font-sans font-bold text-squared-black dark:text-squared-white mb-6 ${language === 'ar' ? 'font-arabic' : ''}`}>
                                         {t.loyalty.title}
                                     </h2>
-                                    <p className={`text-lg text-squared-gray-600 dark:text-squared-gray-400 max-w-lg ${language === 'ar' ? 'font-arabic' : ''}`}>
+                                    <p className={`text-lg text-squared-gray-600 dark:text-squared-gray-300 max-w-lg ${language === 'ar' ? 'font-arabic' : ''}`}>
                                         {t.loyalty.desc}
                                     </p>
                                 </div>
@@ -259,16 +259,18 @@ const LoyaltySection: React.FC = () => {
                                         <button
                                             type="submit"
                                             disabled={isSubmitting}
-                                            className="w-full py-4 bg-squared-black dark:bg-squared-white text-squared-white dark:text-squared-black font-bold uppercase tracking-widest hover:bg-squared-cyan hover:text-white transition-all flex items-center justify-center gap-3 group disabled:opacity-50 disabled:cursor-not-allowed"
+                                            className="w-full py-4 bg-squared-black dark:bg-squared-white font-bold uppercase tracking-widest hover:bg-squared-cyan hover:text-white transition-all group disabled:opacity-50 disabled:cursor-not-allowed"
                                         >
-                                            {isSubmitting ? (
-                                                <Loader className="animate-spin" />
-                                            ) : (
-                                                <>
-                                                    <span>{t.loyalty.cta}</span>
-                                                    <Send size={18} className={`transform group-hover:translate-x-1 transition-transform ${language === 'ar' ? 'rotate-180' : ''}`} />
-                                                </>
-                                            )}
+                                            <span className="flex items-center justify-center gap-3 text-squared-white dark:text-squared-black group-hover:text-white transition-colors">
+                                                {isSubmitting ? (
+                                                    <Loader className="animate-spin" />
+                                                ) : (
+                                                    <>
+                                                        <span>{t.loyalty.cta}</span>
+                                                        <Send size={18} className={`transform group-hover:translate-x-1 transition-transform ${language === 'ar' ? 'rotate-180' : ''}`} />
+                                                    </>
+                                                )}
+                                            </span>
                                         </button>
                                     </div>
                                 </form>

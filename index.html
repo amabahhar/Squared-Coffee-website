@@ -18,7 +18,7 @@
     content="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&q=80&w=1200">
   <meta property="og:type" content="website">
 
-  <script src="https://cdn.tailwindcss.com"></script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
@@ -40,92 +40,7 @@
       } catch (e) { }
     })();
   </script>
-  <script>
-    tailwind.config = {
-      darkMode: 'class',
-      theme: {
-        extend: {
-          colors: {
-            squared: {
-              // Brand Colors (Restored to Cyan/Clean)
-              cyan: '#009FB8',
-              logo: '#00C2E0',
 
-              // Mapping 'gold' to Cyan to update existing components
-              gold: '#009FB8',
-              'gold-light': '#33CEE6',
-
-              // Mapping 'brown' to Grays/Blacks for text
-              navy: '#1E3A5F',       // Logo Dark Blue
-              brown: '#1F2937',      // Gray-800
-              'brown-dark': '#111827', // Gray-900
-              'brown-light': '#4B5563', // Gray-600
-
-              // Mapping 'terracotta'/'sand' to Neutrals
-              terracotta: '#9CA3AF', // Gray-400 (for decorative blobs etc)
-              sand: '#E5E7EB',       // Gray-200
-              clay: '#6B7280',       // Gray-500
-
-              // Backgrounds
-              cream: '#FFFFFF',      // White
-              'cream-light': '#F9FAFB', // Gray-50
-              'cream-soft': '#F3F4F6',  // Gray-100
-              gray: {
-                100: '#F3F4F6',
-                200: '#E5E7EB',
-                300: '#D1D5DB',
-                400: '#9CA3AF',
-                500: '#6B7280',
-                600: '#4B5563',
-                700: '#374151',
-                800: '#1F2937',
-                900: '#111827',
-              },
-            }
-          },
-          boxShadow: {
-            'warm': '0 4px 12px rgba(60, 42, 33, 0.15)',
-            'warm-lg': '0 8px 24px rgba(60, 42, 33, 0.2)',
-          },
-          transitionTimingFunction: {
-            'natural': 'cubic-bezier(0.33, 1, 0.68, 1)',
-          },
-          keyframes: {
-            blob: {
-              "0%": {
-                transform: "translate(0px, 0px) scale(1)",
-              },
-              "33%": {
-                transform: "translate(20px, -30px) scale(1.05)",
-              },
-              "66%": {
-                transform: "translate(-15px, 15px) scale(0.95)",
-              },
-              "100%": {
-                transform: "translate(0px, 0px) scale(1)",
-              },
-            },
-            fadeIn: {
-              "0%": { opacity: "0", transform: "translateY(10px)" },
-              "100%": { opacity: "1", transform: "translateY(0)" },
-            }
-          },
-          animation: {
-            blob: "blob 12s infinite",
-            "fade-in": "fadeIn 0.5s ease-out forwards",
-          },
-          backdropBlur: {
-            xs: '2px',
-          },
-          fontFamily: {
-            sans: ['Inter', 'sans-serif'],
-            serif: ['Playfair Display', 'serif'],
-            arabic: ['Cairo', 'sans-serif'],
-          }
-        }
-      }
-    }
-  </script>
 
 </head>
 

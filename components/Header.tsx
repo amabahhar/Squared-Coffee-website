@@ -40,8 +40,8 @@ const Header: React.FC<HeaderProps> = ({ onOrderClick, isDarkMode, toggleDarkMod
     <>
       <header
         className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 border-b ${scrolled || isOpen
-            ? 'bg-squared-white/90 dark:bg-squared-black/90 backdrop-blur-md border-squared-gray-200 dark:border-squared-gray-800 py-3'
-            : 'bg-transparent border-transparent py-5'
+          ? 'bg-squared-white/90 dark:bg-squared-black/90 backdrop-blur-md border-squared-gray-200 dark:border-squared-gray-800 py-3'
+          : 'bg-transparent border-transparent py-5'
           }`}
       >
         <div className="container mx-auto px-6 h-full flex justify-between items-center text-squared-black dark:text-squared-white">

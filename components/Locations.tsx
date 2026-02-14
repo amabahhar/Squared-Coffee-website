@@ -11,8 +11,8 @@ const Locations: React.FC = () => {
       {/* Background Grid - Hero Style */}
       <div className="absolute inset-0 z-0 pointer-events-none opacity-[0.03] dark:opacity-[0.05]"
         style={{
-          backgroundImage: `linear-gradient(to right, #000 1px, transparent 1px),
-                           linear-gradient(to bottom, #000 1px, transparent 1px)`,
+          backgroundImage: `linear-gradient(to right, var(--grid-line-color) 1px, transparent 1px),
+                           linear-gradient(to bottom, var(--grid-line-color) 1px, transparent 1px)`,
           backgroundSize: '40px 40px'
         }}
       ></div>
@@ -47,7 +47,7 @@ const Locations: React.FC = () => {
                   <MapPin className="text-squared-gray-400 group-hover:text-squared-cyan transition-colors" size={24} />
                 </div>
 
-                <p className={`text-squared-gray-600 dark:text-squared-gray-400 mb-8 leading-relaxed max-w-md ${language === 'ar' ? 'font-arabic' : ''}`}>
+                <p className={`text-squared-gray-600 dark:text-squared-gray-300 mb-8 leading-relaxed max-w-md ${language === 'ar' ? 'font-arabic' : ''}`}>
                   {t.locations.desc}
                 </p>
 
@@ -74,7 +74,7 @@ const Locations: React.FC = () => {
             <iframe
               title="Squared Coffee Location"
               src="https://maps.google.com/maps?q=Squared+Coffee+Qatif&t=&z=15&ie=UTF8&iwloc=&output=embed"
-              className="w-full h-full absolute inset-0 filter grayscale opacity-80 hover:opacity-100 transition-opacity duration-500"
+              className="w-full h-full absolute inset-0 opacity-80 hover:opacity-100 transition-opacity duration-500"
               style={{ border: 0 }}
               loading="lazy"
             ></iframe>

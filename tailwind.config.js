@@ -16,14 +16,26 @@ export default {
                 'squared-cyan': '#009FB8',
                 'squared-cyan-light': '#33CEE6',
                 'squared-cyan-dark': '#007A8F',
+                'squared-logo': '#00C2E0',
 
                 // Strict Neutrals
                 'squared-black': '#09090B', // Zinc-950
-                'squared-gray-900': '#18181B', // Zinc-900
-                'squared-gray-800': '#27272A', // Zinc-800
-                'squared-gray-100': '#F4F4F5', // Zinc-100
-                'squared-gray-50': '#FAFAFA', // Zinc-50
+                'squared-gray-950': '#09090B',
+                'squared-gray-900': '#18181B',
+                'squared-gray-800': '#27272A',
+                'squared-gray-700': '#3F3F46',
+                'squared-gray-600': '#52525B',
+                'squared-gray-500': '#71717A',
+                'squared-gray-400': '#A1A1AA',
+                'squared-gray-300': '#D4D4D8',
+                'squared-gray-200': '#E4E4E7',
+                'squared-gray-100': '#F4F4F5',
+                'squared-gray-50': '#FAFAFA',
                 'squared-white': '#FFFFFF',
+
+                // Text legacy mappings
+                'squared-brown-dark': '#111827',
+                'squared-brown-light': '#4B5563',
             },
             fontFamily: {
                 sans: ['Inter', 'sans-serif'],

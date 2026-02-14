@@ -11,8 +11,8 @@ const Hero: React.FC = () => {
       {/* Grid Background */}
       <div className="absolute inset-0 z-0 pointer-events-none opacity-[0.03] dark:opacity-[0.05]"
         style={{
-          backgroundImage: `linear-gradient(to right, #000 1px, transparent 1px),
-                               linear-gradient(to bottom, #000 1px, transparent 1px)`,
+          backgroundImage: `linear-gradient(to right, var(--grid-line-color) 1px, transparent 1px),
+                               linear-gradient(to bottom, var(--grid-line-color) 1px, transparent 1px)`,
           backgroundSize: '40px 40px'
         }}
       ></div>
@@ -28,7 +28,7 @@ const Hero: React.FC = () => {
           <h1 className={`text-6xl md:text-8xl lg:text-9xl font-bold leading-[0.9] text-squared-black dark:text-squared-white mb-8 tracking-tighter ${language === 'ar' ? 'font-arabic' : 'font-sans'}`}>
             {t.hero.title_start}
             <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-squared-cyan to-squared-cyan-dark">
+            <span className="text-squared-cyan">
               {t.hero.title_highlight}
             </span>
             <span className="text-squared-cyan">.</span>
@@ -39,8 +39,8 @@ const Hero: React.FC = () => {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
-            <a href="#menu" className={`group relative overflow-hidden bg-squared-black dark:bg-squared-white text-squared-white dark:text-squared-black px-10 py-4 text-xs font-bold uppercase tracking-widest hover:bg-squared-cyan dark:hover:bg-squared-cyan hover:text-white transition-all duration-300 ${language === 'ar' ? 'font-arabic tracking-normal text-sm' : ''}`}>
-              <span className="relative z-10 flex items-center gap-2">
+            <a href="#menu" className={`group relative overflow-hidden bg-squared-black dark:bg-squared-white px-10 py-4 text-xs font-bold uppercase tracking-widest hover:bg-squared-cyan dark:hover:bg-squared-cyan transition-all duration-300 ${language === 'ar' ? 'font-arabic tracking-normal text-sm' : ''}`}>
+              <span className="relative z-10 flex items-center gap-2 text-squared-white dark:text-squared-black group-hover:text-white transition-colors">
                 {t.hero.cta_primary}
                 <ChevronRight size={16} className="group-hover:translate-x-1 transition-transform" />
               </span>

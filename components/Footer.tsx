@@ -18,8 +18,8 @@ const Footer: React.FC = () => {
       {/* Precision Grid Background */}
       <div className="absolute inset-0 pointer-events-none opacity-[0.05]"
         style={{
-          backgroundImage: `linear-gradient(to right, #ffffff 1px, transparent 1px),
-                               linear-gradient(to bottom, #ffffff 1px, transparent 1px)`,
+          backgroundImage: `linear-gradient(to right, var(--grid-line-color) 1px, transparent 1px),
+                               linear-gradient(to bottom, var(--grid-line-color) 1px, transparent 1px)`,
           backgroundSize: '40px 40px'
         }}
       ></div>

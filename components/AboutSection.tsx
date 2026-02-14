@@ -9,8 +9,8 @@ const AboutSection: React.FC = () => {
       {/* Background Grid - Hero Style */}
       <div className="absolute inset-0 z-0 pointer-events-none opacity-[0.03] dark:opacity-[0.05]"
         style={{
-          backgroundImage: `linear-gradient(to right, #000 1px, transparent 1px),
-                           linear-gradient(to bottom, #000 1px, transparent 1px)`,
+          backgroundImage: `linear-gradient(to right, var(--grid-line-color) 1px, transparent 1px),
+                           linear-gradient(to bottom, var(--grid-line-color) 1px, transparent 1px)`,
           backgroundSize: '40px 40px'
         }}
       ></div>
@@ -21,9 +21,9 @@ const AboutSection: React.FC = () => {
           <div className="relative group">
             <div className="aspect-[4/5] bg-squared-gray-100 dark:bg-squared-gray-900 relative overflow-hidden">
               <img
-                src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&q=80&w=800"
-                alt="Coffee Brewing"
-                className="w-full h-full object-cover filter grayscale contrast-125 hover:grayscale-0 transition-all duration-700"
+                src="/images/story/story-place.jpg"
+                alt="Squared Coffee Place"
+                className="w-full h-full object-cover filter contrast-125 transition-all duration-700"
               />
               {/* Technical Overlays */}
               <div className="absolute top-0 left-0 p-4 font-mono text-xs text-squared-white mix-blend-difference">
@@ -48,7 +48,7 @@ const AboutSection: React.FC = () => {
               {t.about.title_start} <span className="text-transparent bg-clip-text bg-gradient-to-r from-squared-cyan to-squared-cyan-dark">{t.about.title_highlight}</span>
             </h2>
 
-            <div className={`space-y-6 text-squared-gray-800 dark:text-squared-gray-400 leading-relaxed text-lg max-w-xl ${language === 'ar' ? 'font-arabic' : 'font-sans'}`}>
+            <div className={`space-y-6 text-squared-gray-700 dark:text-squared-gray-300 leading-relaxed text-lg max-w-xl ${language === 'ar' ? 'font-arabic' : 'font-sans'}`}>
               <p>
                 {t.about.p1}
               </p>

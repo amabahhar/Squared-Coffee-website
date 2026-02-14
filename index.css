@@ -3,9 +3,18 @@
 @import "tailwindcss";
 @config "./tailwind.config.js";
 
+:root {
+    --grid-line-color: #000000;
+}
+
+.dark {
+    --grid-line-color: #ffffff;
+}
+
 @layer base {
     body {
         @apply font-body text-squared-black bg-squared-white antialiased;
+        @apply dark:bg-squared-black dark:text-squared-white;
     }
 
     h1,
