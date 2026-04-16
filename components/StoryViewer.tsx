@@ -66,11 +66,17 @@ const StoryViewer: React.FC<StoryViewerProps> = ({ isOpen, onClose, initialStart
     const currentPost = posts[currentIndex];
 
     return (
-        <div className="fixed inset-0 z-[100] bg-black/95 backdrop-blur-md flex items-center justify-center">
+        <div 
+            className="fixed inset-0 z-[100] bg-black/95 backdrop-blur-md flex items-center justify-center touch-none"
+            role="dialog"
+            aria-modal="true"
+            aria-label="Story Viewer"
+        >
             {/* Close Button */}
             <button
                 onClick={onClose}
-                className="absolute top-6 right-6 z-50 text-white p-2 hover:bg-white/10 rounded-full transition-colors"
+                aria-label="Close story"
+                className="absolute top-6 right-6 z-50 text-white p-2 hover:bg-white/10 rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-white"
             >
                 <X className="w-8 h-8" />
             </button>
@@ -79,7 +85,10 @@ const StoryViewer: React.FC<StoryViewerProps> = ({ isOpen, onClose, initialStart
             <div className="relative w-full max-w-md aspect-[9/16] bg-black rounded-xl overflow-hidden shadow-2xl mx-4 sm:h-[80vh] sm:w-auto sm:mx-0">
 
                 {/* Progress Bars */}
-                <div className="absolute top-0 left-0 right-0 z-20 flex gap-1 p-2">
+                <div 
+                    className="absolute top-0 left-0 right-0 z-20 flex gap-1 p-2"
+                    aria-hidden="true"
+                >
                     {posts.map((_, idx) => (
                         <div key={idx} className="h-1 flex-1 bg-white/30 rounded-full overflow-hidden">
                             <div
@@ -110,7 +119,7 @@ const StoryViewer: React.FC<StoryViewerProps> = ({ isOpen, onClose, initialStart
                 <div className="absolute inset-0 z-0">
                     <img
                         src={currentPost.image}
-                        alt="Story"
+                        alt={currentPost.caption}
                         className="w-full h-full object-cover"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
@@ -118,8 +127,16 @@ const StoryViewer: React.FC<StoryViewerProps> = ({ isOpen, onClose, initialStart
 
                 {/* Navigation Taps */}
                 <div className="absolute inset-0 z-10 flex">
-                    <div className="flex-1 h-full" onClick={handlePrev}></div>
-                    <div className="flex-1 h-full" onClick={handleNext}></div>
+                    <button 
+                        className="flex-1 h-full cursor-pointer focus:outline-none" 
+                        onClick={handlePrev}
+                        aria-label="Previous story"
+                    ></button>
+                    <button 
+                        className="flex-1 h-full cursor-pointer focus:outline-none" 
+                        onClick={handleNext}
+                        aria-label="Next story"
+                    ></button>
                 </div>
 
                 {/* Bottom Actions / Caption */}
@@ -132,18 +149,20 @@ const StoryViewer: React.FC<StoryViewerProps> = ({ isOpen, onClose, initialStart
                         <input
                             type="text"
                             readOnly
+                            aria-label="Reply to story (disabled)"
                             placeholder="Reply to squared_coffee..."
                             className="flex-1 bg-transparent border border-white/40 text-white placeholder-white/70 rounded-full px-5 py-3 text-sm focus:outline-none backdrop-blur-sm"
                         />
-                        <Heart className="w-7 h-7 text-white" />
-                        <Send className="w-7 h-7 text-white rotate-12" />
+                        <button aria-label="Like story" className="focus:outline-none"><Heart className="w-7 h-7 text-white" /></button>
+                        <button aria-label="Share story" className="focus:outline-none"><Send className="w-7 h-7 text-white rotate-12" /></button>
                     </div>
 
-                    <InteractiveHoverButton 
-                        text="View on Instagram"
+                    <button 
                         onClick={() => window.open('https://www.instagram.com/squared_coffee/', '_blank')}
-                        className="w-full bg-squared-cyan border-squared-cyan text-white mt-2"
-                    />
+                        className="w-full bg-squared-cyan border-squared-cyan text-white mt-2 py-3 font-bold rounded-sm hover:brightness-110 transition-all focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-squared-cyan"
+                    >
+                        View on Instagram
+                    </button>
                 </div>
 
             </div>

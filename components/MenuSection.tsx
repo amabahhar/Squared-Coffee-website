@@ -70,14 +70,24 @@ const MenuSection: React.FC<MenuSectionProps> = ({ onItemClick, isDarkMode }) =>
             return (
               <div
                 key={item.id}
+                role="button"
+                tabIndex={0}
+                aria-label={`${language === 'ar' ? 'طلب' : 'Order'} ${displayName}`}
                 onClick={() => onItemClick && onItemClick(item)}
-                className="group flex items-start gap-4 py-6 border-b border-squared-gray-200 dark:border-squared-gray-800 cursor-pointer hover:bg-squared-gray-100 dark:hover:bg-squared-gray-900/50 transition-colors duration-200 px-2 -mx-2"
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    onItemClick && onItemClick(item);
+                  }
+                }}
+                className="group flex items-start gap-4 py-6 border-b border-squared-gray-200 dark:border-squared-gray-800 cursor-pointer hover:bg-squared-gray-100 dark:hover:bg-squared-gray-900/50 transition-colors duration-200 px-2 -mx-2 focus-visible:outline-2 focus-visible:outline-squared-cyan focus-visible:z-10"
               >
                 {/* Image Thumbnail - Small & Sharp */}
                 <div className="w-16 h-16 bg-squared-gray-200 overflow-hidden shrink-0 relative">
                   <img
                     src={item.image}
-                    alt={displayName}
+                    alt=""
+                    loading="lazy"
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                   />
                   <div className="absolute inset-0 bg-squared-cyan/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
@@ -99,9 +109,9 @@ const MenuSection: React.FC<MenuSectionProps> = ({ onItemClick, isDarkMode }) =>
                   </p>
                 </div>
 
-                <button className="self-center p-2 text-squared-gray-300 group-hover:text-squared-cyan transition-colors">
+                <div className="self-center p-2 text-squared-gray-300 group-hover:text-squared-cyan transition-colors" aria-hidden="true">
                   <Plus size={18} />
-                </button>
+                </div>
               </div>
             );
           })}

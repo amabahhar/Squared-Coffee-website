@@ -31,30 +31,37 @@ const OrderModal: React.FC<OrderModalProps> = ({ isOpen, onClose, initialUrl }) 
     const targetSrc = initialUrl || DEFAULT_URL;
 
     return (
-        <div className="fixed inset-0 z-[60] flex items-center justify-center bg-black/90 backdrop-blur-sm p-4 md:p-8 animate-fade-in">
+        <div 
+            className="fixed inset-0 z-[60] flex items-center justify-center bg-black/90 backdrop-blur-sm p-4 md:p-8 animate-fade-in"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="modal-title"
+        >
             {/* Modal Container - Precision Lab Style */}
-            <div className="relative w-full h-full max-w-6xl bg-squared-gray-950 border border-squared-gray-800 rounded-none md:rounded-lg shadow-2xl flex flex-col overflow-hidden">
+            <div className="relative w-full h-full max-w-6xl bg-squared-gray-950 border border-squared-gray-800 rounded-none md:rounded-lg shadow-2xl flex flex-col overflow-hidden focus:outline-none" tabIndex={-1}>
 
                 {/* Technical Corners (Desktop only) */}
-                <div className="hidden md:block absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-squared-cyan z-20 pointer-events-none"></div>
-                <div className="hidden md:block absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-squared-cyan z-20 pointer-events-none"></div>
-                <div className="hidden md:block absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-squared-cyan z-20 pointer-events-none"></div>
-                <div className="hidden md:block absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-squared-cyan z-20 pointer-events-none"></div>
+                <div className="hidden md:block absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-squared-cyan z-20 pointer-events-none" aria-hidden="true"></div>
+                <div className="hidden md:block absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-squared-cyan z-20 pointer-events-none" aria-hidden="true"></div>
+                <div className="hidden md:block absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-squared-cyan z-20 pointer-events-none" aria-hidden="true"></div>
+                <div className="hidden md:block absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-squared-cyan z-20 pointer-events-none" aria-hidden="true"></div>
 
                 {/* Header */}
                 <div className="flex justify-between items-center px-6 py-4 md:px-8 md:py-5 border-b border-squared-gray-800 bg-squared-gray-900">
                     <div className="flex items-center gap-4">
                         <div className="w-2 h-2 bg-squared-cyan animate-pulse"></div>
-                        <h2 className="text-xl md:text-2xl font-bold text-white tracking-tight uppercase font-serif">
+                        <h2 id="modal-title" className="text-xl md:text-2xl font-bold text-white tracking-tight uppercase font-serif">
                             Order <span className="text-squared-cyan">Online</span>
                         </h2>
                     </div>
 
-                    <InteractiveHoverButton
+                    <button
                         onClick={onClose}
-                        text="Close"
-                        className="bg-transparent border-squared-gray-700 text-white w-32"
-                    />
+                        aria-label="Close modal"
+                        className="bg-transparent border border-squared-gray-700 text-white px-6 py-2 rounded-sm hover:bg-squared-gray-800 transition-colors focus:ring-2 focus:ring-squared-cyan focus:outline-none"
+                    >
+                        Close
+                    </button>
                 </div>
 
                 {/* Iframe Container */}
