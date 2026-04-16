@@ -222,31 +222,40 @@ const LoyaltySection: React.FC<LoyaltySectionProps> = ({ isDarkMode }) => {
 
                                     {/* Terms & Marketing */}
                                     <div className="space-y-4 pt-2">
-                                        <div className={`flex items-start gap-3 ${language === 'ar' ? 'flex-row-reverse text-right' : ''}`}>
+                                        <label className={`checkbox-wrapper ${language === 'ar' ? 'flex-row-reverse text-right' : ''}`}>
                                             <input
                                                 type="checkbox"
                                                 id="terms"
                                                 required
                                                 checked={formData.termsAccepted}
                                                 onChange={(e) => setFormData({ ...formData, termsAccepted: e.target.checked })}
-                                                className="mt-1.5 w-4 h-4 rounded-none border border-squared-gray-400 text-squared-cyan focus:ring-squared-cyan"
                                             />
-                                            <label htmlFor="terms" className="text-sm text-squared-gray-600 dark:text-squared-gray-400">
+                                            <div className="checkmark">
+                                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round">
+                                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                                </svg>
+                                            </div>
+                                            <span className={`label-text ${language === 'ar' ? 'font-arabic mr-3 ml-0' : ''}`}>
                                                 {language === 'ar' ? 'أوافق على الشروط والأحكام' : 'I agree to the terms and conditions'} *
-                                            </label>
-                                        </div>
-                                        <div className={`flex items-start gap-3 ${language === 'ar' ? 'flex-row-reverse text-right' : ''}`}>
+                                            </span>
+                                        </label>
+
+                                        <label className={`checkbox-wrapper ${language === 'ar' ? 'flex-row-reverse text-right' : ''}`}>
                                             <input
                                                 type="checkbox"
                                                 id="marketing"
                                                 checked={formData.marketingConsent}
                                                 onChange={(e) => setFormData({ ...formData, marketingConsent: e.target.checked })}
-                                                className="mt-1.5 w-4 h-4 rounded-none border border-squared-gray-400 text-squared-cyan focus:ring-squared-cyan"
                                             />
-                                            <label htmlFor="marketing" className="text-sm text-squared-gray-600 dark:text-squared-gray-400">
+                                            <div className="checkmark">
+                                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round">
+                                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                                </svg>
+                                            </div>
+                                            <span className={`label-text ${language === 'ar' ? 'font-arabic mr-3 ml-0' : ''}`}>
                                                 {language === 'ar' ? 'أرغب في تلقي العروض والتحديثات' : 'I want to receive offers and updates'}
-                                            </label>
-                                        </div>
+                                            </span>
+                                        </label>
                                     </div>
 
                                     {submitStatus === 'error' && (
