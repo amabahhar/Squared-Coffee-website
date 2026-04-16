@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { X } from 'lucide-react';
+import { InteractiveHoverButton } from './ui/interactive-hover-button';
 
 interface OrderModalProps {
     isOpen: boolean;
@@ -49,15 +50,11 @@ const OrderModal: React.FC<OrderModalProps> = ({ isOpen, onClose, initialUrl }) 
                         </h2>
                     </div>
 
-                    <button
+                    <InteractiveHoverButton
                         onClick={onClose}
-                        className="group relative px-4 py-2 overflow-hidden bg-transparent border border-squared-gray-700 text-white hover:border-squared-cyan transition-all duration-300"
-                    >
-                        <span className="relative z-10 flex items-center gap-2 font-mono text-xs md:text-sm uppercase tracking-wider">
-                            Close <X className="w-4 h-4" />
-                        </span>
-                        <div className="absolute inset-0 bg-squared-cyan/10 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
-                    </button>
+                        text="Close"
+                        className="bg-transparent border-squared-gray-700 text-white w-32"
+                    />
                 </div>
 
                 {/* Iframe Container */}

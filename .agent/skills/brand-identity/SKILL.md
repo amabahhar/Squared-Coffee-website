@@ -13,6 +13,10 @@ This skill defines the core constraints for visual design and technical implemen
 
 Depending on the task you are performing, consult the specific resource files below. Do not guess brand elements; always read the corresponding file.
 
+### For the Official Brand Identity
+The master document for the brand's mission, visual pillars, and style rules:
+👉 **[`DESIGN_IDENTITY.md`](../../../DESIGN_IDENTITY.md)**
+
 ### For Visual Design & UI Styling
 If you need exact colors, fonts, border radii, or spacing values, read:
 👉 **[`resources/design-tokens.json`](resources/design-tokens.json)**

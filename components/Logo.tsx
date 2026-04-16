@@ -21,16 +21,16 @@ const Logo: React.FC<LogoProps> = ({ className = '', size = 'md', variant = 'lig
   };
 
   const textThemeClasses = variant === 'light'
-    ? { primary: 'text-squared-brown-dark', secondary: 'text-squared-brown-light' }
+    ? { primary: 'text-squared-black', secondary: 'text-squared-cyan' }
     : variant === 'dark'
-      ? { primary: 'text-white', secondary: 'text-white/60' }
-      : { primary: 'text-squared-brown-dark dark:text-white', secondary: 'text-squared-brown-light dark:text-white/60' };
+      ? { primary: 'text-white', secondary: 'text-squared-cyan-light' }
+      : { primary: 'text-squared-black dark:text-white', secondary: 'text-squared-cyan dark:text-squared-cyan-light' };
 
   return (
     <div className={`flex flex-col items-center justify-center transition-colors duration-500 ${className}`}>
-      {/* The Graphical Icon: Blue Square with ^2 */}
-      <div className={`relative flex items-center justify-center bg-squared-logo shadow-sm transition-all duration-500 ${sizeClasses[size]}`}>
-        {/* Inner Gray Square */}
+      {/* The Graphical Icon: Cyan Square with ^2 */}
+      <div className={`relative flex items-center justify-center bg-squared-cyan shadow-precision transition-all duration-500 ${sizeClasses[size]}`}>
+        {/* Inner Square */}
         <div className="absolute inset-[15%] bg-white flex items-center justify-center shadow-inner">
           {/* The ^2 Symbol */}
           <span className={`font-bold text-black font-sans ${textSizeClasses[size]}`}>

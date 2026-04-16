@@ -4,11 +4,14 @@ import { FULL_MENU, MENU_CATEGORIES } from '../constants';
 import { MenuItem } from '../types';
 import { useLanguage } from '../contexts/LanguageContext';
 
+import { MorphingButton } from './MorphingUI';
+
 interface MenuSectionProps {
   onItemClick?: (item: MenuItem) => void;
+  isDarkMode: boolean;
 }
 
-const MenuSection: React.FC<MenuSectionProps> = ({ onItemClick }) => {
+const MenuSection: React.FC<MenuSectionProps> = ({ onItemClick, isDarkMode }) => {
   const [activeCategory, setActiveCategory] = useState(MENU_CATEGORIES[0]);
   const { t, language } = useLanguage();
 
@@ -41,18 +44,18 @@ const MenuSection: React.FC<MenuSectionProps> = ({ onItemClick }) => {
 
         {/* Filter Controls - Toggle Switch Style */}
         <div className="mb-12 overflow-x-auto pb-4 scrollbar-hide">
-          <div className="flex bg-squared-gray-100 dark:bg-squared-gray-900 p-1.5 rounded-sm inline-flex min-w-full md:min-w-0">
+          <div className="flex bg-squared-gray-100 dark:bg-squared-gray-900 p-1.5 rounded-sm inline-flex min-w-full md:min-w-0 gap-1.5">
             {MENU_CATEGORIES.map((category) => (
-              <button
+              <MorphingButton
                 key={category}
                 onClick={() => setActiveCategory(category)}
-                className={`flex-1 px-6 py-2.5 text-xs font-bold uppercase tracking-widest transition-all duration-300 rounded-sm whitespace-nowrap ${activeCategory === category
-                  ? 'bg-squared-white dark:bg-squared-gray-800 text-squared-black dark:text-squared-white shadow-sm'
-                  : 'text-squared-gray-400 hover:text-squared-black dark:hover:text-squared-white'
-                  } ${language === 'ar' ? 'font-arabic tracking-normal' : ''}`}
-              >
-                {t.menu.categories[category as keyof typeof t.menu.categories] || category}
-              </button>
+                label={t.menu.categories[category as keyof typeof t.menu.categories] || category}
+                isActive={activeCategory === category}
+                isDarkMode={isDarkMode}
+                language={language}
+                variant="ghost"
+                className="flex-1 whitespace-nowrap"
+              />
             ))}
           </div>
         </div>
@@ -75,7 +78,7 @@ const MenuSection: React.FC<MenuSectionProps> = ({ onItemClick }) => {
                   <img
                     src={item.image}
                     alt={displayName}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 grayscale group-hover:grayscale-0"
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                   />
                   <div className="absolute inset-0 bg-squared-cyan/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
                 </div>

@@ -2,8 +2,13 @@ import React, { useState, useEffect, useRef } from 'react';
 import { TESTIMONIALS } from '../constants';
 import { Star, ChevronLeft, ChevronRight } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
+import { CarouselNavigator } from './CarouselNavigator';
 
-const Testimonials: React.FC = () => {
+interface TestimonialsProps {
+    isDarkMode: boolean;
+}
+
+const Testimonials: React.FC<TestimonialsProps> = ({ isDarkMode }) => {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [isAutoPlaying, setIsAutoPlaying] = useState(true);
     const [swipeDirection, setSwipeDirection] = useState<'left' | 'right' | null>(null);
@@ -169,8 +174,11 @@ const Testimonials: React.FC = () => {
                         {/* Author */}
                         <div className={`flex items-center justify-between border-t border-squared-gray-200 dark:border-squared-gray-800 pt-8 mt-auto ${language === 'ar' ? 'flex-row-reverse' : ''}`}>
                             <div className={language === 'ar' ? 'text-right' : 'text-left'}>
-                                <div className={`text-squared-black dark:text-white font-bold text-lg mb-1 ${language === 'ar' ? 'font-arabic' : ''}`}>
-                                    {testimonial.name}
+                                <div className="flex items-center gap-3 mb-4">
+                                    <div className="w-2 h-2 bg-squared-cyan"></div>
+                                    <span className={`text-xs font-bold tracking-widest uppercase text-squared-gray-500 ${language === 'ar' ? 'font-arabic' : 'font-mono'}`}>
+                                        {testimonial.name}
+                                    </span>
                                 </div>
                                 <div className="text-squared-cyan text-xs font-mono tracking-widest uppercase">
                                     {testimonial.date}
@@ -271,43 +279,21 @@ const Testimonials: React.FC = () => {
                         })}
                     </div>
 
-                    {/* Controls */}
-                    <div className="flex justify-between items-center mt-12 border-t border-squared-gray-800 pt-8">
-                        {/* Progress Bar */}
-                        <div className="flex gap-1">
-                            {TESTIMONIALS.map((_, index) => (
-                                <button
-                                    key={index}
-                                    onClick={() => {
-                                        setIsAutoPlaying(false);
-                                        const dir = index > currentIndex ? 'left' : 'right';
-                                        setSwipeDirection(dir);
-                                        setTimeout(() => {
-                                            setCurrentIndex(index);
-                                            setSwipeDirection(null);
-                                        }, 400);
-                                    }}
-                                    className={`h-1 transition-all duration-300 ${index === currentIndex ? 'w-12 bg-squared-cyan' : 'w-4 bg-squared-gray-800 hover:bg-squared-gray-700'
-                                        }`}
-                                />
-                            ))}
-                        </div>
-
-                        {/* Arrows */}
-                        <div className="flex gap-4">
-                            <button
-                                onClick={handlePrevious}
-                                className="w-12 h-12 border border-squared-gray-200 dark:border-squared-gray-700 flex items-center justify-center text-squared-black dark:text-white hover:border-squared-cyan hover:text-squared-cyan transition-colors bg-white dark:bg-squared-gray-900"
-                            >
-                                <ChevronLeft className="w-5 h-5 rtl:rotate-180" />
-                            </button>
-                            <button
-                                onClick={handleNext}
-                                className="w-12 h-12 border border-squared-gray-200 dark:border-squared-gray-700 flex items-center justify-center text-squared-black dark:text-white hover:border-squared-cyan hover:text-squared-cyan transition-colors bg-white dark:bg-squared-gray-900"
-                            >
-                                <ChevronRight className="w-5 h-5 rtl:rotate-180" />
-                            </button>
-                        </div>
+                    {/* Controls - Standardized */}
+                    <div className="flex justify-center items-center mt-12 pt-8 border-t border-squared-gray-800">
+                        <CarouselNavigator
+                            totalSlides={TESTIMONIALS.length}
+                            currentIndex={currentIndex}
+                            onIndexChange={(index) => {
+                                setIsAutoPlaying(false);
+                                const dir = index > currentIndex ? 'left' : 'right';
+                                setSwipeDirection(dir);
+                                setTimeout(() => {
+                                    setCurrentIndex(index);
+                                    setSwipeDirection(null);
+                                }, 400);
+                            }}
+                        />
                     </div>
                 </div>
             </div>

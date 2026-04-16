@@ -47,63 +47,42 @@
         extend: {
           colors: {
             squared: {
-              // Brand Colors (Restored to Cyan/Clean)
+              // Brand Colors (Precision Lab)
               cyan: '#009FB8',
-              logo: '#00C2E0',
+              'cyan-light': '#33CEE6',
+              'cyan-dark': '#007A8F',
 
-              // Mapping 'gold' to Cyan to update existing components
-              gold: '#009FB8',
-              'gold-light': '#33CEE6',
-
-              // Mapping 'brown' to Grays/Blacks for text
-              navy: '#1E3A5F',       // Logo Dark Blue
-              brown: '#1F2937',      // Gray-800
-              'brown-dark': '#111827', // Gray-900
-              'brown-light': '#4B5563', // Gray-600
-
-              // Mapping 'terracotta'/'sand' to Neutrals
-              terracotta: '#9CA3AF', // Gray-400 (for decorative blobs etc)
-              sand: '#E5E7EB',       // Gray-200
-              clay: '#6B7280',       // Gray-500
-
-              // Backgrounds
-              cream: '#FFFFFF',      // White
-              'cream-light': '#F9FAFB', // Gray-50
-              'cream-soft': '#F3F4F6',  // Gray-100
+              // Neutrals (Zinc Scale)
+              black: '#09090B',
+              white: '#FFFFFF',
               gray: {
-                100: '#F3F4F6',
-                200: '#E5E7EB',
-                300: '#D1D5DB',
-                400: '#9CA3AF',
-                500: '#6B7280',
-                600: '#4B5563',
-                700: '#374151',
-                800: '#1F2937',
-                900: '#111827',
+                50: '#FAFAFA',
+                100: '#F4F4F5',
+                200: '#E4E4E7',
+                300: '#D4D4D8',
+                400: '#A1A1AA',
+                500: '#71717A',
+                600: '#52525B',
+                700: '#3F3F46',
+                800: '#27272A',
+                900: '#18181B',
+                950: '#09090B',
               },
             }
           },
           boxShadow: {
-            'warm': '0 4px 12px rgba(60, 42, 33, 0.15)',
-            'warm-lg': '0 8px 24px rgba(60, 42, 33, 0.2)',
+            'precision': '0 1px 2px 0 rgba(0, 0, 0, 0.05)',
+            'precision-lg': '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
           },
           transitionTimingFunction: {
             'natural': 'cubic-bezier(0.33, 1, 0.68, 1)',
           },
           keyframes: {
             blob: {
-              "0%": {
-                transform: "translate(0px, 0px) scale(1)",
-              },
-              "33%": {
-                transform: "translate(20px, -30px) scale(1.05)",
-              },
-              "66%": {
-                transform: "translate(-15px, 15px) scale(0.95)",
-              },
-              "100%": {
-                transform: "translate(0px, 0px) scale(1)",
-              },
+              "0%": { transform: "translate(0px, 0px) scale(1)" },
+              "33%": { transform: "translate(20px, -30px) scale(1.05)" },
+              "66%": { transform: "translate(-15px, 15px) scale(0.95)" },
+              "100%": { transform: "translate(0px, 0px) scale(1)" },
             },
             fadeIn: {
               "0%": { opacity: "0", transform: "translateY(10px)" },
@@ -129,7 +108,7 @@
 
 </head>
 
-<body class="bg-squared-cream text-squared-brown-dark dark:bg-squared-brown-dark dark:text-white antialiased">
+<body class="bg-white text-squared-black dark:bg-squared-black dark:text-white antialiased">
   <div id="root"></div>
   <script type="module" src="/index.tsx"></script>
 </body>

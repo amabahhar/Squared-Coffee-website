@@ -2,8 +2,13 @@ import React, { useState } from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { Send, CheckCircle, Loader, Gift } from 'lucide-react';
 import Logo from './Logo';
+import { InteractiveHoverButton } from './ui/interactive-hover-button';
 
-const LoyaltySection: React.FC = () => {
+interface LoyaltySectionProps {
+    isDarkMode: boolean;
+}
+
+const LoyaltySection: React.FC<LoyaltySectionProps> = ({ isDarkMode }) => {
     const { t, language } = useLanguage();
     const [formData, setFormData] = useState({
         name: '',
@@ -130,22 +135,17 @@ const LoyaltySection: React.FC = () => {
                                     {language === 'ar' ? 'تم التسجيل بنجاح!' : 'Successfully Enrolled!'}
                                 </h3>
                                 {cardUrl && (
-                                    <a
-                                        href={cardUrl}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="inline-flex items-center gap-2 mt-4 px-8 py-4 bg-squared-cyan text-white font-bold uppercase tracking-widest hover:bg-squared-cyan-dark transition-colors"
-                                    >
-                                        <Gift size={20} />
-                                        <span>{language === 'ar' ? 'إضافة إلى المحفظة' : 'Add to Wallet'}</span>
-                                    </a>
+                                    <InteractiveHoverButton 
+                                        text={language === 'ar' ? 'إضافة إلى المحفظة' : 'Add to Wallet'}
+                                        onClick={() => window.open(cardUrl, '_blank')}
+                                        variant="dark"
+                                    />
                                 )}
-                                <button
+                                <InteractiveHoverButton
                                     onClick={() => setSubmitStatus('idle')}
-                                    className="block mx-auto mt-6 text-sm underline text-squared-gray-500 hover:text-squared-black dark:hover:text-squared-white"
-                                >
-                                    {language === 'ar' ? 'تسجيل عضو آخر' : 'Register another member'}
-                                </button>
+                                    text={language === 'ar' ? 'تسجيل عضو آخر' : 'Register another member'}
+                                    variant={isDarkMode ? 'dark' : 'light'}
+                                />
                             </div>
                         ) : (
                             <>
@@ -256,20 +256,14 @@ const LoyaltySection: React.FC = () => {
                                     )}
 
                                     <div className="pt-6">
-                                        <button
+                                        <InteractiveHoverButton
                                             type="submit"
                                             disabled={isSubmitting}
-                                            className="w-full py-4 bg-squared-black dark:bg-squared-white text-squared-white dark:text-squared-black font-bold uppercase tracking-widest hover:bg-squared-cyan hover:text-white transition-all flex items-center justify-center gap-3 group disabled:opacity-50 disabled:cursor-not-allowed"
+                                            text={isSubmitting ? undefined : t.loyalty.cta}
+                                            variant={isDarkMode ? 'dark' : 'light'}
                                         >
-                                            {isSubmitting ? (
-                                                <Loader className="animate-spin" />
-                                            ) : (
-                                                <>
-                                                    <span>{t.loyalty.cta}</span>
-                                                    <Send size={18} className={`transform group-hover:translate-x-1 transition-transform ${language === 'ar' ? 'rotate-180' : ''}`} />
-                                                </>
-                                            )}
-                                        </button>
+                                            {isSubmitting && <Loader className="animate-spin" />}
+                                        </InteractiveHoverButton>
                                     </div>
                                 </form>
                             </>

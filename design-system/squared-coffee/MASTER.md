@@ -18,24 +18,24 @@
 
 | Role | Hex | CSS Variable |
 |------|-----|--------------|
-| Primary | `#78350F` | `--color-primary` |
-| Secondary | `#92400E` | `--color-secondary` |
-| CTA/Accent | `#FBBF24` | `--color-cta` |
-| Background | `#FEF3C7` | `--color-background` |
-| Text | `#451A03` | `--color-text` |
+| Primary | `#09090B` | `--color-primary` |
+| Secondary | `#18181B` | `--color-secondary` |
+| CTA/Accent | `#009FB8` | `--color-cta` |
+| Background | `#FFFFFF` | `--color-background` |
+| Text | `#09090B` | `--color-text` |
 
-**Color Notes:** Coffee brown + warm gold
+**Color Notes:** High-contrast Monochrome + Precision Cyan
 
 ### Typography
 
-- **Heading Font:** Fredoka
-- **Body Font:** Nunito
-- **Mood:** playful, friendly, fun, creative, warm, approachable
-- **Google Fonts:** [Fredoka + Nunito](https://fonts.google.com/share?selection.family=Fredoka:wght@400;500;600;700|Nunito:wght@300;400;500;600;700)
+- **Heading Font:** Inter
+- **Body Font:** Roboto
+- **Mood:** Precise, Sharp, Technical, Agency-Grade, Minimalist
+- **Google Fonts:** [Inter + Roboto](https://fonts.google.com/share?selection.family=Inter:ital,wght@0,100..900;1,100..900|Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900)
 
 **CSS Import:**
 ```css
-@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Roboto:wght@300;400;500;700&display=swap');
 ```
 
 ### Spacing Variables
@@ -50,7 +50,7 @@
 | `--space-2xl` | `48px` / `3rem` | Section margins |
 | `--space-3xl` | `64px` / `4rem` | Hero padding |
 
-### Shadow Depths
+### Shadow Depths (Precision Shadows)
 
 | Level | Value | Usage |
 |-------|-------|-------|
@@ -68,7 +68,7 @@
 ```css
 /* Primary Button */
 .btn-primary {
-  background: #FBBF24;
+  background: #009FB8;
   color: white;
   padding: 12px 24px;
   border-radius: 8px;
@@ -78,15 +78,15 @@
 }
 
 .btn-primary:hover {
-  opacity: 0.9;
+  background: #007A8F;
   transform: translateY(-1px);
 }
 
 /* Secondary Button */
 .btn-secondary {
   background: transparent;
-  color: #78350F;
-  border: 2px solid #78350F;
+  color: #09090B;
+  border: 2px solid #09090B;
   padding: 12px 24px;
   border-radius: 8px;
   font-weight: 600;
@@ -99,7 +99,8 @@
 
 ```css
 .card {
-  background: #FEF3C7;
+  background: #FFFFFF;
+  border: 1px solid #E4E4E7;
   border-radius: 12px;
   padding: 24px;
   box-shadow: var(--shadow-md);
@@ -109,6 +110,7 @@
 
 .card:hover {
   box-shadow: var(--shadow-lg);
+  border-color: #009FB8;
   transform: translateY(-2px);
 }
 ```
@@ -118,16 +120,16 @@
 ```css
 .input {
   padding: 12px 16px;
-  border: 1px solid #E2E8F0;
+  border: 1px solid #E4E4E7;
   border-radius: 8px;
   font-size: 16px;
   transition: border-color 200ms ease;
 }
 
 .input:focus {
-  border-color: #78350F;
+  border-color: #009FB8;
   outline: none;
-  box-shadow: 0 0 0 3px #78350F20;
+  box-shadow: 0 0 0 3px rgba(0, 159, 184, 0.2);
 }
 ```
 

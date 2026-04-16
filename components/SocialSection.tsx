@@ -1,19 +1,73 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { SOCIAL_POSTS } from '../constants';
-import { Instagram, ArrowRight, ExternalLink } from 'lucide-react';
+import { Instagram, ArrowRight } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
+import { CarouselNavigator } from './CarouselNavigator';
 
-const SocialSection: React.FC = () => {
+interface SocialSectionProps {
+    isDarkMode: boolean;
+}
+
+const SocialSection: React.FC<SocialSectionProps> = ({ isDarkMode }) => {
     const { t, language } = useLanguage();
     const scrollRef = useRef<HTMLDivElement>(null);
+    const [currentIndex, setCurrentIndex] = useState(0);
+
+    const handleIndexChange = (index: number) => {
+        setCurrentIndex(index);
+        if (scrollRef.current) {
+            const container = scrollRef.current;
+            const items = container.querySelectorAll('.social-post-card');
+            if (items[index]) {
+                const item = items[index] as HTMLElement;
+                container.scrollTo({
+                    left: item.offsetLeft - (container.clientWidth / 2) + (item.clientWidth / 2),
+                    behavior: 'smooth'
+                });
+            }
+        }
+    };
+
+    // Update index on scroll
+    useEffect(() => {
+        const handleScroll = () => {
+            if (scrollRef.current) {
+                const container = scrollRef.current;
+                const items = container.querySelectorAll('.social-post-card');
+                let closestIndex = 0;
+                let minDistance = Infinity;
+
+                items.forEach((item, index) => {
+                    const rect = item.getBoundingClientRect();
+                    const containerRect = container.getBoundingClientRect();
+                    const distance = Math.abs((rect.left + rect.width / 2) - (containerRect.left + containerRect.width / 2));
+                    
+                    if (distance < minDistance) {
+                        minDistance = distance;
+                        closestIndex = index;
+                    }
+                });
+
+                if (closestIndex !== currentIndex) {
+                    setCurrentIndex(closestIndex);
+                }
+            }
+        };
+
+        const container = scrollRef.current;
+        if (container) {
+            container.addEventListener('scroll', handleScroll);
+            return () => container.removeEventListener('scroll', handleScroll);
+        }
+    }, [currentIndex]);
 
     return (
         <section id="social" className="py-20 bg-squared-white dark:bg-squared-black border-t border-squared-gray-100 dark:border-squared-gray-800 relative overflow-hidden">
             {/* Background Grid - Hero Style */}
-            <div className="absolute inset-0 z-0 pointer-events-none opacity-[0.03] dark:opacity-[0.05]"
+            <div className={`absolute inset-0 z-0 pointer-events-none ${isDarkMode ? 'opacity-[0.05]' : 'opacity-[0.03]'}`}
                 style={{
-                    backgroundImage: `linear-gradient(to right, #000 1px, transparent 1px),
-                           linear-gradient(to bottom, #000 1px, transparent 1px)`,
+                    backgroundImage: `linear-gradient(to right, ${isDarkMode ? '#fff' : '#000'} 1px, transparent 1px),
+                           linear-gradient(to bottom, ${isDarkMode ? '#fff' : '#000'} 1px, transparent 1px)`,
                     backgroundSize: '40px 40px'
                 }}
             ></div>
@@ -22,7 +76,7 @@ const SocialSection: React.FC = () => {
                 {/* Header */}
                 <div className="flex flex-col md:flex-row justify-between items-end mb-12 border-b-2 border-squared-black dark:border-white pb-6">
                     <div>
-                        <div className="flex items-center gap-3 mb-2">
+                        <div className="flex items-center gap-3 mb-4">
                             <div className="w-2 h-2 bg-squared-cyan"></div>
                             <span className="font-mono text-squared-cyan text-xs tracking-[0.2em] uppercase">
                                 {t.social.eyebrow}
@@ -53,7 +107,7 @@ const SocialSection: React.FC = () => {
 
                     <div
                         ref={scrollRef}
-                        className={`flex overflow-x-auto gap-1 pb-8 pt-8 no-scrollbar ${language === 'ar' ? 'direction-rtl' : ''}`}
+                        className={`flex overflow-x-auto gap-4 pb-12 pt-12 no-scrollbar ${language === 'ar' ? 'direction-rtl' : ''} scroll-smooth`}
                     >
                         {SOCIAL_POSTS.map((post, index) => (
                             <a
@@ -61,7 +115,7 @@ const SocialSection: React.FC = () => {
                                 href="https://www.instagram.com/squared_coffee/"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="flex-shrink-0 w-[280px] md:w-[320px] group relative block"
+                                className="flex-shrink-0 w-[280px] md:w-[320px] group relative block social-post-card"
                             >
                                 {/* Technical Frame */}
                                 <div className="relative aspect-square bg-squared-gray-100 dark:bg-squared-gray-800 border border-transparent group-hover:border-squared-cyan transition-colors duration-300 z-10">
@@ -69,7 +123,7 @@ const SocialSection: React.FC = () => {
                                         src={post.image}
                                         alt={post.caption}
                                         loading="lazy"
-                                        className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
+                                        className="w-full h-full object-cover transition-all duration-500"
                                     />
 
                                     {/* Overlay Info */}
@@ -95,9 +149,13 @@ const SocialSection: React.FC = () => {
                         ))}
                     </div>
 
-                    {/* Scrollbar visualization (optional mock or custom) */}
-                    <div className="w-full h-1 bg-squared-gray-100 dark:bg-squared-gray-800 mt-4 overflow-hidden">
-                        <div className="h-full w-1/3 bg-squared-cyan animate-pulse"></div>
+                    {/* Carousel Navigation */}
+                    <div className="flex justify-center items-center mt-8 pt-8 border-t border-squared-gray-200 dark:border-squared-gray-800">
+                        <CarouselNavigator
+                            totalSlides={SOCIAL_POSTS.length}
+                            currentIndex={currentIndex}
+                            onIndexChange={handleIndexChange}
+                        />
                     </div>
                 </div>
             </div>

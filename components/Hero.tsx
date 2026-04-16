@@ -1,9 +1,13 @@
 import React from 'react';
 import { ArrowDown, ChevronRight } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
+import CyberSquare from './CyberSquare';
+import { InteractiveHoverButton } from './ui/interactive-hover-button';
+import { useTheme } from '../contexts/ThemeContext';
 
 const Hero: React.FC = () => {
   const { t, language } = useLanguage();
+  const { isDarkMode } = useTheme();
 
   return (
     <section id="hero" className="relative min-h-screen w-full flex items-center bg-squared-white dark:bg-squared-black overflow-hidden pt-20">
@@ -39,45 +43,37 @@ const Hero: React.FC = () => {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
-            <a href="#menu" className={`group relative overflow-hidden bg-squared-black dark:bg-squared-white text-squared-white dark:text-squared-black px-10 py-4 text-xs font-bold uppercase tracking-widest hover:bg-squared-cyan dark:hover:bg-squared-cyan hover:text-white transition-all duration-300 ${language === 'ar' ? 'font-arabic tracking-normal text-sm' : ''}`}>
-              <span className="relative z-10 flex items-center gap-2">
-                {t.hero.cta_primary}
-                <ChevronRight size={16} className="group-hover:translate-x-1 transition-transform" />
-              </span>
-            </a>
+            <InteractiveHoverButton 
+              text={t.hero.cta_primary} 
+              variant={isDarkMode ? 'dark' : 'light'}
+              onClick={() => document.getElementById('menu')?.scrollIntoView({ behavior: 'smooth' })}
+            />
 
-            <a href="#locations" className={`group px-10 py-4 text-xs font-bold uppercase tracking-widest text-squared-black dark:text-squared-white border border-squared-gray-200 dark:border-squared-gray-800 hover:border-squared-cyan hover:text-squared-cyan transition-all duration-300 ${language === 'ar' ? 'font-arabic tracking-normal text-sm' : ''}`}>
-              {t.hero.cta_secondary}
-            </a>
+            <InteractiveHoverButton 
+              text={t.hero.cta_secondary} 
+              variant="light"
+              onClick={() => document.getElementById('locations')?.scrollIntoView({ behavior: 'smooth' })}
+            />
           </div>
         </div>
 
-        {/* Right Column: Abstract Precision Art */}
-        <div className="lg:col-span-5 h-[400px] lg:h-[600px] relative hidden md:block">
+        {/* Right Column: 3D Art Restoration */}
+        <div className="lg:col-span-5 h-[400px] lg:h-[600px] relative hidden md:block group">
           <div className="absolute inset-0 flex items-center justify-center">
-            {/* Main Geometric Stack */}
-            <div className="relative w-64 h-64 lg:w-96 lg:h-96">
-              {/* Square 1 - Solid */}
-              <div className="absolute top-0 right-0 w-full h-full border border-squared-black/10 dark:border-white/10 z-10"></div>
+            {/* Main 3D Component - Scaled to original dimensions */}
+            <div className="w-80 h-80 lg:w-[400px] lg:h-[400px] transform transition-transform duration-700 group-hover:scale-105">
+              <CyberSquare />
+            </div>
 
-              {/* Square 2 - Cyan Accent */}
-              <div className="absolute top-8 right-8 w-full h-full border-2 border-squared-cyan/20 z-20"></div>
-
-              {/* Square 3 - Solid Fill Small */}
-              <div className="absolute bottom-[-20px] left-[-20px] w-24 h-24 bg-squared-cyan text-white flex items-center justify-center font-mono text-xs z-30 shadow-2xl">
-                <div className="text-center">
-                  <span className="block font-black text-2xl">20</span>
-                  <span className="block text-[10px] tracking-widest opacity-80">GRAMS</span>
-                </div>
-              </div>
-
-              {/* Decorative Plus Signs */}
-              <div className="absolute -top-4 -left-4 text-squared-gray-200 dark:text-squared-gray-800">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1"><path d="M12 5v14M5 12h14" /></svg>
-              </div>
-              <div className="absolute -bottom-4 -right-4 text-squared-gray-200 dark:text-squared-gray-800">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1"><path d="M12 5v14M5 12h14" /></svg>
-              </div>
+            {/* Decorative Corner Framing */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 border border-squared-cyan/10 pointer-events-none"></div>
+            <div className="absolute top-0 left-0 w-12 h-12 border-t border-l border-squared-cyan/30"></div>
+            <div className="absolute bottom-0 right-0 w-12 h-12 border-b border-r border-squared-cyan/30"></div>
+            
+            {/* Spec Label */}
+            <div className="absolute bottom-12 left-0 font-mono text-[10px] text-squared-gray-400 uppercase tracking-[0.3em] flex items-center gap-3">
+              <div className="w-8 h-[1px] bg-squared-cyan/50"></div>
+              <span>GEOMETRIC_PRECISION_V1.0</span>
             </div>
           </div>
         </div>

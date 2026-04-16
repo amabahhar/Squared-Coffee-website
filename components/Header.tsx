@@ -3,6 +3,7 @@ import Logo from './Logo';
 import { NAV_ITEMS, LOCATIONS } from '../constants';
 import { Menu, X, MapPin, Globe, Sun, Moon, ShoppingBag } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
+import { MorphingNavItem, MorphingButton } from './MorphingUI';
 
 interface HeaderProps {
   onOrderClick: () => void;
@@ -52,16 +53,15 @@ const Header: React.FC<HeaderProps> = ({ onOrderClick, isDarkMode, toggleDarkMod
           </a>
 
           {/* Desktop Navigation - Precision Lab Style */}
-          <nav className="hidden lg:flex items-center gap-10">
+          <nav className="hidden lg:flex items-center gap-4">
             {NAV_ITEMS.map((item) => (
-              <a
+              <MorphingNavItem
                 key={item.label}
                 href={item.href}
-                className={`group relative text-xs font-bold uppercase tracking-widest text-squared-gray-900 dark:text-squared-gray-100 hover:text-squared-cyan transition-colors duration-300 ${language === 'ar' ? 'font-arabic text-sm tracking-normal' : ''}`}
-              >
-                {getNavLabel(item.label)}
-                <span className="absolute -bottom-2 left-0 w-0 h-[2px] bg-squared-cyan transition-all duration-300 group-hover:w-full"></span>
-              </a>
+                label={getNavLabel(item.label)}
+                isDarkMode={isDarkMode}
+                language={language}
+              />
             ))}
           </nav>
 
@@ -88,12 +88,13 @@ const Header: React.FC<HeaderProps> = ({ onOrderClick, isDarkMode, toggleDarkMod
               </button>
             </div>
 
-            <button
+            <MorphingButton
               onClick={onOrderClick}
-              className={`bg-squared-black dark:bg-squared-white text-squared-white dark:text-squared-black hover:bg-squared-cyan dark:hover:bg-squared-cyan hover:text-white px-6 py-2 rounded-sm text-xs font-bold uppercase tracking-widest transition-all duration-300 ${language === 'ar' ? 'font-arabic tracking-normal text-sm' : ''}`}
-            >
-              {t.nav.order}
-            </button>
+              label={t.nav.order}
+              isDarkMode={isDarkMode}
+              language={language}
+              variant="primary"
+            />
           </div>
 
           {/* Mobile Toggle */}

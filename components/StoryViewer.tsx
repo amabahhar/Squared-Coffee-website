@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { X, ChevronLeft, ChevronRight, Heart, Send } from 'lucide-react';
+import { InteractiveHoverButton } from './ui/interactive-hover-button';
 
 interface StoryViewerProps {
     isOpen: boolean;
@@ -138,14 +139,11 @@ const StoryViewer: React.FC<StoryViewerProps> = ({ isOpen, onClose, initialStart
                         <Send className="w-7 h-7 text-white rotate-12" />
                     </div>
 
-                    <a
-                        href="https://www.instagram.com/squared_coffee/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="bg-squared-cyan/90 text-white text-center py-3 rounded-xl font-bold text-sm mt-2 hover:bg-squared-cyan transition-colors"
-                    >
-                        View on Instagram
-                    </a>
+                    <InteractiveHoverButton 
+                        text="View on Instagram"
+                        onClick={() => window.open('https://www.instagram.com/squared_coffee/', '_blank')}
+                        className="w-full bg-squared-cyan border-squared-cyan text-white mt-2"
+                    />
                 </div>
 
             </div>

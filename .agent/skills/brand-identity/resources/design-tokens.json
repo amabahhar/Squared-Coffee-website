@@ -5,8 +5,8 @@
   },
   "colors": {
     "primary": {
-      "DEFAULT": "#000000",
-      "hover": "#333333",
+      "DEFAULT": "#09090B",
+      "hover": "#18181B",
       "foreground": "#FFFFFF"
     },
     "secondary": {
@@ -16,7 +16,7 @@
     "background": "#FFFFFF",
     "foreground": "#09090B",
     "muted": "#F4F4F5",
-    "accent": "#F4F4F5",
+    "accent": "#009FB8",
     "destructive": "#EF4444",
     "success": "#10B981"
   },
