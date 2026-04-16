@@ -2,7 +2,9 @@ import React, { useState } from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { Send, CheckCircle, Loader, Gift } from 'lucide-react';
 import Logo from './Logo';
+import { cn } from '../utils/i18nUtils';
 import { InteractiveHoverButton } from './ui/interactive-hover-button';
+import { FloatingInput } from './ui/floating-input';
 
 interface LoyaltySectionProps {
     isDarkMode: boolean;
@@ -164,65 +166,46 @@ const LoyaltySection: React.FC<LoyaltySectionProps> = ({ isDarkMode }) => {
                                     </p>
                                 </div>
 
-                                <form onSubmit={handleSubmit} className="space-y-6 max-w-lg">
-                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                        <div className="group">
-                                            <label className={`block text-xs font-mono text-squared-gray-500 uppercase mb-2 ${language === 'ar' ? 'text-right' : ''}`}>
-                                                {language === 'ar' ? 'الاسم' : 'Name'}
-                                            </label>
-                                            <input
-                                                type="text"
-                                                value={formData.name}
-                                                required
-                                                onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                                                className={`w-full bg-transparent border-b border-squared-gray-300 dark:border-squared-gray-700 py-3 px-2 text-lg text-squared-black dark:text-squared-white focus:outline-none focus:border-squared-cyan transition-colors ${language === 'ar' ? 'text-right' : ''}`}
-                                            />
-                                        </div>
-                                        <div className="group">
-                                            <label className={`block text-xs font-mono text-squared-gray-500 uppercase mb-2 ${language === 'ar' ? 'text-right' : ''}`}>
-                                                {language === 'ar' ? 'رقم الهاتف' : 'Phone'}
-                                            </label>
-                                            <input
-                                                type="tel"
-                                                value={formData.phone}
-                                                required
-                                                onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                                                className={`w-full bg-transparent border-b border-squared-gray-300 dark:border-squared-gray-700 py-3 px-2 text-lg text-squared-black dark:text-squared-white focus:outline-none focus:border-squared-cyan transition-colors ${language === 'ar' ? 'text-right' : ''}`}
-                                                placeholder="+966"
-                                            />
-                                        </div>
+                                <form onSubmit={handleSubmit} className="space-y-10 max-w-lg">
+                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+                                        <FloatingInput
+                                            label={language === 'ar' ? 'الاسم' : 'Name'}
+                                            value={formData.name}
+                                            required
+                                            onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                                            language={language}
+                                        />
+                                        <FloatingInput
+                                            label={language === 'ar' ? 'رقم الهاتف' : 'Phone'}
+                                            type="tel"
+                                            value={formData.phone}
+                                            required
+                                            onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                                            language={language}
+                                        />
                                     </div>
 
-                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                        <div className="group">
-                                            <label className={`block text-xs font-mono text-squared-gray-500 uppercase mb-2 ${language === 'ar' ? 'text-right' : ''}`}>
-                                                {language === 'ar' ? 'تاريخ الميلاد' : 'Birthday'}
-                                            </label>
-                                            <input
-                                                type="date"
-                                                value={formData.birthday}
-                                                required
-                                                onChange={(e) => setFormData({ ...formData, birthday: e.target.value })}
-                                                className={`w-full bg-transparent border-b border-squared-gray-300 dark:border-squared-gray-700 py-3 px-2 text-lg text-squared-black dark:text-squared-white focus:outline-none focus:border-squared-cyan transition-colors ${language === 'ar' ? 'text-right' : ''}`}
-                                            />
-                                        </div>
-                                        <div className="group">
-                                            <label className={`block text-xs font-mono text-squared-gray-500 uppercase mb-2 ${language === 'ar' ? 'text-right' : ''}`}>
-                                                {language === 'ar' ? 'البريد الإلكتروني' : 'Email'}
-                                            </label>
-                                            <input
-                                                type="email"
-                                                value={formData.email}
-                                                required
-                                                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                                                className={`w-full bg-transparent border-b border-squared-gray-300 dark:border-squared-gray-700 py-3 px-2 text-lg text-squared-black dark:text-squared-white focus:outline-none focus:border-squared-cyan transition-colors ${language === 'ar' ? 'text-right' : ''}`}
-                                            />
-                                        </div>
+                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+                                        <FloatingInput
+                                            label={language === 'ar' ? 'تاريخ الميلاد' : 'Birthday'}
+                                            type="date"
+                                            value={formData.birthday}
+                                            required
+                                            onChange={(e) => setFormData({ ...formData, birthday: e.target.value })}
+                                            language={language}
+                                        />
+                                        <FloatingInput
+                                            label={language === 'ar' ? 'البريد الإلكتروني' : 'Email'}
+                                            type="email"
+                                            value={formData.email}
+                                            required
+                                            onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                                            language={language}
+                                        />
                                     </div>
 
-                                    {/* Terms & Marketing */}
                                     <div className="space-y-4 pt-2">
-                                        <label className={`checkbox-wrapper ${language === 'ar' ? 'flex-row-reverse text-right' : ''}`}>
+                                        <label className="checkbox-wrapper">
                                             <input
                                                 type="checkbox"
                                                 id="terms"
@@ -235,12 +218,12 @@ const LoyaltySection: React.FC<LoyaltySectionProps> = ({ isDarkMode }) => {
                                                     <polyline points="20 6 9 17 4 12"></polyline>
                                                 </svg>
                                             </div>
-                                            <span className={`label-text ${language === 'ar' ? 'font-arabic mr-3 ml-0' : ''}`}>
+                                            <span className={cn("label-text", language === 'ar' && "font-arabic")}>
                                                 {language === 'ar' ? 'أوافق على الشروط والأحكام' : 'I agree to the terms and conditions'} *
                                             </span>
                                         </label>
 
-                                        <label className={`checkbox-wrapper ${language === 'ar' ? 'flex-row-reverse text-right' : ''}`}>
+                                        <label className="checkbox-wrapper">
                                             <input
                                                 type="checkbox"
                                                 id="marketing"
@@ -252,7 +235,7 @@ const LoyaltySection: React.FC<LoyaltySectionProps> = ({ isDarkMode }) => {
                                                     <polyline points="20 6 9 17 4 12"></polyline>
                                                 </svg>
                                             </div>
-                                            <span className={`label-text ${language === 'ar' ? 'font-arabic mr-3 ml-0' : ''}`}>
+                                            <span className={cn("label-text", language === 'ar' && "font-arabic")}>
                                                 {language === 'ar' ? 'أرغب في تلقي العروض والتحديثات' : 'I want to receive offers and updates'}
                                             </span>
                                         </label>

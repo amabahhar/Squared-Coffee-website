@@ -13,39 +13,37 @@ const Footer: React.FC = () => {
   };
 
   return (
-    <footer id="footer" className="bg-squared-black text-squared-white border-t border-squared-gray-900 pt-20 pb-10 overflow-hidden relative">
-
-      {/* Precision Grid Background */}
-      <div className="absolute inset-0 pointer-events-none opacity-[0.05]"
+    <footer id="footer" className="bg-squared-black text-squared-white border-t border-squared-gray-900 pt-16 pb-8 overflow-hidden relative">
+      <div className="absolute inset-0 pointer-events-none opacity-[0.03]"
         style={{
           backgroundImage: `linear-gradient(to right, #ffffff 1px, transparent 1px),
-                               linear-gradient(to bottom, #ffffff 1px, transparent 1px)`,
+                                linear-gradient(to bottom, #ffffff 1px, transparent 1px)`,
           backgroundSize: '40px 40px'
         }}
       ></div>
 
       <div className="container mx-auto px-6 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-12 mb-20">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-12 mb-12">
 
           {/* Column 1: Brand & Desc */}
-          <div className="md:col-span-5 flex flex-col items-start">
-            <Logo size="lg" variant="dark" className="mb-8" />
-            <p className={`text-squared-gray-400 max-w-sm leading-relaxed ${language === 'ar' ? 'font-arabic' : ''}`}>
+          <div className="md:col-span-4 flex flex-col items-start">
+            <Logo size="md" variant="dark" className="mb-6" />
+            <p className={`text-squared-gray-400 text-sm max-w-sm leading-relaxed ${language === 'ar' ? 'font-arabic' : ''}`}>
               {t.hero.subtitle}
             </p>
           </div>
 
           {/* Column 2: Navigation */}
           <div className="md:col-span-3 md:col-start-7">
-            <h4 className={`text-xs font-bold uppercase tracking-widest text-squared-cyan mb-8 ${language === 'ar' ? 'font-arabic tracking-normal' : ''}`}>
+            <h4 className={`text-[10px] font-bold uppercase tracking-[0.2em] text-squared-cyan mb-6 ${language === 'ar' ? 'font-arabic tracking-normal' : ''}`}>
               {language === 'ar' ? 'خريطة الموقع' : 'SITEMAP'}
             </h4>
-            <ul className="space-y-4">
+            <ul className="space-y-2">
               {NAV_ITEMS.map((item) => (
                 <li key={item.label}>
                   <a
                     href={item.href}
-                    className={`text-sm font-bold uppercase tracking-wider text-squared-white hover:text-squared-cyan transition-colors ${language === 'ar' ? 'font-arabic tracking-normal' : ''}`}
+                    className={`text-xs font-bold uppercase tracking-widest text-squared-white/70 hover:text-squared-cyan transition-colors ${language === 'ar' ? 'font-arabic tracking-normal' : ''}`}
                   >
                     {getNavLabel(item.label)}
                   </a>
@@ -56,21 +54,21 @@ const Footer: React.FC = () => {
 
           {/* Column 3: Contact & Social */}
           <div className="md:col-span-3">
-            <h4 className={`text-xs font-bold uppercase tracking-widest text-squared-cyan mb-8 ${language === 'ar' ? 'font-arabic tracking-normal' : ''}`}>
+            <h4 className={`text-[10px] font-bold uppercase tracking-[0.2em] text-squared-cyan mb-6 ${language === 'ar' ? 'font-arabic tracking-normal' : ''}`}>
               {t.social.eyebrow}
             </h4>
-            <div className="flex flex-col space-y-4">
+            <div className="flex flex-col space-y-3">
               <a href="https://www.instagram.com/squared_coffee/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 group">
-                <div className="w-8 h-8 flex items-center justify-center border border-squared-gray-800 rounded-sm group-hover:border-squared-cyan group-hover:text-squared-cyan transition-colors">
-                  <Instagram size={16} />
+                <div className="w-8 h-8 flex items-center justify-center border border-squared-gray-800 rounded-sm group-hover:border-squared-cyan group-hover:text-squared-cyan transition-all duration-300">
+                  <Instagram size={14} />
                 </div>
-                <span className="text-sm font-bold uppercase tracking-wider">Instagram</span>
+                <span className="text-xs font-bold uppercase tracking-widest text-squared-white/70 group-hover:text-squared-cyan transition-colors">Instagram</span>
               </a>
               <a href="tel:00966552325919" className="flex items-center gap-3 group">
-                <div className="w-8 h-8 flex items-center justify-center border border-squared-gray-800 rounded-sm group-hover:border-squared-cyan group-hover:text-squared-cyan transition-colors">
-                  <Phone size={16} />
+                <div className="w-8 h-8 flex items-center justify-center border border-squared-gray-800 rounded-sm group-hover:border-squared-cyan group-hover:text-squared-cyan transition-all duration-300">
+                  <Phone size={14} />
                 </div>
-                <span className={`text-sm font-bold uppercase tracking-wider ${language === 'ar' ? 'font-arabic tracking-normal' : ''}`}>
+                <span className={`text-xs font-bold uppercase tracking-widest text-squared-white/70 group-hover:text-squared-cyan transition-colors ${language === 'ar' ? 'font-arabic tracking-normal' : ''}`}>
                   {language === 'ar' ? 'اتصل بنا' : 'Call Us'}
                 </span>
               </a>
@@ -78,21 +76,21 @@ const Footer: React.FC = () => {
           </div>
         </div>
 
-        {/* Massive Footer Typo */}
-        <div className="border-t border-squared-gray-900 pt-10 pb-6">
-          <div className="w-full flex justify-center opacity-10 select-none pointer-events-none">
-            <span className="text-[12vw] leading-none font-black tracking-tighter text-squared-white">
+        {/* Branded "Ghost" Typo */}
+        <div className="border-t border-squared-gray-900 pt-8">
+          <div className="w-full flex justify-center opacity-10 select-none pointer-events-none mb-4">
+            <span className="text-[10vw] leading-none font-black tracking-tighter text-squared-white select-none">
               SQUARED
             </span>
           </div>
 
-          <div className="flex flex-col md:flex-row justify-between items-center mt-8 gap-4">
-            <p className={`text-squared-gray-600 text-xs font-mono uppercase ${language === 'ar' ? 'font-arabic tracking-normal' : ''}`}>
+          <div className="flex flex-col md:flex-row justify-between items-center py-4 gap-4">
+            <p className={`text-squared-gray-600 text-[10px] font-mono uppercase tracking-tight ${language === 'ar' ? 'font-arabic tracking-normal' : ''}`}>
               &copy; {new Date().getFullYear()} Squared Coffee. All rights reserved.
             </p>
-            <div className="flex gap-6">
-              <a href="#" className="text-xs font-bold uppercase tracking-wider text-squared-gray-600 hover:text-squared-cyan transition-colors">Privacy</a>
-              <a href="#" className="text-xs font-bold uppercase tracking-wider text-squared-gray-600 hover:text-squared-cyan transition-colors">Terms</a>
+            <div className="flex gap-8">
+              <a href="#" className="text-[10px] font-bold uppercase tracking-[0.2em] text-squared-gray-600 hover:text-squared-cyan transition-colors">Privacy</a>
+              <a href="#" className="text-[10px] font-bold uppercase tracking-[0.2em] text-squared-gray-600 hover:text-squared-cyan transition-colors">Terms</a>
             </div>
           </div>
         </div>

@@ -37,7 +37,7 @@ const MenuSection: React.FC<MenuSectionProps> = ({ onItemClick, isDarkMode }) =>
               {t.menu.eyebrow}
             </h2>
           </div>
-          <p className="text-right text-xs font-mono text-squared-gray-800 dark:text-squared-gray-100 mt-4 md:mt-0 max-w-xs">
+          <p className="text-end text-xs font-mono text-squared-gray-800 dark:text-squared-gray-100 mt-4 md:mt-0 max-w-xs">
             Precision-crafted beverages using 100% Arabica beans sourced from sustainable micro-lots.
           </p>
         </div>

@@ -91,6 +91,7 @@ const Testimonials: React.FC<TestimonialsProps> = ({ isDarkMode }) => {
 
     const renderCard = (offset: number) => {
         const testimonial = getTestimonial(offset);
+        const isRTL = language === 'ar';
 
         // Calculate position and scale based on offset
         let transform = '';
@@ -98,10 +99,10 @@ const Testimonials: React.FC<TestimonialsProps> = ({ isDarkMode }) => {
         let zIndex = 10 - Math.abs(offset);
 
         if (swipeDirection === 'left' && offset === 0) {
-            transform = 'translateX(-120%) rotate(-5deg)'; // Reduced rotation for cleaner feel
+            transform = `translateX(${isRTL ? '120%' : '-120%'}) rotate(${isRTL ? '5deg' : '-5deg'})`;
             opacity = 0;
         } else if (swipeDirection === 'right' && offset === 0) {
-            transform = 'translateX(120%) rotate(5deg)';
+            transform = `translateX(${isRTL ? '-120%' : '120%'}) rotate(${isRTL ? '-5deg' : '5deg'})`;
             opacity = 0;
         } else if (swipeDirection === 'left' && offset === 1) {
             transform = 'translateX(0%) scale(1)';
@@ -114,15 +115,16 @@ const Testimonials: React.FC<TestimonialsProps> = ({ isDarkMode }) => {
             transform = dragTransform;
             opacity = 1;
         } else if (offset === 1) {
-            transform = `translateX(${isDragging ? Math.max(0, dragOffset) * 0.5 : 0}px) translateX(20px) scale(0.95)`;
+            transform = `translateX(${isDragging ? Math.max(0, dragOffset) * 0.5 : 0}px) translateX(${isRTL ? '-20px' : '20px'}) scale(0.95)`;
             opacity = 0.5;
             zIndex = 9;
         } else if (offset === -1) {
-            transform = `translateX(${isDragging ? Math.min(0, dragOffset) * 0.5 : 0}px) translateX(-20px) scale(0.95)`;
+            transform = `translateX(${isDragging ? Math.min(0, dragOffset) * 0.5 : 0}px) translateX(${isRTL ? '20px' : '-20px'}) scale(0.95)`;
             opacity = 0.5;
             zIndex = 9;
         } else {
-            transform = offset > 0 ? 'translateX(40px) scale(0.9)' : 'translateX(-40px) scale(0.9)';
+            const xVal = isRTL ? -40 : 40;
+            transform = offset > 0 ? `translateX(${xVal}px) scale(0.9)` : `translateX(${-xVal}px) scale(0.9)`;
             opacity = 0;
         }
 
@@ -141,10 +143,10 @@ const Testimonials: React.FC<TestimonialsProps> = ({ isDarkMode }) => {
                 <div className="bg-squared-gray-50 dark:bg-squared-gray-900 border border-squared-gray-200 dark:border-squared-gray-800 p-8 md:p-16 h-full relative overflow-hidden group shadow-2xl transition-colors duration-300">
 
                     {/* Technical Markers */}
-                    <div className="absolute top-0 left-0 w-4 h-4 border-t border-l border-squared-cyan"></div>
-                    <div className="absolute top-0 right-0 w-4 h-4 border-t border-r border-squared-cyan"></div>
-                    <div className="absolute bottom-0 left-0 w-4 h-4 border-b border-l border-squared-cyan"></div>
-                    <div className="absolute bottom-0 right-0 w-4 h-4 border-b border-r border-squared-cyan"></div>
+                    <div className="absolute inset-block-start-0 inset-inline-start-0 w-4 h-4 border-bs border-is border-squared-cyan"></div>
+                    <div className="absolute inset-block-start-0 inset-inline-end-0 w-4 h-4 border-bs border-ie border-squared-cyan"></div>
+                    <div className="absolute inset-block-end-0 inset-inline-start-0 w-4 h-4 border-be border-is border-squared-cyan"></div>
+                    <div className="absolute inset-block-end-0 inset-inline-end-0 w-4 h-4 border-be border-ie border-squared-cyan"></div>
 
                     {/* Scanline effect */}
                     <div className="absolute inset-0 bg-gradient-to-b from-transparent via-squared-cyan/5 to-transparent bg-[length:100%_4px] pointer-events-none opacity-20"></div>
@@ -152,12 +154,12 @@ const Testimonials: React.FC<TestimonialsProps> = ({ isDarkMode }) => {
                     {/* Content */}
                     <div className="relative z-10 flex flex-col h-full justify-center">
                         {/* Quote Icon - Technical */}
-                        <div className={`text-6xl text-squared-cyan/20 font-mono mb-6 leading-none select-none ${language === 'ar' ? 'text-right' : 'text-left'}`}>
+                        <div className="text-6xl text-squared-cyan/20 font-mono mb-6 leading-none select-none text-start">
                             "
                         </div>
 
                         {/* Rating */}
-                        <div className={`flex gap-1 mb-8 ${language === 'ar' ? 'justify-end' : 'justify-start'}`}>
+                        <div className="flex gap-1 mb-8 justify-start">
                             {[...Array(testimonial.rating)].map((_, i) => (
                                 <Star
                                     key={i}
@@ -167,13 +169,13 @@ const Testimonials: React.FC<TestimonialsProps> = ({ isDarkMode }) => {
                         </div>
 
                         {/* Text */}
-                        <p className={`text-xl md:text-3xl text-squared-gray-900 dark:text-white font-light leading-relaxed mb-8 ${language === 'ar' ? 'text-right font-arabic' : ''}`}>
+                        <p className={`text-xl md:text-3xl text-squared-gray-900 dark:text-white font-light leading-relaxed mb-8 text-start ${language === 'ar' ? 'font-arabic' : ''}`}>
                             {testimonial.text}
                         </p>
 
                         {/* Author */}
-                        <div className={`flex items-center justify-between border-t border-squared-gray-200 dark:border-squared-gray-800 pt-8 mt-auto ${language === 'ar' ? 'flex-row-reverse' : ''}`}>
-                            <div className={language === 'ar' ? 'text-right' : 'text-left'}>
+                        <div className="flex items-center justify-between border-t border-squared-gray-200 dark:border-squared-gray-800 pt-8 mt-auto">
+                            <div className="text-start">
                                 <div className="flex items-center gap-3 mb-4">
                                     <div className="w-2 h-2 bg-squared-cyan"></div>
                                     <span className={`text-xs font-bold tracking-widest uppercase text-squared-gray-500 ${language === 'ar' ? 'font-arabic' : 'font-mono'}`}>
@@ -226,7 +228,7 @@ const Testimonials: React.FC<TestimonialsProps> = ({ isDarkMode }) => {
                     </div>
 
                     {/* Stats Display */}
-                    <div className="flex items-center gap-8 font-mono text-sm border-l border-squared-gray-800 pl-8">
+                    <div className="flex items-center gap-8 font-mono text-sm border-s border-squared-gray-800 ps-8">
                         <div>
                             <div className="text-squared-gray-400 mb-1">RATING</div>
                             <div className="text-squared-cyan text-xl flex items-center gap-2">
@@ -242,8 +244,8 @@ const Testimonials: React.FC<TestimonialsProps> = ({ isDarkMode }) => {
 
                 {/* Testimonials Carousel Container */}
                 <div className="max-w-5xl mx-auto relative px-4 md:px-0">
-                    <div className="absolute -top-4 -left-4 w-8 h-8 border-t border-l border-squared-cyan/50 hidden md:block"></div>
-                    <div className="absolute -bottom-4 -right-4 w-8 h-8 border-b border-r border-squared-cyan/50 hidden md:block"></div>
+                    <div className="absolute -inset-block-start-4 -inset-inline-start-4 w-8 h-8 border-bs border-is border-squared-cyan/50 hidden md:block"></div>
+                    <div className="absolute -inset-block-end-4 -inset-inline-end-4 w-8 h-8 border-be border-ie border-squared-cyan/50 hidden md:block"></div>
 
                     <div
                         ref={containerRef}

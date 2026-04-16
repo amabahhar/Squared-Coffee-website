@@ -26,10 +26,10 @@ const AboutSection: React.FC = () => {
                 className="w-full h-full object-cover transition-all duration-700 hover:scale-105"
               />
               {/* Technical Overlays */}
-              <div className="absolute top-0 left-0 p-4 font-mono text-xs text-squared-white mix-blend-difference">
+              <div className="absolute inset-block-start-0 inset-inline-start-0 p-4 font-mono text-xs text-squared-white mix-blend-difference">
                 FIG. 01 — ORIGIN
               </div>
-              <div className="absolute bottom-0 right-0 p-4 font-mono text-xs text-squared-white mix-blend-difference border-t border-l border-white/20">
+              <div className="absolute inset-block-end-0 inset-inline-end-0 p-4 font-mono text-xs text-squared-white mix-blend-difference border-bs border-is border-white/20">
                 EST. 2018
               </div>
             </div>
@@ -37,9 +37,9 @@ const AboutSection: React.FC = () => {
 
           {/* Text Side - Precision Typography */}
           <div className="flex flex-col justify-center">
-            <div className={`flex items-center gap-4 mb-8 ${language === 'ar' ? 'flex-row-reverse' : ''}`}>
+            <div className="flex items-center gap-4 mb-8">
               <div className="h-px w-12 bg-squared-cyan"></div>
-              <span className={`text-xs font-bold tracking-widest uppercase text-squared-cyan ${language === 'ar' ? 'font-arabic' : 'font-mono'}`}>
+              <span className={`text-xs font-bold tracking-widest uppercase text-squared-cyan ps-1 ${language === 'ar' ? 'font-arabic tracking-normal' : 'font-mono'}`}>
                 {t.about.eyebrow}
               </span>
             </div>
@@ -52,7 +52,7 @@ const AboutSection: React.FC = () => {
               <p>
                 {t.about.p1}
               </p>
-              <div className={`border-squared-cyan/20 ${language === 'ar' ? 'pr-6 border-r-2' : 'pl-6 border-l-2'}`}>
+              <div className="ps-6 border-s-2 border-squared-cyan/20">
                 <p>
                   {t.about.p2}
                 </p>

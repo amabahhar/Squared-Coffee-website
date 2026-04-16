@@ -11,7 +11,7 @@ import Testimonials from './components/Testimonials';
 import Footer from './components/Footer';
 import OrderModal from './components/OrderModal';
 import GeometricBackground from './components/GeometricBackground';
-import { PixelWaveLoader } from './components/ui/PixelWaveLoader';
+import { PrecisionCoffeeLoader } from './components/ui/PrecisionCoffeeLoader';
 import { MenuItem } from './types';
 import { useTheme } from './contexts/ThemeContext';
 
@@ -58,7 +58,7 @@ const App: React.FC = () => {
   return (
     <div className="min-h-screen relative overflow-x-hidden bg-white dark:bg-squared-black transition-colors duration-500">
       <AnimatePresence>
-        {isLoading && <PixelWaveLoader key="loader" />}
+        {isLoading && <PrecisionCoffeeLoader key="loader" />}
       </AnimatePresence>
 
       <div className={isLoading ? "h-screen overflow-hidden" : ""}>

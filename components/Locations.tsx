@@ -42,7 +42,7 @@ const Locations: React.FC<LocationsProps> = ({ isDarkMode }) => {
           </div>
         </div>
 
-        <div className={`grid grid-cols-1 lg:grid-cols-2 gap-0 border ${borderColor} bg-white dark:bg-squared-gray-900 divide-y lg:divide-y-0 lg:divide-x ${borderColor}`}>
+        <div className={`grid grid-cols-1 lg:grid-cols-2 gap-0 border ${borderColor} bg-white dark:bg-squared-gray-900 divide-y lg:divide-y-0 lg:divide-x rtl:lg:divide-x-reverse ${borderColor}`}>
 
           {/* List Side */}
           <div className={`divide-y ${borderColor}`}>
@@ -70,7 +70,7 @@ const Locations: React.FC<LocationsProps> = ({ isDarkMode }) => {
                   </div>
                 </div>
 
-                <div className={`mt-auto pt-4 ${language === 'ar' ? 'text-right' : 'text-left'}`}>
+                <div className="mt-auto pt-4 text-start">
                   <InteractiveHoverButton 
                     text={t.locations.open_maps}
                     onClick={() => window.open(loc.mapUrl, '_blank')}

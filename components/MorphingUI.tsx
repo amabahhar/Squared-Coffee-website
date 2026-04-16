@@ -44,7 +44,7 @@ export const MorphingNavItem: React.FC<{
         }`}
         initial={{ y: 0, scale: 1, rotate: 0 }}
         variants={{
-          hover: { y: -100, scale: 0.5, rotate: -30 },
+          hover: { y: -100, scale: 0.5, rotate: language === 'ar' ? 30 : -30 },
         }}
         transition={SPRING_CONFIG_TEXT}
       >
@@ -53,7 +53,7 @@ export const MorphingNavItem: React.FC<{
 
       <motion.span
         className="absolute inset-0 bg-squared-cyan w-full h-full scale-x-150 z-1 overflow-hidden pointer-events-none"
-        initial={{ y: 100, rotate: -40 }}
+        initial={{ y: 100, rotate: language === 'ar' ? 40 : -40 }}
         variants={{
           hover: { y: 0, rotate: 0 },
         }}
@@ -63,7 +63,7 @@ export const MorphingNavItem: React.FC<{
           className={`absolute inset-0 w-full h-full ${
             isDarkMode ? 'bg-squared-white' : 'bg-squared-black'
           }`}
-          initial={{ y: 150, rotate: -60 }}
+          initial={{ y: 150, rotate: language === 'ar' ? 60 : -60 }}
           variants={{
             hover: { y: 0, rotate: 0 },
           }}
@@ -75,7 +75,7 @@ export const MorphingNavItem: React.FC<{
         className={`absolute inset-0 flex items-center justify-center z-10 ${
           isDarkMode ? 'text-squared-black' : 'text-squared-white'
         }`}
-        initial={{ y: 180, rotate: -60, scale: 0.5 }}
+        initial={{ y: 180, rotate: language === 'ar' ? 60 : -60, scale: 0.5 }}
         variants={{
           hover: { y: 0, rotate: 0, scale: 1 },
         }}
@@ -178,7 +178,7 @@ export const MorphingButton: React.FC<{
         className={`absolute inset-0 flex items-center justify-center transition-colors duration-300 ${colors.initialBg} ${colors.initialText}`}
         initial={{ y: 0, scale: 1, rotate: 0 }}
         variants={{
-          hover: { y: -100, scale: 0.5, rotate: -30 },
+          hover: { y: -100, scale: 0.5, rotate: language === 'ar' ? 30 : -30 },
         }}
         transition={SPRING_CONFIG_TEXT}
       >
@@ -188,7 +188,7 @@ export const MorphingButton: React.FC<{
       {showIntermediateSpan && (
         <motion.span
           className="absolute inset-0 bg-squared-cyan w-full h-full scale-x-150 z-1 overflow-hidden pointer-events-none"
-          initial={{ y: 100, rotate: -40 }}
+          initial={{ y: 100, rotate: language === 'ar' ? 40 : -40 }}
           variants={{
             hover: { y: 0, rotate: 0 },
           }}
@@ -196,7 +196,7 @@ export const MorphingButton: React.FC<{
         >
           <motion.span
             className={`absolute inset-0 w-full h-full ${colors.revealBg}`}
-            initial={{ y: 150, rotate: -60 }}
+            initial={{ y: 150, rotate: language === 'ar' ? 60 : -60 }}
             variants={{
               hover: { y: 0, rotate: 0 },
             }}
@@ -218,7 +218,7 @@ export const MorphingButton: React.FC<{
 
       <motion.span
         className={`absolute inset-0 flex items-center justify-center z-10 ${colors.revealText}`}
-        initial={{ y: 180, rotate: -60, scale: 0.5 }}
+        initial={{ y: 180, rotate: language === 'ar' ? 60 : -60, scale: 0.5 }}
         variants={{
           hover: { y: 0, rotate: 0, scale: 1 },
         }}

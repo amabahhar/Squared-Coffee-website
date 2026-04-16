@@ -24,8 +24,8 @@ const Hero: React.FC = () => {
       <div className="container mx-auto px-6 relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center h-full">
 
         {/* Left Column: Typography */}
-        <div className="lg:col-span-7 flex flex-col items-start text-left">
-          <span className={`inline-block mb-6 text-xs font-bold uppercase tracking-[0.3em] text-squared-cyan pl-1 ${language === 'ar' ? 'font-arabic tracking-normal' : ''}`}>
+        <div className="lg:col-span-7 flex flex-col items-start text-start">
+          <span className={`inline-block mb-6 text-xs font-bold uppercase tracking-[0.3em] text-squared-cyan ps-1 ${language === 'ar' ? 'font-arabic tracking-normal' : ''}`}>
             {t.hero.est}
           </span>
 
@@ -38,7 +38,7 @@ const Hero: React.FC = () => {
             <span className="text-squared-cyan">.</span>
           </h1>
 
-          <p className={`text-lg md:text-xl text-squared-gray-800 dark:text-squared-gray-100 max-w-xl leading-relaxed mb-10 pl-1 border-l-2 border-squared-cyan/20 pl-6 ${language === 'ar' ? 'font-arabic border-l-0 border-r-2 pr-6 pl-0' : ''}`}>
+          <p className={`text-lg md:text-xl text-squared-gray-800 dark:text-squared-gray-100 max-w-xl leading-relaxed mb-10 ps-6 border-s-2 border-squared-cyan/20 ${language === 'ar' ? 'font-arabic' : ''}`}>
             {t.hero.subtitle}
           </p>
 
@@ -71,7 +71,7 @@ const Hero: React.FC = () => {
             <div className="absolute bottom-0 right-0 w-12 h-12 border-b border-r border-squared-cyan/30"></div>
             
             {/* Spec Label */}
-            <div className="absolute bottom-12 left-0 font-mono text-[10px] text-squared-gray-400 uppercase tracking-[0.3em] flex items-center gap-3">
+            <div className="absolute bottom-12 inset-inline-start-0 font-mono text-[10px] text-squared-gray-400 uppercase tracking-[0.3em] flex items-center gap-3">
               <div className="w-8 h-[1px] bg-squared-cyan/50"></div>
               <span>GEOMETRIC_PRECISION_V1.0</span>
             </div>
@@ -80,7 +80,7 @@ const Hero: React.FC = () => {
       </div>
 
       {/* Scroll Indicator */}
-      <div className="absolute bottom-10 left-6 flex items-center gap-4 opacity-50">
+      <div className="absolute bottom-10 inset-inline-start-6 flex items-center gap-4 opacity-50">
         <span className="text-[10px] font-mono uppercase tracking-widest text-squared-black dark:text-squared-white rotate-[-90deg]">Scroll</span>
         <div className="h-16 w-[1px] bg-squared-black dark:bg-squared-white"></div>
       </div>

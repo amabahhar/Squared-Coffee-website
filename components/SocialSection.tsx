@@ -132,17 +132,17 @@ const SocialSection: React.FC<SocialSectionProps> = ({ isDarkMode }) => {
                                             {post.caption}
                                         </p>
                                         <div className="flex items-center gap-2 text-white font-bold uppercase tracking-widest text-xs border-b border-white pb-1">
-                                            {t.social.view_insta} <ArrowRight className="w-4 h-4" />
+                                            {t.social.view_insta} <ArrowRight className="w-4 h-4 rtl:rotate-180" />
                                         </div>
                                     </div>
 
                                     {/* Corner Accents */}
-                                    <div className="absolute top-0 left-0 w-2 h-2 border-t border-l border-squared-black dark:border-white opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                                    <div className="absolute bottom-0 right-0 w-2 h-2 border-b border-r border-squared-black dark:border-white opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                                    <div className="absolute inset-block-start-0 inset-inline-start-0 w-2 h-2 border-bs border-is border-squared-black dark:border-white opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                                    <div className="absolute inset-block-end-0 inset-inline-end-0 w-2 h-2 border-be border-ie border-squared-black dark:border-white opacity-0 group-hover:opacity-100 transition-opacity"></div>
                                 </div>
 
                                 {/* Index Number */}
-                                <div className="absolute -top-6 left-0 font-mono text-xs text-squared-gray-400">
+                                <div className="absolute -inset-block-start-6 inset-inline-start-0 font-mono text-xs text-squared-gray-400">
                                     {String(index + 1).padStart(2, '0')}
                                 </div>
                             </a>
