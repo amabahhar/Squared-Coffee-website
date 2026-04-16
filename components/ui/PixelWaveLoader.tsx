@@ -1,60 +1,48 @@
 import { motion } from "framer-motion";
 import React from "react";
 
-const GRID_SIZE = 3;
-const PIXEL_SIZE = 16;
-const GAP = 4;
-
-const pixels = Array.from({ length: GRID_SIZE * GRID_SIZE }, (_, i) => i);
-
-// Brand Accent Color: Squared Cyan (from index.html config)
-const COLOR = "#009FB8"; 
-
 export const PixelWaveLoader: React.FC = () => {
+  const statusLabels = [
+    "EXTRACTING_AROMATIC_DATA",
+    "CALIBRATING_BREW_PRECISION",
+    "SYNTHESIZING_CAFFEINE_MOLECULES",
+    "ANALYZING_MICRO_LOT_PROFILES",
+    "OPTIMIZING_EXTRACTION_RATIO"
+  ];
+
+  const [currentLabel, setCurrentLabel] = React.useState(statusLabels[0]);
+
+  React.useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentLabel(prev => {
+        const currentIndex = statusLabels.indexOf(prev);
+        return statusLabels[(currentIndex + 1) % statusLabels.length];
+      });
+    }, 800);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <motion.div 
       initial={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.5, ease: "easeInOut" }}
-      className="fixed inset-0 z-[9999] bg-[#111827] flex items-center justify-center"
+      className="fixed inset-0 z-[9999] bg-squared-white dark:bg-squared-black flex items-center justify-center font-mono"
     >
-      <div
-        className="grid"
-        style={{
-          gridTemplateColumns: `repeat(${GRID_SIZE}, ${PIXEL_SIZE}px)`,
-          gap: `${GAP}px`,
-        }}
-      >
-        {pixels.map((i) => {
-          const row = Math.floor(i / GRID_SIZE);
-          const col = i % GRID_SIZE;
-
-          return (
-            <motion.div
-              key={i}
-              style={{
-                width: PIXEL_SIZE,
-                height: PIXEL_SIZE,
-                backgroundColor: COLOR,
-              }}
-              animate={{
-                opacity: [0.2, 1, 0.2],
-                scale: [0.7, 1.2, 0.7],
-                boxShadow: [
-                  "0 0 0px rgba(0,159,184,0)",
-                  "0 0 20px rgba(0,159,184,0.7)",
-                  "0 0 0px rgba(0,159,184,0)",
-                ],
-              }}
-              transition={{
-                duration: 0.8,
-                repeat: Infinity,
-                ease: "easeInOut",
-                delay: (row + col) * 0.15,
-              }}
-            />
-          );
-        })}
+      <div className="flex flex-col items-center gap-14">
+        <div className="branded-jump-loader"></div>
+        <div className="flex flex-col items-center">
+            <span className="text-[10px] text-squared-cyan tracking-[0.4em] uppercase h-4 text-center">
+                {currentLabel}
+            </span>
+            <div className="mt-4 w-48 h-[1px] bg-squared-gray-200 dark:bg-squared-gray-800 relative overflow-hidden">
+                <motion.div 
+                    className="absolute inset-0 bg-squared-cyan"
+                    animate={{ x: ['-100%', '100%'] }}
+                    transition={{ duration: 1.5, repeat: Infinity, ease: "linear" }}
+                />
+            </div>
+        </div>
       </div>
     </motion.div>
   );

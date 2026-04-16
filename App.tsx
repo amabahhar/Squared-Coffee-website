@@ -65,33 +65,6 @@ const App: React.FC = () => {
         {/* Background Wallpaper - Fixed on desktop, absolute on mobile for iOS performance */}
         <GeometricBackground />
 
-        {/* Aurora Background Effects - Optimized blur for mobile */}
-        <div
-          className="desktop-bg-fixed top-[-5%] right-[-5%] w-[70%] h-[70%] bg-squared-cyan/15 dark:bg-squared-cyan/10 rounded-full pointer-events-none z-0 hidden lg:block lg:animate-blob"
-          style={{
-            filter: 'blur(25px)',
-            transform: 'translateZ(0)',
-            willChange: 'transform'
-          }}
-        ></div>
-        <div
-          className="desktop-bg-fixed bottom-[-5%] left-[-5%] w-[60%] h-[60%] bg-squared-cyan/10 dark:bg-squared-cyan/5 rounded-full pointer-events-none z-0 hidden lg:block lg:animate-blob"
-          style={{
-            animationDelay: '3s',
-            filter: 'blur(20px)',
-            transform: 'translateZ(0)',
-            willChange: 'transform'
-          }}
-        ></div>
-        <div
-          className="desktop-bg-fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[40%] h-[40%] bg-squared-cyan/5 dark:bg-squared-cyan/2 rounded-full pointer-events-none z-0 hidden lg:block"
-          style={{
-            filter: 'blur(15px)',
-            transform: 'translate(-50%, -50%) translateZ(0)',
-            willChange: 'transform'
-          }}
-        ></div>
-
         <div className="relative z-10">
           <Header onOrderClick={handleOrderClick} isDarkMode={isDarkMode} toggleDarkMode={toggleDarkMode} />
           <main>

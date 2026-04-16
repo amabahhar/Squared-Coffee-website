@@ -42,21 +42,35 @@ const MenuSection: React.FC<MenuSectionProps> = ({ onItemClick, isDarkMode }) =>
           </p>
         </div>
 
-        {/* Filter Controls - Toggle Switch Style */}
-        <div className="mb-12 overflow-x-auto pb-4 scrollbar-hide">
-          <div className="flex bg-squared-gray-100 dark:bg-squared-gray-900 p-1.5 rounded-sm inline-flex min-w-full md:min-w-0 gap-1.5">
-            {MENU_CATEGORIES.map((category) => (
-              <MorphingButton
-                key={category}
-                onClick={() => setActiveCategory(category)}
-                label={t.menu.categories[category as keyof typeof t.menu.categories] || category}
-                isActive={activeCategory === category}
-                isDarkMode={isDarkMode}
-                language={language}
-                variant="ghost"
-                className="flex-1 whitespace-nowrap"
-              />
-            ))}
+        {/* Filter Controls - Smart Condensed Single Line */}
+        <div className="mb-12">
+          <div className="flex bg-squared-gray-100 dark:bg-squared-gray-900 p-1 rounded-sm gap-1 overflow-visible">
+            {MENU_CATEGORIES.map((category) => {
+              let label = t.menu.categories[category as keyof typeof t.menu.categories] || category;
+              
+              // Custom shorthand for the filter bar
+              let shortLabel = label;
+              if (language === 'en') {
+                if (label === 'Brunch Plates') {
+                  shortLabel = 'Brunch';
+                } else {
+                  shortLabel = label.replace('Brunch ', '').replace(' Drinks', '').replace('Freshly ', '');
+                }
+              }
+
+              return (
+                <MorphingButton
+                  key={category}
+                  onClick={() => setActiveCategory(category)}
+                  label={shortLabel}
+                  isActive={activeCategory === category}
+                  isDarkMode={isDarkMode}
+                  language={language}
+                  variant="ghost"
+                  className="flex-1 px-1 py-3 text-[13px] whitespace-nowrap tracking-tight font-bold"
+                />
+              );
+            })}
           </div>
         </div>
 
