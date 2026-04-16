@@ -23,7 +23,7 @@ const AboutSection: React.FC = () => {
               <img
                 src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&q=80&w=800"
                 alt="Coffee Brewing"
-                className="w-full h-full object-cover filter grayscale contrast-125 hover:grayscale-0 transition-all duration-700"
+                className="w-full h-full object-cover transition-all duration-700 hover:scale-105"
               />
               {/* Technical Overlays */}
               <div className="absolute top-0 left-0 p-4 font-mono text-xs text-squared-white mix-blend-difference">
