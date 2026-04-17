@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from 'react';
-import { X } from 'lucide-react';
+import { useState, useEffect } from 'react';
 import { InteractiveHoverButton } from './ui/interactive-hover-button';
 
 interface OrderModalProps {

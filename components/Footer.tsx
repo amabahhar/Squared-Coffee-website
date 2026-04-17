@@ -1,8 +1,10 @@
 import React from 'react';
 import Logo from './Logo';
 import { NAV_ITEMS } from '../constants';
-import { Instagram, Phone, Facebook, Twitter, Mail } from 'lucide-react';
+import { Instagram, Phone } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
+import GridBackground from './GridBackground';
+
 
 const Footer: React.FC = () => {
   const { t, language } = useLanguage();
@@ -14,13 +16,7 @@ const Footer: React.FC = () => {
 
   return (
     <footer id="footer" className="bg-squared-black text-squared-white border-t border-squared-gray-900 pt-16 pb-8 overflow-hidden relative">
-      <div className="absolute inset-0 pointer-events-none opacity-[0.03]"
-        style={{
-          backgroundImage: `linear-gradient(to right, #ffffff 1px, transparent 1px),
-                                linear-gradient(to bottom, #ffffff 1px, transparent 1px)`,
-          backgroundSize: '40px 40px'
-        }}
-      ></div>
+      <GridBackground className="text-squared-white" />
 
       <div className="container mx-auto px-6 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 mb-12">

@@ -1,17 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import Logo from './Logo';
-import { NAV_ITEMS, LOCATIONS } from '../constants';
-import { Menu, X, MapPin, Globe, Sun, Moon, ShoppingBag } from 'lucide-react';
+import { NAV_ITEMS } from '../constants';
+import { Menu, X, Globe, Sun, Moon } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
+import { useTheme } from '../contexts/ThemeContext';
 import { MorphingNavItem, MorphingButton } from './MorphingUI';
 
 interface HeaderProps {
   onOrderClick: () => void;
-  isDarkMode: boolean;
-  toggleDarkMode: () => void;
 }
 
-const Header: React.FC<HeaderProps> = ({ onOrderClick, isDarkMode, toggleDarkMode }) => {
+const Header: React.FC<HeaderProps> = ({ onOrderClick }) => {
+  const { isDarkMode, toggleDarkMode } = useTheme();
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const { t, language, setLanguage } = useLanguage();
@@ -66,7 +66,6 @@ const Header: React.FC<HeaderProps> = ({ onOrderClick, isDarkMode, toggleDarkMod
                 key={item.label}
                 href={item.href}
                 label={getNavLabel(item.label)}
-                isDarkMode={isDarkMode}
                 language={language}
               />
             ))}
@@ -98,14 +97,19 @@ const Header: React.FC<HeaderProps> = ({ onOrderClick, isDarkMode, toggleDarkMod
             <MorphingButton
               onClick={onOrderClick}
               label={t.nav.order}
-              isDarkMode={isDarkMode}
               language={language}
               variant="primary"
             />
           </div>
 
           {/* Mobile Toggle */}
-          <div className="lg:hidden flex items-center gap-4 z-50">
+          <div className="lg:hidden flex items-center gap-6 z-50">
+            <button
+              onClick={toggleLanguage}
+              className="text-xs font-bold hover:text-squared-cyan transition-colors"
+            >
+              {language === 'en' ? 'AR' : 'EN'}
+            </button>
             <button
               onClick={toggleDarkMode}
               className="hover:text-squared-cyan transition-colors"

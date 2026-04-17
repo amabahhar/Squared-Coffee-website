@@ -1,25 +1,17 @@
 import React from 'react';
-import { motion, Transition, Easing } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { getLangClass, cn } from '../utils/i18nUtils';
+import { SPRING_CONFIG_TEXT, EASE_CUBIC_CONFIG } from '../utils/animation';
+import { useTheme } from '../contexts/ThemeContext';
 
-export const SPRING_CONFIG_TEXT = {
-  type: "spring",
-  stiffness: 320,
-  damping: 32,
-  mass: 1.3,
-} as Transition;
-
-export const EASE_CUBIC_CONFIG = {
-  duration: 0.5,
-  ease: [0.32, 0.72, 0, 1] as Easing,
-} as Transition;
 
 export const MorphingNavItem: React.FC<{
   label: string;
   href: string;
-  isDarkMode: boolean;
   language: string;
-}> = ({ label, href, isDarkMode, language }) => {
+}> = ({ label, href, language }) => {
+  const { isDarkMode } = useTheme();
+
   return (
     <motion.a
       href={href}
@@ -92,7 +84,6 @@ export type MorphingButtonVariant = 'primary' | 'ghost' | 'cyan' | 'outline';
 export const MorphingButton: React.FC<{
   label: string;
   onClick?: () => void;
-  isDarkMode: boolean;
   language: string;
   isActive?: boolean;
   className?: string;
@@ -101,7 +92,8 @@ export const MorphingButton: React.FC<{
   disabled?: boolean;
   loading?: boolean;
   showIntermediateSpan?: boolean;
-}> = ({ label, onClick, isDarkMode, language, isActive = false, className = "", variant = "primary", type = "button", disabled = false, loading = false, showIntermediateSpan = true }) => {
+}> = ({ label, onClick, language, isActive = false, className = "", variant = "primary", type = "button", disabled = false, loading = false, showIntermediateSpan = true }) => {
+  const { isDarkMode } = useTheme();
   const state = isActive ? 'hover' : 'initial';
   const interactionDisabled = disabled || loading;
 

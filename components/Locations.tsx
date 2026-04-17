@@ -2,13 +2,14 @@ import React from 'react';
 import { LOCATIONS } from '../constants';
 import { Clock, MapPin } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
+import { useTheme } from '../contexts/ThemeContext';
 import { InteractiveHoverButton } from './ui/interactive-hover-button';
+import GridBackground from './GridBackground';
 
-interface LocationsProps {
-  isDarkMode: boolean;
-}
+interface LocationsProps {}
 
-const Locations: React.FC<LocationsProps> = ({ isDarkMode }) => {
+const Locations: React.FC<LocationsProps> = () => {
+  const { isDarkMode } = useTheme();
   const { t, language } = useLanguage();
 
   const textColor = isDarkMode ? 'text-white' : 'text-squared-black';
@@ -18,17 +19,11 @@ const Locations: React.FC<LocationsProps> = ({ isDarkMode }) => {
 
   return (
     <section id="locations" className={`py-20 md:py-32 bg-squared-white dark:bg-squared-black border-b ${borderColor} relative`}>
-      {/* Background Grid - Hero Style */}
-      <div className={`absolute inset-0 z-0 pointer-events-none ${isDarkMode ? 'opacity-[0.05]' : 'opacity-[0.03]'}`}
-        style={{
-          backgroundImage: `linear-gradient(to right, ${isDarkMode ? '#fff' : '#000'} 1px, transparent 1px),
-                           linear-gradient(to bottom, ${isDarkMode ? '#fff' : '#000'} 1px, transparent 1px)`,
-          backgroundSize: '40px 40px'
-        }}
-      ></div>
+      {/* Background Grid */}
+      <GridBackground />
       <div className="container mx-auto px-6 relative z-10">
 
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+        <div className="flex flex-col md:flex-row items-start md:items-end justify-between mb-16 gap-6">
           <div>
             <div className="flex items-center gap-3 mb-4">
               <div className="w-2 h-2 bg-squared-cyan"></div>
@@ -75,7 +70,6 @@ const Locations: React.FC<LocationsProps> = ({ isDarkMode }) => {
                     text={t.locations.open_maps}
                     onClick={() => window.open(loc.mapUrl, '_blank')}
                     className="w-full sm:w-56"
-                    variant={isDarkMode ? 'dark' : 'light'}
                   />
                 </div>
               </div>
@@ -93,9 +87,7 @@ const Locations: React.FC<LocationsProps> = ({ isDarkMode }) => {
             ></iframe>
 
             {/* Overlay Grid */}
-            <div className={`absolute inset-0 pointer-events-none border ${borderColor} opacity-20`}
-              style={{ backgroundImage: 'linear-gradient(to right, currentColor 1px, transparent 1px), linear-gradient(to bottom, currentColor 1px, transparent 1px)', backgroundSize: '40px 40px' }}>
-            </div>
+            <GridBackground className="opacity-20" />
           </div>
 
         </div>

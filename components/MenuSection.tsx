@@ -3,74 +3,71 @@ import React, { useState } from 'react';
 import { FULL_MENU, MENU_CATEGORIES } from '../constants';
 import { MenuItem } from '../types';
 import { useLanguage } from '../contexts/LanguageContext';
+import { useTheme } from '../contexts/ThemeContext';
+import GridBackground from './GridBackground';
 
 import { MorphingButton } from './MorphingUI';
 
 interface MenuSectionProps {
   onItemClick?: (item: MenuItem) => void;
-  isDarkMode: boolean;
 }
 
-const MenuSection: React.FC<MenuSectionProps> = ({ onItemClick, isDarkMode }) => {
+const MenuSection: React.FC<MenuSectionProps> = ({ onItemClick }) => {
   const [activeCategory, setActiveCategory] = useState(MENU_CATEGORIES[0]);
   const { t, language } = useLanguage();
+  const { isDarkMode } = useTheme();
 
   const activeItems = FULL_MENU.filter(item => item.category === activeCategory);
 
   return (
     <section id="menu" className="py-24 bg-squared-white dark:bg-squared-black border-t border-squared-gray-100 dark:border-squared-gray-800 relative">
-      {/* Background Grid - Hero Style */}
-      <div className="absolute inset-0 z-0 pointer-events-none opacity-[0.03] dark:opacity-[0.05]"
-        style={{
-          backgroundImage: `linear-gradient(to right, #000 1px, transparent 1px),
-                           linear-gradient(to bottom, #000 1px, transparent 1px)`,
-          backgroundSize: '40px 40px'
-        }}
-      ></div>
+      {/* Background Grid */}
+      <GridBackground />
       <div className="container mx-auto px-6 relative z-10">
 
         {/* Header: Spec Sheet Style */}
-        <div className="flex flex-col md:flex-row justify-between items-end mb-16 border-b border-squared-black dark:border-squared-white pb-6">
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 border-b border-squared-black dark:border-squared-white pb-6">
           <div>
             <span className="block text-xs font-mono text-squared-cyan mb-2">REF: M-2026.01</span>
             <h2 className="text-4xl md:text-6xl font-black uppercase text-squared-black dark:text-squared-white tracking-tight">
               {t.menu.eyebrow}
             </h2>
           </div>
-          <p className="text-end text-xs font-mono text-squared-gray-800 dark:text-squared-gray-100 mt-4 md:mt-0 max-w-xs">
+          <p className="text-start md:text-end text-xs font-mono text-squared-gray-800 dark:text-squared-gray-100 mt-4 md:mt-0 max-w-xs">
             Precision-crafted beverages using 100% Arabica beans sourced from sustainable micro-lots.
           </p>
         </div>
 
         {/* Filter Controls - Smart Condensed Single Line */}
         <div className="mb-12">
-          <div className="flex bg-squared-gray-100 dark:bg-squared-gray-900 p-1 rounded-sm gap-1 overflow-visible">
-            {MENU_CATEGORIES.map((category) => {
-              let label = t.menu.categories[category as keyof typeof t.menu.categories] || category;
-              
-              // Custom shorthand for the filter bar
-              let shortLabel = label;
-              if (language === 'en') {
-                if (label === 'Brunch Plates') {
-                  shortLabel = 'Brunch';
-                } else {
-                  shortLabel = label.replace('Brunch ', '').replace(' Drinks', '').replace('Freshly ', '');
+          <div className="overflow-x-auto no-scrollbar -mx-6 px-6 md:mx-0 md:px-0">
+            <div className="flex bg-squared-gray-100 dark:bg-squared-gray-900 p-1 rounded-sm gap-2 md:gap-1 w-max md:w-full min-w-full">
+              {MENU_CATEGORIES.map((category) => {
+                let label = t.menu.categories[category as keyof typeof t.menu.categories] || category;
+                
+                // Custom shorthand for the filter bar
+                let shortLabel = label;
+                if (language === 'en') {
+                  if (label === 'Brunch Plates') {
+                    shortLabel = 'Brunch';
+                  } else {
+                    shortLabel = label.replace('Brunch ', '').replace(' Drinks', '').replace('Freshly ', '');
+                  }
                 }
-              }
 
-              return (
-                <MorphingButton
-                  key={category}
-                  onClick={() => setActiveCategory(category)}
-                  label={shortLabel}
-                  isActive={activeCategory === category}
-                  isDarkMode={isDarkMode}
-                  language={language}
-                  variant="ghost"
-                  className="flex-1 px-1 py-3 text-[13px] whitespace-nowrap tracking-tight font-bold"
-                />
-              );
-            })}
+                return (
+                  <MorphingButton
+                    key={category}
+                    onClick={() => setActiveCategory(category)}
+                    label={shortLabel}
+                    isActive={activeCategory === category}
+                    language={language}
+                    variant="ghost"
+                    className="flex-none md:flex-1 px-6 md:px-1 py-3 text-[13px] whitespace-nowrap tracking-tight font-bold"
+                  />
+                );
+              })}
+            </div>
           </div>
         </div>
 

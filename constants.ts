@@ -571,8 +571,6 @@ export const FULL_MENU: MenuItem[] = [
   }
 ];
 
-// Re-export as FEATURED_MENU for now to avoid breaking imports, though we will use FULL_MENU
-export const FEATURED_MENU = FULL_MENU.slice(0, 4);
 
 export const SOCIAL_POSTS = [
   {

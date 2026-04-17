@@ -1,18 +1,18 @@
 import React from "react";
 import { ArrowRight } from "lucide-react";
-import { cn } from "@/lib/utils";
+import { cn } from "../../lib/utils";
+import { useTheme } from "../../contexts/ThemeContext";
 
 interface InteractiveHoverButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   text?: string;
-  variant?: 'light' | 'dark';
 }
 
 const InteractiveHoverButton = React.forwardRef<
   HTMLButtonElement,
   InteractiveHoverButtonProps
->(({ text = "Button", className, variant = 'light', ...props }, ref) => {
-  const isDark = variant === 'dark';
+>(({ text = "Button", className, ...props }, ref) => {
+  const { isDarkMode } = useTheme();
   
   return (
     <button
@@ -20,7 +20,7 @@ const InteractiveHoverButton = React.forwardRef<
       className={cn(
         "group relative w-full sm:w-48 cursor-pointer overflow-hidden rounded-full border p-4 text-center font-semibold transition-all duration-300",
         // Base colors
-        isDark 
+        isDarkMode 
           ? "bg-white text-black border-white" 
           : "bg-black text-white border-black",
         className
@@ -32,14 +32,14 @@ const InteractiveHoverButton = React.forwardRef<
       </span>
       <div className={cn(
         "absolute top-0 z-30 flex h-full w-full translate-x-12 rtl:-translate-x-12 items-center justify-center gap-2 opacity-0 transition-all duration-300 group-hover:-translate-x-0 rtl:group-hover:translate-x-0 group-hover:opacity-100",
-        isDark ? "text-white" : "text-black"
+        isDarkMode ? "text-white" : "text-black"
       )}>
         <span>{text}</span>
         <ArrowRight size={16} className="rtl:rotate-180" />
       </div>
       <div className={cn(
         "absolute inset-inline-start-[20%] top-[40%] h-2 w-2 scale-[1] rounded-lg transition-all duration-700 group-hover:inset-inline-start-[0%] group-hover:top-[0%] group-hover:h-full group-hover:w-full group-hover:scale-[1.8] z-10",
-        isDark ? "bg-black" : "bg-white"
+        isDarkMode ? "bg-black" : "bg-white"
       )} />
     </button>
   );

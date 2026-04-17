@@ -13,16 +13,14 @@ import OrderModal from './components/OrderModal';
 import GeometricBackground from './components/GeometricBackground';
 import { PrecisionCoffeeLoader } from './components/ui/PrecisionCoffeeLoader';
 import { MenuItem } from './types';
-import { useTheme } from './contexts/ThemeContext';
+import { createFoodicsUrl } from './utils/string';
 
 const App: React.FC = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [isOrderModalOpen, setIsOrderModalOpen] = useState(false);
   const [targetOrderUrl, setTargetOrderUrl] = useState<string | null>(null);
-  const { isDarkMode, toggleDarkMode } = useTheme();
 
   useEffect(() => {
-    // Simulate initial loading
     const timer = setTimeout(() => {
       setIsLoading(false);
     }, 2000);
@@ -31,25 +29,16 @@ const App: React.FC = () => {
   }, []);
 
   const handleOrderClick = () => {
-    setTargetOrderUrl(null); // Open main menu
+    setTargetOrderUrl(null);
     setIsOrderModalOpen(true);
   };
 
   const handleProductClick = (item: MenuItem) => {
     if (item.foodicsId) {
-      // Construct deep link URL
-      // Format: /ID-Slug
-      // We create a safe slug from the name
-      const slug = item.name.toLowerCase()
-        .replace(/\+/g, 'plus') // handle '+' signs explicitly e.g. "Club + Chips"
-        .replace(/ /g, '-')
-        .replace(/[^\w\u0600-\u06FF-]+/g, ''); // Keep alphanumeric and Arabic chars, remove others
-
-      const url = `https://squared-coffee.foodics.online/menu/-226471/${item.foodicsId}-${slug}`;
+      const url = createFoodicsUrl(item.foodicsId, item.name);
       setTargetOrderUrl(url);
       setIsOrderModalOpen(true);
     } else {
-      // Fallback: Open main menu if no specific ID is linked yet
       setTargetOrderUrl(null);
       setIsOrderModalOpen(true);
     }
@@ -66,15 +55,15 @@ const App: React.FC = () => {
         <GeometricBackground />
 
         <div className="relative z-10">
-          <Header onOrderClick={handleOrderClick} isDarkMode={isDarkMode} toggleDarkMode={toggleDarkMode} />
+          <Header onOrderClick={handleOrderClick} />
           <main>
             <Hero />
             <AboutSection />
-            <MenuSection onItemClick={handleProductClick} isDarkMode={isDarkMode} />
-            <Locations isDarkMode={isDarkMode} />
-            <SocialSection isDarkMode={isDarkMode} />
-            <LoyaltySection isDarkMode={isDarkMode} />
-            <Testimonials isDarkMode={isDarkMode} />
+            <MenuSection onItemClick={handleProductClick} />
+            <Locations />
+            <SocialSection />
+            <LoyaltySection />
+            <Testimonials />
           </main>
           <Footer />
 

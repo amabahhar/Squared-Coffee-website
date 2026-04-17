@@ -1,17 +1,10 @@
-import { clsx, type ClassValue } from "clsx"
-import { twMerge } from "tailwind-merge"
-
-/**
- * Utility to merge tailwind classes with clsx and tailwind-merge
- */
-export function cn(...inputs: ClassValue[]) {
-    return twMerge(clsx(inputs));
-}
+import { cn } from "@/lib/utils";
+export { cn };
 
 /**
  * Returns 'font-arabic' if the language is Arabic, merged with base classes
  */
-export function getLangFont(language: string, baseClasses?: ClassValue): string {
+export function getLangFont(language: string, baseClasses?: string): string {
     return cn(baseClasses, language === 'ar' ? 'font-arabic' : '');
 }
 

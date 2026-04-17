@@ -1,16 +1,16 @@
 import React, { useState } from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
-import { Send, CheckCircle, Loader, Gift } from 'lucide-react';
-import Logo from './Logo';
+import { CheckCircle, Loader } from 'lucide-react';
 import { cn } from '../utils/i18nUtils';
+import { useTheme } from '../contexts/ThemeContext';
 import { InteractiveHoverButton } from './ui/interactive-hover-button';
 import { FloatingInput } from './ui/floating-input';
+import GridBackground from './GridBackground';
 
-interface LoyaltySectionProps {
-    isDarkMode: boolean;
-}
+interface LoyaltySectionProps {}
 
-const LoyaltySection: React.FC<LoyaltySectionProps> = ({ isDarkMode }) => {
+const LoyaltySection: React.FC<LoyaltySectionProps> = () => {
+    const { isDarkMode } = useTheme();
     const { t, language } = useLanguage();
     const [formData, setFormData] = useState({
         name: '',
@@ -84,14 +84,8 @@ const LoyaltySection: React.FC<LoyaltySectionProps> = ({ isDarkMode }) => {
 
     return (
         <section id="loyalty" className="py-20 md:py-32 bg-squared-white dark:bg-squared-black relative overflow-hidden">
-            {/* Background Grid - Hero Style */}
-            <div className="absolute inset-0 z-0 pointer-events-none opacity-[0.03] dark:opacity-[0.05]"
-                style={{
-                    backgroundImage: `linear-gradient(to right, #000 1px, transparent 1px),
-                           linear-gradient(to bottom, #000 1px, transparent 1px)`,
-                    backgroundSize: '40px 40px'
-                }}
-            ></div>
+            {/* Background Grid */}
+            <GridBackground />
             <div className="container mx-auto px-6 relative z-10">
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
 
@@ -140,13 +134,11 @@ const LoyaltySection: React.FC<LoyaltySectionProps> = ({ isDarkMode }) => {
                                     <InteractiveHoverButton 
                                         text={language === 'ar' ? 'إضافة إلى المحفظة' : 'Add to Wallet'}
                                         onClick={() => window.open(cardUrl, '_blank')}
-                                        variant="dark"
                                     />
                                 )}
                                 <InteractiveHoverButton
                                     onClick={() => setSubmitStatus('idle')}
                                     text={language === 'ar' ? 'تسجيل عضو آخر' : 'Register another member'}
-                                    variant={isDarkMode ? 'dark' : 'light'}
                                 />
                             </div>
                         ) : (
@@ -162,7 +154,7 @@ const LoyaltySection: React.FC<LoyaltySectionProps> = ({ isDarkMode }) => {
                                         {t.loyalty.title}
                                     </h2>
                                     <p className={`text-lg text-squared-gray-600 dark:text-squared-gray-400 max-w-lg ${language === 'ar' ? 'font-arabic' : ''}`}>
-                                        {t.loyalty.desc}
+                                        {t.loyalty.description}
                                     </p>
                                 </div>
 
@@ -252,7 +244,6 @@ const LoyaltySection: React.FC<LoyaltySectionProps> = ({ isDarkMode }) => {
                                             type="submit"
                                             disabled={isSubmitting}
                                             text={isSubmitting ? undefined : t.loyalty.cta}
-                                            variant={isDarkMode ? 'dark' : 'light'}
                                         >
                                             {isSubmitting && <Loader className="animate-spin" />}
                                         </InteractiveHoverButton>

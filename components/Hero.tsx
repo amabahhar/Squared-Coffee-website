@@ -1,9 +1,9 @@
 import React from 'react';
-import { ArrowDown, ChevronRight } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 import CyberSquare from './CyberSquare';
 import { InteractiveHoverButton } from './ui/interactive-hover-button';
 import { useTheme } from '../contexts/ThemeContext';
+import GridBackground from './GridBackground';
 
 const Hero: React.FC = () => {
   const { t, language } = useLanguage();
@@ -12,14 +12,7 @@ const Hero: React.FC = () => {
   return (
     <section id="hero" className="relative min-h-screen w-full flex items-center bg-squared-white dark:bg-squared-black overflow-hidden pt-20">
 
-      {/* Grid Background */}
-      <div className="absolute inset-0 z-0 pointer-events-none opacity-[0.03] dark:opacity-[0.05]"
-        style={{
-          backgroundImage: `linear-gradient(to right, #000 1px, transparent 1px),
-                               linear-gradient(to bottom, #000 1px, transparent 1px)`,
-          backgroundSize: '40px 40px'
-        }}
-      ></div>
+      <GridBackground />
 
       <div className="container mx-auto px-6 relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center h-full">
 
@@ -45,13 +38,11 @@ const Hero: React.FC = () => {
           <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
             <InteractiveHoverButton 
               text={t.hero.cta_primary} 
-              variant={isDarkMode ? 'dark' : 'light'}
               onClick={() => document.getElementById('menu')?.scrollIntoView({ behavior: 'smooth' })}
             />
 
             <InteractiveHoverButton 
               text={t.hero.cta_secondary} 
-              variant="light"
               onClick={() => document.getElementById('locations')?.scrollIntoView({ behavior: 'smooth' })}
             />
           </div>

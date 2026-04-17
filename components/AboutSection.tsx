@@ -1,19 +1,15 @@
 import React from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
+import GridBackground from './GridBackground';
+
 
 const AboutSection: React.FC = () => {
   const { t, language } = useLanguage();
 
   return (
     <section id="story" className="py-20 md:py-32 bg-squared-white dark:bg-squared-black relative overflow-hidden border-b border-squared-gray-100 dark:border-squared-gray-800">
-      {/* Background Grid - Hero Style */}
-      <div className="absolute inset-0 z-0 pointer-events-none opacity-[0.03] dark:opacity-[0.05]"
-        style={{
-          backgroundImage: `linear-gradient(to right, #000 1px, transparent 1px),
-                           linear-gradient(to bottom, #000 1px, transparent 1px)`,
-          backgroundSize: '40px 40px'
-        }}
-      ></div>
+      {/* Background Grid */}
+      <GridBackground />
       <div className="container mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-24 items-center">
 

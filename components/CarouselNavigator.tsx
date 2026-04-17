@@ -1,21 +1,7 @@
-'use client';
-
-import { motion, Transition, Easing } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
-import { type FC } from 'react';
+import { type FC, type ReactNode } from 'react';
 import { useTheme } from '../contexts/ThemeContext';
-
-export const SPRING_CONFIG_TEXT = {
-  type: "spring",
-  stiffness: 320,
-  damping: 32,
-  mass: 1.3,
-} as Transition;
-
-export const EASE_CUBIC_CONFIG = {
-  duration: 0.5,
-  ease: [0.32, 0.72, 0, 1] as Easing,
-} as Transition;
 
 type ThemeConfig = {
   bg: string;
@@ -74,7 +60,6 @@ export const CarouselNavigator: FC<CarouselNavigatorProps> = ({
       <ArrowButton
         onClick={goPrev}
         ariaLabel="Previous slide"
-        isDarkMode={isDarkMode}
       >
         <ChevronLeft size={24} strokeWidth={3} className="rtl:rotate-180" />
       </ArrowButton>
@@ -92,28 +77,33 @@ export const CarouselNavigator: FC<CarouselNavigatorProps> = ({
         ))}
       </div>
 
-      <ArrowButton onClick={goNext} ariaLabel="Next slide" isDarkMode={isDarkMode}>
+      <ArrowButton onClick={goNext} ariaLabel="Next slide">
         <ChevronRight size={24} strokeWidth={3} className="rtl:rotate-180" />
       </ArrowButton>
     </motion.div>
   );
 };
 
-const ArrowButton = ({ children, onClick, disabled, ariaLabel, isDarkMode }: any) => {
-  const interactionDisabled = disabled;
+interface ArrowButtonProps {
+  children: ReactNode;
+  onClick: () => void;
+  disabled?: boolean;
+  ariaLabel: string;
+}
 
+const ArrowButton: FC<ArrowButtonProps> = ({ children, onClick, disabled, ariaLabel }) => {
   return (
     <button
       type="button"
-      onClick={!interactionDisabled ? onClick : undefined}
-      disabled={interactionDisabled}
+      onClick={!disabled ? onClick : undefined}
+      disabled={disabled}
       aria-label={ariaLabel}
       className={`flex h-12 w-12 items-center justify-center rounded-full shadow-lg border 
-        border-zinc-200 dark:border-zinc-800 
-        bg-white dark:bg-zinc-950 
-        text-zinc-950 dark:text-white 
+        border-squared-gray-200 dark:border-squared-gray-800 
+        bg-white dark:bg-squared-gray-950 
+        text-squared-black dark:text-white 
         transition-all duration-300 ${
-        interactionDisabled ? 'cursor-not-allowed opacity-50' : 'cursor-pointer hover:scale-105 active:scale-95'
+        disabled ? 'cursor-not-allowed opacity-50' : 'cursor-pointer hover:scale-105 active:scale-95'
       }`}
     >
       {children}

@@ -26,7 +26,7 @@ const SquareShape = () => {
         <boxGeometry args={[2, 2, 2]} />
         {/* We use MeshDistortMaterial but minimal distortion so it looks metallic and sharp yet dynamic */}
         <MeshDistortMaterial
-          color="#06b6d4" // brand-primary
+          color="#009FB8" // brand-primary
           envMapIntensity={2}
           clearcoat={1}
           clearcoatRoughness={0}
@@ -55,7 +55,7 @@ const CyberSquare: React.FC = () => {
       >
         <ambientLight intensity={0.5} />
         <directionalLight position={[10, 10, 5]} intensity={1.5} />
-        <directionalLight position={[-10, -10, -5]} color="#06b6d4" intensity={2} />
+        <directionalLight position={[-10, -10, -5]} color="#009FB8" intensity={2} />
         <Environment preset="studio" />
         <SquareShape />
       </Canvas>

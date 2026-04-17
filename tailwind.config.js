@@ -17,25 +17,49 @@ export default {
                 'squared-cyan-light': '#33CEE6',
                 'squared-cyan-dark': '#007A8F',
 
-                // Strict Neutrals
-                'squared-black': '#09090B', // Zinc-950
+                // Full Zinc-based Neutral Scale
+                'squared-black': '#09090B',   // Zinc-950
+                'squared-gray-950': '#09090B', // Zinc-950 alias
                 'squared-gray-900': '#18181B', // Zinc-900
                 'squared-gray-800': '#27272A', // Zinc-800
+                'squared-gray-700': '#3F3F46', // Zinc-700
+                'squared-gray-600': '#52525B', // Zinc-600
+                'squared-gray-500': '#71717A', // Zinc-500
+                'squared-gray-400': '#A1A1AA', // Zinc-400
+                'squared-gray-300': '#D4D4D8', // Zinc-300
+                'squared-gray-200': '#E4E4E7', // Zinc-200
                 'squared-gray-100': '#F4F4F5', // Zinc-100
-                'squared-gray-50': '#FAFAFA', // Zinc-50
+                'squared-gray-50': '#FAFAFA',  // Zinc-50
                 'squared-white': '#FFFFFF',
             },
             fontFamily: {
                 sans: ['Inter', 'sans-serif'],
+                serif: ['Playfair Display', 'serif'],
                 mono: ['Roboto Mono', 'monospace'],
-                body: ['Roboto', 'sans-serif'],
+                arabic: ['Cairo', 'sans-serif'],
+                body: ['Inter', 'sans-serif'],
+            },
+            keyframes: {
+                blob: {
+                    "0%": { transform: "translate(0px, 0px) scale(1)" },
+                    "33%": { transform: "translate(20px, -30px) scale(1.05)" },
+                    "66%": { transform: "translate(-15px, 15px) scale(0.95)" },
+                    "100%": { transform: "translate(0px, 0px) scale(1)" },
+                },
+                fadeIn: {
+                    "0%": { opacity: "0", transform: "translateY(10px)" },
+                    "100%": { opacity: "1", transform: "translateY(0)" },
+                },
+            },
+            animation: {
+                blob: "blob 12s infinite",
+                "fade-in": "fadeIn 0.5s ease-out forwards",
             },
             borderRadius: {
                 'xs': '2px',
                 'sm': '4px',
                 'md': '6px',
                 'lg': '8px',
-                // Avoid full rounded unless for buttons
             },
             boxShadow: {
                 'precision': '0 1px 2px 0 rgba(0, 0, 0, 0.05)',

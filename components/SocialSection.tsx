@@ -3,12 +3,13 @@ import { SOCIAL_POSTS } from '../constants';
 import { Instagram, ArrowRight } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { CarouselNavigator } from './CarouselNavigator';
+import { useTheme } from '../contexts/ThemeContext';
+import GridBackground from './GridBackground';
 
-interface SocialSectionProps {
-    isDarkMode: boolean;
-}
+interface SocialSectionProps {}
 
-const SocialSection: React.FC<SocialSectionProps> = ({ isDarkMode }) => {
+const SocialSection: React.FC<SocialSectionProps> = () => {
+    const { isDarkMode } = useTheme();
     const { t, language } = useLanguage();
     const scrollRef = useRef<HTMLDivElement>(null);
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -63,18 +64,12 @@ const SocialSection: React.FC<SocialSectionProps> = ({ isDarkMode }) => {
 
     return (
         <section id="social" className="py-20 bg-squared-white dark:bg-squared-black border-t border-squared-gray-100 dark:border-squared-gray-800 relative overflow-hidden">
-            {/* Background Grid - Hero Style */}
-            <div className={`absolute inset-0 z-0 pointer-events-none ${isDarkMode ? 'opacity-[0.05]' : 'opacity-[0.03]'}`}
-                style={{
-                    backgroundImage: `linear-gradient(to right, ${isDarkMode ? '#fff' : '#000'} 1px, transparent 1px),
-                           linear-gradient(to bottom, ${isDarkMode ? '#fff' : '#000'} 1px, transparent 1px)`,
-                    backgroundSize: '40px 40px'
-                }}
-            ></div>
+            {/* Background Grid */}
+            <GridBackground />
 
             <div className="container mx-auto px-4 md:px-12 relative z-10">
                 {/* Header */}
-                <div className="flex flex-col md:flex-row justify-between items-end mb-12 border-b-2 border-squared-black dark:border-white pb-6">
+                <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 border-b-2 border-squared-black dark:border-white pb-6">
                     <div>
                         <div className="flex items-center gap-3 mb-4">
                             <div className="w-2 h-2 bg-squared-cyan"></div>

@@ -1,14 +1,15 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { TESTIMONIALS } from '../constants';
-import { Star, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Star } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
+import { useTheme } from '../contexts/ThemeContext';
 import { CarouselNavigator } from './CarouselNavigator';
+import GridBackground from './GridBackground';
 
-interface TestimonialsProps {
-    isDarkMode: boolean;
-}
+interface TestimonialsProps {}
 
-const Testimonials: React.FC<TestimonialsProps> = ({ isDarkMode }) => {
+const Testimonials: React.FC<TestimonialsProps> = () => {
+    const { isDarkMode } = useTheme();
     const [currentIndex, setCurrentIndex] = useState(0);
     const [isAutoPlaying, setIsAutoPlaying] = useState(true);
     const [swipeDirection, setSwipeDirection] = useState<'left' | 'right' | null>(null);
@@ -17,15 +18,6 @@ const Testimonials: React.FC<TestimonialsProps> = ({ isDarkMode }) => {
     const [isDragging, setIsDragging] = useState(false);
     const [dragOffset, setDragOffset] = useState(0);
     const { t, language } = useLanguage();
-
-    // ... [Logic remains same, skipping lines 14-68 for brevity in replacement if possible, but simplest to keep all logic if ReplaceContent covers it]
-    // Wait, I can't skip lines in ReplaceContent. I'll just write the surrounding code and assume logic is same. 
-    // Actually, to be safe, I'm replacing the top part to include hook, and the bottom part to include translations.
-    // I'll execute this as two chunks if needed, but here I'm replacing lines 1-211 which is huge.
-    // Better strategy: Replace import and hook, then replace JSX content.
-
-    // Let's do it in one go if I can copy paste the logical part correctly.
-    // Logic lines 15-74 are purely functional.
 
     // Auto-advance testimonials
     useEffect(() => {
@@ -202,19 +194,13 @@ const Testimonials: React.FC<TestimonialsProps> = ({ isDarkMode }) => {
 
     return (
         <section id="testimonials" className="py-20 bg-squared-white dark:bg-squared-black relative overflow-hidden border-t border-squared-gray-200 dark:border-squared-gray-800">
-            {/* Background Grid - Hero Style */}
-            <div className="absolute inset-0 z-0 pointer-events-none opacity-[0.03] dark:opacity-[0.05]"
-                style={{
-                    backgroundImage: `linear-gradient(to right, #000 1px, transparent 1px),
-                           linear-gradient(to bottom, #000 1px, transparent 1px)`,
-                    backgroundSize: '40px 40px'
-                }}
-            ></div>
+            {/* Background Grid */}
+            <GridBackground />
 
             <div className="container mx-auto px-4 md:px-12 relative z-10">
 
                 {/* Section Header */}
-                <div className="mb-16 border-b border-squared-gray-200 dark:border-squared-gray-800 pb-8 flex flex-col md:flex-row justify-between items-end gap-6">
+                <div className="mb-16 border-b border-squared-gray-200 dark:border-squared-gray-800 pb-8 flex flex-col md:flex-row justify-between items-start md:items-end gap-6">
                     <div>
                         <div className="flex items-center gap-3 mb-4">
                             <div className="w-2 h-2 bg-squared-cyan animate-pulse"></div>
