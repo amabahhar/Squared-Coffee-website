@@ -55,7 +55,7 @@ const Header: React.FC<HeaderProps> = ({ onOrderClick }) => {
         <div className="container mx-auto px-6 h-full flex justify-between items-center text-squared-black dark:text-squared-white">
 
           {/* Logo Section */}
-          <a href="#hero" className="flex items-center gap-2 relative z-50 rtl:order-last">
+          <a href="#hero" className="flex items-center gap-2 relative z-50">
             <Logo size={scrolled ? 'sm' : 'md'} variant={isDarkMode ? 'dark' : 'light'} />
           </a>
 
