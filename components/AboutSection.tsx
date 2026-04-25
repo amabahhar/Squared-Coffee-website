@@ -18,7 +18,7 @@ const AboutSection: React.FC = () => {
           <div className="relative group">
             <div className="aspect-[4/5] bg-squared-gray-100 dark:bg-squared-gray-900 relative overflow-hidden">
               <img
-                src="/assets/shop-interior.png"
+                src="assets/shop-interior.png"
                 alt="Coffee Brewing"
                 className="w-full h-full object-cover transition-all duration-700 hover:scale-105"
               />
