@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { AnimatePresence } from 'framer-motion';
+import { SpeedInsights } from '@vercel/speed-insights/react';
 import { LanguageProvider } from './contexts/LanguageContext';
 import { ThemeProvider } from './contexts/ThemeContext';
 import { BrandProvider, useBrand } from './contexts/BrandContext';
@@ -92,6 +93,7 @@ const App: React.FC = () => {
       <LanguageProvider>
         <BrandProvider>
           <AppContent />
+          <SpeedInsights />
         </BrandProvider>
       </LanguageProvider>
     </ThemeProvider>
