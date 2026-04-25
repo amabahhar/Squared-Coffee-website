@@ -139,7 +139,8 @@ export const translations = {
             eyebrow: 'Our Spaces',
             open_maps: 'Open in Maps',
             desc: 'Come say hello. We are located in the vibrant district of Al Shatea, ready to serve you the perfect cup.',
-            hours: 'Sun - Thu | 06:00 AM - 12:00 AM\nFri - Sat | 08:00 AM - 02:00 AM'
+            hours: 'Sun - Thu | 06:00 AM - 12:00 AM\nFri - Sat | 08:00 AM - 02:00 AM',
+            address: 'Qatif, Saudi Arabia'
         },
         social: {
             eyebrow: 'Social',
@@ -151,7 +152,14 @@ export const translations = {
             eyebrow: 'Community Love',
             title: 'Reviews',
             rating_text: 'Rated',
-            reviews_text: 'reviews'
+            reviews_text: 'reviews',
+            items: {
+                1: { name: 'Abeer Qasim', text: 'A lovely rooftop, the service was amazing. The workers were polite and helpful. The food was amazing and the prices were great. I went with my friend and we both had a great time.', date: '2 months ago' },
+                2: { name: 'Dragos Pavel', text: 'Squared Coffee – Excellent Experience! I had a fantastic visit. The place is beautifully decorated and the atmosphere is great. The coffee was excellent, and the service was top-notch. I highly recommend it!', date: '8 months ago' },
+                3: { name: 'Sulafa A', text: 'Amazing coffee shop with incredible service, calm energy, great selection of coffee and desserts. I had a cappuccino and I could tell that the coffee beans used are great quality from the depth of flavor.', date: '3 years ago' },
+                4: { name: 'Ali A. Al-Mutawa', text: 'Very nice coffee shop and really their mango travel cake is delicious and I guarantee you will like it.', date: '8 months ago' },
+                5: { name: 'Nada Al-Zayer', text: 'Squared cafe is a special place to have a cup of coffee, all of their coffee varieties are amazing. Highly recommended!', date: '2 years ago' }
+            }
         },
         footer: {
             rights: 'All rights reserved.',
@@ -334,7 +342,8 @@ export const translations = {
             eyebrow: 'مواقعنا',
             open_maps: 'افتح الخريطة',
             desc: 'تعال وقل مرحباً. نحن موجودون في حي الشاطئ النابض بالحياة، جاهزون لتقديم الكوب المثالي لك.',
-            hours: 'الأحد الى الخميس | من 6 ص - 12 ص\nالجمعة و السبت | من 8 ص - 2 ص'
+            hours: 'الأحد الى الخميس | من 6 ص - 12 ص\nالجمعة و السبت | من 8 ص - 2 ص',
+            address: 'القطيف، المملكة العربية السعودية'
         },
         social: {
             eyebrow: 'التواصل',
@@ -346,7 +355,14 @@ export const translations = {
             eyebrow: 'حب المجتمع',
             title: 'ماذا يقول عملاؤنا',
             rating_text: 'تقييم',
-            reviews_text: 'مراجعة'
+            reviews_text: 'مراجعة',
+            items: {
+                1: { name: 'عبير قاسم', text: 'جلسة سطح رائعة، الخدمة كانت ممتازة. الموظفون مهذبون ومتعاونون. الطعام كان مذهلاً والأسعار رائعة. ذهبت مع صديقتي وقضينا وقتاً ممتعاً.', date: 'منذ شهرين' },
+                2: { name: 'دراغوس بافل', text: 'سكويرد كوفي – تجربة ممتازة! قضيت وقتاً رائعاً. المكان مزين بشكل جميل والأجواء رائعة. القهوة كانت ممتازة والخدمة من الدرجة الأولى. أوصي به بشدة!', date: 'منذ ٨ أشهر' },
+                3: { name: 'سلافة أ', text: 'مقهى مذهل بخدمة رائعة، طاقة هادئة، تشكيلة رائعة من القهوة والحلويات. تناولت الكابتشينو وكان بإمكاني معرفة أن حبوب القهوة المستخدمة ذات جودة عالية من عمق النكهة.', date: 'منذ ٣ سنوات' },
+                4: { name: 'علي أ. المطوع', text: 'مقهى جميل جداً وكعكة المانجو الخاصة بهم لذيذة حقاً وأضمن أنها ستعجبكم.', date: 'منذ ٨ أشهر' },
+                5: { name: 'ندى الزاير', text: 'سكويرد كافيه مكان مميز لتناول فنجان قهوة، جميع أصناف القهوة لديهم مذهلة. موصى به وبشدة!', date: 'منذ سنتين' }
+            }
         },
         footer: {
             rights: 'جميع الحقوق محفوظة.',

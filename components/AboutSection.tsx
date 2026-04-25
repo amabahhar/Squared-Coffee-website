@@ -64,7 +64,7 @@ const AboutSection: React.FC = () => {
                 {t.about.since}
               </div>
               <div className={`text-xl font-bold text-squared-black dark:text-squared-white ${language === 'ar' ? 'font-arabic' : ''}`}>
-                {language === 'ar' ? `فريق ${brand.name}` : `The ${brand.name} Team`}
+                {t.about.team}
               </div>
             </div>
           </div>

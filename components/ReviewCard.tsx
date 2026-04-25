@@ -20,8 +20,14 @@ interface ReviewCardProps {
 export const ReviewCard: React.FC<ReviewCardProps> = ({ 
     testimonial, offset, swipeDirection, isDragging, dragOffset 
 }) => {
-    const { language } = useLanguage();
+    const { language, t } = useLanguage();
     const isRTL = language === 'ar';
+    
+    // Get translated content if it exists
+    const tItem = (t.testimonials as any)?.items?.[testimonial.id];
+    const displayName = tItem?.name || testimonial.name;
+    const displayText = tItem?.text || testimonial.text;
+    const displayDate = tItem?.date || testimonial.date;
 
     // Calculate position and scale
     let transform = '';
@@ -81,7 +87,7 @@ export const ReviewCard: React.FC<ReviewCardProps> = ({
                     </div>
 
                     <p className={cn("text-xl md:text-3xl text-squared-gray-900 dark:text-white font-light leading-relaxed mb-8 text-start", language === 'ar' && "font-arabic")}>
-                        {testimonial.text}
+                        {displayText}
                     </p>
 
                     <div className="flex items-center justify-between border-t border-squared-gray-200 dark:border-squared-gray-800 pt-8 mt-auto">
@@ -89,10 +95,10 @@ export const ReviewCard: React.FC<ReviewCardProps> = ({
                             <div className="flex items-center gap-3 mb-4">
                                 <div className="w-2 h-2 bg-brand-primary"></div>
                                 <span className={cn("text-xs font-bold tracking-widest uppercase text-squared-gray-500", language === 'ar' ? 'font-arabic' : 'font-mono')}>
-                                    {testimonial.name}
+                                    {displayName}
                                 </span>
                             </div>
-                            <div className="text-brand-primary text-xs font-mono tracking-widest uppercase">{testimonial.date}</div>
+                            <div className="text-brand-primary text-xs font-mono tracking-widest uppercase">{displayDate}</div>
                         </div>
                         <div className="opacity-50 group-hover:opacity-100 transition-opacity">
                             <svg className="w-6 h-6 text-squared-gray-900 dark:text-white" viewBox="0 0 24 24" fill="currentColor">

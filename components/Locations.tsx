@@ -84,7 +84,7 @@ const Locations: React.FC<LocationsProps> = () => {
                     language === 'ar' ? 'font-arabic' : 'font-mono uppercase'
                   )}>
                     <MapPin size={18} className="mt-0.5 flex-shrink-0" />
-                    <span>{language === 'ar' ? 'القطيف، المملكة العربية السعودية' : `${loc.city}, ${loc.address}`}</span>
+                    <span>{t.locations.address}</span>
                   </div>
                   <div className={cn(
                     "flex items-start gap-3 text-sm tracking-wider",
