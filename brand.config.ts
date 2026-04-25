@@ -57,7 +57,7 @@ export const SQUARED_COFFEE: BrandConfig = {
     loopyLoyaltyEnrolUrl: 'https://api.loopyloyalty.com/v1/enrol/1rmMhxhNM13OIXfFWJOxKU',
   },
   social: {
-    instagram: 'https://instagram.com/squaredcoffee',
+    instagram: 'https://www.instagram.com/squared_coffee',
   },
   contact: {
     email: 'hello@squaredcoffee.com',
