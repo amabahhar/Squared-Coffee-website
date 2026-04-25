@@ -28,7 +28,7 @@ const Logo: React.FC<LogoProps> = ({ className = '', size = 'md', variant = 'lig
       : { primary: 'text-squared-black dark:text-white', secondary: 'text-brand-primary dark:text-brand-primary-hover' };
 
   return (
-    <div className={`flex flex-col items-center justify-center transition-colors duration-500 ${className}`}>
+    <div className={`flex flex-col items-center justify-center transition-colors duration-500 ${className}`} dir="ltr">
       {/* The Graphical Icon: Cyan Square with ^2 */}
       <div className={`relative flex items-center justify-center bg-brand-primary shadow-precision transition-all duration-500 ${sizeClasses[size]}`}>
         {/* Inner Square */}
