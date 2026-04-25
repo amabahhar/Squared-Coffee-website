@@ -18,7 +18,6 @@
     content="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&q=80&w=1200">
   <meta property="og:type" content="website">
 
-  <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
@@ -32,82 +31,16 @@
         var isDark = saved === 'dark' || (!saved && window.matchMedia('(prefers-color-scheme: dark)').matches);
         if (isDark) {
           document.documentElement.classList.add('dark');
-          // Inject immediate styles to lock the background color before CSS loads
-          document.write('<style>html,body{background-color:#1A120B!important;color:#E5E5CB!important;}</style>');
+          document.write('<style>html,body{background-color:#09090B!important;color:#FFFFFF!important;}</style>');
         } else {
           document.documentElement.classList.remove('dark');
         }
       } catch (e) { }
     })();
   </script>
-  <script>
-    tailwind.config = {
-      darkMode: 'class',
-      theme: {
-        extend: {
-          colors: {
-            squared: {
-              // Brand Colors (Precision Lab)
-              cyan: '#009FB8',
-              'cyan-light': '#33CEE6',
-              'cyan-dark': '#007A8F',
 
-              // Neutrals (Zinc Scale)
-              black: '#09090B',
-              white: '#FFFFFF',
-              gray: {
-                50: '#FAFAFA',
-                100: '#F4F4F5',
-                200: '#E4E4E7',
-                300: '#D4D4D8',
-                400: '#A1A1AA',
-                500: '#71717A',
-                600: '#52525B',
-                700: '#3F3F46',
-                800: '#27272A',
-                900: '#18181B',
-                950: '#09090B',
-              },
-            }
-          },
-          boxShadow: {
-            'precision': '0 1px 2px 0 rgba(0, 0, 0, 0.05)',
-            'precision-lg': '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
-          },
-          transitionTimingFunction: {
-            'natural': 'cubic-bezier(0.33, 1, 0.68, 1)',
-          },
-          keyframes: {
-            blob: {
-              "0%": { transform: "translate(0px, 0px) scale(1)" },
-              "33%": { transform: "translate(20px, -30px) scale(1.05)" },
-              "66%": { transform: "translate(-15px, 15px) scale(0.95)" },
-              "100%": { transform: "translate(0px, 0px) scale(1)" },
-            },
-            fadeIn: {
-              "0%": { opacity: "0", transform: "translateY(10px)" },
-              "100%": { opacity: "1", transform: "translateY(0)" },
-            }
-          },
-          animation: {
-            blob: "blob 12s infinite",
-            "fade-in": "fadeIn 0.5s ease-out forwards",
-          },
-          backdropBlur: {
-            xs: '2px',
-          },
-          fontFamily: {
-            sans: ['Inter', 'sans-serif'],
-            serif: ['Playfair Display', 'serif'],
-            arabic: ['Cairo', 'sans-serif'],
-          }
-        }
-      }
-    }
-  </script>
-
-  <script type="module" crossorigin src="./assets/index-B9HLOHIt.js"></script>
-  <link rel="stylesheet" crossorigin href="./assets/index-DO0bMMKE.css">
+  <script type="module" crossorigin src="./assets/index-D_JAIDfb.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-D4-YMd5m.css">
 </head>
 
 <body class="bg-white text-squared-black dark:bg-squared-black dark:text-white antialiased">
