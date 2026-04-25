@@ -78,8 +78,12 @@ const Locations: React.FC<LocationsProps> = () => {
                 </p>
 
                 <div className="flex flex-col gap-4 mb-10">
-                  <div className={`flex items-center gap-3 text-xs font-mono uppercase tracking-wider ${labelColor}`}>
-                    <MapPin size={16} />
+                  <div className={cn(
+                    "flex items-start gap-3 text-sm tracking-wider",
+                    labelColor,
+                    language === 'ar' ? 'font-arabic' : 'font-mono uppercase'
+                  )}>
+                    <MapPin size={18} className="mt-0.5 flex-shrink-0" />
                     <span>{language === 'ar' ? 'القطيف، المملكة العربية السعودية' : `${loc.city}, ${loc.address}`}</span>
                   </div>
                   <div className={cn(
