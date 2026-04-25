@@ -21,6 +21,7 @@ export const MorphingNavItem: React.FC<{
       )}
       initial="initial"
       whileHover="hover"
+      whileTap="hover"
       variants={{
         initial: {},
         hover: {},
@@ -157,6 +158,7 @@ export const MorphingButton: React.FC<{
       initial="initial"
       animate={state}
       whileHover={!interactionDisabled ? "hover" : ""}
+      whileTap={!interactionDisabled ? "hover" : ""}
       variants={{
         initial: {},
         hover: {},

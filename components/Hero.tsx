@@ -62,7 +62,7 @@ const Hero: React.FC = () => {
                 </div>
 
                 {/* Right Column: 3D Art */}
-                <div className="lg:col-span-5 h-[400px] lg:h-[600px] relative hidden md:block group">
+                <div className="lg:col-span-5 h-[300px] md:h-[400px] lg:h-[600px] relative group overflow-visible">
                     <div className="absolute inset-0 flex items-center justify-center">
                         <div className="w-80 h-80 lg:w-[400px] lg:h-[400px] transform transition-transform duration-700 group-hover:scale-105">
                             <CyberSquare />
