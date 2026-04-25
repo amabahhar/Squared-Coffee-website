@@ -1,7 +1,9 @@
 import { motion } from "framer-motion";
 import React from "react";
+import { useBrand } from "../../contexts/BrandContext";
 
 export const PrecisionCoffeeLoader: React.FC = () => {
+  const { brand } = useBrand();
   const statusLabels = [
     "CALIBRATING_EXTRACTION",
     "PULSE_HEATING_CHAMBER",
@@ -42,22 +44,22 @@ export const PrecisionCoffeeLoader: React.FC = () => {
 
         <div className="flex flex-col items-center">
             <div className="flex items-center gap-3">
-                <span className="w-2 h-2 bg-squared-cyan shadow-[0_0_8px_#009FB8] animate-pulse rounded-full"></span>
-                <span className="text-[10px] text-squared-cyan-light font-mono tracking-[0.4em] uppercase text-center font-bold">
+                <span className="w-2 h-2 bg-brand-primary shadow-[0_0_8px_#009FB8] animate-pulse rounded-full"></span>
+                <span className="text-[10px] text-brand-primary-hover font-mono tracking-[0.4em] uppercase text-center font-bold">
                     {currentLabel}
                 </span>
             </div>
             
             <div className="mt-6 w-56 h-[1.5px] bg-squared-gray-200 dark:bg-squared-gray-800 relative overflow-hidden">
                 <motion.div 
-                    className="absolute inset-0 bg-squared-cyan shadow-[0_0_12px_#009FB8]"
+                    className="absolute inset-0 bg-brand-primary shadow-[0_0_12px_#009FB8]"
                     animate={{ x: ['-100%', '100%'] }}
                     transition={{ duration: 1.5, repeat: Infinity, ease: "linear" }}
                 />
             </div>
             
             <span className="mt-4 text-[9px] text-squared-gray-500 dark:text-squared-gray-400 font-mono tracking-widest uppercase opacity-80">
-                Squared Coffee Technical Division
+                {brand.name} Technical Division
             </span>
         </div>
       </div>

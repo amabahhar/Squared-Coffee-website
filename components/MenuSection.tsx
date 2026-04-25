@@ -28,7 +28,7 @@ const MenuSection: React.FC<MenuSectionProps> = ({ onItemClick }) => {
         {/* Header: Spec Sheet Style */}
         <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 border-b border-squared-black dark:border-squared-white pb-6">
           <div>
-            <span className="block text-xs font-mono text-squared-cyan mb-2">REF: M-2026.01</span>
+            <span className="block text-xs font-mono text-brand-primary mb-2">REF: M-2026.01</span>
             <h2 className="text-4xl md:text-6xl font-black uppercase text-squared-black dark:text-squared-white tracking-tight">
               {t.menu.eyebrow}
             </h2>
@@ -91,7 +91,7 @@ const MenuSection: React.FC<MenuSectionProps> = ({ onItemClick }) => {
                     onItemClick && onItemClick(item);
                   }
                 }}
-                className="group flex items-start gap-4 py-6 border-b border-squared-gray-200 dark:border-squared-gray-800 cursor-pointer hover:bg-squared-gray-100 dark:hover:bg-squared-gray-900/50 transition-colors duration-200 px-2 -mx-2 focus-visible:outline-2 focus-visible:outline-squared-cyan focus-visible:z-10"
+                className="group flex items-start gap-4 py-6 border-b border-squared-gray-200 dark:border-squared-gray-800 cursor-pointer hover:bg-squared-gray-100 dark:hover:bg-squared-gray-900/50 transition-colors duration-200 px-2 -mx-2 focus-visible:outline-2 focus-visible:outline-brand-primary focus-visible:z-10"
               >
                 {/* Image Thumbnail - Small & Sharp */}
                 <div className="w-16 h-16 bg-squared-gray-200 overflow-hidden shrink-0 relative">
@@ -101,7 +101,7 @@ const MenuSection: React.FC<MenuSectionProps> = ({ onItemClick }) => {
                     loading="lazy"
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                   />
-                  <div className="absolute inset-0 bg-squared-cyan/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                  <div className="absolute inset-0 bg-brand-primary/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
                 </div>
 
                 <div className="flex-1 min-w-0">
@@ -109,7 +109,7 @@ const MenuSection: React.FC<MenuSectionProps> = ({ onItemClick }) => {
                     <h3 className={`text-lg font-bold text-squared-black dark:text-squared-white uppercase tracking-tight ${language === 'ar' ? 'font-arabic' : ''}`}>
                       {displayName}
                     </h3>
-                    <span className="font-mono text-sm md:text-base text-squared-cyan font-bold tabular-nums">
+                    <span className="font-mono text-sm md:text-base text-brand-primary font-bold tabular-nums">
                       {item.price}
                     </span>
                   </div>
@@ -120,7 +120,7 @@ const MenuSection: React.FC<MenuSectionProps> = ({ onItemClick }) => {
                   </p>
                 </div>
 
-                <div className="self-center p-2 text-squared-gray-300 group-hover:text-squared-cyan transition-colors" aria-hidden="true">
+                <div className="self-center p-2 text-squared-gray-300 group-hover:text-brand-primary transition-colors" aria-hidden="true">
                   <Plus size={18} />
                 </div>
               </div>

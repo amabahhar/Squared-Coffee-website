@@ -168,7 +168,31 @@ export const translations = {
             cta: 'Sign Up Now',
             scan_qr: 'Scan QR Code',
             or: 'or',
-            signup_below: 'Sign up below'
+            signup_below: 'Sign up below',
+            status: {
+                success: 'Successfully Enrolled!',
+                error: 'An error occurred. Please try again.',
+                loading: 'Processing...'
+            },
+            cta_add_wallet: 'Add to Wallet',
+            cta_register_another: 'Register another member',
+            form: {
+                name: 'Name',
+                phone: 'Phone',
+                birthday: 'Birthday',
+                email: 'Email',
+                terms: 'I agree to the terms and conditions',
+                marketing: 'I want to receive offers and updates',
+                required_mark: '*'
+            },
+            card_labels: {
+                member_name: 'Member Name',
+                dummy_name: 'YOUR NAME',
+                dummy_number: '0000 0000 0000'
+            },
+            validation: {
+                accept_terms: 'Please accept the terms and conditions'
+            }
         }
     },
     ar: {
@@ -339,7 +363,31 @@ export const translations = {
             cta: 'سجل الآن',
             scan_qr: 'امسح رمز QR',
             or: 'أو',
-            signup_below: 'سجل أدناه'
+            signup_below: 'سجل أدناه',
+            status: {
+                success: 'تم التسجيل بنجاح!',
+                error: 'حدث خطأ. يرجى المحاولة مرة أخرى.',
+                loading: 'جاري المعالجة...'
+            },
+            cta_add_wallet: 'إضافة إلى المحفظة',
+            cta_register_another: 'تسجيل عضو آخر',
+            form: {
+                name: 'الاسم',
+                phone: 'رقم الهاتف',
+                birthday: 'تاريخ الميلاد',
+                email: 'البريد الإلكتروني',
+                terms: 'أوافق على الشروط والأحكام',
+                marketing: 'أرغب في تلقي العروض والتحديثات',
+                required_mark: '*'
+            },
+            card_labels: {
+                member_name: 'اسم العضو',
+                dummy_name: 'اسمك هنا',
+                dummy_number: '0000 0000 0000'
+            },
+            validation: {
+                accept_terms: 'يرجى الموافقة على الشروط والأحكام'
+            }
         }
     }
 };

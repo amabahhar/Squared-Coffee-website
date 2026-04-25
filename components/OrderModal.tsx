@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react';
-import { InteractiveHoverButton } from './ui/interactive-hover-button';
+import React, { useState, useEffect } from 'react';
+import { useBrand } from '../contexts/BrandContext';
 
 interface OrderModalProps {
     isOpen: boolean;
@@ -8,7 +8,8 @@ interface OrderModalProps {
 }
 
 const OrderModal: React.FC<OrderModalProps> = ({ isOpen, onClose, initialUrl }) => {
-    const DEFAULT_URL = "https://squared-coffee.foodics.online/menu/-226471";
+    const { brand } = useBrand();
+    const DEFAULT_URL = brand.integrations.foodicsMenuUrl;
     const [key, setKey] = useState(0); // Used to force reload iframe if URL changes
 
     // Prevent background scrolling when modal is open
@@ -40,24 +41,24 @@ const OrderModal: React.FC<OrderModalProps> = ({ isOpen, onClose, initialUrl }) 
             <div className="relative w-full h-full max-w-6xl bg-squared-gray-950 border border-squared-gray-800 rounded-none md:rounded-lg shadow-2xl flex flex-col overflow-hidden focus:outline-none" tabIndex={-1}>
 
                 {/* Technical Corners (Desktop only) */}
-                <div className="hidden md:block absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-squared-cyan z-20 pointer-events-none" aria-hidden="true"></div>
-                <div className="hidden md:block absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-squared-cyan z-20 pointer-events-none" aria-hidden="true"></div>
-                <div className="hidden md:block absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-squared-cyan z-20 pointer-events-none" aria-hidden="true"></div>
-                <div className="hidden md:block absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-squared-cyan z-20 pointer-events-none" aria-hidden="true"></div>
+                <div className="hidden md:block absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-brand-primary z-20 pointer-events-none" aria-hidden="true"></div>
+                <div className="hidden md:block absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-brand-primary z-20 pointer-events-none" aria-hidden="true"></div>
+                <div className="hidden md:block absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-brand-primary z-20 pointer-events-none" aria-hidden="true"></div>
+                <div className="hidden md:block absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-brand-primary z-20 pointer-events-none" aria-hidden="true"></div>
 
                 {/* Header */}
                 <div className="flex justify-between items-center px-6 py-4 md:px-8 md:py-5 border-b border-squared-gray-800 bg-squared-gray-900">
                     <div className="flex items-center gap-4">
-                        <div className="w-2 h-2 bg-squared-cyan animate-pulse"></div>
+                        <div className="w-2 h-2 bg-brand-primary animate-pulse"></div>
                         <h2 id="modal-title" className="text-xl md:text-2xl font-bold text-white tracking-tight uppercase font-serif">
-                            Order <span className="text-squared-cyan">Online</span>
+                            Order <span className="text-brand-primary">Online</span>
                         </h2>
                     </div>
 
                     <button
                         onClick={onClose}
                         aria-label="Close modal"
-                        className="bg-transparent border border-squared-gray-700 text-white px-6 py-2 rounded-sm hover:bg-squared-gray-800 transition-colors focus:ring-2 focus:ring-squared-cyan focus:outline-none"
+                        className="bg-transparent border border-squared-gray-700 text-white px-6 py-2 rounded-sm hover:bg-squared-gray-800 transition-colors focus:ring-2 focus:ring-brand-primary focus:outline-none"
                     >
                         Close
                     </button>
@@ -68,7 +69,7 @@ const OrderModal: React.FC<OrderModalProps> = ({ isOpen, onClose, initialUrl }) 
                     <iframe
                         key={key}
                         src={targetSrc}
-                        title="Squared Coffee Ordering"
+                        title={`${brand.name} Ordering`}
                         className="absolute inset-0 w-full h-full border-0"
                         allow="payment"
                     />

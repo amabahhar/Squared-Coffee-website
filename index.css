@@ -1,4 +1,4 @@
-@import "tailwindcss";
+@import "tailwindcss"; 
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
 @import "@fontsource-variable/geist";
@@ -81,6 +81,10 @@
     .no-scrollbar {
         -ms-overflow-style: none;
         scrollbar-width: none;
+    }
+
+    .direction-rtl {
+        direction: rtl;
     }
 
     .horizontal-scroll {

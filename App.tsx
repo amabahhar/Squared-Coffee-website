@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { AnimatePresence } from 'framer-motion';
+import { LanguageProvider } from './contexts/LanguageContext';
+import { ThemeProvider } from './contexts/ThemeContext';
+import { BrandProvider, useBrand } from './contexts/BrandContext';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import AboutSection from './components/AboutSection';
@@ -11,11 +14,13 @@ import Testimonials from './components/Testimonials';
 import Footer from './components/Footer';
 import OrderModal from './components/OrderModal';
 import GeometricBackground from './components/GeometricBackground';
+import BrandSwitcher from './components/BrandSwitcher';
 import { PrecisionCoffeeLoader } from './components/ui/PrecisionCoffeeLoader';
 import { MenuItem } from './types';
 import { createFoodicsUrl } from './utils/string';
 
-const App: React.FC = () => {
+const AppContent: React.FC = () => {
+  const { brand } = useBrand();
   const [isLoading, setIsLoading] = useState(true);
   const [isOrderModalOpen, setIsOrderModalOpen] = useState(false);
   const [targetOrderUrl, setTargetOrderUrl] = useState<string | null>(null);
@@ -72,9 +77,24 @@ const App: React.FC = () => {
             onClose={() => setIsOrderModalOpen(false)}
             initialUrl={targetOrderUrl}
           />
+          
+          {/* Internal Demo Tool */}
+          <BrandSwitcher />
         </div>
       </div>
     </div>
+  );
+};
+
+const App: React.FC = () => {
+  return (
+    <ThemeProvider>
+      <LanguageProvider>
+        <BrandProvider>
+          <AppContent />
+        </BrandProvider>
+      </LanguageProvider>
+    </ThemeProvider>
   );
 };
 

@@ -12,10 +12,18 @@ export default {
     theme: {
         extend: {
             colors: {
-                // Precision Lab Palette
-                'squared-cyan': '#009FB8',
-                'squared-cyan-light': '#33CEE6',
-                'squared-cyan-dark': '#007A8F',
+                // Dynamic Brand Palette
+                'brand-primary': 'var(--brand-primary)',
+                'brand-primary-hover': 'var(--brand-primary-hover)',
+                'brand-primary-dark': 'var(--brand-primary-dark)',
+                'brand-primary-muted': 'var(--brand-primary-muted)',
+                'brand-background': 'var(--brand-background)',
+                'brand-surface': 'var(--brand-surface)',
+                'brand-text': 'var(--brand-text)',
+
+                // Legacy Squared Palette (aliased to brand colors for now)
+                'squared-cyan': 'var(--brand-primary)',
+                'squared-cyan-light': 'var(--brand-primary-light)',
 
                 // Full Zinc-based Neutral Scale
                 'squared-black': '#09090B',   // Zinc-950

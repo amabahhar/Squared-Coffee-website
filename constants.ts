@@ -43,7 +43,7 @@ export const FULL_MENU: MenuItem[] = [
     description: 'Squared\'s signature breakfast plate: poached egg, halloumi, falafel, avocado, arugula; over our special pinky labneh.',
     price: '27 SR',
     category: 'Brunch Plates',
-    image: 'https://foodics-console-production.s3.eu-west-1.amazonaws.com/images/227742_1757716339_9fdd05cc-f2a2-4ddc-a8ad-1f280ccc5f04.jpeg',
+    image: '/assets/menu/5d06e6d88ff3ae4a13523f5fc8ca56a0.jpeg',
     foodicsId: '2202312'
   },
   {
@@ -52,7 +52,7 @@ export const FULL_MENU: MenuItem[] = [
     description: 'Eggs, lettuce, slices of Irish cheddar (yellow & white), tomato, bacon or turkey, mayo, slices of brioche, chips.',
     price: '26 SR',
     category: 'Brunch Plates',
-    image: 'https://foodics-console-production.s3.eu-west-1.amazonaws.com/images/227742_1757716272_9fdd0567-055e-456c-ac20-7bffbc2520b1.jpeg',
+    image: '/assets/menu/bdc2af17570bbebd9af181a8131c980d.jpeg',
     foodicsId: '2202342'
   },
   {
@@ -61,7 +61,7 @@ export const FULL_MENU: MenuItem[] = [
     description: 'Squared\'s shakshuka, mixed labneh and feta, sourdough bread.',
     price: '29 SR',
     category: 'Brunch Plates',
-    image: 'https://foodics-console-production.s3.eu-west-1.amazonaws.com/images/227742_1728506847_9d34efaa-5710-43b2-bfd3-fb2bd59a4453.jpg'
+    image: '/assets/menu/19abbf45d4b7cf475b94f9531f3a9131.jpg'
   },
   {
     id: 'bp-4',
@@ -69,7 +69,7 @@ export const FULL_MENU: MenuItem[] = [
     description: 'Eggs omelets, green pepper, white mushroom, parmesan, tomato, sourdough bread, side salad.',
     price: '28 SR',
     category: 'Brunch Plates',
-    image: 'https://foodics-console-production.s3.eu-west-1.amazonaws.com/images/227742_1728507103_9d34f131-1b20-4765-9b99-304f78d537cb.jpg'
+    image: '/assets/menu/1b7e5bc25ae755c9ac8b7b23501f136c.jpg'
   },
 
   // --- Brunch Toasties ---
@@ -79,7 +79,7 @@ export const FULL_MENU: MenuItem[] = [
     description: 'Sliced avocado, poached eggs, mixed labneh and feta, chili flakes, parsley, sourdough bread, side salad.',
     price: '28 SR',
     category: 'Brunch Toasties',
-    image: 'https://foodics-console-production.s3.eu-west-1.amazonaws.com/images/227742_1757715177_9fdcfedf-f84b-4364-9dae-481a3301fdc4.jpg'
+    image: '/assets/menu/1a8cec4e5b3b5c9264be58bf9d0f0be7.jpg'
   },
   {
     id: 'bt-2',
@@ -87,7 +87,7 @@ export const FULL_MENU: MenuItem[] = [
     description: 'Scrambled eggs, white mushroom, herbs, sourdough, side salad.',
     price: '26 SR',
     category: 'Brunch Toasties',
-    image: 'https://foodics-console-production.s3.eu-west-1.amazonaws.com/images/227742_1757715277_9fdcff79-80d5-446c-9dc4-55392809c2b1.jpg'
+    image: '/assets/menu/385c28f576dd37b46857487edbe7071d.jpg'
   },
   {
     id: 'bt-3',
@@ -95,7 +95,7 @@ export const FULL_MENU: MenuItem[] = [
     description: 'Squared\'s shakshuka, mixed labneh and feta, sumac, cilantro, sourdough toast, side salad.',
     price: '24 SR',
     category: 'Brunch Toasties',
-    image: 'https://foodics-console-production.s3.eu-west-1.amazonaws.com/images/227742_1728507040_9d34f0d0-b4fc-4c66-8b81-7718927cfda1.jpg'
+    image: '/assets/menu/2f65d8aaa130579fc44c35d4dd46b77d.jpg'
   },
   {
     id: 'bt-4',
@@ -103,7 +103,7 @@ export const FULL_MENU: MenuItem[] = [
     description: 'Eggs (omelete), parmesan, sourdough bread, side salad.',
     price: '22 SR',
     category: 'Brunch Toasties',
-    image: 'https://foodics-console-production.s3.eu-west-1.amazonaws.com/images/227742_1757715343_9fdcffdd-fd8e-4442-b4f6-78c5c792047d.jpg'
+    image: '/assets/menu/a4d433fbdbb2ea476dffdcd8aa8132aa.jpg'
   },
   {
     id: 'bt-5',
@@ -111,7 +111,7 @@ export const FULL_MENU: MenuItem[] = [
     description: 'Peanut butter, granolas, berries jam, berries, sourdough bread.',
     price: '24 SR',
     category: 'Brunch Toasties',
-    image: 'https://foodics-console-production.s3.eu-west-1.amazonaws.com/images/227742_1757715197_9fdcfeff-29c1-469b-9b56-644a8b3b82f0.jpg'
+    image: '/assets/menu/bf54c0c6e00a80e8acf082720a2818ac.jpg'
   },
   {
     id: 'bt-6',
@@ -119,7 +119,7 @@ export const FULL_MENU: MenuItem[] = [
     description: 'Fresh labneh, Palestinian zatar, olive oil, mint, pomegranate sauce, sourdough.',
     price: '18 SR',
     category: 'Brunch Toasties',
-    image: 'https://foodics-console-production.s3.eu-west-1.amazonaws.com/images/227742_1757715212_9fdcff16-a561-4958-9c5d-8bfb188b890c.jpg'
+    image: '/assets/menu/4bf4cf1ddae2c846a6735ab20d0edf2d.jpg'
   },
 
   // --- Brunch Buns & Crust ---
@@ -129,7 +129,7 @@ export const FULL_MENU: MenuItem[] = [
     description: 'Eggs, baby arugula, Irish cheddar, white sauce, brioche bun.',
     price: '22 SR',
     category: 'Brunch Buns & Crust',
-    image: 'https://foodics-console-production.s3.eu-west-1.amazonaws.com/images/227742_1757716236_9fdd0530-b95d-4c64-842d-1b8936560654.jpg'
+    image: '/assets/menu/43003732b892adc3e730f53b48f33a2e.jpg'
   },
   {
     id: 'bbc-2',
@@ -137,7 +137,7 @@ export const FULL_MENU: MenuItem[] = [
     description: 'Sunny side eggs, white Irish cheddar, beef bacon, brioche bun.',
     price: '24 SR',
     category: 'Brunch Buns & Crust',
-    image: 'https://foodics-console-production.s3.eu-west-1.amazonaws.com/images/227742_1757716225_9fdd0520-2090-4f0c-b599-c58582dd73e1.jpg'
+    image: '/assets/menu/a9c7a62936567ea2646e6a053f1fe2b2.jpg'
   },
   {
     id: 'bbc-3',
@@ -145,7 +145,7 @@ export const FULL_MENU: MenuItem[] = [
     description: 'Mozzarella, yellow Irish cheddar, white Irish cheddar, roasted tomatoes, pesto mayo, in a sourdough grilled toast.',
     price: '26 SR',
     category: 'Brunch Buns & Crust',
-    image: 'https://foodics-console-production.s3.eu-west-1.amazonaws.com/images/227742_1757716180_9fdd04db-18b7-4767-9c0d-34f76ae2a010.jpg'
+    image: '/assets/menu/242be07071ecee33fb0b9d5e6eb05582.jpg'
   },
   {
     id: 'bbc-4',
@@ -153,7 +153,7 @@ export const FULL_MENU: MenuItem[] = [
     description: 'Halloumi, roasted cherry tomatoes, baby arugula, ciabatta bread.',
     price: '24 SR',
     category: 'Brunch Buns & Crust',
-    image: 'https://foodics-console-production.s3.eu-west-1.amazonaws.com/images/227742_1757716200_9fdd04f9-48d6-4f72-9ad8-702d4f1a4d1a.jpg'
+    image: '/assets/menu/4418109771da3b74dde1dc92c4f0e122.jpg'
   },
   {
     id: 'bbc-5',
@@ -161,7 +161,7 @@ export const FULL_MENU: MenuItem[] = [
     description: 'Halloumi, roasted cherry tomatoes, baby arugula, fresh baked croissant.',
     price: '23 SR',
     category: 'Brunch Buns & Crust',
-    image: 'https://foodics-console-production.s3.eu-west-1.amazonaws.com/images/227742_1757716213_9fdd050e-18d8-4588-8487-1ffdfaef9510.jpg'
+    image: '/assets/menu/cede2c1c96cb8ffc15628f8c3b7110b9.jpg'
   },
   {
     id: 'bbc-6',
@@ -169,7 +169,7 @@ export const FULL_MENU: MenuItem[] = [
     description: 'Scrambled eggs, parmesan cheese, fresh baked croissant, side salad.',
     price: '21 SR',
     category: 'Brunch Buns & Crust',
-    image: 'https://foodics-console-production.s3.eu-west-1.amazonaws.com/images/227742_1728506795_9d34ef5a-0bfe-4ed6-b4b2-02c95442fa11.jpg'
+    image: '/assets/menu/b2928dfe212ab575b71465441bc133d5.jpg'
   },
   {
     id: 'bbc-7',
@@ -177,7 +177,7 @@ export const FULL_MENU: MenuItem[] = [
     description: 'Squared\'s shakshuka, mixed labneh and feta, sumac, cilantro, in brioche bun (3 sliders).',
     price: '25 SR',
     category: 'Brunch Buns & Crust',
-    image: 'https://foodics-console-production.s3.eu-west-1.amazonaws.com/images/227742_1728506864_9d34efc3-56b1-4509-bb51-4e519802956c.jpg'
+    image: '/assets/menu/d84aaaa7b04adce6787477faba3605af.jpg'
   },
   {
     id: 'bbc-8',
@@ -185,7 +185,7 @@ export const FULL_MENU: MenuItem[] = [
     description: 'Scrambled eggs, parmesan cheese, three brioche sliders.',
     price: '24 SR',
     category: 'Brunch Buns & Crust',
-    image: 'https://foodics-console-production.s3.eu-west-1.amazonaws.com/images/227742_1728506814_9d34ef77-5f71-4caf-b394-0de853ca7da4.jpg'
+    image: '/assets/menu/416eaa65decc0de196af3c1d1a08ccdc.jpg'
   },
   {
     id: 'bbc-9',
@@ -193,7 +193,7 @@ export const FULL_MENU: MenuItem[] = [
     description: 'Avocado, tomato, pesto, fresh mozzarella, ciabatta bread.',
     price: '28 SR',
     category: 'Brunch Buns & Crust',
-    image: 'https://foodics-console-production.s3.eu-west-1.amazonaws.com/images/227742_1757716159_9fdd04bb-00a2-4018-9cda-e72b55c0cdbd.jpg'
+    image: '/assets/menu/af83dbeae41e440f68e1ddc984cbe9bf.jpg'
   },
   {
     id: 'bbc-10',
@@ -201,7 +201,7 @@ export const FULL_MENU: MenuItem[] = [
     description: 'Fresh mozzarella, baby arugula, tomato, pesto with mix balsamic sauce, ciabatta bread.',
     price: '26 SR',
     category: 'Brunch Buns & Crust',
-    image: 'https://foodics-console-production.s3.eu-west-1.amazonaws.com/images/227742_1757716145_9fdd04a5-22c9-480c-b165-19b2aa06f322.jpg'
+    image: '/assets/menu/ff156f83db23a328c925380e70dd20f7.jpg'
   },
 
   // --- Brunch Sweet Chapter ---
@@ -211,7 +211,7 @@ export const FULL_MENU: MenuItem[] = [
     description: 'Fresh Aci bowl topped with seasonal fruits.',
     price: '34 SR',
     category: 'Brunch Sweet',
-    image: 'https://foodics-console-production.s3.eu-west-1.amazonaws.com/images/227742_1757715848_9fdd02e0-b418-413a-ae01-b8a38686d1d6.jpg'
+    image: '/assets/menu/c6f2552c8dad4d33dbdde939be49a60c.jpg'
   },
   {
     id: 'bs-2',
@@ -219,7 +219,7 @@ export const FULL_MENU: MenuItem[] = [
     description: 'Fresh Aci bowl with rich chocolate toppings.',
     price: '36 SR',
     category: 'Brunch Sweet',
-    image: 'https://foodics-console-production.s3.eu-west-1.amazonaws.com/images/227742_1757715502_9fdd00cf-e43f-44a0-a082-33a5411eedca.jpeg'
+    image: '/assets/menu/72c950e5cdff67dc9831f1a52243d156.jpeg'
   },
   {
     id: 'bs-3',
@@ -227,7 +227,7 @@ export const FULL_MENU: MenuItem[] = [
     description: '3 pieces of pancakes, butter, maple syrup.',
     price: '24 SR',
     category: 'Brunch Sweet',
-    image: 'https://foodics-console-production.s3.eu-west-1.amazonaws.com/images/227742_1757715814_9fdd02ab-faf3-429f-abf6-669be7cdbd7b.jpg'
+    image: '/assets/menu/c00a27f57e20556292f7e38aed0aa402.jpg'
   },
   {
     id: 'bs-4',
@@ -235,7 +235,7 @@ export const FULL_MENU: MenuItem[] = [
     description: '3 pieces of pancakes, fresh blackberry and raspberry sauce, fresh crema, fresh berries.',
     price: '29 SR',
     category: 'Brunch Sweet',
-    image: 'https://foodics-console-production.s3.eu-west-1.amazonaws.com/images/227742_1757715487_9fdd00b9-5d7f-4f4b-a8a8-d703cbcb7251.jpg'
+    image: '/assets/menu/bd1a8d4aecdc6a7a82b7cd0b4c764d7f.jpg'
   },
   {
     id: 'bs-5',
@@ -243,7 +243,7 @@ export const FULL_MENU: MenuItem[] = [
     description: '3 pieces of pancakes, Belgian chocolate, crunchy cornflakes, ice cream.',
     price: '32 SR',
     category: 'Brunch Sweet',
-    image: 'https://foodics-console-production.s3.eu-west-1.amazonaws.com/images/227742_1757715669_9fdd01cf-a9b4-4a6e-b9aa-b93010ccc33d.jpg'
+    image: '/assets/menu/b675e768a91eacf8e8554a95a93afc27.jpg'
   },
   {
     id: 'bs-6',
@@ -251,7 +251,7 @@ export const FULL_MENU: MenuItem[] = [
     description: 'Fluffy hotcake, butter, maple syrup.',
     price: '22 SR',
     category: 'Brunch Sweet',
-    image: 'https://foodics-console-production.s3.eu-west-1.amazonaws.com/images/227742_1757715878_9fdd030e-c7ed-4b65-bdcc-599e9a2285bf.jpg'
+    image: '/assets/menu/a06fbdd08c3bd54e9e56e8b9f743e63b.jpg'
   },
   {
     id: 'bs-7',
@@ -259,7 +259,7 @@ export const FULL_MENU: MenuItem[] = [
     description: 'Fluffy hotcake with Belgian chocolate.',
     price: '26 SR',
     category: 'Brunch Sweet',
-    image: 'https://foodics-console-production.s3.eu-west-1.amazonaws.com/images/227742_1757715747_9fdd0245-ef3b-411a-8c41-8cdd9762cf9e.jpg'
+    image: '/assets/menu/1e50e8de6c45022415c89a1f953e20d3.jpg'
   },
   {
     id: 'bs-8',
@@ -267,7 +267,7 @@ export const FULL_MENU: MenuItem[] = [
     description: 'Butter toasted brioche bread, maple syrup, berries, ice cream.',
     price: '28 SR',
     category: 'Brunch Sweet',
-    image: 'https://foodics-console-production.s3.eu-west-1.amazonaws.com/images/227742_1757715763_9fdd025f-66ab-4dde-a75f-d93f7c860a7a.jpg'
+    image: '/assets/menu/83c755130f2ad3ec3bde474412b83143.jpg'
   },
   {
     id: 'bs-9',
@@ -275,7 +275,7 @@ export const FULL_MENU: MenuItem[] = [
     description: 'Butter toasted brioche bread, Belgian chocolate, ice cream.',
     price: '30 SR',
     category: 'Brunch Sweet',
-    image: 'https://foodics-console-production.s3.eu-west-1.amazonaws.com/images/227742_1757715684_9fdd01e6-7ec2-46c6-9887-831980f84df2.jpg'
+    image: '/assets/menu/bb1e8933a5bfe410bdc8afe428bf7192.jpg'
   },
   {
     id: 'bs-10',
@@ -283,7 +283,7 @@ export const FULL_MENU: MenuItem[] = [
     description: 'Butter and cinnamon toasted brioche bread, maple syrup, berries, ice cream.',
     price: '29 SR',
     category: 'Brunch Sweet',
-    image: 'https://foodics-console-production.s3.eu-west-1.amazonaws.com/images/227742_1757715832_9fdd02c8-a989-4f92-956c-2b9dc53c48d5.jpg'
+    image: '/assets/menu/240217d0b70eb9c5d5925c1dbd75949e.jpg'
   },
 
   // --- Freshly Baked ---
@@ -293,7 +293,7 @@ export const FULL_MENU: MenuItem[] = [
     description: 'Freshly baked classic cookie.',
     price: '12 SR',
     category: 'Freshly Baked',
-    image: 'https://foodics-console-production.s3.eu-west-1.amazonaws.com/images/227742_1757714561_9fdcfb34-1271-4c82-801a-c9187c87a81e.JPG'
+    image: '/assets/menu/d3fc6ce70e5a8686247e71cee389e58b.jpg'
   },
   {
     id: 'fb-2',
@@ -301,7 +301,7 @@ export const FULL_MENU: MenuItem[] = [
     description: 'Soft cinnamon roll with icing.',
     price: '16 SR',
     category: 'Freshly Baked',
-    image: 'https://foodics-console-production.s3.eu-west-1.amazonaws.com/images/227742_1757714435_9fdcfa74-1d7f-4ae8-bb7a-490c8e68ad36.JPG'
+    image: '/assets/menu/9d8f7fb4dd9815b7d2d4d9086076e2d7.jpg'
   },
   {
     id: 'fb-3',
@@ -309,7 +309,7 @@ export const FULL_MENU: MenuItem[] = [
     description: 'Focaccia bread, tomato sauce, mozzarella, Irish white cheddar, cherry tomato, Italian herbs.',
     price: '18 SR',
     category: 'Freshly Baked',
-    image: 'https://foodics-console-production.s3.eu-west-1.amazonaws.com/images/227742_1757714723_9fdcfc2b-6572-499a-b808-7c9319eaaade.jpg'
+    image: '/assets/menu/ab1e5299da782fc01ce9dcd7df183e2d.jpg'
   },
   {
     id: 'fb-4',
@@ -317,7 +317,7 @@ export const FULL_MENU: MenuItem[] = [
     description: 'Focaccia bread, olive oil, Palestinian Zatar.',
     price: '14 SR',
     category: 'Freshly Baked',
-    image: 'https://foodics-console-production.s3.eu-west-1.amazonaws.com/images/227742_1757714738_9fdcfc43-232a-4e66-bb73-3eb5958d9b02.jpg'
+    image: '/assets/menu/2da63f2929810019b9cb4f54651b9b34.jpg'
   },
   {
     id: 'fb-5',
@@ -325,7 +325,7 @@ export const FULL_MENU: MenuItem[] = [
     description: 'Freshly baked cheese croissant.',
     price: '14 SR',
     category: 'Freshly Baked',
-    image: 'https://foodics-console-production.s3.eu-west-1.amazonaws.com/images/227742_1757714585_9fdcfb59-2e7e-4328-a4d8-1d7e117aaea7.jpg'
+    image: '/assets/menu/68950af81f332bdc038c818ba844e9c1.jpg'
   },
   {
     id: 'fb-6',
@@ -333,7 +333,7 @@ export const FULL_MENU: MenuItem[] = [
     description: 'Freshly baked butter croissant.',
     price: '12 SR',
     category: 'Freshly Baked',
-    image: 'https://foodics-console-production.s3.eu-west-1.amazonaws.com/images/227742_1757714605_9fdcfb78-41d7-4d34-99bb-75f66ee79645.jpg'
+    image: '/assets/menu/64c785aadcf0b24f1339376ff46da9f6.jpg'
   },
   {
     id: 'fb-7',
@@ -341,7 +341,7 @@ export const FULL_MENU: MenuItem[] = [
     description: 'Freshly baked zatar croissant.',
     price: '13 SR',
     category: 'Freshly Baked',
-    image: 'https://foodics-console-production.s3.eu-west-1.amazonaws.com/images/227742_1757714621_9fdcfb8f-b7b7-460d-b595-ad36d3f63131.jpg'
+    image: '/assets/menu/ae0cdbb5c11eb759465a293b31ca7b47.jpg'
   },
 
   // --- Snacks 24/7 ---
@@ -351,7 +351,7 @@ export const FULL_MENU: MenuItem[] = [
     description: 'Bite-sized delight.',
     price: '10 SR',
     category: 'Snacks 24/7',
-    image: 'https://foodics-console-production.s3.eu-west-1.amazonaws.com/images/227742_1757717584_9fdd0d39-9601-4fe6-893f-c161a1c87342.JPG'
+    image: '/assets/menu/90a330b11e6ed2b5f41bc76238c84f34.jpg'
   },
   {
     id: 'sn-2',
@@ -359,7 +359,7 @@ export const FULL_MENU: MenuItem[] = [
     description: 'Fresh labneh, Palestinian Zatar, olive oil, mint, pomegranate sauce.',
     price: '8 SR',
     category: 'Snacks 24/7',
-    image: 'https://foodics-console-production.s3.eu-west-1.amazonaws.com/images/227742_1757717639_9fdd0d8d-4c2a-47d0-9325-6a29b293af93.JPG'
+    image: '/assets/menu/4d251026aba5becbde4edb7a2f4c590e.jpg'
   },
   {
     id: 'sn-3',
@@ -367,7 +367,7 @@ export const FULL_MENU: MenuItem[] = [
     description: 'Halloumi, roasted cherry tomatoes, baby arugula.',
     price: '10 SR',
     category: 'Snacks 24/7',
-    image: 'https://foodics-console-production.s3.eu-west-1.amazonaws.com/images/227742_1757717618_9fdd0d6d-0462-45ca-b72f-7e5f60c576d0.JPG'
+    image: '/assets/menu/25ed09de89e37351f8d10bca4aaff544.jpg'
   },
   {
     id: 'sn-4',
@@ -375,7 +375,7 @@ export const FULL_MENU: MenuItem[] = [
     description: 'Mozzarella, Irish cheddar (yellow & white), roasted cherry tomatoes, pesto mayo.',
     price: '12 SR',
     category: 'Snacks 24/7',
-    image: 'https://foodics-console-production.s3.eu-west-1.amazonaws.com/images/227742_1757717601_9fdd0d53-b15a-4efd-950d-0d8620a85c01.JPG'
+    image: '/assets/menu/8c7253a7c68b62ec4f276659b5d2a392.jpg'
   },
   {
     id: 'sn-5',
@@ -383,7 +383,7 @@ export const FULL_MENU: MenuItem[] = [
     description: 'Mixed feta & labneh, mozzarella, jalapeno sauce, olive oil, chili flakes.',
     price: '11 SR',
     category: 'Snacks 24/7',
-    image: 'https://foodics-console-production.s3.eu-west-1.amazonaws.com/images/227742_1757717671_9fdd0dbd-95fd-44e0-b533-233bab7bcf83.JPG'
+    image: '/assets/menu/4690dec02c0cbdaf2c39d66c4283c933.jpg'
   },
   {
     id: 'sn-6',
@@ -391,7 +391,7 @@ export const FULL_MENU: MenuItem[] = [
     description: 'Healthy energy snack.',
     price: '8 SR',
     category: 'Snacks 24/7',
-    image: 'https://foodics-console-production.s3.eu-west-1.amazonaws.com/images/227742_1757717887_9fdd0f08-415d-4bc9-8f37-ed2bf4593831.jpg'
+    image: '/assets/menu/888854fc8bf44b94a5d99a6861f9ae0d.jpg'
   },
 
   // --- Espresso Drinks (Selection) ---
@@ -401,7 +401,7 @@ export const FULL_MENU: MenuItem[] = [
     description: 'Our signature blend of sweet condensed milk and robust espresso.',
     price: '22 SR',
     category: 'Espresso Drinks',
-    image: 'https://foodics-console-production.s3.eu-west-1.amazonaws.com/images/227742_1728160603_9d2cdfe4-1d4d-4e39-baf9-b127c36d5c18.jpg'
+    image: '/assets/menu/5af170c31a679515ba7c00922152c290.jpg'
   },
   {
     id: 'ed-2',
@@ -409,7 +409,7 @@ export const FULL_MENU: MenuItem[] = [
     description: 'Rich pistachio sauce blended with chilled milk and espresso.',
     price: '26 SR',
     category: 'Espresso Drinks',
-    image: 'https://foodics-console-production.s3.eu-west-1.amazonaws.com/images/227742_1702369748_9ad4626a-4781-44b9-b1b4-486ef0fe1d65.jpg'
+    image: '/assets/menu/0904193e3e2f991ac6dd11458eee1e5e.jpg'
   },
   {
     id: 'ed-3',
@@ -417,7 +417,7 @@ export const FULL_MENU: MenuItem[] = [
     description: 'Perfect balance of sweet caramel and sea salt with espresso.',
     price: '24 SR',
     category: 'Espresso Drinks',
-    image: 'https://foodics-console-production.s3.eu-west-1.amazonaws.com/images/227742_1702369748_9ad4626a-4781-44b9-b1b4-486ef0fe1d65.jpg'
+    image: '/assets/menu/0904193e3e2f991ac6dd11458eee1e5e.jpg'
   },
   {
     id: 'ed-4',
@@ -425,7 +425,7 @@ export const FULL_MENU: MenuItem[] = [
     description: 'Floral notes of rose infused with creamy latte.',
     price: '22 SR',
     category: 'Espresso Drinks',
-    image: 'https://foodics-console-production.s3.eu-west-1.amazonaws.com/images/227742_1702369748_9ad4626a-4781-44b9-b1b4-486ef0fe1d65.jpg'
+    image: '/assets/menu/0904193e3e2f991ac6dd11458eee1e5e.jpg'
   },
   {
     id: 'ed-5',
@@ -433,7 +433,7 @@ export const FULL_MENU: MenuItem[] = [
     description: 'Creamy matcha poured over ice cream.',
     price: '24 SR',
     category: 'Espresso Drinks',
-    image: 'https://foodics-console-production.s3.eu-west-1.amazonaws.com/images/227742_1757718038_9fdd0fee-b3c4-4ce9-9961-6e045566dd05.jpg'
+    image: '/assets/menu/8824e20f83927da54eb85efa9ed3690b.jpg'
   },
 
   // --- Coffee Drinks ---
@@ -443,7 +443,7 @@ export const FULL_MENU: MenuItem[] = [
     description: 'Hand-poured single origin coffee.',
     price: '22 SR',
     category: 'Coffee Drinks',
-    image: 'https://foodics-console-production.s3.eu-west-1.amazonaws.com/images/227742_1702369816_9ad462d2-4837-42e3-96e7-a776e89a7b5b.jpg'
+    image: '/assets/menu/f2d9dfd2d3fb856b47cd43545a2995da.jpg'
   },
   {
     id: 'cd-2',
@@ -451,7 +451,7 @@ export const FULL_MENU: MenuItem[] = [
     description: 'Daily rotating selection of brewed coffee.',
     price: '12 SR',
     category: 'Coffee Drinks',
-    image: 'https://foodics-console-production.s3.eu-west-1.amazonaws.com/images/227742_1702369816_9ad462d2-4837-42e3-96e7-a776e89a7b5b.jpg'
+    image: '/assets/menu/f2d9dfd2d3fb856b47cd43545a2995da.jpg'
   },
   {
     id: 'cd-3',
@@ -459,7 +459,7 @@ export const FULL_MENU: MenuItem[] = [
     description: 'Steeped for hours for a smooth, rich flavor.',
     price: '24 SR',
     category: 'Coffee Drinks',
-    image: 'https://foodics-console-production.s3.eu-west-1.amazonaws.com/images/227742_1702369816_9ad462d2-4837-42e3-96e7-a776e89a7b5b.jpg'
+    image: '/assets/menu/f2d9dfd2d3fb856b47cd43545a2995da.jpg'
   },
 
   // --- Tea & Beyond ---
@@ -469,7 +469,7 @@ export const FULL_MENU: MenuItem[] = [
     description: 'Classic steamed tea.',
     price: '8 SR',
     category: 'Tea & Beyond',
-    image: 'https://foodics-console-production.s3.eu-west-1.amazonaws.com/images/227742_1757716607_9fdd0766-07dc-4fa8-8f92-dd9188c05018.jpg'
+    image: '/assets/menu/e04688176fc45be103d389874f1e0f58.jpg'
   },
   {
     id: 'tb-2',
@@ -477,7 +477,7 @@ export const FULL_MENU: MenuItem[] = [
     description: 'Refreshing green tea.',
     price: '8 SR',
     category: 'Tea & Beyond',
-    image: 'https://foodics-console-production.s3.eu-west-1.amazonaws.com/images/227742_1757716545_9fdd0708-9526-4ff0-b413-cf9406eae1a1.jpg'
+    image: '/assets/menu/cfd1043208a8890f008a7b9b9d0bdbb2.jpg'
   },
   {
     id: 'tb-3',
@@ -485,7 +485,7 @@ export const FULL_MENU: MenuItem[] = [
     description: 'Spiced milk tea.',
     price: '10 SR',
     category: 'Tea & Beyond',
-    image: 'https://foodics-console-production.s3.eu-west-1.amazonaws.com/images/227742_1757716557_9fdd071a-ef65-4105-bd65-9c11eb605194.jpeg'
+    image: '/assets/menu/5bbd6d85b684dc4e7e3c680a35ecfff4.jpeg'
   },
   {
     id: 'tb-4',
@@ -493,7 +493,7 @@ export const FULL_MENU: MenuItem[] = [
     description: 'Aromatic wild fruits infusion.',
     price: '14 SR',
     category: 'Tea & Beyond',
-    image: 'https://foodics-console-production.s3.eu-west-1.amazonaws.com/images/227742_1757716625_9fdd0781-804d-4ecf-ac9d-8aa996590e18.jpg'
+    image: '/assets/menu/49f7f73bfcad813bd0a864cbb7445135.jpg'
   },
   {
     id: 'tb-5',
@@ -501,7 +501,7 @@ export const FULL_MENU: MenuItem[] = [
     description: 'Citrusy refreshing iced tea.',
     price: '20 SR',
     category: 'Tea & Beyond',
-    image: 'https://foodics-console-production.s3.eu-west-1.amazonaws.com/images/227742_1757716582_9fdd0740-0a54-4f5f-910d-a78b0e9199c7.jpg'
+    image: '/assets/menu/ee69bcdb60bdbd52cfa7dcf0c82d7f83.jpg'
   },
   {
     id: 'tb-6',
@@ -509,7 +509,7 @@ export const FULL_MENU: MenuItem[] = [
     description: 'Sweet and chilled peach tea.',
     price: '20 SR',
     category: 'Tea & Beyond',
-    image: 'https://foodics-console-production.s3.eu-west-1.amazonaws.com/images/227742_1757716592_9fdd0750-43e4-4fc5-9cbe-0cdc728ed7b1.jpg'
+    image: '/assets/menu/37f38fd53618d3501fc8c85e4df3c023.jpg'
   },
 
   // --- Non-Coffee Drinks ---
@@ -519,7 +519,7 @@ export const FULL_MENU: MenuItem[] = [
     description: 'Refreshing blue mojito.',
     price: '24 SR',
     category: 'Non-Coffee Drinks',
-    image: 'https://foodics-console-production.s3.eu-west-1.amazonaws.com/images/227742_1757718295_9fdd1176-0f4b-4818-8eb4-72aa51152996.jpg'
+    image: '/assets/menu/ae003e0bac16de85a4066650eb387dfb.jpg'
   },
   {
     id: 'nc-2',
@@ -527,7 +527,7 @@ export const FULL_MENU: MenuItem[] = [
     description: 'Tropical passion fruit refresher.',
     price: '24 SR',
     category: 'Non-Coffee Drinks',
-    image: 'https://foodics-console-production.s3.eu-west-1.amazonaws.com/images/227742_1757718321_9fdd119d-bf65-4511-aa10-9e86db7e6985.jpg'
+    image: '/assets/menu/3df84933f8f46c417096b02314e4aa9c.jpg'
   },
   {
     id: 'nc-3',
@@ -535,7 +535,7 @@ export const FULL_MENU: MenuItem[] = [
     description: 'Sweet strawberry mocktail.',
     price: '24 SR',
     category: 'Non-Coffee Drinks',
-    image: 'https://foodics-console-production.s3.eu-west-1.amazonaws.com/images/227742_1728159009_9d2cd663-62ea-413f-adcb-01cac1ea70f1.jpg'
+    image: '/assets/menu/e9a2fb0852a8dbd6ce9754db550823e3.jpg'
   },
   {
     id: 'nc-4',
@@ -543,7 +543,7 @@ export const FULL_MENU: MenuItem[] = [
     description: 'Freshly squeezed orange juice.',
     price: '18 SR',
     category: 'Non-Coffee Drinks',
-    image: 'https://foodics-console-production.s3.eu-west-1.amazonaws.com/images/227742_1757718308_9fdd118a-2cc4-42ed-a318-567dfb3240ff.jpg'
+    image: '/assets/menu/4775ab420f9cbc06b87d0eeafec70569.jpg'
   },
   {
     id: 'nc-5',
@@ -551,7 +551,7 @@ export const FULL_MENU: MenuItem[] = [
     description: 'Chilled creamy chocolate milk.',
     price: '20 SR',
     category: 'Non-Coffee Drinks',
-    image: 'https://foodics-console-production.s3.eu-west-1.amazonaws.com/images/227742_1757718215_9fdd10fb-8e2a-489c-8efd-18436413cda4.jpg'
+    image: '/assets/menu/c7fdf463679423176b313244f1c6a9b2.jpg'
   },
   {
     id: 'nc-6',
@@ -559,7 +559,7 @@ export const FULL_MENU: MenuItem[] = [
     description: 'Sparkling water.',
     price: '14 SR',
     category: 'Non-Coffee Drinks',
-    image: 'https://foodics-console-production.s3.eu-west-1.amazonaws.com/images/227742_1757718374_9fdd11ee-4405-4baf-bd5d-0e440b8587eb.jpeg'
+    image: '/assets/menu/347ae060c5f4f9f799ced898867f580e.jpeg'
   },
   {
     id: 'nc-7',
@@ -567,7 +567,7 @@ export const FULL_MENU: MenuItem[] = [
     description: 'Mineral water.',
     price: '5 SR',
     category: 'Non-Coffee Drinks',
-    image: 'https://foodics-console-production.s3.eu-west-1.amazonaws.com/images/227742_1728159073_9d2cd6c5-27e8-4dc0-8293-822932e6da24.jpg'
+    image: '/assets/menu/9de0732526bb167384c9c5a98a66b493.jpg'
   }
 ];
 
@@ -575,37 +575,37 @@ export const FULL_MENU: MenuItem[] = [
 export const SOCIAL_POSTS = [
   {
     id: 1,
-    image: 'https://images.unsplash.com/photo-1497935586351-b67a49e012bf?auto=format&fit=crop&q=80&w=800&h=800',
+    image: '/assets/social/e90da085ed474c25720632522287d94a.jpg',
     caption: 'Morning brews & good vibes ☕️',
     type: 'post'
   },
   {
     id: 2,
-    image: 'https://images.unsplash.com/photo-1511920170033-f8396924c348?auto=format&fit=crop&q=80&w=800&h=800',
+    image: '/assets/social/21bb88eb3bdf22cebabb9d1cdc5fe03b.jpg',
     caption: 'Our signature specialty beans ✨',
     type: 'post'
   },
   {
     id: 3,
-    image: 'https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&q=80&w=800&h=800',
+    image: '/assets/social/80f821f48ba95cb21ab8567915fe865c.jpg',
     caption: 'Latte art perfection 🎨',
     type: 'post'
   },
   {
     id: 4,
-    image: 'https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&q=80&w=800&h=800',
+    image: '/assets/social/fe4df43c05038bf27747b53dd99f1001.jpg',
     caption: 'Fresh pastries, baked daily 🥐',
     type: 'post'
   },
   {
     id: 5,
-    image: 'https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&q=80&w=800&h=800',
+    image: '/assets/social/8805c630b25116376a7da54c36a85299.jpg',
     caption: 'Your cozy corner in Qatif 💫',
     type: 'post'
   },
   {
     id: 6,
-    image: 'https://images.unsplash.com/photo-1445077100181-a33e9ac94db0?auto=format&fit=crop&q=80&w=800&h=800',
+    image: '/assets/social/85a9f8bd0c691912dc46458d08b05cea.jpg',
     caption: 'Brunch perfection 🍳',
     type: 'post'
   }

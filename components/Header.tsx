@@ -80,7 +80,7 @@ const Header: React.FC<HeaderProps> = ({ onOrderClick }) => {
             <div className="flex items-center gap-4">
               <button
                 onClick={toggleDarkMode}
-                className="hover:text-squared-cyan transition-colors"
+                className="hover:text-brand-primary transition-colors"
                 aria-label="Toggle theme"
               >
                 {isDarkMode ? <Sun size={18} /> : <Moon size={18} />}
@@ -88,7 +88,7 @@ const Header: React.FC<HeaderProps> = ({ onOrderClick }) => {
 
               <button
                 onClick={toggleLanguage}
-                className="text-xs font-bold hover:text-squared-cyan transition-colors"
+                className="text-xs font-bold hover:text-brand-primary transition-colors"
               >
                 {language === 'en' ? 'AR' : 'EN'}
               </button>
@@ -106,13 +106,13 @@ const Header: React.FC<HeaderProps> = ({ onOrderClick }) => {
           <div className="lg:hidden flex items-center gap-6 z-50">
             <button
               onClick={toggleLanguage}
-              className="text-xs font-bold hover:text-squared-cyan transition-colors"
+              className="text-xs font-bold hover:text-brand-primary transition-colors"
             >
               {language === 'en' ? 'AR' : 'EN'}
             </button>
             <button
               onClick={toggleDarkMode}
-              className="hover:text-squared-cyan transition-colors"
+              className="hover:text-brand-primary transition-colors"
             >
               {isDarkMode ? <Sun size={20} /> : <Moon size={20} />}
             </button>
@@ -135,7 +135,7 @@ const Header: React.FC<HeaderProps> = ({ onOrderClick }) => {
                 key={item.label}
                 href={item.href}
                 onClick={() => setIsOpen(false)}
-                className={`text-3xl font-bold text-squared-black dark:text-squared-white hover:text-squared-cyan transition-colors border-b border-squared-gray-100 dark:border-squared-gray-800 pb-4 ${language === 'ar' ? 'font-arabic' : ''}`}
+                className={`text-3xl font-bold text-squared-black dark:text-squared-white hover:text-brand-primary transition-colors border-b border-squared-gray-100 dark:border-squared-gray-800 pb-4 ${language === 'ar' ? 'font-arabic' : ''}`}
                 style={{ transitionDelay: `${idx * 50}ms` }}
               >
                 {getNavLabel(item.label)}
@@ -157,7 +157,7 @@ const Header: React.FC<HeaderProps> = ({ onOrderClick }) => {
                 setIsOpen(false);
                 onOrderClick();
               }}
-              className={`w-full bg-squared-cyan text-white py-4 rounded-sm text-sm font-bold uppercase tracking-widest ${language === 'ar' ? 'font-arabic' : ''}`}
+              className={`w-full bg-brand-primary text-white py-4 rounded-sm text-sm font-bold uppercase tracking-widest ${language === 'ar' ? 'font-arabic' : ''}`}
             >
               {language === 'ar' ? 'اطلب الآن' : 'Order Now'}
             </button>

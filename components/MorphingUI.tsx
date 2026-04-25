@@ -44,7 +44,7 @@ export const MorphingNavItem: React.FC<{
       </motion.span>
 
       <motion.span
-        className="absolute inset-0 bg-squared-cyan w-full h-full scale-x-150 z-1 overflow-hidden pointer-events-none"
+        className="absolute inset-0 bg-brand-primary w-full h-full scale-x-150 z-1 overflow-hidden pointer-events-none"
         initial={{ y: 100, rotate: language === 'ar' ? 40 : -40 }}
         variants={{
           hover: { y: 0, rotate: 0 },
@@ -110,7 +110,7 @@ export const MorphingButton: React.FC<{
     switch (variant) {
       case 'cyan':
         return {
-          initialBg: 'bg-squared-cyan',
+          initialBg: 'bg-brand-primary',
           initialText: 'text-white',
           revealBg: isDarkMode ? 'bg-squared-white' : 'bg-squared-black',
           revealText: isDarkMode ? 'text-squared-black' : 'text-squared-white',
@@ -119,7 +119,7 @@ export const MorphingButton: React.FC<{
         return {
           initialBg: 'bg-transparent border border-squared-gray-200 dark:border-squared-gray-800',
           initialText: isDarkMode ? 'text-squared-white' : 'text-squared-black',
-          revealBg: 'bg-squared-cyan',
+          revealBg: 'bg-brand-primary',
           revealText: 'text-white',
         };
       case 'ghost':
@@ -179,7 +179,7 @@ export const MorphingButton: React.FC<{
 
       {showIntermediateSpan && (
         <motion.span
-          className="absolute inset-0 bg-squared-cyan w-full h-full scale-x-150 z-1 overflow-hidden pointer-events-none"
+          className="absolute inset-0 bg-brand-primary w-full h-full scale-x-150 z-1 overflow-hidden pointer-events-none"
           initial={{ y: 100, rotate: language === 'ar' ? 40 : -40 }}
           variants={{
             hover: { y: 0, rotate: 0 },

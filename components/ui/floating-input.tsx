@@ -45,7 +45,7 @@ export function FloatingInput({ label, className, language = 'en', type, ...prop
         className={cn(
           "peer w-full bg-transparent border-b-2 py-2 px-0 text-lg transition-all duration-300 outline-none flex items-center",
           "border-squared-gray-200 dark:border-squared-gray-800",
-          "focus:border-squared-cyan",
+          "focus:border-brand-primary",
           "text-squared-black dark:text-squared-white",
           "placeholder:text-transparent",
           "min-h-[44px]", // Slightly taller for touch area
@@ -80,7 +80,7 @@ export function FloatingInput({ label, className, language = 'en', type, ...prop
           isArabic ? "right-0 origin-right font-arabic tracking-normal" : "left-0 origin-left"
         )}
       >
-        {label} {props.required && <span className="text-squared-cyan font-sans ml-1">*</span>}
+        {label} {props.required && <span className="text-brand-primary font-sans ml-1">*</span>}
       </motion.label>
 
       {/* Lab Accent: Corner dot */}
@@ -90,7 +90,7 @@ export function FloatingInput({ label, className, language = 'en', type, ...prop
             initial={{ opacity: 0, scale: 0 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0 }}
-            className="absolute bottom-0 inset-inline-end-0 w-1.5 h-1.5 bg-squared-cyan mb-[-2px]"
+            className="absolute bottom-0 inset-inline-end-0 w-1.5 h-1.5 bg-brand-primary mb-[-2px]"
           />
         )}
       </AnimatePresence>
@@ -98,7 +98,7 @@ export function FloatingInput({ label, className, language = 'en', type, ...prop
       {/* Scanning Line Effect on focus */}
       <div 
         className={cn(
-          "absolute bottom-0 inset-inline-start-0 w-full h-[2px] bg-squared-cyan transition-transform duration-300 scale-x-0 group-focus-within:scale-x-100",
+          "absolute bottom-0 inset-inline-start-0 w-full h-[2px] bg-brand-primary transition-transform duration-300 scale-x-0 group-focus-within:scale-x-100",
           isArabic ? "origin-right" : "origin-left"
         )}
       />

@@ -35,6 +35,18 @@ const DEFAULT_THEMES: ThemeConfig[] = [
   },
 ];
 
+const MORPHIC_SPRING = {
+  type: "spring" as const,
+  stiffness: 320,
+  damping: 32,
+  mass: 1.3,
+};
+
+const MORPHIC_EASE = {
+  duration: 0.5,
+  ease: [0.32, 0.72, 0, 1],
+} as any; // Using any to avoid complex Framer Motion easing type mismatches
+
 export const CarouselNavigator: FC<CarouselNavigatorProps> = ({
   totalSlides = DEFAULT_TOTAL_SLIDES,
   autoDelay = DEFAULT_AUTO_DELAY,
@@ -54,17 +66,16 @@ export const CarouselNavigator: FC<CarouselNavigatorProps> = ({
   };
 
   return (
-    <motion.div
-      className="flex items-center justify-center gap-1 rounded-full p-2 px-2 transition-colors duration-500"
-    >
+    <div className="flex items-center justify-center gap-1 rtl:flex-row-reverse">
       <ArrowButton
         onClick={goPrev}
         ariaLabel="Previous slide"
+        isPrev
       >
-        <ChevronLeft size={24} strokeWidth={3} className="rtl:rotate-180" />
+        <ChevronLeft size={24} strokeWidth={2.5} />
       </ArrowButton>
 
-      <div className="flex items-center gap-2 px-2">
+      <div className="flex items-center gap-2 px-6">
         {Array.from({ length: totalSlides }).map((_, i) => (
           <Indicator
             key={i}
@@ -77,10 +88,13 @@ export const CarouselNavigator: FC<CarouselNavigatorProps> = ({
         ))}
       </div>
 
-      <ArrowButton onClick={goNext} ariaLabel="Next slide">
-        <ChevronRight size={24} strokeWidth={3} className="rtl:rotate-180" />
+      <ArrowButton 
+        onClick={goNext} 
+        ariaLabel="Next slide"
+      >
+        <ChevronRight size={24} strokeWidth={2.5} />
       </ArrowButton>
-    </motion.div>
+    </div>
   );
 };
 
@@ -89,25 +103,73 @@ interface ArrowButtonProps {
   onClick: () => void;
   disabled?: boolean;
   ariaLabel: string;
+  isPrev?: boolean;
 }
 
-const ArrowButton: FC<ArrowButtonProps> = ({ children, onClick, disabled, ariaLabel }) => {
+const ArrowButton: FC<ArrowButtonProps> = ({ children, onClick, disabled, ariaLabel, isPrev }) => {
   return (
-    <button
+    <motion.button
       type="button"
       onClick={!disabled ? onClick : undefined}
       disabled={disabled}
       aria-label={ariaLabel}
-      className={`flex h-12 w-12 items-center justify-center rounded-full shadow-lg border 
+      whileHover="hover"
+      whileTap="active"
+      initial="initial"
+      variants={{
+        active: { scale: 0.96 }
+      }}
+      className={`relative flex h-14 w-14 items-center justify-center rounded-full overflow-hidden border 
         border-squared-gray-200 dark:border-squared-gray-800 
         bg-white dark:bg-squared-gray-950 
         text-squared-black dark:text-white 
-        transition-all duration-300 ${
-        disabled ? 'cursor-not-allowed opacity-50' : 'cursor-pointer hover:scale-105 active:scale-95'
+        shadow-sm hover:shadow-xl transition-shadow duration-500 ${
+        disabled ? 'cursor-not-allowed opacity-50' : 'cursor-pointer'
       }`}
     >
-      {children}
-    </button>
+      {/* 1. Initial State Icon */}
+      <motion.div
+        className="absolute inset-0 flex items-center justify-center pointer-events-none"
+        variants={{ 
+          hover: { 
+            y: isPrev ? 100 : -100, 
+            scale: 0.5, 
+            rotate: isPrev ? -45 : 45,
+            opacity: 0
+          } 
+        }}
+        transition={MORPHIC_SPRING}
+      >
+        {children}
+      </motion.div>
+
+      {/* 2. Transition Mask / Background Reveal */}
+      <motion.div
+        className="absolute inset-0 bg-squared-black dark:bg-white z-0 pointer-events-none"
+        initial={{ y: "100%" }}
+        variants={{ 
+          hover: { y: 0 } 
+        }}
+        transition={MORPHIC_EASE}
+      />
+
+      {/* 3. Reveal State Icon */}
+      <motion.div
+        className="absolute inset-0 flex items-center justify-center z-10 text-white dark:text-squared-black pointer-events-none"
+        initial={{ y: isPrev ? -100 : 100, rotate: isPrev ? 45 : -45, scale: 0.5, opacity: 0 }}
+        variants={{ 
+          hover: { 
+            y: 0, 
+            rotate: 0, 
+            scale: 1,
+            opacity: 1
+          } 
+        }}
+        transition={MORPHIC_SPRING}
+      >
+        {children}
+      </motion.div>
+    </motion.button>
   );
 };
 
@@ -125,7 +187,6 @@ const Indicator = ({
   index: number;
 }) => {
   const { isDarkMode } = useTheme();
-  // Use high-contrast colors for indicators
   const trackBg = isDarkMode ? 'bg-squared-gray-800' : 'bg-squared-gray-200';
   const progressBg = isDarkMode ? 'bg-squared-white' : 'bg-squared-black';
   const dotBg = isDarkMode ? 'bg-squared-gray-700' : 'bg-squared-gray-300';
@@ -135,12 +196,14 @@ const Indicator = ({
       type="button"
       onClick={onClick}
       aria-label={`Go to slide ${index + 1}`}
-      layout
-      transition={{ type: 'spring', stiffness: 300, damping: 30 }}
-      style={{ borderRadius: 24 }}
-      className={`relative h-2 cursor-pointer focus:outline-none ${
-        isActive ? `w-12` : `w-3 ${dotBg}`
-      } transition-all duration-300`}
+      animate={{
+        width: isActive ? 48 : 12,
+        backgroundColor: isActive ? 'transparent' : 'rgba(150, 150, 150, 0.3)'
+      }}
+      whileHover={{ scale: 1.1 }}
+      whileTap={{ scale: 0.9 }}
+      transition={MORPHIC_SPRING}
+      className="relative h-2.5 rounded-full cursor-pointer focus:outline-none overflow-hidden"
     >
       {isActive && (
         <div className={`absolute inset-0 rounded-full ${trackBg} overflow-hidden`}>
