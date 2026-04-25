@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { AnimatePresence } from 'framer-motion';
+import { Analytics } from '@vercel/analytics/react';
 import { LanguageProvider } from './contexts/LanguageContext';
 import { ThemeProvider } from './contexts/ThemeContext';
 import { BrandProvider, useBrand } from './contexts/BrandContext';
@@ -92,6 +93,7 @@ const App: React.FC = () => {
       <LanguageProvider>
         <BrandProvider>
           <AppContent />
+          <Analytics />
         </BrandProvider>
       </LanguageProvider>
     </ThemeProvider>
