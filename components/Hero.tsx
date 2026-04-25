@@ -31,7 +31,7 @@ const Hero: React.FC = () => {
 
                     <h1 className={cn(
                         "text-6xl md:text-8xl lg:text-9xl font-bold leading-[0.9] text-squared-black dark:text-squared-white mb-8 tracking-tighter",
-                        language === 'ar' ? 'font-arabic' : 'font-sans'
+                        language === 'ar' ? 'font-arabic leading-[1.2] tracking-normal mb-12' : 'font-sans'
                     )}>
                         {t.hero.title_start}
                         <br />
