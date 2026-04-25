@@ -42,7 +42,7 @@ const Logo: React.FC<LogoProps> = ({ className = '', size = 'md', variant = 'lig
 
       {/* Text part */}
       {size !== 'sm' && (
-        <div className={`mt-2 text-center uppercase tracking-widest font-extrabold leading-none transition-colors duration-500 ${textThemeClasses.primary}`}>
+        <div className={`mt-1.5 text-center uppercase tracking-widest font-extrabold leading-tight transition-colors duration-500 ${textThemeClasses.primary}`}>
           <span className="block text-[0.65rem] md:text-xs">{brand.logoText.top}</span>
           <span className={`block text-[0.65rem] md:text-xs transition-colors duration-500 ${textThemeClasses.secondary}`}>{brand.logoText.bottom}</span>
         </div>
