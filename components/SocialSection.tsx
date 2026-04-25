@@ -127,14 +127,14 @@ const SocialSection: React.FC<SocialSectionProps> = () => {
                         href={brand.social.instagram}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="group flex-row items-center gap-3 text-squared-black dark:text-white hover:text-brand-primary transition-colors mt-6 md:mt-0"
+                        className="group flex items-center gap-4 text-squared-black dark:text-white hover:text-brand-primary transition-all duration-300 mt-6 md:mt-0"
                     >
-                        <span className="font-mono text-sm uppercase tracking-widest">
-                            {brand.social.instagram.split('/').filter(Boolean).pop()}
-                        </span>
                         <div className="w-10 h-10 border border-squared-black dark:border-white flex items-center justify-center group-hover:bg-brand-primary group-hover:border-brand-primary group-hover:text-white transition-all duration-300">
                             <Instagram className="w-5 h-5" />
                         </div>
+                        <span className="font-mono text-sm font-bold uppercase tracking-widest">
+                            @{brand.social.instagram.split('/').filter(Boolean).pop()}
+                        </span>
                     </a>
                 </div>
 

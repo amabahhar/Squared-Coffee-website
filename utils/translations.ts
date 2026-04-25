@@ -143,8 +143,8 @@ export const translations = {
         },
         social: {
             eyebrow: 'Social',
-            title: 'Follow',
-            title_highlight: 'The Vibe',
+            title: 'Follow Us',
+            title_highlight: '',
             view_insta: 'View on Instagram'
         },
         testimonials: {
@@ -338,8 +338,8 @@ export const translations = {
         },
         social: {
             eyebrow: 'التواصل',
-            title: 'تابع',
-            title_highlight: 'الأجواء',
+            title: 'تابعنا',
+            title_highlight: '',
             view_insta: 'شاهد على انستقرام'
         },
         testimonials: {
