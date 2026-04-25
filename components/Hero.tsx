@@ -33,10 +33,10 @@ const Hero: React.FC = () => {
                         "text-6xl md:text-8xl lg:text-9xl font-bold leading-[0.9] text-squared-black dark:text-squared-white mb-8 tracking-tighter",
                         language === 'ar' ? 'font-arabic' : 'font-sans'
                     )}>
-                        {firstName}
+                        {t.hero.title_start}
                         <br />
                         <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-primary to-brand-primary-dark">
-                            {displayName2}
+                            {t.hero.title_highlight}
                         </span>
                         <span className="text-brand-primary">.</span>
                     </h1>

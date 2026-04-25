@@ -5,6 +5,7 @@ import { useLanguage } from '../contexts/LanguageContext';
 import { useTheme } from '../contexts/ThemeContext';
 import { useBrand } from '../contexts/BrandContext';
 import { InteractiveHoverButton } from './ui/interactive-hover-button';
+import { cn } from '../utils/i18nUtils';
 import GridBackground from './GridBackground';
 
 interface LocationsProps {}
@@ -81,9 +82,13 @@ const Locations: React.FC<LocationsProps> = () => {
                     <MapPin size={16} />
                     <span>{language === 'ar' ? 'القطيف، المملكة العربية السعودية' : `${loc.city}, ${loc.address}`}</span>
                   </div>
-                  <div className={`flex items-center gap-3 text-xs font-mono uppercase tracking-wider ${labelColor}`}>
-                    <Clock size={16} />
-                    <span className="whitespace-pre-line">{t.locations.hours}</span>
+                  <div className={cn(
+                    "flex items-start gap-3 text-sm tracking-wider",
+                    labelColor,
+                    language === 'ar' ? 'font-arabic' : 'font-mono uppercase'
+                  )}>
+                    <Clock size={18} className="mt-0.5 flex-shrink-0" />
+                    <span className="whitespace-pre-line leading-relaxed">{t.locations.hours}</span>
                   </div>
                 </div>
 

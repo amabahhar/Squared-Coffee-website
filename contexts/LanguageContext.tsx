@@ -24,7 +24,7 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
             const saved = localStorage.getItem('squared_language') as Language;
             if (saved) return saved;
         }
-        return 'en';
+        return 'ar';
     });
 
     const [overrides, setOverrides] = useState<{en: any, ar: any}>(() => {
