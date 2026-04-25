@@ -59,7 +59,9 @@ const Footer: React.FC = () => {
                 <div className="w-8 h-8 flex items-center justify-center border border-squared-gray-800 rounded-sm group-hover:border-brand-primary group-hover:text-brand-primary transition-all duration-300">
                   <Instagram size={14} />
                 </div>
-                <span className="text-xs font-bold uppercase tracking-widest text-squared-white/70 group-hover:text-brand-primary transition-colors">Instagram</span>
+                <span className={`text-xs font-bold uppercase tracking-widest text-squared-white/70 group-hover:text-brand-primary transition-colors ${language === 'ar' ? 'font-arabic tracking-normal' : ''}`}>
+                  {language === 'ar' ? 'إنستغرام' : 'Instagram'}
+                </span>
               </a>
               <a href="tel:00966552325919" className="flex items-center gap-3 group">
                 <div className="w-8 h-8 flex items-center justify-center border border-squared-gray-800 rounded-sm group-hover:border-brand-primary group-hover:text-brand-primary transition-all duration-300">
@@ -83,11 +85,15 @@ const Footer: React.FC = () => {
 
           <div className="flex flex-col md:flex-row justify-between items-center py-4 gap-4">
             <p className={`text-squared-gray-600 text-[10px] font-mono uppercase tracking-tight ${language === 'ar' ? 'font-arabic tracking-normal' : ''}`}>
-              &copy; {new Date().getFullYear()} {brand.legalName}. All rights reserved.
+               {language === 'ar' ? 'حقوق الطبع والنشر' : '©'} {new Date().getFullYear()} {brand.legalName}. {language === 'ar' ? 'جميع الحقوق محفوظة.' : 'All rights reserved.'}
             </p>
             <div className="flex gap-8">
-              <a href="#" className="text-[10px] font-bold uppercase tracking-[0.2em] text-squared-gray-600 hover:text-brand-primary transition-colors">Privacy</a>
-              <a href="#" className="text-[10px] font-bold uppercase tracking-[0.2em] text-squared-gray-600 hover:text-brand-primary transition-colors">Terms</a>
+              <a href="#" className={`text-[10px] font-bold uppercase tracking-[0.2em] text-squared-gray-600 hover:text-brand-primary transition-colors ${language === 'ar' ? 'font-arabic tracking-normal' : ''}`}>
+                {t.footer.privacy}
+              </a>
+              <a href="#" className={`text-[10px] font-bold uppercase tracking-[0.2em] text-squared-gray-600 hover:text-brand-primary transition-colors ${language === 'ar' ? 'font-arabic tracking-normal' : ''}`}>
+                {t.footer.terms}
+              </a>
             </div>
           </div>
         </div>
