@@ -16,7 +16,8 @@ import OrderModal from './components/OrderModal';
 import GeometricBackground from './components/GeometricBackground';
 import BrandSwitcher from './components/BrandSwitcher';
 import { PrecisionCoffeeLoader } from './components/ui/PrecisionCoffeeLoader';
-import { MenuItem } from './types';
+import { Analytics } from '@vercel/analytics/react';
+import {MenuItem} from './types';
 import { createFoodicsUrl } from './utils/string';
 
 const AppContent: React.FC = () => {
@@ -92,6 +93,7 @@ const App: React.FC = () => {
       <LanguageProvider>
         <BrandProvider>
           <AppContent />
+          <Analytics />
         </BrandProvider>
       </LanguageProvider>
     </ThemeProvider>

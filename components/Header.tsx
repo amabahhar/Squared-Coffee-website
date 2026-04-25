@@ -52,7 +52,7 @@ const Header: React.FC<HeaderProps> = ({ onOrderClick }) => {
             : 'bg-transparent border-transparent py-3 md:py-5'
           }`}
       >
-        <div className="container mx-auto px-6 h-full flex justify-between items-center text-squared-black dark:text-squared-white">
+        <div className="container mx-auto px-6 h-full flex justify-between items-center text-squared-black dark:text-squared-white" dir="ltr">
 
           {/* Logo Section */}
           <a href="#hero" className="flex items-center gap-2 relative z-50">
