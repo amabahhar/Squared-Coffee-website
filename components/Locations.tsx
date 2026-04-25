@@ -83,7 +83,7 @@ const Locations: React.FC<LocationsProps> = () => {
                   </div>
                   <div className={`flex items-center gap-3 text-xs font-mono uppercase tracking-wider ${labelColor}`}>
                     <Clock size={16} />
-                    <span>{t.locations.hours}</span>
+                    <span className="whitespace-pre-line">{t.locations.hours}</span>
                   </div>
                 </div>
 

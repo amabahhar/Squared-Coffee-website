@@ -139,7 +139,7 @@ export const translations = {
             eyebrow: 'Our Spaces',
             open_maps: 'Open in Maps',
             desc: 'Come say hello. We are located in the vibrant district of Al Shatea, ready to serve you the perfect cup.',
-            hours: '06:00 AM - 12:00 AM'
+            hours: 'Sun - Thu | 06:00 AM - 12:00 AM\nFri - Sat | 08:00 AM - 02:00 AM'
         },
         social: {
             eyebrow: 'Social',
@@ -334,7 +334,7 @@ export const translations = {
             eyebrow: 'مواقعنا',
             open_maps: 'افتح الخريطة',
             desc: 'تعال وقل مرحباً. نحن موجودون في حي الشاطئ النابض بالحياة، جاهزون لتقديم الكوب المثالي لك.',
-            hours: '٠٦:٠٠ ص - ١٢:٠٠ ص'
+            hours: 'الأحد الى الخميس | من 6 ص - 12 ص\nالجمعة و السبت | من 8 ص - 2 ص'
         },
         social: {
             eyebrow: 'التواصل',
