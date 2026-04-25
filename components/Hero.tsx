@@ -15,7 +15,7 @@ const Hero: React.FC = () => {
     const displayName2 = secondName || t.hero.title_highlight;
 
     return (
-        <section id="hero" className="relative min-h-screen w-full flex items-center bg-squared-white dark:bg-squared-black overflow-hidden pt-52 md:pt-20">
+        <section id="hero" className="relative min-h-screen w-full flex items-center bg-squared-white dark:bg-squared-black overflow-hidden pt-32 md:pt-20">
             <GridBackground />
 
             <div className="container mx-auto px-6 relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center h-full">
